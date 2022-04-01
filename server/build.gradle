@@ -1,0 +1,32 @@
+dependencies {
+    compile project(':domain')
+    compile project(':persistence')
+    compile project(':webapp')
+    compile libs.molecule
+    compile libs.cli
+    compile libs.flyway
+    compile libs.tape
+
+    runtime libs.jmustache
+    runtime libs.simple
+    runtime libs.mysql
+
+    testCompile project(':domain').sourceSets.test.output
+    testCompile project(':persistence').sourceSets.test.output
+    testCompile project(':webapp').sourceSets.test.output
+    testCompile libs.molecule_test
+    testRuntime libs.juniversal_chardet
+    testCompile libs.nekohtml
+    testCompile libs.selenium_api
+    testCompile libs.selenium_firefox
+    testCompile(libs.selenium_phantom) {
+        exclude module: 'selenium-java'
+        exclude module: 'selenium-server'
+    }
+    testCompile libs.mario
+}
+
+test {
+    systemProperties 'web.root': project(':webapp').file('src/main/content')
+    systemProperties 'browser.driver': 'phantomjs'
+}

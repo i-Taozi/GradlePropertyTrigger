@@ -1,0 +1,18 @@
+dependencies {
+
+  compile project(':domain')
+  compile project(':persistence')
+  compile libs.molecule
+  compile libs.jmustache
+
+  testCompile project(':domain').sourceSets.test.output
+
+  testCompile libs.molecule_test
+  testCompile libs.hamcrest_dom
+  testCompile libs.flyway
+  testCompile libs.nekohtml
+}
+
+test {
+    systemProperties 'web.root': file('src/main/content')
+}

@@ -1,0 +1,17 @@
+syntax: glob
+
+.DS_Store
+*.iml
+*.ipr
+*.iws
+*.ids
+.idea
+target
+dependency.cache
+reports
+Gemfile.lock
+build
+.gradle
+.classpath
+.project
+.settings
