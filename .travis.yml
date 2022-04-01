@@ -1,5 +1,5 @@
 branches:
-  only: [velazcod/Tinfoil-Facebook-133-origin]
+  only: [velazcod/Tinfoil-Facebook-133-CACHING]
 language: android
 jdk: [oraclejdk8]
 env:
