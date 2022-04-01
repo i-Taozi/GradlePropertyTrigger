@@ -1,0 +1,11 @@
+## Changes from Version 1.0.10.171128 to 2.0.11.171227
+
+* Reimplemented Zip-Engine through Storage-Access-Framework
+* zipping now works with android-7 
+* Added two different zipfolder picker: one file-folder based for android-2.1-4.4 and on SAF-Tree based for android-5 and newer
+
+Translations:
+
+* fdroid localized app descripton: fixed technical problems with encodig, newline, html escaping, wrong image-directory
+* new: Indonesian by isaideureka, Chinese Traditional by incrediblesnow, Dutch by Omer Surer, Portugese by Miguel Dos Reis, Hungarian by csongorhunt, Norwegian by hjalmarcoin, Polish by mejser
+* update: Chinese Simplified by daijia, Turkish by vitruvianman

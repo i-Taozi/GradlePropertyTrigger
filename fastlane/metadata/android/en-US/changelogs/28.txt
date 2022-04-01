@@ -1,0 +1,2 @@
+#12 new app logo and feature graphic by @Jeinzi
+#22 Fix: lost permissions under android-11

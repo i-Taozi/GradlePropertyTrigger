@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = "com.github.k3b"
+version = "L2.1.27"
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 7
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 23
+        versionCode 27
+        version = "L2.1.27"
+
+        // 2.1.27.210419 (27) Migrated to api29/AndroidX/minSdk-14
+// 2.1.23.191001 (23) L2.1.23 Fix made "Generate Zip-Subfolders below" case-insensitive
+// L2.1.22.3 (22 190804) lib Incompatible api changes: ZipLog: Replace enum ZipJobState with int (smaller android footprint); CompressJob can be async caneceld from gui thread
+// L2.1.21.2 (21 190723) lib Incompatible api changes for more ZipLog-ing
+// 2.1.21.190725 (21) More detailed logging api; new libK3bAndroidZip
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(':libK3bZip')
+    implementation project(':libK3b')
+}
+
+// build a jar with source files
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError  false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath +=     project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}

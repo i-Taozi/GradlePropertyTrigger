@@ -1,0 +1,2 @@
+* New translation: uk
+* Translation updates ru

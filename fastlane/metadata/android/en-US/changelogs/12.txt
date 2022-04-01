@@ -1,0 +1,5 @@
+Translations:
+
+* update (> 95%): id
+* new (100%): Vietnamese vi 
+* update (100%): pl, ja, fr

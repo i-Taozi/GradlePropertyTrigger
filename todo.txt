@@ -1,0 +1,5 @@
+todo.txt for k3b.add2Zip
+=========
+
+https://jitpack.io/com/github/k3b/ToGoZip/L2.1.22.3/build.log
+

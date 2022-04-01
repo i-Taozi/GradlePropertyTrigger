@@ -1,0 +1,1 @@
+ToGoZip: '==> Zip' für Androids Senden/Teilen Menü.

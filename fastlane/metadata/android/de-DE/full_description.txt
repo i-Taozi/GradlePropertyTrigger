@@ -1,0 +1,14 @@
+<p>ToGoZip: '==&gt; Zip' für Androids Senden/Teilen Menü.</p>
+<p>Einfaches einsammeln von Dateien, Ordnern, Internetaddressen, Texten in eine gemeinsame Zip-Datei
+aus allen Apps heraus, die die Android-Funktion 'Senden' bzw. 'Teilen' </i> unterstützen.</p>
+<p>Das englische 'ToGo' bedeutet frei übersetzt 'während man unterwegs oder offline ist'</p>
+<p>Diese Einsammeldatei '2go.zip' ist wie ein Koffer, in den man
+von fast überall aus (aus Apps, die 'Senden' unterstützen)
+verschiedene Dinge (Dateien) legen kann und der überall hin reisen kann (per email
+, bluetooth, nfc).</p>
+<p>Erforderliche Android Berechtigungen:</p>
+<ul>
+<li>WRITE_EXTERNAL_STORAGE: Zum Speichern/Aktualisieren von '2go.zip'.</li>
+<li>READ_LOGS: Bei Programmabsturz wird ein fehlerlog in die datei toGoZip.logcat-*.txt oder in die zwischenablage geschrieben.</li>
+</ul>
+<p>.</p>

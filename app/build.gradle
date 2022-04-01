@@ -1,0 +1,92 @@
+// apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.android.application'
+
+// ---------------
+// required for jitpack
+// apply plugin: 'maven-publish' 
+apply plugin: 'maven' 
+// ---------------
+
+
+android {
+    // compileSdkVersion 26
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId 'de.k3b.android.toGoZip'
+        minSdkVersion 16
+        // targetSdkVersion 26
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 23
+        versionCode 27
+        versionName '2.1.27.210419'
+
+        // 2.1.27.210419 (27) Migrated to api29/AndroidX/minSdk-16
+        // 2.1.26.210206 (26) Translation updates ur, ru
+        // 2.1.25.200422 (25) Translation updates cs, es, eu, fr
+        // 2.1.24.200404 (24) Translation updates nl, zh-CN
+        // 2.1.23.191001 (23) L2.1.23 Fix made "Generate Zip-Subfolders below" case-insensitive
+        // 2.1.22.190804 (22) L2.1.22.3 lib Incompatible api changes: ZipLog: Replace enum ZipJobState with int (smaller android footprint); CompressJob can be async caneceld from gui thread
+        // L2.1.21.2 (21 190723) lib Incompatible api changes for more ZipLog-ing
+        // 2.1.21.190725 (21) More detailed logging api; new libK3bAndroidZip
+        // 2.0.20.190606 (20) Fix crash when writing to root dir; ar translation update
+        // 2.0.19.190413 (19) Minified reduced apk-size from 536kb to 178kb
+        // 2.0.18.181224 (18) Crashlog support (via Settings-Menu)
+        // 2.0.17.181130 (17) Settings-Menu send/view/edit/delete zip;zip-subfolder-path; logfile in zip; bugfix duplicate in zip-subfolder
+        // 2.0.13.18130  (13) new translation ru ar updates bn ja
+        // 2.0.12.180516 (12) translation updates id, vi, pl, ja, fr
+        // 2.0.11.171227 (11) new zip impl to support android-5.0ff; fixed fdroid encoding and image-dir; translations id, nl, hi, zh-TW; fixed tr, zh-CN, pt
+        // 1.0.10.171128 (10) more translations es, zh, bd,tr
+        // 1.0.9.170725 (9) translations ja/fr/es + weblate
+        // Maintanance versionName '1.0.8.170626'
+        // Maintanance versionName '1.0.7.20170623'
+        // Improvements v1.0.6.20141207
+        // Improvements v1.0.6.20141207
+        // Improvements v0.2.2.20141120
+        // Initial Version v0.1.1.20141109
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            // shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            // shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+	
+	lintOptions {
+		// https://stackoverflow.com/questions/31350350/generating-signed-apk-error7-missingtranslation-in-build-generated-res-gen
+		// MissingTranslation : not all crowdwin translations are complete so ignore them
+        disable 'MissingTranslation','ValidFragment', 'ContentDescription', 'AndroidLintPluralsCandidate', 'AndroidLintRtlHardcoded'
+
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //  implementation 'eu.lp0.slf4j:slf4j-android:1.7.7-1'
+    // implementation 'com.android.support:appcompat-v7:20.0.0'
+    // implementation 'com.android.support:support-v4:26.2.1'
+    // workaround: android-studio-3.2.1 editor marks "DocumentFile" as unknown if using api or implementation
+    // implementation 'com.android.support:support-v4:23.2.1'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(':libK3bAndroidZip')
+    implementation project(':libK3bZip')
+    implementation project(':libK3b')
+    //  implementation 'org.slf4j:slf4j-android:1.7.7@jar' // replaces cellInfoLib.'slf4j-api'
+    implementation 'eu.lp0.slf4j:slf4j-android:1.7.7-1@jar'
+    // using slf4j-android-1.7.6-1-SNAPSHOT.jar from libs
+    //  implementation 'org.slf4j:slf4j-api:1.7.6@jar'
+    // implementation 'com.android.support:appcompat-v7:19.+'
+    implementation 'org.slf4j:slf4j-api:1.7.7@jar'
+}
