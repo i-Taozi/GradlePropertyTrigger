@@ -1,0 +1,61 @@
+﻿package com.example.output;
+
+import com.example.base.BaseBuilder;
+import javax.annotation.processing.Generated;
+import net.karneim.pojobuilder.GwtIncompatible;
+
+@Generated("PojoBuilder")
+public class SampleBuilder extends BaseBuilder
+    implements Cloneable {
+  protected SampleBuilder self;
+
+  /**
+   * Creates a new {@link SampleBuilder}.
+   */
+  public SampleBuilder() {
+    self = (SampleBuilder)this;
+  }
+
+  /**
+   * Returns a clone of this builder.
+   *
+   * @return the clone
+   */
+  @Override
+  @GwtIncompatible
+  public Object clone() {
+    try {
+      SampleBuilder result = (SampleBuilder)super.clone();
+      result.self = result;
+      return result;
+    } catch (CloneNotSupportedException e) {
+      throw new InternalError(e.getMessage());
+    }
+  }
+
+  /**
+   * Returns a clone of this builder.
+   *
+   * @return the clone
+   */
+  @GwtIncompatible
+  public SampleBuilder but() {
+    return (SampleBuilder)clone();
+  }
+
+  /**
+   * Creates a new {@link Sample} based on this builder's settings.
+   *
+   * @return the created Sample
+   */
+  public Sample build() {
+    try {
+      Sample result = new Sample();
+      return result;
+    } catch (RuntimeException ex) {
+      throw ex;
+    } catch (Exception ex) {
+      throw new RuntimeException(ex);
+    }
+  }
+}
