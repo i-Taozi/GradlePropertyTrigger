@@ -8,4 +8,4 @@ sudo: required
 before_install: [yes | sdkmanager "platforms;android-28"]
 script: [./gradlew clean build, ./gradlew test]
 branches:
-  only: [pockethub/PocketHub-1294-origin]
+  only: [pockethub/PocketHub-1294-CACHING]
