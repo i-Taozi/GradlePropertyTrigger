@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "debug": false,
+  "server": {
+    "createDefaultUsers": true
+  },
+  "authentication": {
+    "enabled": false,
+    "allowDefault": true
+  }
+}

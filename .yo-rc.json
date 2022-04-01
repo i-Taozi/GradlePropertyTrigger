@@ -1,0 +1,17 @@
+{
+  "generator-lib-java": {
+    "githubUser": "xvik",
+    "authorName": "Vyacheslav Rusakov",
+    "authorEmail": "vyarus@gmail.com",
+    "libName": "guice-persist-orient",
+    "libGroup": "ru.vyarus",
+    "libPackage": "ru.vyarus.guice.persist.orient",
+    "libVersion": "0.1.0",
+    "libDesc": "Guice integration for OrientDB",
+    "enableQualityChecks": true,
+    "usedGeneratorVersion": "3.0.0",
+    "multiModule": false,
+    "modulePrefix": "-",
+    "moduleName": "-"
+  }
+}
