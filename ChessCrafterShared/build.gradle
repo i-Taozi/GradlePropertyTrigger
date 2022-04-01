@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+version = appVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile deps.guava
+
+    compile deps.annotations
+
+    testCompile deps.junit
+    testCompile deps.equalsVerifier
+}
+
+jar {
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}

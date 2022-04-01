@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+version = appVersion
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile project(':ChessCrafterShared')
+
+	compile deps.guava
+	compile deps.gson
+	compile deps.orangeExtensions
+	compile deps.miglayout
+
+	testCompile deps.junit
+}
+
+jar {
+	manifest.attributes("Main-Class": "com.drewhannay.chesscrafter.Main", "provider": "gradle")
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+if (Os.isFamily(Os.FAMILY_MAC)) {
+    apply plugin: 'edu.sc.seis.macAppBundle'
+
+    macAppBundle {
+        mainClassName = "com.drewhannay.chesscrafter.Main"
+        appName = "Chess Crafter"
+        icon = "chess.icns"
+    }
+}

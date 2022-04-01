@@ -1,0 +1,174 @@
+package com.drewhannay.chesscrafter.frame;
+
+import com.drewhannay.chesscrafter.action.ChessActions;
+import com.drewhannay.chesscrafter.dialog.NewGameDialog;
+import com.drewhannay.chesscrafter.logic.GameBuilder;
+import com.drewhannay.chesscrafter.models.Game;
+import com.drewhannay.chesscrafter.models.History;
+import com.drewhannay.chesscrafter.panel.GamePanel;
+import com.drewhannay.chesscrafter.panel.HintPanel;
+import com.drewhannay.chesscrafter.utility.AppConstants;
+import com.drewhannay.chesscrafter.files.FileManager;
+import com.drewhannay.chesscrafter.utility.GsonUtility;
+import com.drewhannay.chesscrafter.utility.Messages;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import org.jetbrains.annotations.NotNull;
+
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.KeyStroke;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ContainerEvent;
+import java.awt.event.ContainerListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class GameFrame extends ChessFrame {
+
+    private static final String KEY_HINTS = "Hints";
+    private static final String KEY_TABS = "Tabs";
+
+    private final CardLayout mCardLayout;
+    private final JPanel mCardPanel;
+
+    private final HintPanel mHintPanel;
+    private final JTabbedPane mTabbedPane;
+
+    GameFrame() {
+        mHintPanel = new HintPanel();
+        mTabbedPane = new JTabbedPane();
+        mCardLayout = new CardLayout();
+        mCardPanel = new JPanel(mCardLayout);
+    }
+
+    @Override
+    void doInitComponents() {
+        super.doInitComponents();
+
+        setTitle(AppConstants.APP_NAME);
+
+        mCardPanel.add(mHintPanel, KEY_HINTS);
+        mCardPanel.add(mTabbedPane, KEY_TABS);
+
+        add(mCardPanel);
+        setPreferredSize(new Dimension(685, 475));
+
+        setFocusable(true);
+        addWindowFocusListener(mWindowFocusListener);
+
+        mTabbedPane.addContainerListener(new ContainerListener() {
+            @Override
+            public void componentAdded(ContainerEvent e) {
+            }
+
+            @Override
+            public void componentRemoved(ContainerEvent e) {
+                if (mTabbedPane.getComponentCount() == 0) {
+                    mCardLayout.show(mCardPanel, KEY_HINTS);
+                }
+            }
+        });
+
+        InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_OPEN_BRACKET,
+                InputEvent.SHIFT_DOWN_MASK | Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "previousTab");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_CLOSE_BRACKET,
+                InputEvent.SHIFT_DOWN_MASK | Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "nextTab");
+
+        ActionMap actionMap = getRootPane().getActionMap();
+        actionMap.put("previousTab", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cycleTabs(-1);
+            }
+        });
+        actionMap.put("nextTab", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cycleTabs(1);
+            }
+        });
+    }
+
+    @Override
+    void onWindowCloseKeyboardRequest() {
+        if (mTabbedPane.getTabCount() != 0) {
+            mTabbedPane.remove(mTabbedPane.getSelectedIndex());
+        }
+    }
+
+    public void addGame(@NotNull Game game) {
+        GamePanel panel = new GamePanel(getGlassPane(), game);
+        mTabbedPane.addTab(game.getInternalGameId() + " " + mTabbedPane.getTabCount(), panel);
+        mTabbedPane.setSelectedComponent(panel);
+
+        mCardLayout.show(mCardPanel, KEY_TABS);
+    }
+
+    private final WindowFocusListener mWindowFocusListener = new WindowFocusListener() {
+        @Override
+        public void windowGainedFocus(WindowEvent e) {
+            ChessActions.DECLARE_DRAW.getAction().setActionListener(event -> {
+                GamePanel panel = (GamePanel) mTabbedPane.getSelectedComponent();
+                panel.declareDraw();
+                panel.endOfGame();
+            });
+            ChessActions.SAVE_GAME.getAction().setActionListener(event -> {
+                GamePanel panel = (GamePanel) mTabbedPane.getSelectedComponent();
+                panel.saveGame();
+            });
+            ChessActions.NEW_GAME.getAction().setActionListener(event -> new NewGameDialog(GameFrame.this));
+            ChessActions.OPEN_GAME.getAction().setActionListener(event -> openGame());
+        }
+
+        @Override
+        public void windowLostFocus(WindowEvent e) {
+            ChessActions.DECLARE_DRAW.getAction().removeActionListener();
+            ChessActions.SAVE_GAME.getAction().removeActionListener();
+            ChessActions.NEW_GAME.getAction().removeActionListener();
+        }
+    };
+
+    private void openGame() {
+        try {
+            File gameFile = FileManager.INSTANCE.chooseFile(FileManager.HISTORY_EXTENSION_FILTER);
+            if (gameFile != null) {
+                JsonParser parser = new JsonParser();
+                JsonElement jsonElement = parser.parse(new FileReader(gameFile));
+                History history = GsonUtility.fromJson(jsonElement, History.class);
+                // TODO: should read variant name from history
+                Game game = GameBuilder.buildGame(GameBuilder.getClassicConfiguration(), history);
+                addGame(game);
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            JOptionPane.showMessageDialog(null,
+                    Messages.getString("Driver.noValidSavedGames"), Messages.getString("Driver.invalidSavedGames"),
+                    JOptionPane.PLAIN_MESSAGE);
+        }
+    }
+
+    private void cycleTabs(int increment) {
+        if (mTabbedPane.getTabCount() > 1) {
+            int newIndex = (mTabbedPane.getSelectedIndex() + increment) % mTabbedPane.getTabCount();
+            if (newIndex < 0) {
+                newIndex += mTabbedPane.getTabCount();
+            }
+            mTabbedPane.setSelectedIndex(newIndex);
+        }
+    }
+}
