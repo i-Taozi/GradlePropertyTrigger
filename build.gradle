@@ -1,0 +1,92 @@
+defaultTasks 'clean', 'test'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceSets {
+  main {
+    java {srcDir 'src'}
+    resources {srcDir 'src'}
+  }
+  test {
+    java {srcDir 'test'}
+    resources {srcDir 'test'}
+  }
+}
+
+repositories{
+  mavenCentral()
+}
+
+task libs(type: Sync) {
+  from configurations.compile
+  from configurations.providedCompile
+  from configurations.runtime
+  from configurations.providedRuntime
+  from configurations.testCompile
+  into "$buildDir/lib"
+}
+
+classes.dependsOn libs
+
+[compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'}
+[compileJava, compileTestJava]*.options.collect {options -> options.debug = true}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+test {
+  include 'ee/era/hangman/**'
+}
+
+task uitest_firefox(type: Test) {
+  systemProperties['selenide.browser'] = 'firefox'
+}
+
+task uitest_edge(type: Test) {
+  systemProperties['selenide.browser'] = 'edge'
+}
+
+task uitest_chrome(type: Test) {
+  systemProperties['selenide.browser'] = 'chrome'
+}
+
+tasks.withType(Test).all { testTask ->
+  testTask.systemProperties['file.encoding'] = 'UTF-8'
+  testTask.systemProperties['selenide.headless'] = 'true'
+  testTask.testLogging.showStandardStreams = true
+  testTask.outputs.upToDateWhen { false }
+}
+
+dependencies {
+  providedCompile 'org.eclipse.jetty:jetty-server:9.4.36.v20210114'
+  providedCompile 'org.eclipse.jetty:jetty-webapp:9.4.36.v20210114'
+  providedCompile 'org.eclipse.jetty:jetty-jsp:9.3.0.M1'
+  providedCompile 'org.eclipse.jetty.toolchain:jetty-osgi-servlet-api:4.0.1'
+
+  compile 'org.apache.struts:struts2-core:2.3.37'
+  compile 'org.apache.struts.xwork:xwork-core:2.3.37'
+  compile 'org.apache.struts:struts2-convention-plugin:2.3.37'
+  compile 'org.apache.struts:struts2-json-plugin:2.3.37'
+  compile 'org.liquibase:liquibase-core:4.2.2'
+  compile('com.google.inject.extensions:guice-struts2:4.2.3') {
+    exclude group: 'com.google.guava'
+  }
+  runtime 'com.h2database:h2:1.4.200'
+  compile 'c3p0:c3p0:0.9.1.2'
+  compile 'org.slf4j:slf4j-log4j12:1.7.30'
+  testCompile 'org.hamcrest:hamcrest-all:1.3'
+  testCompile('junit:junit:4.13.1') {transitive = false}
+  testCompile 'org.mockito:mockito-core:3.7.7'
+  testCompile 'com.codeborne:selenide:5.18.0'
+}
+
+task(run, dependsOn: 'compile', type: JavaExec) {
+  main = 'ee.era.hangman.Launcher'
+  classpath = sourceSets.main.runtimeClasspath
+  systemProperty 'file.encoding', 'UTF-8'
+}
+
+war {
+  from 'webapp'
+}
