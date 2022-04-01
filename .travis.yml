@@ -8,4 +8,4 @@ deploy:
   skip_cleanup: true
   true: {repo: openstreetmap/osmembrane, tags: true, all_branches: true, jdk: openjdk9}
 branches:
-  only: [openstreetmap/osmembrane-20-origin]
+  only: [openstreetmap/osmembrane-20-CACHING]
