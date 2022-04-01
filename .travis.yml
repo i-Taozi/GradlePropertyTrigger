@@ -6,4 +6,4 @@ cache:
   directories: [$HOME/.gradle/caches/, $HOME/.gradle/wrapper/]
 script: [./gradlew clean test]
 branches:
-  only: [ignatov/intellij-erlang-959-origin]
+  only: [ignatov/intellij-erlang-959-CACHING]
