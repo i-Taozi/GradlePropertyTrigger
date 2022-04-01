@@ -1,0 +1,82 @@
+import org.ajoberstar.grgit.Grgit
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    useLibrary 'android.test.mock'
+
+    defaultConfig {
+        versionCode getCommitCount()
+        versionName '4.0.11' + "-" + versionCode
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+
+        testApplicationId "org.andstatus.todoagenda.tests"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        project.ext.archivesBaseName = "TodoAgenda-$versionName".toString()
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            lintOptions {
+                warning 'MissingTranslation','InvalidPackage'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    if (project.hasProperty('todoagendaStoreFile')) {
+        signingConfigs {
+            releaseConfig {
+                storeFile file(todoagendaStoreFile)
+                storePassword todoagendaStorePassword
+                keyAlias todoagendaKeyAlias
+                keyPassword todoagendaKeyPassword
+            }
+        }
+        buildTypes.release.signingConfig signingConfigs.releaseConfig
+    }
+    // See https://www.timroes.de/2013/09/22/handling-signing-configs-with-gradle/
+    if (project.hasProperty("todoagenda.signing")
+            && new File(project.property("todoagenda.signing").toString() + ".gradle").exists()) {
+        apply from: project.property("todoagenda.signing") + ".gradle";
+    }
+}
+
+dependencies {
+    implementation "joda-time:joda-time:$jodaTimeVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.preference:preference:$preferenceVersion"
+    implementation project(':colorpicker')
+
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test:core:$testRunnerVersion"
+    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$testRulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+}
+
+static getCommitCount() {
+    try {
+        def git = Grgit.open()
+        def versionCode = git.log().size()
+        git.close()
+        return versionCode
+    } catch (ignored) {
+        return 1
+    }
+}
