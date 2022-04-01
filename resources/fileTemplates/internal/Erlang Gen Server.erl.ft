@@ -1,0 +1,91 @@
+#parse("Erlang File Header.erl")
+-module(${NAME_ATOM}).
+#parse("Erlang File Module.erl")
+
+-behaviour(gen_server).
+
+%% API
+-export([start_link/0]).
+
+%% gen_server callbacks
+-export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2,
+         code_change/3]).
+
+-define(SERVER, ?MODULE). 
+
+-record(${NAME_ATOM}_state, {}).
+
+%%%===================================================================
+%%% API
+%%%===================================================================
+
+%% @doc Spawns the server and registers the local name (unique)
+-spec(start_link() ->
+    {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
+start_link() ->
+    gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
+
+%%%===================================================================
+%%% gen_server callbacks
+%%%===================================================================
+
+%% @private
+%% @doc Initializes the server
+-spec(init(Args :: term()) ->
+    {ok, State :: #${NAME_ATOM}_state{}} | {ok, State :: #${NAME_ATOM}_state{}, timeout() | hibernate} |
+    {stop, Reason :: term()} | ignore).
+init([]) ->
+    {ok, #${NAME_ATOM}_state{}}.
+
+%% @private
+%% @doc Handling call messages
+-spec(handle_call(Request :: term(), From :: {pid(), Tag :: term()},
+        State :: #${NAME_ATOM}_state{}) ->
+    {reply, Reply :: term(), NewState :: #${NAME_ATOM}_state{}} |
+    {reply, Reply :: term(), NewState :: #${NAME_ATOM}_state{}, timeout() | hibernate} |
+    {noreply, NewState :: #${NAME_ATOM}_state{}} |
+    {noreply, NewState :: #${NAME_ATOM}_state{}, timeout() | hibernate} |
+    {stop, Reason :: term(), Reply :: term(), NewState :: #${NAME_ATOM}_state{}} |
+    {stop, Reason :: term(), NewState :: #${NAME_ATOM}_state{}}).
+handle_call(_Request, _From, State = #${NAME_ATOM}_state{}) ->
+    {reply, ok, State}.
+
+%% @private
+%% @doc Handling cast messages
+-spec(handle_cast(Request :: term(), State :: #${NAME_ATOM}_state{}) ->
+    {noreply, NewState :: #${NAME_ATOM}_state{}} |
+    {noreply, NewState :: #${NAME_ATOM}_state{}, timeout() | hibernate} |
+    {stop, Reason :: term(), NewState :: #${NAME_ATOM}_state{}}).
+handle_cast(_Request, State = #${NAME_ATOM}_state{}) ->
+    {noreply, State}.
+
+%% @private
+%% @doc Handling all non call/cast messages
+-spec(handle_info(Info :: timeout() | term(), State :: #${NAME_ATOM}_state{}) ->
+    {noreply, NewState :: #${NAME_ATOM}_state{}} |
+    {noreply, NewState :: #${NAME_ATOM}_state{}, timeout() | hibernate} |
+    {stop, Reason :: term(), NewState :: #${NAME_ATOM}_state{}}).
+handle_info(_Info, State = #${NAME_ATOM}_state{}) ->
+    {noreply, State}.
+
+%% @private
+%% @doc This function is called by a gen_server when it is about to
+%% terminate. It should be the opposite of Module:init/1 and do any
+%% necessary cleaning up. When it returns, the gen_server terminates
+%% with Reason. The return value is ignored.
+-spec(terminate(Reason :: (normal | shutdown | {shutdown, term()} | term()),
+        State :: #${NAME_ATOM}_state{}) -> term()).
+terminate(_Reason, _State = #${NAME_ATOM}_state{}) ->
+    ok.
+
+%% @private
+%% @doc Convert process state when code is changed
+-spec(code_change(OldVsn :: term() | {down, term()}, State :: #${NAME_ATOM}_state{},
+        Extra :: term()) ->
+    {ok, NewState :: #${NAME_ATOM}_state{}} | {error, Reason :: term()}).
+code_change(_OldVsn, State = #${NAME_ATOM}_state{}, _Extra) ->
+    {ok, State}.
+
+%%%===================================================================
+%%% Internal functions
+%%%===================================================================

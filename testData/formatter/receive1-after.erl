@@ -1,0 +1,4 @@
+test() ->
+  receive
+    <caret>
+  end

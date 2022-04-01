@@ -1,0 +1,599 @@
+// initial: https://github.com/erlang/otp/blob/master/lib/stdlib/src/erl_parse.yrl
+{
+  generate = [ token-accessors="yes" ]
+
+  parserClass="org.intellij.erlang.parser.ErlangParser"
+  parserUtilClass="org.intellij.erlang.parser.ErlangParserUtil"
+
+  implements="org.intellij.erlang.psi.ErlangCompositeElement"
+  extends="org.intellij.erlang.psi.impl.ErlangCompositeElementImpl"
+
+  elementTypeHolderClass="org.intellij.erlang.ErlangTypes"
+  elementTypePrefix="ERL_"
+  elementTypeClass="org.intellij.erlang.psi.ErlangCompositeElementType"
+  tokenTypeClass="org.intellij.erlang.psi.ErlangTokenType"
+
+  psiClassPrefix="Erlang"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.intellij.erlang.psi"
+  psiImplPackage="org.intellij.erlang.psi.impl"
+
+  psiImplUtilClass="org.intellij.erlang.psi.impl.ErlangPsiImplUtil"
+
+  tokens = [
+  OP_PLUS         = "+"
+  OP_MINUS        = "-"
+  OP_AR_MUL       = "*"
+  OP_AR_DIV       = "/"
+  OP_EQ_EQ        = "=="
+  OP_DIV_EQ       = "/="
+  OP_EQ_COL_EQ    = "=:="
+  OP_EQ_DIV_EQ    = "=/="
+  OP_LT           = "<"
+  OP_EQ_LT        = "=<"
+  OP_GT           = ">"
+  OP_GT_EQ        = ">="
+  OP_LT_EQ        = "<="
+  OP_PLUS_PLUS    = "++"
+  OP_MINUS_MINUS  = "--"
+  OP_EQ           = "="
+  OP_EXL          = "!"
+  OP_LT_MINUS     = "<-"
+
+  BIN_START       = "<<"
+  BIN_END         = ">>"
+
+  PAR_LEFT        = "("
+  PAR_RIGHT       = ")"
+  CURLY_LEFT      = "{"
+  CURLY_RIGHT     = "}"
+  BRACKET_LEFT    = "["
+  BRACKET_RIGHT   = "]"
+  DOT             = "."
+  DOT_DOT         = ".."
+  DOT_DOT_DOT     = "..."
+  COLON           = ":"
+  COLON_COLON     = "::"
+  OR_OR           = "||"
+  OP_OR           = "|"
+  SEMI            = ";"
+  COMMA           = ","
+  ARROW           = "->"
+  RADIX           = "#"
+  QMARK           = "?"
+  MATCH           = ":="
+  ASSOC           = "=>"
+  ]
+
+  extends("assignment_expression|send_expression|orelse_expression|andalso_expression|comp_op_expression|list_op_expression|additive_expression|multiplicative_expression")=fake_binary_expression
+  extends(".*_(expression|comprehension|literal)")=expression
+
+  name(".*_(expression|comprehension|literal)")=expression
+  name(".*attribute")=attribute
+  name(".*type|.*_t")=type
+  extends(".*type|.*_t")=type
+  pin(".*(clauses|_exprs|list)(?:_\d.*)?")=1
+  pin("config_.*_expression")=1
+  pin("app_.*")=1
+
+  implements("record_definition|function|q_var|module|macros_definition|type_definition|typed_expr|specification")="org.intellij.erlang.psi.ErlangNamedElement"
+  extends("q_var|typed_expr")="org.intellij.erlang.psi.impl.ErlangNamedElementImpl"
+  extends("function|module|record_definition|type_definition|macros_definition|specification")="org.intellij.erlang.psi.impl.ErlangNamedStubbedPsiElementBase<?>"
+  extends("behaviour|type_definition|include|include_lib|callback_spec|callback_function")="org.intellij.erlang.psi.impl.ErlangStubbedPsiElementBase<?>"
+  elementTypeFactory("function|behaviour|module|record_definition|type_definition|macros_definition|include|include_lib|callback_spec|callback_function|specification")="org.intellij.erlang.ErlangElementTypeFactory.factory"
+
+  implements("case_expression|try_expression|receive_expression")="org.intellij.erlang.psi.ErlangClauseOwner"
+}
+
+forms ::= console_expression | application_file_expression | form_with_period *
+private application_file_expression ::= is_app app_expression period {recoverWhile=form_recover pin=2}
+private console_expression ::= is_console empty console_expression_or_empty {pin=2}
+private console_expression_or_empty ::= exprs period | empty {pin(".*")=1}
+private empty ::= ()
+private form_with_period ::= form period {recoverWhile=form_recover pin=1}
+private left period ::= '.' | <<isModeOn "ELSE">> <<exitMode "ELSE">>
+private form_recover ::= !('+' | '-' | '<<' | '?' | '[' | '{' | atom_name | single_quote | bnot | char | float | integer | not | string | var | '#'| '.')
+private form ::=
+    is_config config_expression
+  | function
+  | record_definition
+  | include_lib
+  | include
+  | macros_definition
+  | type_definition
+  | attribute
+  | macros_call // macros support
+  | rule
+  | !<<eofOrSpace>> /*&(!'.')*/
+
+private is_app ::= &<<isApplicationLanguage>>
+private is_config ::= &<<isConfigLanguage>>
+private is_console ::= &<<isConsole>>
+
+atom ::= atom_name | (single_quote atom_name single_quote) {
+  pin(".*") = 1
+  methods = [getName setName getNameIdentifier]
+}
+
+q_atom ::= atom | macros_arg | macros {methods=[getReference]}
+q_var ::= var {
+  methods = [getReference processDeclarations getName setName getNameIdentifier getUseScope]
+}
+macros_arg ::= '?''?' q_var
+macros ::= '?' macros_name {
+  pin=1
+  methods = [getReference]
+}
+macros_name ::= atom | var {
+  methods = [getReference]
+}
+
+private tuple_recoverer ::= !('}'|',')
+
+record_definition ::= '-' 'record' '(' q_atom ',' typed_record_fields ')' {
+  pin=2
+  methods = [getName setName getNameIdentifier getTextOffset]
+  stubClass="org.intellij.erlang.stubs.ErlangRecordDefinitionStub"
+}
+
+macros_definition ::= '-' 'define' '(' macros_name argument_definition_list? ',' <<guarded macros_body>> ')' {
+  pin = 2
+  methods = [getName setName getNameIdentifier getTextOffset]
+  stubClass="org.intellij.erlang.stubs.ErlangMacrosDefinitionStub"
+}
+macros_body ::= (expression ((',' | ';' | '->') expression)* &properly_parsed) | <<consumeMacroBody>>
+private properly_parsed ::= ')''.' | <<isInCompletion>> | <<eof>>
+
+include ::= '-' 'include' '(' include_string ')' {
+  pin=2
+  methods=[getIncludeStringSafe]
+  stubClass="org.intellij.erlang.stubs.ErlangIncludeStub"
+}
+include_lib ::= '-' 'include_lib' '(' include_string ')' {
+  pin=2
+  methods=[getIncludeStringSafe]
+  stubClass="org.intellij.erlang.stubs.ErlangIncludeLibStub"
+}
+include_string ::= string {methods = [getReference]}
+
+attribute ::= '-' (
+    module
+  | export
+  | export_type_attribute
+  | import_directive
+  | specification
+  | callback_spec
+  | optional_callbacks
+  | behaviour
+  | on_load
+  | ifdef_ifndef_undef_attribute
+  | else_atom_attribute <<enterMode "ELSE">>
+  | <<withOn "ATOM_ATTRIBUTE" atom_attribute>>
+  ) {pin=1}
+
+;{
+  implements("module|export|import_directive|specification|callback_spec|optional_callbacks|behaviour|on_load|.*_attribute")="org.intellij.erlang.psi.ErlangMetaAttribute"
+}
+
+private meta attribute_tail ::= !'(' <<p1>> | '(' <<p1>> ')'
+
+callback_spec ::= 'callback' type_spec {
+  pin=1
+  methods = [isOptional]
+  stubClass="org.intellij.erlang.stubs.ErlangCallbackSpecStub"
+}
+optional_callbacks ::= 'optional_callbacks' <<attribute_tail optional_callback_functions>> {pin=1}
+specification ::= 'spec' type_spec {
+  pin=1
+  methods = [getSignature getNameIdentifier getName setName getArity]
+  stubClass="org.intellij.erlang.stubs.ErlangSpecificationStub"
+}
+export ::= 'export' <<attribute_tail export_functions>> {pin=1}
+export_type_attribute ::= 'export_type' <<attribute_tail export_types>> {pin=1}
+import_directive ::= 'import' '(' module_ref ',' import_functions ')' {pin=1}
+module ::= 'module' '(' q_atom [',' module_tail] ')' {
+  pin=1
+  methods = [getName setName getNameIdentifier getTextOffset processDeclarations]
+  stubClass="org.intellij.erlang.stubs.ErlangModuleStub"
+}
+private module_tail ::= model_field_list | argument_definition
+model_field_list ::= '[' model_field (',' model_field)* ']'
+model_field ::= q_var ['::' top_type] {pin=1 elementType=argument_definition}
+behaviour ::= ('behaviour'|'behavior') '(' module_ref ')' {
+  pin=1
+  methods = [getName]
+  stubClass="org.intellij.erlang.stubs.ErlangBehaviourStub"
+}
+
+type_definition ::= '-' ('type'|'opaque') <<attribute_tail type_body>> {
+  pin = 2
+  methods = [getName setName getNameIdentifier getTextOffset getArity]
+  stubClass="org.intellij.erlang.stubs.ErlangTypeDefinitionStub"
+}
+private type_body ::= q_atom argument_definition_list '::' top_type {pin=1}
+
+private type_ref_with_module ::= [module_ref ':'] type_ref
+
+type_ref ::= q_atom {
+  methods = [getReference]
+}
+
+ifdef_ifndef_undef_attribute ::= &('ifdef'|'ifndef'|'undef') atom_name '(' macros_name ')' {pin=2 elementType=atom_attribute}
+else_atom_attribute ::= &'else' atom_name {elementType=atom_attribute}
+on_load ::= &'on_load' atom_name '(' function_with_arity ')'{pin=2 elementType=atom_attribute}
+atom_attribute ::= atom_name ['(' typed_attr_val ')' | typed_attr_val | attr_val] {methods=[getName]}
+export_functions ::= '[' export_function_list? ']' {pin=1}
+private export_function_list ::= export_function (',' export_function)*
+export_function ::= q_atom '/' integer {
+  pin = 1
+  methods = [getReference]
+}
+export_types ::= '[' export_type_list? ']' {pin=1}
+private export_type_list ::= export_type (',' export_type)*
+export_type ::= q_atom '/' integer {
+  pin = 1
+  methods = [getReference]
+}
+
+import_functions ::= '[' import_function_list? ']'
+private import_function_list ::= import_function (',' import_function)*
+import_function ::= q_atom '/' integer {
+  pin = 1
+  methods = [getReference]
+}
+
+optional_callback_functions ::= '[' callback_function_list? ']' {pin=1}
+private callback_function_list ::= callback_function (',' callback_function)*
+callback_function ::= q_atom '/' integer {
+  pin = 1
+  methods = [getReference]
+  stubClass="org.intellij.erlang.stubs.ErlangCallbackFunctionStub"
+}
+
+private type_spec ::= fun_type_sigs_braces | fun_type_sigs
+fun_type_sigs_braces ::= '(' fun_type_sigs ')' {pin=1}
+fun_type_sigs ::= [module_ref ':'] spec_fun '::'? type_sigs_list {pin=2}
+private type_sigs_list ::= type_sig (';' type_sig)*
+spec_fun ::= q_atom ('/' integer | &('(')) {
+  pin(".*")=1
+  methods = [getReference]
+}
+typed_attr_val ::= expression (',' typed_record_fields | '::' top_type)
+typed_record_fields ::= '{' typed_exprs? '}' {pin=1}
+private typed_exprs ::= typed_expr_or_macros (',' typed_expr_or_macros)* // todo: hack #145
+private typed_expr_or_macros ::= generic_function_call_expression | typed_expr
+typed_expr ::= q_atom ['=' expression] ['::' top_type] {
+  pin(".*")=1
+  methods=[getName setName getNameIdentifier getTextOffset]
+}
+type_sig ::= fun_type type_sig_guard? {pin=1}
+type_sig_guard ::= when type_guard_list
+private type_guard_list ::= type_guard (',' type_guard)*
+type_guard ::= q_atom '(' top_type_list ')' | top_type
+private top_type_list ::= top_type (',' top_type)*
+top_type ::= [q_var '::'] type_list
+private type_list ::= type ('|' type)*
+map_type ::= '#' '{' map_entry_type_list? '}' {pin=1 extends=type}
+private map_entry_type_list ::= map_entry_type (',' map_entry_type)* {pin(".*")=1}
+map_entry_type ::= (top_type ('=>' | ':=') top_type) | '...' {pin(".*")=2 extends=type}
+
+type ::=
+  '(' top_type ')'
+  | int_type ['..' int_type]
+  | fun '(' fun_type_100_t? ')'
+  | type_ref_with_module ['(' top_type_list? ')']
+  | binary_type
+  | q_var ['::' top_type]
+  | '[' [top_type [',' '...']] ']'
+  | record_like_type
+  | record_hash record_ref '{' field_type_list? '}'
+  | map_type {pin(".*")=1}
+record_like_type ::= '{' top_type_list? '}'
+
+int_type ::= '-'? (integer | macros argument_list?)
+fun_type_100_t ::= '(' ('...' | top_type_list?) ')' top_type_clause {extends=type pin(".*")=1}
+fun_type ::= fun_type_arguments top_type_clause {extends=type pin=1}
+top_type_clause ::= '->' top_type {pin=1}
+fun_type_arguments ::= '(' top_type_list? ')' {pin=1}
+private field_type_list ::= field_type (',' field_type)*
+field_type ::= q_atom '::' top_type {extends=type pin=1 methods=[getReference]}
+
+binary_type ::= '<<' [bin_base_type | bin_unit_type | bin_base_type_list] '>>' {extends=type pin=1}
+private bin_base_type_list ::= bin_base_type ',' bin_unit_type
+bin_base_type ::= q_var ':' integer
+bin_unit_type ::= q_var ':' q_var '*' integer
+
+attr_val ::= '(' exprs ')' | exprs {name="attribute value"}
+
+function ::= function_clause (';' function_clause)* {
+  pin(".*")=1
+  methods = [
+    atom_name = "function_clause[0]/q_atom"
+    first_clause = "function_clause[0]"
+    getName
+    setName
+    getArity
+    getNameIdentifier
+    getPresentation
+    getIcon
+    isExported
+    findSpecification
+  ]
+  stubClass="org.intellij.erlang.stubs.ErlangFunctionStub"
+}
+
+function_clause ::= plain_function_clause | maybe_macro_function_clause
+private plain_function_clause ::= &(!'?') function_clause_head clause_guard? clause_body {pin=2}
+private maybe_macro_function_clause ::= function_clause_head clause_guard? clause_body
+private function_clause_head ::= q_atom argument_definition_list
+argument_definition_list ::= '(' argument_definition? (',' argument_definition)* ')'
+
+clause_guard ::= when <<guarded guard>> {pin=1}
+clause_body ::= '->' exprs {pin=1}
+
+// source: "FILE SYNTAX" section of http://www.erlang.org/doc/man/app.html
+app_expression ::= '{' <<app_atom_named ('application')>> ',' app_atom ',' <<list_of app_parameter>> '}' {elementType=tuple_expression}
+private meta app_atom_named ::= &<<p>> app_atom
+app_atom ::= q_atom {elementType=config_expression}
+meta list_of ::= '[' <<p>>? (',' <<p>>)* ']' {elementType=list_expression pin(".*")=1}
+app_parameter ::= '{'
+   (<<app_atom_named ('description')>> ',' string_literal
+  | <<app_atom_named ('id')>> ',' string_literal
+  | <<app_atom_named ('vsn')>> ',' string_literal
+  | <<app_atom_named ('modules')>> ',' <<list_of app_module_expression>>
+  | <<app_atom_named ('maxP')>> ',' app_integer
+  | <<app_atom_named ('maxT')>> ',' app_integer
+  | <<app_atom_named ('registered')>> ',' <<list_of app_module_expression>>
+  | <<app_atom_named ('included_applications')>> ',' <<list_of app_atom>>
+  | <<app_atom_named ('applications')>> ',' <<list_of app_atom>>
+  | <<app_atom_named ('env')>> ',' <<list_of app_env_expression>>
+  | <<app_atom_named ('mod')>> ',' app_mod
+  | <<app_atom_named ('start_phases')>> ',' config_expression
+  | <<app_atom_named ('runtime_dependencies')>> ',' app_runtime_deps
+  | config_exprs)
+  '}' {elementType=tuple_expression}
+app_module_expression ::= module_ref {elementType=config_expression}
+app_integer ::= &integer atomic {elementType=config_expression}
+app_env_expression ::= '{' app_atom ',' config_expression '}' {elementType=tuple_expression}
+app_mod ::= '{' app_module_expression ',' config_expression '}' {elementType=tuple_expression}
+app_runtime_deps ::= '[' string_literal? ']' {elementType=list_expression}
+
+config_expression ::=
+    config_tuple_expression
+  | config_list_expression
+  | config_bin_list_expression
+  | config_qualified_or_call_expression
+  | config_map_construct_expression
+  | (prefix_op? atomic)
+  | q_var
+private config_qualified_or_call_expression ::= q_atom left_accessors?
+private left_accessors ::= config_call_expression | qualified_expression+
+left config_call_expression ::= config_argument_list
+config_argument_list ::= '(' config_exprs? ')' {elementType=argument_list}
+config_list_expression ::= '[' config_exprs? ']' {elementType=list_expression}
+config_bin_list_expression ::= '<<' config_exprs? '>>' {elementType=binary_expression}
+config_tuple_expression ::= '{' config_exprs? '}' {elementType=tuple_expression}
+
+config_map_construct_expression ::= config_map_tuple {elementType=map_expression}
+config_map_tuple ::= '#' '{' config_map_assoc_list? '}' {pin=1 elementType=map_tuple}
+private config_map_assoc_list ::= config_map_assoc (',' config_map_assoc)* {recoverWhile=tuple_recoverer}
+private config_map_assoc ::= config_expression '=>' config_expression {pin=1 elementType=map_entry}
+private config_exprs ::= config_expression (',' config_expression)* {recoverWhile=config_expr_recover}
+private config_expr_recover ::= !(')' | '>>' | ']' | '}')
+
+expression ::=
+    catch_expression
+  | send_expression
+  | assignment_expression
+  | orelse_expression
+  | andalso_expression
+  | comp_op_expression
+  | list_op_expression
+  | additive_expression
+  | multiplicative_expression
+  | atom_with_arity_expression
+  | prefix_expression
+  | colon_qualified_expression
+  | max_group
+  | max_expression
+  | parenthesized_expression
+
+prefix_expression ::= prefix_op expression
+catch_expression ::= catch expression {pin=1}
+assignment_expression ::= expression '=' expression { rightAssociative=true }
+send_expression ::= expression '!' expression { rightAssociative=true }
+orelse_expression ::= expression orelse expression
+andalso_expression ::= expression andalso expression
+comp_op_expression ::= expression comp_op expression
+list_op_expression ::= expression list_op expression { rightAssociative=true }
+multiplicative_expression ::= expression mult_op &(!(atom (',' | '>>'))) expression // for #141
+additive_expression ::= expression add_op expression
+parenthesized_expression ::= '(' expression ')'
+
+private max_group ::=
+    function_call_expression
+  | global_function_call_expression
+  | generic_function_call_expression
+  | anonymous_call_expression
+  | record_expression
+  | record2_expression
+  | map_expression
+  | qualified_expression
+colon_qualified_expression ::= expression ':' expression
+qualified_expression ::= q_atom '.' q_atom !'('
+
+record2_expression ::= record_tail {elementType=record_expression}
+
+max_expression ::=
+    atomic
+  | q_var
+  | tuple_expression
+  | expr_with_brackets
+  | case_expression
+  | if_expression
+  | binary_comprehension
+  | map_comprehension
+  | map_construct_expression
+  | receive_expression
+  | fun_expression
+  | try_expression
+  | binary_expression
+  | begin_end_expression
+
+atom_with_arity_expression ::= <<isModeOn "ATOM_ATTRIBUTE">> q_atom '/' integer
+
+begin_end_expression ::= begin begin_end_body end {pin=1}
+begin_end_body ::= exprs {name="expression"}
+
+private expr_with_brackets ::= <<maybeComprehension list_expr_or_comprehension>>
+list_expr_or_comprehension ::= '[' list_expr_or_comprehension_body? ']' { pin=1 elementType=list_expression }
+private list_expr_or_comprehension_body ::= expression_parse_error? marked_lc_tail | expression (marked_lc_tail | list_expression_tail)
+private marked_lc_tail ::= '||' <<markComprehension>> lc_exprs {pin=1}
+private expression_parse_error ::= &('||') expression {pin=1}
+
+list_expression ::= '[' expression list_expression_tail? ']'
+private list_expression_tail ::= list_items? list_concat?
+private list_items ::= (',' expression)+ {pin(".*")=1}
+private list_concat ::= '|' expression {pin(".*")=1}
+
+list_comprehension ::= '[' expression '||' lc_exprs ']' { methods=[processDeclarations] }
+private meta comprehension_element ::= (&('||'))? <<p1>> {pin=1}
+private lc_exprs ::= lc_expression (',' lc_expression)*
+lc_expression ::= [ lc_generator_definition ('<-' | '<=')] expression {pin(".*")=2}
+lc_generator_definition ::= (map_match | expression) {elementType=argument_definition}
+private map_match ::= expression ':=' expression {pin=2}
+
+binary_expression ::= '<<' bin_element_list? '>>' {pin=1}
+private bin_element_list ::= bin_element (',' bin_element)*
+private bin_expression ::= max_expression | parenthesized_expression
+bin_element ::= (
+    generic_function_call_expression
+  | prefix_op? bin_expression [':' bin_expression] opt_bit_type_list?
+) {name="binary element"}
+
+opt_bit_type_list ::= '/' bit_type_list {pin=1}
+private bit_type_list ::= bit_type ('-' bit_type)*
+bit_type ::= q_atom [':' integer]
+
+binary_comprehension ::= '<<' <<comprehension_element binary_expression>> '||' lc_exprs '>>' {
+  pin=3
+  elementType=list_comprehension
+}
+
+tuple_expression ::= '{' (&'}' | exprs) '}' {pin=1}
+
+record_expression ::= expression record_tail {
+  pin=2
+  methods = [getReferenceInternal]
+}
+private record_tail ::= record_head (record_field_ref | record_tuple | ()) {pin=1}
+private record_head ::= record_head_classic | macros &('{'|'.' q_atom &(!('(')))
+private record_head_classic ::= record_hash record_ref {pin=1}
+private record_hash ::= '#' &(!'{')
+record_field_ref ::= '.' q_atom {pin=1 elementType=record_field}
+record_ref ::= q_atom {methods = [getReference]}
+
+record_tuple ::= '{' record_fields? '}' {pin=1}
+private record_fields ::= record_field (',' record_field)* {pin(".*")=1}
+record_field ::= (q_atom | '_') '=' (qualified_atom_expression | expression) {
+  pin=1
+  methods = [
+    getReference
+    field_name_atom = "q_atom[0]"
+  ]
+  recoverWhile=tuple_recoverer
+}
+private qualified_atom_expression ::= q_atom '.' q_atom {pin=0}
+module_ref ::= q_atom {
+  methods = [getReference]
+}
+
+map_comprehension ::= '#' '{' <<comprehension_element map_assoc>> '||' lc_exprs '}' {
+  pin=4
+  methods=[processDeclarations]
+  elementType=list_comprehension
+}
+private map_assoc ::= expression '=>' expression {pin=2 elementType=map_entry}
+
+map_construct_expression ::= map_tuple {elementType=map_expression}
+map_expression ::= expression map_tuple {pin=2}
+map_tuple ::= '#' '{' map_entries? '}' {pin=2}
+private map_entries ::= map_entry (',' map_entry)* {pin(".*")=1}
+map_entry ::= expression (('=>' | ':=') expression)? {pin=1 recoverWhile=tuple_recoverer}
+
+global_function_call_expression ::= module_ref ':' (function_call_expression)
+function_call_expression ::= q_atom argument_list &not_function_definition {
+  methods = [getReference getNameIdentifier getTextOffset getName]
+}
+private not_function_definition ::= <<isModeOn "GUARD">> | !('->'|when)
+macros_call ::= &('?') generic_function_call_expression {recoverWhile=macros_call_recover pin=1}
+private macros_call_recover ::= !'.'
+generic_function_call_expression ::= [q_atom_or_var ':'] (q_atom_or_var | macros) argument_list &not_function_definition
+private q_atom_or_var ::= q_atom | q_var
+
+anonymous_call_expression ::= expression argument_list &not_function_definition
+
+private expr_with_guard ::= expression clause_guard? {pin=1}
+private call_exprs ::= expr_with_guard (',' expr_with_guard)*
+
+if_expression ::= if if_clauses end {pin=1}
+private if_clauses ::= if_clause (';' if_clause)*
+if_clause ::= guard_with_mode clause_body {pin=1}
+private meta guarded ::= <<enterMode "GUARD">> (<<p1>> <<exitMode "GUARD">>|<<exitMode "GUARD">> !())
+private guard_with_mode ::= <<guarded guard>>
+
+case_expression ::= case expression of cr_clauses end {pin=1 methods=[processDeclarations]}
+private cr_clauses ::= cr_clause (';' cr_clause)*
+cr_clause ::= cr_clause_argument_definition clause_guard? clause_body {pin=1}
+private cr_clause_argument_definition ::= <<guarded argument_definition>>
+argument_definition ::= expression
+
+receive_expression ::= receive (after_clause | cr_clauses after_clause? ) end {pin(".*")=1}
+private after_clause ::= after after_clause_body {pin=1}
+after_clause_body ::= <<guarded expression>> clause_body {pin=1}
+fun_expression ::= fun (fun_expression_block | fun_expression_lambda) {pin=1 methods=[processDeclarations]}
+private fun_expression_lambda ::= [(module_ref | q_var) ':'] (function_with_arity | function_with_arity_variables)
+private fun_expression_block ::= fun_clauses end {pin=1}
+
+function_with_arity ::= q_atom '/' integer {pin=1 methods=[getReference]}
+function_with_arity_variables ::= q_var '/' (integer|q_var) {pin=1}
+fun_clauses ::= fun_clause (';' fun_clause)*
+fun_clause ::= fun_name? argument_definition_list clause_guard? clause_body {pin=2}
+fun_name ::= fun_name_var {elementType=argument_definition}
+fun_name_var ::= q_var {elementType=max_expression}
+
+try_expression ::= try try_expressions_clause [of cr_clauses] try_catch end {pin(".*")=1}
+private try_catch ::= catch try_clauses [after try_expressions_clause] | after try_expressions_clause {pin(".*")="catch|after"}
+try_expressions_clause ::= exprs
+try_clauses ::= try_clause (';' try_clause)*
+try_clause ::= <<guarded try_argument_definition>> clause_guard? clause_body {pin=1}
+private try_argument_definition ::= [argument_definition ':'] argument_definition
+
+argument_list ::= '(' call_exprs? ')'
+
+fake fake_binary_expression ::= expression+ {
+  methods = [
+    left="expression[0]"
+    right="expression[1]"
+  ]
+}
+
+private exprs ::= expression (exprs_tail)* {pin=2 recoverWhile=exprs_recover}
+private exprs_tail ::= ',' expression {pin=1 recoverWhile=exprs_recover}
+private exprs_recover ::= !(')' | ',' | '->' | '.' | ':-' | ';' | '}' | after | catch | end | of | atom '(')
+guard ::= exprs (';' exprs)* {pin(".*")=1}
+private atomic ::= q_atom !'(' | integer | (string_literal | macros)+ | float | char
+string_literal ::= string {
+  implements = "com.intellij.psi.PsiLanguageInjectionHost"
+  methods = [isValidHost updateText createLiteralTextEscaper]
+}
+
+private prefix_op ::= '+' | '-' | bnot | not
+private mult_op ::= '/' |'*' | div | rem  | band | and
+private add_op ::= '+' |'-' | bor | bxor | bsl | bsr | or | xor
+private list_op ::= '++' | '--'
+private comp_op ::= '==' | '/=' |'=<' |'<' |'>=' |'>' |'=:=' |'=/='
+
+rule ::= rule_clause (';' rule_clause)* {pin(".*")=1}
+rule_clause ::= q_atom argument_list clause_guard? rule_body
+rule_body ::= ':-' lc_exprs {pin=1}

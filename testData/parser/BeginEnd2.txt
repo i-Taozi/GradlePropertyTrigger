@@ -1,0 +1,41 @@
+ERL_FILE
+  ERL_FUNCTION
+    ERL_FUNCTION_CLAUSE
+      ERL_Q_ATOM
+        ERL_ATOM
+          PsiElement(atom_name)('foo')
+      ERL_ARGUMENT_DEFINITION_LIST
+        PsiElement(()('(')
+        PsiElement())(')')
+      ERL_CLAUSE_BODY
+        PsiElement(->)('->')
+        ERL_BEGIN_END_EXPRESSION
+          PsiElement(begin)('begin')
+          ERL_BEGIN_END_BODY
+            ERL_MAX_EXPRESSION
+              ERL_Q_ATOM
+                ERL_ATOM
+                  PsiElement(atom_name)('test')
+            PsiElement(,)(',')
+            ERL_MAX_EXPRESSION
+              ERL_Q_ATOM
+                ERL_ATOM
+                  PsiElement(atom_name)('test')
+            PsiElement(,)(',')
+            PsiErrorElement:'+', '-', <atom>, <expression>, '?', atom_name, bnot, char, float, integer, not or var expected, got 'bar'
+              <empty list>
+  ERL_FUNCTION
+    ERL_FUNCTION_CLAUSE
+      ERL_Q_ATOM
+        ERL_ATOM
+          PsiElement(atom_name)('bar')
+      ERL_ARGUMENT_DEFINITION_LIST
+        PsiElement(()('(')
+        PsiElement())(')')
+      ERL_CLAUSE_BODY
+        PsiElement(->)('->')
+        ERL_MAX_EXPRESSION
+          ERL_Q_ATOM
+            ERL_ATOM
+              PsiElement(atom_name)('ok')
+    PsiElement(.)('.')
