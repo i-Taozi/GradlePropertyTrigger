@@ -83,4 +83,4 @@ cache:
   directories: [$HOME/.gradle/caches/, $HOME/.gradle/wrapper/]
 notifications: {email: false}
 branches:
-  only: [plusonelabs/calendar-widget-374-origin]
+  only: [plusonelabs/calendar-widget-374-CACHING]
