@@ -7,4 +7,4 @@ script: ./gradlew build
 notifications: null
 email: false
 branches:
-  only: [TVPT/VoxelSniper-368-origin]
+  only: [TVPT/VoxelSniper-368-CACHING]
