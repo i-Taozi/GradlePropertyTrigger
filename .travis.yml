@@ -11,4 +11,4 @@ before_install: [sudo apt-get install -y libappindicator1 fonts-liberation, expo
 install: true
 script: java -version; ./gradlew clean test chrome
 branches:
-  only: [selenide-examples/hangman-7-origin]
+  only: [selenide-examples/hangman-7-CACHING]
