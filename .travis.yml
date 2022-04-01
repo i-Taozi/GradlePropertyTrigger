@@ -8,4 +8,4 @@ android:
 before_install: [yes | sdkmanager "platforms;android-23"]
 script: [jdk_switcher use oraclejdk8, './gradlew assemble  libK3b:test libK3bZip:test']
 branches:
-  only: [k3b/ToGoZip-27-origin]
+  only: [k3b/ToGoZip-27-CACHING]
