@@ -1,0 +1,10 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+android:
+  components: [tools, platform-tools, build-tools-25.0.0, android-25, extra-google-google_play_services,
+    extra-google-m2repository, extra-android-m2repository]
+licenses: [android-sdk-preview-license-.+, android-sdk-license-.+, google-gdk-license-.+]
+script: bash gradlew test --continue --stacktrace
+branches:
+  only: [apps4av/avare-434-origin]
