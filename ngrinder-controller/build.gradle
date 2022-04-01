@@ -1,0 +1,115 @@
+description = "ngrinder-controller"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE")
+    }
+}
+
+apply plugin: "war"
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+sourceSets.main.output.resourcesDir = sourceSets.main.java.outputDir
+
+def agentScriptPath = "${sourceSets.main.output.resourcesDir}/ngrinder-sh/agent"
+def monitorScriptPath = "${sourceSets.main.output.resourcesDir}/ngrinder-sh/monitor"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}"
+    }
+}
+
+dependencies {
+    implementation project(":ngrinder-core")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-web")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-freemarker")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-security")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-data-jpa")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-cache")
+    implementation (group: "org.springframework.boot", name: "spring-boot-starter-webflux")
+
+    implementation (group: "com.github.jknack", name: "handlebars-springmvc", version: handlebars_version)
+    implementation (group: "com.github.jknack", name: "handlebars-helpers", version: handlebars_version)
+    implementation (group: "rome", name: "rome", version: "1.0")
+    implementation (group: "com.ibm.icu", name: "icu4j", version: "4.6")
+    implementation (group: "sonia.svnkit", name: "svnkit-dav", version: svnkit_version)
+    implementation (group: "sonia.svnkit", name: "svnkit", version: svnkit_version) {
+        exclude (module: "platform")
+    }
+    implementation (group: "javax.servlet.jsp", name: "jsp-api", version: "2.1")
+    implementation (group: "com.google.guava", name: "guava", version: "20.0")
+    implementation (group: "org.springframework.security", name: "spring-security-taglibs", version: spring_security_version)
+    implementation (group: "org.liquibase", name: "liquibase-core", version: "3.5.3")
+    implementation (group: "org.hibernate", name: "hibernate-jcache", version: hibernate_version)
+    implementation (group: "com.github.ben-manes.caffeine", name: "caffeine", version: "2.6.2")
+    implementation (group: "com.github.ben-manes.caffeine", name: "jcache", version: "2.6.2")
+    implementation (group: "mysql", name: "mysql-connector-java", version: "8.0.13")
+    implementation (group: "commons-httpclient", name: "commons-httpclient", version: "3.1")
+    implementation (group: "com.h2database", name: "h2", version: "1.4.197")
+    implementation (group: "commons-fileupload", name: "commons-fileupload", version: "1.3.1")
+    implementation (group: "commons-dbcp", name: "commons-dbcp", version: "1.4")
+    implementation (group: "com.fasterxml.jackson.core", name: "jackson-annotations", version: jackson_version)
+    implementation (group: "com.fasterxml.jackson.core", name: "jackson-databind", version: jackson_version)
+    implementation (group: "jaxen", name: "jaxen", version: "1.1.4")
+    implementation (group: "com.beust", name: "jcommander", version: "1.32")
+    implementation (group: "org.pf4j", name: "pf4j", version: "3.0.1")
+    implementation (group: "org.yaml", name: "snakeyaml", version: "1.25")
+    implementation (group: "commons-collections", name: "commons-collections", version: "3.2.1")
+    implementation (group: "org.reflections", name: "reflections", version: "0.9.9")
+    implementation (group: "com.hazelcast", name: "hazelcast", version: hazelcast_version)
+    implementation (group: "com.hazelcast", name: "hazelcast-spring", version: hazelcast_version)
+    implementation (group: "org.kohsuke", name: "github-api", version: "1.99")
+    implementation (group: "commons-validator", name: "commons-validator", version: "1.6")
+    implementation (group: "org.codehaus.groovy", name: "groovy-jsr223", version: groovy_version)
+    implementation (group: "com.unboundid", name: "unboundid-ldapsdk", version: "5.1.1")
+
+    compileOnly (group: "org.projectlombok", name: "lombok", version: lombok_version)
+    annotationProcessor (group: "org.projectlombok", name: "lombok", version: lombok_version)
+
+    providedRuntime (group: "org.springframework.boot", name: "spring-boot-starter-tomcat", version: spring_boot_version)
+
+    testImplementation (group: "junit", name: "junit", version: junit_version)
+    testImplementation (group: "org.easytesting", name: "fest-assert", version: "1.4")
+    testImplementation (group: "org.springframework.boot", name: "spring-boot-starter-test", version: spring_boot_version)
+}
+
+
+bootWar {
+    manifest {
+        attributes "Implementation-Version": project.version, mainClassName: "org.ngrinder.starter.NGrinderControllerStarter"
+    }
+    requiresUnpack "**/*.jar"
+    sourceSets.main.java.outputDir = new File(buildDir, "classes/main")
+    sourceSets.test.java.outputDir = new File(buildDir, "classes/test")
+}
+
+task convert_cr_lf {
+    doFirst {
+        ant.fixcrlf(srcDir: agentScriptPath, destDir: agentScriptPath, includes:"**/*.sh" ,eol: "unix")
+        ant.fixcrlf(srcDir: agentScriptPath, destDir: agentScriptPath, includes:"**/*.bat" ,eol: "dos")
+        ant.fixcrlf(srcDir: monitorScriptPath, destDir: monitorScriptPath, includes:"**/*.sh" ,eol: "unix")
+        ant.fixcrlf(srcDir: monitorScriptPath, destDir: monitorScriptPath, includes:"**/*.bat" ,eol: "dos")
+    }
+}
+
+processResources {
+    filesMatching("ngrinder-sh/agent/run_agent_internal.*") {
+        expand(["ngrinder_core": String.format("lib/ngrinder-core-%s.jar", project.version),
+                "ngrinder_runtime": String.format("lib/ngrinder-runime-%s.jar", project.version)])
+    }
+}
+
+test {
+    jvmArgs "-Xms600m", "-Xmx1024m"
+}
+
+tasks.bootWar.dependsOn convert_cr_lf
+
+tasks.processResources.finalizedBy tasks.getByPath(":ngrinder-frontend:webpack")
+tasks.processResources.finalizedBy tasks.getByPath(":ngrinder-frontend:checkES5")

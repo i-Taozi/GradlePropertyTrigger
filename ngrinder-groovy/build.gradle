@@ -1,0 +1,25 @@
+description = "ngrinder-groovy"
+
+configurations {
+    testAgent {
+        transitive = false
+    }
+}
+
+dependencies {
+    api (project(":ngrinder-runtime"))
+    api (group: "org.codehaus.groovy", name: "groovy", version: groovy_version)
+    api (group: "org.codehaus.groovy", name: "groovy-datetime", version: groovy_version)
+    api (group: "org.codehaus.groovy", name: "groovy-templates", version: groovy_version)
+    api (group: "org.codehaus.groovy", name: "groovy-json", version: groovy_version)
+    api (group: "org.codehaus.groovy", name: "groovy-sql", version: groovy_version)
+    api (group: "org.codehaus.groovy", name: "groovy-xml", version: groovy_version)
+
+    testImplementation (group: "org.mockito", name: "mockito-core", version: mockito_version)
+
+    testAgent (group: "net.sf.grinder", name: "grinder-dcr-agent", version: "3.9.1")
+}
+
+test {
+    jvmArgs "-javaagent:${configurations.testAgent.singleFile}"
+}
