@@ -10,4 +10,4 @@ script: [./gradlew test]
 after_success: null
 after_failure: null
 branches:
-  only: [spring-projects/spring-security-saml-517-origin]
+  only: [spring-projects/spring-security-saml-517-CACHING]
