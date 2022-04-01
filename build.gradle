@@ -1,0 +1,112 @@
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+    maven {
+      name = 'sponge-repo'
+      url = 'https://repo.spongepowered.org/maven'
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+// Plugins for IDE project generation
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+defaultTasks 'build'
+
+group = 'com.thevoxelbox'
+archivesBaseName = 'VoxelSniper'
+version = '8.5.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'sponge-repo'
+        url = 'https://repo.spongepowered.org/maven/'
+    }
+}
+
+// Common dependencies
+dependencies {
+    compile 'org.spongepowered:spongeapi:7.1.0'
+}
+
+// Source compiler configuration
+configure([compileJava, compileTestJava]) {
+    options.compilerArgs += ['-Xlint:all', '-Xlint:-path']
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+// Set manifest entries
+jar {
+  manifest {
+      attributes(
+              'Built-By': System.properties['user.name'],
+              'Created-By': "${System.properties['java.vm.version']} (${System.properties['java.vm.vendor']})"
+      )
+  }
+}
+
+javadoc {
+  options.encoding = 'UTF-8'
+  options.charSet = 'UTF-8'
+  options.links(
+          'https://docs.oracle.com/javase/8/docs/api/',
+          'https://jd.spongepowered.org/7.1.0/'
+  )
+  // Disable the crazy super-strict doclint tool in Java 8
+  options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+
+task sourceJar(type: Jar) {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourceJar
+    archives javadocJar
+}
+
+processResources {
+  // Include LICENSE in final JAR
+  from 'LICENSE'
+}
+
+apply plugin: "com.github.hierynomus.license"
+
+// License header formatting
+license {
+  header = file('LICENSE')
+  include '**/*.java'
+
+  ignoreFailures = false
+  strictCheck = true
+
+  mapping {
+      java = 'SLASHSTAR_STYLE'
+  }
+}
+
+// Gradle version used for generating the Gradle wrapper
+wrapper {
+  gradleVersion = '5.6.2'
+}

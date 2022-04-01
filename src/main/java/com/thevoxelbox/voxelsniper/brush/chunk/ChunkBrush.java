@@ -1,0 +1,67 @@
+/*
+ * This file is part of VoxelSniper, licensed under the MIT License (MIT).
+ *
+ * Copyright (c) The VoxelBox <http://thevoxelbox.com>
+ * Copyright (c) contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.thevoxelbox.voxelsniper.brush.chunk;
+
+import com.flowpowered.math.vector.Vector3i;
+import com.thevoxelbox.voxelsniper.SnipeData;
+import com.thevoxelbox.voxelsniper.brush.Brush;
+import org.spongepowered.api.world.Chunk;
+
+import java.util.Optional;
+
+public abstract class ChunkBrush extends Brush {
+
+    protected abstract void createUndo(int chunks);
+
+    protected abstract void storeUndo(SnipeData v);
+
+    protected abstract void operate(SnipeData v, Chunk chunk);
+
+    @Override
+    protected void arrow(SnipeData v) {
+        Optional<Chunk> chunk = this.world.getChunk(this.targetBlock.getChunkPosition());
+        if (chunk.isPresent()) {
+            createUndo(1);
+            operate(v, chunk.get());
+            storeUndo(v);
+        }
+    }
+
+    @Override
+    protected void powder(final SnipeData v) {
+        createUndo(9);
+        Vector3i chunkPos = this.targetBlock.getChunkPosition();
+        for (int x = chunkPos.getX() - 1; x <= chunkPos.getX() + 1; x++) {
+            for (int z = chunkPos.getZ() - 1; z <= chunkPos.getZ() + 1; z++) {
+                Optional<Chunk> chunk = this.world.getChunk(x, 0, z);
+                if (chunk.isPresent()) {
+                    operate(v, chunk.get());
+                }
+            }
+        }
+        storeUndo(v);
+    }
+
+}

@@ -1,0 +1,10 @@
+sudo: required
+dist: trusty
+language: java
+jdk: [openjdk8, oraclejdk8]
+install: true
+script: ./gradlew build
+notifications: null
+email: false
+branches:
+  only: [TVPT/VoxelSniper-368-origin]
