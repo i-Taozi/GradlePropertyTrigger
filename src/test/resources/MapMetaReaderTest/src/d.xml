@@ -1,0 +1,46 @@
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" class="- topic/topic "
+  domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    "
+  id="d" ditaarch:DITAArchVersion="1.3">
+  <title class="- topic/title ">d</title>
+  <prolog class="- topic/prolog ">
+    <author class="- topic/author ">topic author</author>
+    <source class="- topic/source ">topic source</source>
+    <publisher class="- topic/publisher ">topic publisher</publisher>
+    <copyright class="- topic/copyright ">
+      <copyryear class="- topic/copyryear " year="2012"/>
+      <copyrholder class="- topic/copyrholder ">topic copyrholder</copyrholder>
+    </copyright>
+    <critdates class="- topic/critdates ">
+      <created class="- topic/created " date="2012"/>
+      <revised class="- topic/revised " modified="2012"/>
+    </critdates>
+    <permissions class="- topic/permissions " view="topic permissins"/>
+    <metadata class="- topic/metadata ">
+      <audience class="- topic/audience "/>
+      <category class="- topic/category ">topic category</category>
+      <keywords class="- topic/keywords ">
+        <keyword class="- topic/keyword ">topic keyword</keyword>
+      </keywords>
+      <prodinfo class="- topic/prodinfo ">
+        <prodname class="- topic/prodname ">topic prodnamefoo</prodname>
+        <vrmlist class="- topic/vrmlist ">
+          <vrm class="- topic/vrm " version="3.0"/>
+        </vrmlist>
+      </prodinfo>
+      <othermeta class="- topic/othermeta " content="topic othermeta" name="othermeta"/>
+      <data class="- topic/data ">topic data</data>
+      <data-about class="- topic/data-about ">
+        <data class="- topic/data ">topic data</data>
+      </data-about>
+      <foreign class="- topic/foreign ">topic foreign</foreign>
+      <unknown class="- topic/unknown ">topic unknown</unknown>
+    </metadata>
+    <resourceid class="- topic/resourceid " id="foo"/>
+    <data class="- topic/data ">topic datafoo</data>
+    <data-about class="- topic/data-about ">
+      <data class="- topic/data ">topic datafoo</data>
+    </data-about>
+    <foreign class="- topic/foreign ">topic foreign</foreign>
+    <unknown class="- topic/unknown ">topic unknown</unknown>
+  </prolog>
+</topic>

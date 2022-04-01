@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><job>
+  <property name="user.input.file">
+    <string>foo</string>
+  </property>
+  <property name="user.input.file.uri">
+    <string>foo</string>
+  </property>
+  <property name="copytotarget2sourcemaplist">
+    <map>
+      <entry key="baz">
+        <string>qux</string>
+      </entry>
+      <entry key="foo">
+        <string>bar</string>
+      </entry>
+    </map>
+  </property>
+  <property name="user.input.dir">
+    <string>/foo/bar</string>
+  </property>
+  <property name="user.input.dir.uri">
+    <string>file:/foo/bar</string>
+  </property>
+  <files>
+    <file src="file:/foo/bar/foo2" uri="foo2" path="foo2" conref-target="true"/>
+    <file src="file:/foo/bar/bar2" uri="bar2" path="bar2" conref-target="true"/>
+    <file src="file:/foo/bar/foo3" uri="foo3" path="foo3" copy-to-source="true"/>
+    <file src="file:/foo/bar/foo" uri="foo" path="foo" format="ditamap" input="true"/>
+    <file src="file:/foo/bar/foo1" uri="foo1" path="foo1" format="ditamap" active="true"/>
+    <file src="file:/foo/bar/bar1" uri="bar1" path="bar1" format="ditamap" active="true"/>
+    <file src="file:/foo/bar/bar3" uri="bar3" path="bar3" copy-to-source="true"/>
+    <file src="file:/foo/bar/bar" uri="bar" path="bar" subjectscheme="true"/>
+  </files>
+</job>
