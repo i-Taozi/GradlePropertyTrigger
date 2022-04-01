@@ -16,4 +16,4 @@ addons:
     build_command: ./gradlew build
     branch_pattern: coverity_scan
 branches:
-  only: [aaronjwood/PortAuthority-130-origin]
+  only: [aaronjwood/PortAuthority-130-CACHING]
