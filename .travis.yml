@@ -1,0 +1,16 @@
+cache:
+  directories: [$HOME/.gradle/wrapper/]
+sudo: false
+dist: bionic
+language: java
+jdk: [oraclejdk9, oraclejdk12, openjdk8, openjdk11]
+services: [docker]
+script: [./gradlew build jacocoTestReport]
+after_success: [bash $HOME/etc/codecov.sh]
+deploy:
+  provider: script
+  script: ./gradlew -q -Prelease.customUsername=$GIT_USER -Prelease.customPassword=$GIT_PASSWORD
+    -Prelease.disableChecks -Prelease.pushTagsOnly release && ./gradlew build publish
+  true: {branch: master, jdk: openjdk8}
+branches:
+  only: [ical4j/ical4j-535-origin]

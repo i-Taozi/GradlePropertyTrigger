@@ -1,0 +1,12 @@
+/.idea
+*.iml
+/target
+/build
+/.gradle
+zones.h
+zones.tab
+/bin/
+.classpath
+.project
+.settings/
+out/
