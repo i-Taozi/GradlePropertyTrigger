@@ -1,0 +1,34 @@
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+// Disable publishing to repository for the sample project
+if (tasks.findByPath('artifactoryPublish')) {
+    artifactoryPublish.enabled = false
+}
+
+war.archiveName = "${project.name}.war"
+
+description = "Spring Security SAML v2 sample webapp"
+
+dependencies {
+
+	compile project(":spring-security-saml2-core"),
+		"org.springframework:spring-core:$springVersion",
+		"org.springframework:spring-beans:$springVersion",
+		"org.springframework:spring-context:$springVersion",
+		"org.springframework:spring-aop:$springVersion",
+		"org.springframework:spring-web:$springVersion",
+		"org.springframework:spring-webmvc:$springVersion",
+		"org.springframework.security:spring-security-config:$springSecurityVersion",
+		"org.slf4j:slf4j-log4j12:$slf4jVersion",
+		"javax.servlet:jstl:1.2"
+
+	providedCompile "javax.servlet:jsp-api:2.0"
+
+	testCompile "junit:junit:4.4"
+
+	def tomcatVersion = '8.5.63'
+	tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}"
+	tomcat "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
+}
