@@ -12,4 +12,4 @@ deploy:
   true: {tags: true, condition: '$TRAVIS_TAG =~ ^v[0-9]+.*$'}
 after_deploy: [./gradlew publishPlugin]
 branches:
-  only: [uwolfer/gerrit-intellij-plugin-424-origin]
+  only: [uwolfer/gerrit-intellij-plugin-424-FILE_SYSTEM_WATCHING]
