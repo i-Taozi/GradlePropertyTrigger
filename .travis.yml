@@ -6,4 +6,4 @@ android:
     extra-google-google_play_services, extra-google-m2repository, extra-android-m2repository]
 script: ./gradlew clean check assembleDebug
 branches:
-  only: [serso/android-checkout-179-origin]
+  only: [serso/android-checkout-179-FILE_SYSTEM_WATCHING]
