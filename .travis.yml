@@ -3,4 +3,4 @@ jdk: [openjdk8, openjdk10, openjdk11]
 before_install: [chmod +x gradlew, chmod +x gradle/wrapper/gradle-wrapper.jar]
 after_success: ['bash <(curl -s https://codecov.io/bash)']
 branches:
-  only: [drapostolos/type-parser-36-origin]
+  only: [drapostolos/type-parser-36-FILE_SYSTEM_WATCHING]
