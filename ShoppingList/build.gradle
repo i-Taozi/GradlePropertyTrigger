@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+Properties local_properties = new Properties()
+File localPropertiesFile = project.rootProject.file('private.properties')
+if (localPropertiesFile.exists()) {
+    local_properties.load(localPropertiesFile.newDataInputStream())
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "org.openintents.shopping"
+        versionName "2.2.1"
+        versionCode 100221
+        minSdkVersion 16
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testApplicationId "org.openintents.shopping.test"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "$applicationId-$versionName")
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    flavorDimensions "market"
+
+    productFlavors {
+        play {
+
+        }
+
+
+        tstore {
+
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+
+        }
+    }
+
+    def propertyFile = new File(projectDir, "build-private.properties")
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+    if (propertyFile.exists()) {
+        signingConfigs {
+            release {
+                Properties props = new Properties()
+                props.load(new FileInputStream(propertyFile))
+
+                storeFile file(props.getProperty("key.store"))
+                storePassword props.getProperty("key.store.password")
+                keyAlias props.getProperty("key.alias")
+                keyPassword props.getProperty("key.alias.password")
+            }
+        }
+        buildTypes.release.signingConfig signingConfigs.release
+        println "Release apks will be signed!"
+    } else {
+        println "For signed release apks you need to create a build-private.properties file"
+    }
+
+}
+
+
+dependencies {
+
+    implementation project(':ShoppingListLibrary')
+    implementation 'com.github.openintents:distribution:3.0.2'
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportVersion"
+    androidTestImplementation 'junit:junit:4.13'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
+    androidTestImplementation "com.android.support:support-annotations:$rootProject.ext.supportVersion"
+    androidTestImplementation "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+    androidTestImplementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    androidTestImplementation "com.android.support:support-v4:$rootProject.ext.supportVersion"
+    androidTestImplementation "com.android.support:design:$rootProject.ext.supportVersion"
+
+}
