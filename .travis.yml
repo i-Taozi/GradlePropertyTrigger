@@ -20,4 +20,4 @@ deploy:
   skip_cleanup: true
   true: {tags: true}
 branches:
-  only: [warmshowers/wsandroid-373-origin]
+  only: [warmshowers/wsandroid-373-FILE_SYSTEM_WATCHING]
