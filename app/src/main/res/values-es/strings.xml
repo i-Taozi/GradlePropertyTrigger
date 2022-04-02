@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="moving_out_title">Adios WarmShowers!</string>
+    <string name="moving_out_subtitle">mensaje de los desarrolladores</string>
+    <string name="moving_out_message"><![CDATA[
+        Queridos Miembros de la Comunidad WS,<br/>
+        <br/>
+        Somos un grupo de ciclistas viajeros y desarrolladores, antiguamente voluntarios de WarmShowers.org. Nosotros creamos esta app tanto para ustedes como para nosotros. Por años, esta fue la app official de WS, confiada por miles de personas.<br/>
+        <br/>
+        Allá por 2012, cuando esta app fue creada, WarmShowers era una plataforma abierta, gratuita y acojedora. Desde 2015, bajo la nueva junta directiva, WS fue lenta pero seguro moviéndose en la dirección con la cual ya <b>no podemos estar de acuerdo</b>. (*) Es tiempo de seguir nuestor propio camino.<br/>
+        <br/>
+        Estamos pensando en crear <b>una nueva plataforma</b> dedicada a la comunidad mundial de cicloviajeros y aquellos que quieren recibirlos. Una que nuevamente esta <b>construida en la confianza y la apertura</b>, que refleje los valores que impulsan a las personas a abrir las puertas de sus hogares y darle la bienvenida a extraños recorriendo el mundo en bicicleta. Una que ayude a construir amistades para toda la vida que cruce las fronteras. <b>Libre y transparente</b> para todos, para siempre.<br/>
+        <br/>
+        Por favor <b>ayudenos <a href="https://warmshowers.github.io/wsandroid/survey">rellenando este corto cuestionario</a></b>. Nos gustaría entender que aspectos so importantes para usted para una plataforma de cicloturismo.<br/>
+        <br/>
+        Hasta que tengamos <a href="https://fedihospex.github.io">algo funcionando</a>, esperamos encontrarlos en <a href="https://www.trustroots.org/?circle=cyclists">el Circulo de Ciclistas en trustroots.org</a> (enfocado al intercambio cultural) o en <a href="https://WelcomeToMyGarden.org">WelcomeToMyGarden.org</a> (enfocado al viajar lento).<br/>
+        <br/>
+        ¡Nos vemos en la ruta!<br/>
+        <br/>
+        Suyo,<br/>
+        Antiguos Voluntarios de WS Android<br/>
+        <br/>
+        <br/>
+        ----<br/>
+        <br/>
+        <br/>
+        <i>¡Un último agradecimiento a todas las personas que <a href="https://github.com/warmshowers/wsandroid">contribuyeron con la aplicación</a> en los últimos 9&nbsp;años!<br/>
+        @jstaffans, @rfay, @jeanfrancoisbeaulieu, @CyrilWendl, @kirbycool, @saemy, @siavash1986, @LaurentSouchet-Orange, @PattaFeuFeu, @sgelb, @dproctor, @Poussinou, @noSim, @mariha, @cioccasimone97, @jakobhanna, @nonno.<br/>
+        ¡Gracias!</i>
+    ]]></string>
+
+    <string name="moving_out_backstory_title">(*) La historia de fondo</string>
+    <string name="moving_out_backstory_body"><![CDATA[
+        Warmshowers emmpezó su vida como una lista abierta de contacto de ciclistas comprometidos a compartir su amor por el cicloturismo y su hospitalidad.<br/>
+        <br/>
+        En 2001, esta lista fue puesta en línea por Randy Fay para ayudar a expandir su alcance y dar la bienvenida a mas personas a la familia cicloturista. Y por casi 15 años él mantuvo este servicio con una actitud abierta y acojedora que hizo de Warmshowers lo que es hoy. Personas voluntariasayudaron a crear la app para iPhone y, en 2012, una app para Android, para que los ciclistas pudieran beneficiarse de Warmshowers en movimiento.<br/>
+        <br/>
+        En 2015, la Fundacióin Warmshowers (the Warmshowers Foundation) fue creada para ayudar a administrar el creciente servicio y asegurr su future en vista al retiro de Randy. Lamentablemente, desde el inicio la Junta no compartió la actitud abierta e inclusiva de los voluntariosque hizo a Warmshowers tan amada.<br/>
+        <br/>
+        Decisiones que previamente habían sido hechas con el apoyo de la comunidad fueron removidas del foro público. Voluntarios que ayudaron a hacer crecer a Warmshowers fueron explulsados e incapacitados de contribuir. Y las donaciones que solían soportar los costos operativos fueron canalizados a empresas de software privadas que no han publicado o hechos mejoras significativas en los últimos 5 años.<br/>
+        <br/>
+        En 2021, la junta de Warmshowers finalmente declaró las antiguas apps propulsadas por la comunidad como riesgos de seguridad. En lugar de ayudarlos a actualizar, ha quitado los accesos de la app de Android y bloqueado las cuentas de los desarrolladores, favoreciendo la aplicación paga construida por la compañias anteriormente mencionadas, con un modelo de subscrpción de $20 anuales.<br/>
+        <br/>
+        Y aquí estamos, con la historia de como una plataforma anteriormente abierta y acojedora se ha convertido en un servicio de subscripción cerrado, bloqueando a la propia comunidad que ayuda.<br/>
+        <br/>
+        Véase también: <a href="https://en.wikipedia.org/wiki/Warm_Showers#History">WarmShowers History</a>, <i>Wikipedia</i>
+    ]]></string>
+
+    <string name="moving_out_what_to_do_title">¿Que más puedo hacer?</string>
+    <string name="moving_out_what_to_do_body"><![CDATA[
+        <ul>
+          <li>&nbsp;Informe a tus amigos de Warmshowers de esta situación escribiéndoles un mensaje y/o actualizando el texto de tu perfil. Puede consultar <a href="https://warmshowers.bike">https://WarmShowers.bike</a>.</li>
+          <br/>
+          <li>&nbsp;Vea en qué estamos trabajando en este momento: <a href="https://fedihospex.github.io"> una federación de plataformas de intercambio de hospitalidad</a>. Sobre esa base, esperamos construir una nueva aplicación de hospitalidad de cicloturismo de próxima generación (¡y muchas otras!).</li>
+          <br/>
+          <li>&nbsp;Busca <a href="https://warmshowers.bike">actualizaciones nuestras</a> o únete a nuestro grupo de Facebook <a href="https://www.facebook.com/groups/243374777243989">Open Alternative to WarmShowers.org</a>.</li>
+          <br/>
+          <li>&nbsp;Consulta otras plataformas de intercambio de hostelería: <a href="https://bewelcome.org">BeWelcome.org</a>, <a href="https://couchers.org/">Couchers.org</a>, <a href="https://cycleplanet.org/">CyclePlanet.org</a>.</li>
+          <br/>
+          <li>&nbsp;<a href="https://es.warmshowers.org/contact">Comunícate con la administración de Warmshowers</a> y hazles saber lo que piensas de la dirección que están tomando.</li>
+          <br/>
+          <li>&nbsp;<a href="market://details?id=fi.bitrite.android.ws">Califica esta aplicación</a> para obtener más exposición.</li>
+        </ul>
+    ]]></string>
+
+    <string name="moving_out_notification_text_short">Un mensaje de los antiguos desarrolladores</string>
+    <string name="moving_out_notification_text_long">Lea lo que está sucediendo con Warmshowers.</string>
+</resources>

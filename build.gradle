@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+    }
+}
+
+ext {
+    isTravisBuild = "true" == System.getenv("TRAVIS")
+
+    // Allows for -Dpre-dex=false to be set
+    isPreDexEnabled = "true" == System.getProperty("pre-dex", "true")
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
