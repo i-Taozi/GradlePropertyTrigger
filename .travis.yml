@@ -29,4 +29,4 @@ deploy:
   script: ./gradlew dockerImage && bash scripts/deploy_docker_images.sh $TRAVIS_TAG
   true: {tags: true}
 branches:
-  only: [sitewhere/sitewhere-977-origin]
+  only: [sitewhere/sitewhere-977-FILE_SYSTEM_WATCHING]
