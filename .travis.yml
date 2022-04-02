@@ -4,4 +4,4 @@ jdk: [openjdk8]
 before_install: [sudo pip install codecov]
 after_success: [codecov, 'python <(curl -s https://raw.githubusercontent.com/TouK/sputnik-ci/master/sputnik-ci.py)']
 branches:
-  only: [TouK/sputnik-241-origin]
+  only: [TouK/sputnik-241-FILE_SYSTEM_WATCHING]
