@@ -1,0 +1,586 @@
+<!--
+ * Copyright 2013-2016 Urs Wolfer
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.jetbrains.com/plugin.dtd">
+<idea-plugin>
+  <id>com.urswolfer.intellij.plugin.gerrit</id>
+  <name>Gerrit</name>
+  <!-- element "version" set by gradle-intellij-plugin -->
+  <vendor email="uwolfer@fwo.ch"
+          url="https://github.com/uwolfer/gerrit-intellij-plugin"
+  >Urs Wolfer</vendor>
+
+  <description><![CDATA[
+      <p>
+        Gerrit Code Review Tool Integration
+      </p>
+
+      <p>
+        Only <strong>Gerrit 2.6 or newer</strong> is supported (missing / incomplete REST API in older versions)
+      </p>
+
+      <p>
+        Features:
+        <ul>
+          <li>Do reviews directly from your IDE (voting and commenting)</li>
+          <li>List and query changes</li>
+          <li>Optimized push dialog for Gerrit operations (refs/for, add reviewers, ...)</li>
+          <li>Compare (Diff) changes against your local clone (much more comfortable than in Web UI because of well known syntax highlighting and other IDE features)</li>
+          <li>Submit changes</li>
+          <li>Notifications for new changes which are waiting for your review</li>
+          <li>Cherry-Pick and checkout changes into your local clone</li>
+          <li>Star (and unstar) changes</li>
+          <li>File and line based comments (<strong>Gerrit 2.7 or newer only</strong>)<br />
+          Usage: Add new comments in file diff window with right click on line; remove not yet submitted comments with a
+           click on comment icon. Comments need to be submitted with "Submit" or any "+/-" action.
+          </li>
+          <li>Clone and set up Gerrit projects directly in IDE (commit-message-hook is automatically added)</li>
+          <li>Abandon changes</li>
+          <li>Publish and delete draft changes</li>
+        </ul>
+      </p>
+
+      <p>
+        If you find any issues, please report them (please use the GitHub issue tracker instead of review comments).
+      </p>
+
+      <p>
+        This plugin uses <a href="https://github.com/uwolfer/gerrit-rest-java-client">gerrit-rest-java-client</a> for
+        communication with Gerrit REST API. If you need to build a Java application which needs to communicate with
+        Gerrit, this library probably supports you quite a lot.
+      </p>
+
+      <p>
+        If you like this plugin, you can support it:
+        <ul>
+          <li>Spread it: Tell your friends who are using IntelliJ and Gerrit about this plugin (or even bring them to use these fantastic products!)</li>
+          <li>Vote for it: Write your review and vote for it at the <a href="http://plugins.jetbrains.com/plugin/7272">IntelliJ plugin repository</a>.</li>
+          <li>Star it: <a href="https://github.com/uwolfer/gerrit-intellij-plugin">Star it at GitHub</a>. GitHub account required.</li>
+          <li>Improve it: Report bugs or feature requests. Or even fix / implement them by yourself - everything is open source!</li>
+          <li>Donate: You can find donation-possibilities in the <a href="https://github.com/uwolfer/gerrit-intellij-plugin#donations">README</a> file.</li>
+        </ul>
+      </p>
+      ]]></description>
+
+  <change-notes><![CDATA[
+      <p>
+        See for all changes: https://github.com/uwolfer/gerrit-intellij-plugin/commits/
+      </p>
+
+      <p>
+        <ul>
+          <li><strong>Important Note:</strong> You can report exception-issues directly from your IDE. Please
+          add at least a comment what you have done when it occurred / how you can reproduce it. It would be even better
+          when add an email address so I can contact you in case of questions.</li>
+
+          <li>Would you like to try test-builds of this plugin before official release? Please check out: <a
+          href="https://github.com/uwolfer/gerrit-intellij-plugin#pre-releases">
+          https://github.com/uwolfer/gerrit-intellij-plugin#pre-releases</a>.</li>
+
+          <li>1.2.5</li>
+          <ul>
+            <li>add "Unmark Private" to push dialog</li>
+            <li>add "Attention" filter</li>
+            <li>add support for recent IntelliJ 2021.2 builds</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.2.4</li>
+          <ul>
+            <li>fix assertion error in logs when running some Git operations</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.2.3</li>
+          <ul>
+            <li>add support displaying "reviewed" status in file tree (thanks to Leonard Brünings)</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.2.2</li>
+          <ul>
+            <li>add support for setting "resolved" flag in comments</li>
+            <li>fix authentication issues against GerritHub</li>
+            <li>fix change detail panel font color in Darcula color schema</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.2.1</li>
+          <ul>
+            <li>fix compatibility with new IntelliJ APIs</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.2.0</li>
+          <ul>
+            <li>add review filter for assignee</li>
+            <li>fix for use case when a different git clone URL is configured</li>
+            <li>fix compatibility with recent IntelliJ EAP</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.1.2.1</li>
+          <ul>
+            <li>fix compatibility with IntelliJ 2019.3</li>
+          </ul>
+          <li>1.1.2</li>
+          <ul>
+            <li>fix push dialog extension for Java 11 JRE</li>
+            <li>fix for setups which contain Git repos with spaces in their name</li>
+          </ul>
+          <li>1.1.1</li>
+          <ul>
+            <li>fix for push dialog which did not appear in some situations (fix for a recent change which is included in last release)</li>
+          </ul>
+          <li>1.1.0</li>
+          <ul>
+            <li>add support for Gerrit 2.15+ push options (wip, private, publish-comments, hashtag)</li>
+            <li>get branch name from .gitreview file with fallback to local branch</li>
+            <li>allow to specify the clone base URL</li>
+            <li>improve connection test in settings</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>1.0.7</li>
+          <ul>
+            <li>fix for issues like: "IllegalArgumentException: expected one element but was..."</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.0.6</li>
+          <ul>
+            <li>fix for session expiration related issues</li>
+            <li>macOS: change diff viewer shortcut "Add comment" to cmd+enter</li>
+          </ul>
+          <li>1.0.5</li>
+          <ul>
+            <li>improved labels and documentation for improved usability</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>1.0.4</li>
+          <ul>
+            <li>optimize checkout: display smart file checkout dialog when required</li>
+            <li>performance optimization: do not execute unnecessary Git fetches</li>
+            <li>fix random startup notification "Insufficient dependencies for Gerrit plugin"</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>1.0.3</li>
+          <ul>
+            <li>fixes related to password-safe</li>
+            <li>UI optimizations</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>1.0.2</li>
+          <ul>
+            <li>fix multiple IntelliJ instances (project windows) support</li>
+          </ul>
+          <li>1.0.1</li>
+          <ul>
+            <li>checkout: set remote branch for simpler push</li>
+            <li>checkout: create unique branch name (fixes issue when change was checked out before already)</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>1.0.0</li>
+          <ul>
+            <li>add columns "Project" and "Topic" (optional) (thanks to eekboom)</li>
+            <li>handle hyperlinks in change details (thanks to eekboom)</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.9.1</li>
+          <ul>
+            <li>fix compatibility with IntelliJ 2016.3 EAP (tool window is blank)</li>
+            <li>allow using the tool window while IntelliJ is creating index</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.9.0</li>
+          <ul>
+            <li>fix automatic update for IntelliJ 2016.2 (by bumping version number)</li>
+            <li>improvements in error reporting flow</li>
+          </ul>
+          <li>0.9.8.2</li>
+          <ul>
+            <li>fix displaying most significant label in change list</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.8.1</li>
+          <ul>
+            <li>fix loading changes with older Gerrit versions when env is non-English</li>
+            <li>fix NumberFormatException when using JRE 6</li>
+            <li>do not 'git reset' when checking out a change which was checked out before already</li>
+          </ul>
+          <li>0.9.8</li>
+          <ul>
+            <li>add support for setting custom review labels when supported by server (other than Code-Review and Verified)</li>
+            <li>add support for publish / delete draft changes</li>
+            <li>add column "status" to change list</li>
+            <li>reviewer and owner filter: allow filtering by username</li>
+            <li>disable actions when not permitted</li>
+            <li>fix status-filter option "All"</li>
+            <li>many minor fixes and improvements</li>
+            <li>Note: Updates for IntelliJ versions older than 14 are no longer provided</li>
+          </ul>
+          <li>0.9.7.6</li>
+          <ul>
+            <li>fixes (including Java 6 support)</li>
+          </ul>
+          <li>0.9.7.5</li>
+          <ul>
+            <li>update gerrit-rest-java-client to v0.8.6 (which contains many improvements and a fix for upcoming Gerrit 2.12 release)</li>
+            <li>minor fixes</li>
+          </ul>
+          <li>0.9.7.4</li>
+          <ul>
+            <li>fixes (including special fixes for users on Win)</li>
+          </ul>
+          <li>0.9.7.3</li>
+          <ul>
+            <li>many fixes and small improvements</li>
+          </ul>
+          <li>0.9.7.2</li>
+          <ul>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.7.1</li>
+          <ul>
+            <li>build with target-level 1.6 again</li>
+          </ul>
+          <li>0.9.7</li>
+          <ul>
+            <li>add capability to filter for project</li>
+            <li>add support for loading more change while scrolling in list with Gerrit < 2.9</li>
+            <li>fix handling of expired sessions</li>
+            <li>checkout dialog: get fetch information dynamically (instead of hardcoded HTTP-URL)</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.9.6.2</li>
+          <ul>
+            <li>IntelliJ 14.1 only: disable unsupported oneside-diff-viewer for displaying Gerrit changes</li>
+          </ul>
+          <li>0.9.6.1</li>
+          <ul>
+            <li>IntelliJ 14.1 only: fix push dialog</li>
+          </ul>
+          <li>0.9.6</li>
+          <ul>
+            <li>dynamically show label columns according to server support ("Verify", "Core-Review", ...)</li>
+            <li>IntelliJ 14: add support for multi-repository-projects in push dialog
+            (limitation: it does not work cleanly with setting "Push to Gerrit by default" activated - in this case all repos are selected on dialog show)</li>
+            <li>fix COMMIT_MSG review for first commit in a new Git repository</li>
+            <li>fix reviews with comments for Gerrit >= 2.10</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.9.5.2</li>
+          <ul>
+            <li>fix write-operations when using LDAP logins</li>
+            <li>fix login issues with googlesource.com Gerrit instances</li>
+            <li>minor fixes</li>
+          </ul>
+          <li>0.9.5.1</li>
+          <ul>
+            <li>add save and cancel buttons to comment popup</li>
+            <li>minor fixes and improvements for exception reports - please make sure that you add an email address when
+            you send an exception report from your IDE (in some case I need to ask you for more information)</li>
+          </ul>
+          <li>0.9.5</li>
+          <ul>
+            <li>new action to add reviewers to a change</li>
+            <li>support for LDAP authentication (when login in happens with a HTML form)</li>
+            <li>fix authentication when HTTP digest method is used</li>
+            <li>fix branch filter for some project setups</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.9.4</li>
+          <ul>
+            <li>change-number-column is available in list (hidden by default)</li>
+            <li>change-id and change-number columns are hidden by default (can be enabled in plugin settings)</li>
+            <li>change-number is displayed in change detail panel</li>
+            <li>new action to copy change-id in list</li>
+            <li>"git review" like checkout (check-out action automatically creates a named branch)</li>
+            <li>improved focus handling of comment dialog
+            (comments are not loosed anymore in some cases when focus is loosed; text field is focused when opened)</li>
+            <li>fix for Gerrit >= 2.10: fix display of account information (list, change details)</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.9.3</li>
+          <ul>
+            <li>add action to checkout selected change</li>
+            <li>show notification balloons again (review notification, errors)</li>
+            <li>fix keyboard navigation in change list</li>
+          </ul>
+          <li>0.9.2</li>
+          <ul>
+            <li>password settings / safe fixes</li>
+            <li>fix compatibility with latest IDEA 14 EAP</li>
+            <li>alternative branch push doesn't respect manual change</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.1</li>
+          <ul>
+            <li>lazily load changes list (25 changes initially; more will be loaded when you scroll down)</li>
+            <li>fix file comments when using IntelliJ on MS Win</li>
+            <li>order file comments according to date in diff viewer</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.9.0</li>
+          <ul>
+            <li>add support to select patch sets in grid</li>
+            <li>show commit message as a file in changes browser</li>
+            <li>add support to select diff base in change browser (patch sets can be diffed against each other)</li>
+            <li>show comments and comment drafts count in changes browser</li>
+            <li>save draft comments in Gerrit (available now after IntelliJ restart and in web UI)</li>
+            <li>improve notification and error handling for review and submit action</li>
+            <li>find Git repository if Git remote name equals Gerrit project name</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.8.1</li>
+          <ul>
+            <li>improve usability for file comments (add, reply, edit)</li>
+            <li>new editor with preview for file comments</li>
+            <li>add option to not send notification mails in review dialog</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.8.0</li>
+          <ul>
+            <li>add support for range comments (visible in "new" Gerrit Web UI)</li>
+            <li>fix handling of comma separated user names in push dialog</li>
+            <li>improve HTTP proxy handling</li>
+            <li>improve SSL certificate handling (support for IntelliJ 13.1 certificate manager,
+            certificates signed by an untrusted authority)</li>
+            <li>fix handling when Gerrit url and git remote url are not equal</li>
+            <li>major refactoring</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.7.0</li>
+          <ul>
+            <li>add settings in push dialog (allows to push to Gerrit without modifying remote branch;
+            can be activated by default in plugin settings)</li>
+            <li>action to abandon a change</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.6.2</li>
+          <ul>
+            <li>improve review comment dialog (editor with spell-checking, better size, preview)</li>
+            <li>better display of comment (properly display multi-line and formatted comments)</li>
+            <li>show review status (and CC'ed reviewers) in change detail panel</li>
+            <li>fix possible indefinite HTTP request loop (in case of Gerrit server errors)</li>
+            <li>minor fixes and improvements</li>
+          </ul>
+          <li>0.6.1</li>
+          <ul>
+            <li>fix issues with multiple windows (projects)</li>
+            <li>fix Gerrit checkout in case of empty settings</li>
+            <li>improve icons (hi-dpi ready)</li>
+            <li>add custom error handler: you can report exceptions now directly from IDE</li>
+          </ul>
+          <li>0.6</li>
+          <ul>
+            <li>support for starring changes (show in list and set / unset icon)</li>
+            <li>use IntelliJ action infrastructure more consistently (allows user configuration like keyboard shortcut)</li>
+            <li>add support for anonymous (readonly; useful for e.g. Android and Gerrit development instances
+            where REST API authentication is not supported yet)</li>
+            <li>fixed more ssl issues (port from commons-httpclient v3 to apache.httpcomponents v4)</li>
+            <li>add support for file comments on both sides (parent and revision)</li>
+            <li>set file review status to reviewed when opening files in diff viewer </li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.5</li>
+          <ul>
+            <li>display code review and verified status in list</li>
+            <li>show comments (and actions) in change detail panel</li>
+            <li>add filters for changes list (fulltext, status, branch, owner, reviewer, starred changes)</li>
+            <li>asynchronously load data from Gerrit (UI does not block anymore when connection is slow)</li>
+            <li>improve review notifications (show after start even when Gerrit tool window is not open)</li>
+            <li>add setting to show all changes (instead of changes from current project only)</li>
+            <li>fix remembering self-signed certs</li>
+            <li>fix for self signed ssl connections</li>
+            <li>remove fetch action from user-interface (no real use-case for it)</li>
+            <li>internal: migrate to Google Guice for dependency management (major refactoring)</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.4.1</li>
+          <ul>
+            <li>performance improvement (reduced HTTP transfer sizes)</li>
+            <li>add support for HTTPS servers on non-default port with self-signed certs</li>
+            <li>fix timezone handling</li>
+            <li>improve HTTP authentication flow (again!) (everyone who had authentication issues should try again)</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.4.0</li>
+          <ul>
+            <li>improve HTTP authentication flow (everyone who had authentication issues should try again)</li>
+            <li>set up Gerrit commit message hook after checkout (now you can checkout and set up Gerrit projects without any command line command)</li>
+            <li>allow shortcuts for actions</li>
+            <li>fix for Gerrit instances not running on root (e.g. example.com/r) of domain (thanks to magnayn)</li>
+            <li>fix for working with multiple IntelliJ windows at the same time</li>
+            <li>many minor fixes and improvements</li>
+          </ul>
+          <li>0.3.1</li>
+          <ul>
+            <li>fix for projects containing '/' (slash) in their name</li>
+          </ul>
+          <li>0.3.0</li>
+          <ul>
+            <li>add support for multi-VCS projects</li>
+            <li>improve error-handling</li>
+            <li>add IntelliJ 13 EAP support</li>
+          </ul>
+          <li>0.2.0</li>
+          <ul>
+            <li>add support for file based comments (view and add) (Gerrit 2.7 or newer only)</li>
+            <li>better error messages (e.g. connection and authentication errors)</li>
+          </ul>
+        </ul>
+      </p>
+      ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="146.939" until-build="203.4818.26"/>
+  <!--
+    IntelliJ IDEA 2020.3
+    ================
+    PopupHandler.installPopupHandler since 203.4818.26
+
+    IntelliJ IDEA 2016.2
+    ================
+    Broken binary compatibility because of changed return type, ShowDiffAction ChangesBrowserBase#getDiffAction -> AnAction ChangesBrowserBase#getDiffAction, 32e562fd2359fc8e771ef6b5ef09bf835389dc36
+
+    IntelliJ IDEA 15
+    ================
+    Rename FilePathImpl to LocalFilePath idea/142.2092 (appcode/142.2087), 413e49df6e531e322257af412d10dd242ce88a24
+    Git#checkout: "detach" argument added: 412c994231e73b5aca3709d8283f07add63532eb
+    OnesideDiffTool -> UnifiedDiffTool: 47fe99b0758fd75db03a4a23bd7dcb8e2f497ffd
+    UntrackedFilesNotifier -> GitUntrackedFilesHelper: 5bbd472c84cab28c49b2c479a9a5b37f4ca1df3a
+
+    IntelliJ IDEA 14.1
+    ================
+    Diff-viewer refactoring: idea/140.2285
+
+    IntelliJ IDEA 14
+    ================
+    Package jgit got removed in 91c86c379955c0c41a88908e85b4afa3adfeee52 (idea/138.775)
+    GitHttpAuthDataProvider#forgetPassword got added in 85cad871d3678c02b22ce20398e16fecdbdba017 (idea/136.1681)
+    UntrackedFilesNotifier#notifyUntrackedFilesOverwrittenBy got changed in 752bbd86726fb43fae1a77892b296453b186f2e5 (idea/138.874)
+
+    IntelliJ IDEA 13
+    ================
+    Class GitCommit got renamed to GitHeavyCommit in 05f0c7e7bc87af7bf8500eda9cc2308fd07ec4dd
+    GitHeavyCommit got deprecated in d9476d7ef1d1a1f331f77795c0e3c5d9e1a22f41
+    new GitCommit got introduced in d9476d7ef1d1a1f331f77795c0e3c5d9e1a22f41
+    Follows: appcode/130.826, idea/130.827, idea/130.828, phpstorm/130.830, pycharm/130.829, rubymine/130.832, webstorm/130.831
+  -->
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends>Git4Idea</depends>
+
+  <application-components>
+    <component>
+      <implementation-class>com.urswolfer.intellij.plugin.gerrit.push.GerritPushExtension$Proxy</implementation-class>
+    </component>
+  </application-components>
+
+  <project-components>
+    <component>
+      <interface-class>com.intellij.openapi.components.ProjectComponent</interface-class>
+      <implementation-class>com.urswolfer.intellij.plugin.gerrit.ui.GerritUpdatesNotificationComponent$Proxy</implementation-class>
+    </component>
+  </project-components>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <checkoutProvider implementation="com.urswolfer.intellij.plugin.gerrit.extension.GerritCheckoutProvider$Proxy"/>
+    <applicationService serviceInterface="com.urswolfer.intellij.plugin.gerrit.GerritSettings"
+                        serviceImplementation="com.urswolfer.intellij.plugin.gerrit.GerritSettings"/>
+    <vcsConfigurableProvider implementation="com.urswolfer.intellij.plugin.gerrit.ui.GerritSettingsConfigurable$Proxy"/>
+
+    <toolWindow id="Gerrit" icon="/icons/gerrit_13x13.png" anchor="bottom"
+                factoryClass="com.urswolfer.intellij.plugin.gerrit.ui.GerritToolWindowFactory"/>
+    <projectService serviceInterface="com.urswolfer.intellij.plugin.gerrit.ui.GerritToolWindowFactory$ProjectService"
+                    serviceImplementation="com.urswolfer.intellij.plugin.gerrit.ui.GerritToolWindowFactory$ProjectService" />
+    <diff.DiffTool implementation="com.urswolfer.intellij.plugin.gerrit.ui.diff.CommentsDiffTool$Proxy"/>
+
+    <errorHandler implementation="com.urswolfer.intellij.plugin.gerrit.errorreport.PluginErrorReportSubmitter"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="Git4Idea">
+    <GitHttpAuthDataProvider implementation="com.urswolfer.intellij.plugin.gerrit.extension.GerritHttpAuthDataProvider$Proxy"/>
+  </extensions>
+
+  <actions>
+    <group id="Gerrit.Toolbar">
+      <separator/>
+    </group>
+
+    <group id="Gerrit.ListPopup">
+      <separator/>
+    </group>
+
+    <action id="Gerrit.CompareBranch" text="Compare with Branch"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.CompareBranchAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="first"/>
+    </action>
+    <action id="Gerrit.CheckoutAction" text="Checkout"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.CheckoutAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.CompareBranch"/>
+    </action>
+    <action id="Gerrit.CherryPick" text="Cherry-Pick (No Commit)"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.CherryPickAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.CheckoutAction"/>
+    </action>
+    <action id="Gerrit.Star" text="Star"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.StarAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.CherryPick"/>
+    </action>
+    <action id="Gerrit.AddReviewers" text="Add Reviewers"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.AddReviewersAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Star"/>
+    </action>
+    <action id="Gerrit.Publish" text="Publish Draft"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.PublishAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.AddReviewers"/>
+    </action>
+    <action id="Gerrit.Delete" text="Delete Draft"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.DeleteAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Publish"/>
+    </action>
+    <group id="Gerrit.Review" text="Review"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.ReviewActionGroup$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Delete"/>
+    </group>
+    <action id="Gerrit.Submit" text="Submit"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.SubmitAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Review"/>
+    </action>
+    <action id="Gerrit.Abandon" text="Abandon"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.AbandonAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Submit"/>
+    </action>
+    <action id="Gerrit.Copy" text="Copy Change-ID"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.CopyChangeIdAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="after" relative-to-action="Gerrit.Abandon"/>
+    </action>
+    <action id="Gerrit.OpenInBrowser" text="Open in Gerrit"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.OpenInBrowserAction$Proxy">
+      <add-to-group group-id="Gerrit.ListPopup" anchor="last"/>
+    </action>
+
+    <action id="Gerrit.Refresh" text="Refresh"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.RefreshAction$Proxy">
+      <add-to-group group-id="Gerrit.Toolbar" anchor="first"/>
+    </action>
+    <action id="Gerrit.Settings" text="Settings"
+            class="com.urswolfer.intellij.plugin.gerrit.ui.action.SettingsAction$Proxy">
+      <add-to-group group-id="Gerrit.Toolbar" anchor="last"/>
+    </action>
+    <!-- this is just an action to test error reporting - do not enable!
+    <action id="Gerrit.ThrowTestExceptionAction" text="Throw Test Exception"
+            class="com.urswolfer.intellij.plugin.gerrit.errorreport.ThrowTestExceptionAction">
+      <add-to-group group-id="Gerrit.Toolbar" anchor="before" relative-to-action="Gerrit.Settings"/>
+    </action-->
+  </actions>
+</idea-plugin>
