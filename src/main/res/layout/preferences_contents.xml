@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/pref_title_general_settings" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <CheckBox
+            android:id="@+id/pref_share_image"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_share_image" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/pref_title_application_settings" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <CheckBox
+            android:id="@+id/pref_force_landscape"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_force_landscape" />
+
+        <CheckBox
+            android:id="@+id/pref_reverse_landscape"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_reverse_landscape" />
+
+        <CheckBox
+            android:id="@+id/pref_force_dark_background"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_force_dark_background" />
+
+        <CheckBox
+            android:id="@+id/pref_open_at_latest_strip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_open_at_latest_strip" />
+
+        <CheckBox
+            android:id="@+id/pref_hide_toolbars"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_hide_toolbars" />
+
+        <TextView
+            android:id="@+id/pref_default_zoom_level"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/pref_default_zoom_level" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/pref_title_widget_settings" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <CheckBox
+            android:id="@+id/pref_widget_always_latest"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_widget_always_latest" />
+
+        <CheckBox
+            android:id="@+id/pref_widget_show_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/pref_widget_show_title" />
+
+        <LinearLayout
+            android:id="@+id/pref_download_path_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/pref_download_path" />
+
+            <TextView
+                android:id="@+id/pref_download_path"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+        </LinearLayout>
+
+        <include layout="@layout/horizontal_divider" />
+
+        <Button
+            android:id="@+id/pref_export_urls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/export_cached_urls"/>
+
+        <include layout="@layout/horizontal_divider" />
+
+        <TextView
+            android:id="@+id/pref_show_license"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/pref_show_license" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <TextView
+            android:id="@+id/app_author"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/about_contents" />
+    </LinearLayout>
+
+</merge>

@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="AppThemeLight" parent="@style/Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="AppThemeDark" parent="@style/Base.Theme.AppCompat">
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string name="menu_datepicker">Datum auswählen</string>
+    <string name="about_contents">von Marek Sebera 2013–2015, marek@msebera.cz</string>
+    <string name="cd_dilbert_image">Dilbert</string>
+    <string name="loading_exception_error">Dilbert.com ist nicht verfügbar. Laden fehlgeschlagen.</string>
+    <string name="menu_latest">Neueste anzeigen</string>
+    <string name="menu_oldest">Älteste anzeigen</string>
+    <string name="menu_refresh">Aktualisieren</string>
+    <string name="download_manager_unsupported">Auf diesem Gerät nicht unterstützt</string>
+    <string name="menu_download">Aktuelles Bild speichern</string>
+    <string name="menu_favorite_add">Als Favorit markieren</string>
+    <string name="menu_favorite_remove">Nicht mehr als Favorit markieren</string>
+    <string name="menu_show_favorite">Favoriten anzeigen</string>
+    <string name="menu_zoom">Zoom</string>
+    <string name="toast_no_favorites">Sie haben keine Lieblingsstrips</string>
+    <string name="menu_random">Zufällig</string>
+    <string name="share_chooser">Dilbert Comics teilen</string>
+    <string name="menu_share">Dies teilen</string>
+    <string name="widget_cd_next">Nächstes</string>
+    <string name="widget_cd_latest">Neueste</string>
+    <string name="widget_cd_previous">Vorheriges</string>
+    <string name="widget_cd_random">Zufällig</string>
+    <string name="title_preferences">Einstellungen</string>
+    <string name="pref_force_landscape">Ausrichtung im Querformat erzwingen</string>
+    <string name="pref_reverse_landscape">Reverse-Querformat</string>
+    <string name="pref_force_dark_background">Dunkle Hintergründe verwenden</string>
+    <string name="pref_hide_toolbars">Werkzeugleisten standardmäßig verbergen</string>
+    <string name="pref_show_license">Softwarelizenz anzeigen</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="pref_download_path">Download-Zielordner:</string>
+    <string name="pref_share_image">Nicht Bild, sondern nur einen Link teilen</string>
+    <string name="menu_open_at">Öffnen an diesem Tag</string>
+    <string name="folder_picker_cannot_write">Aktueller Ordner ist nicht beschreibbar</string>
+    <string name="folder_picker_select_this">Wählen Sie diesen Ordner</string>
+    <string name="folder_picker_show_hidden">Versteckte Dateien anzeigen</string>
+    <string name="folder_picker_show_files">Dateien anzeigen</string>
+    <string name="folder_picker_go_to_default">Zur Standard-Ordner</string>
+    <string name="folder_picker_cannot_open">Kann nicht geöffnet werden Ordner</string>
+    <string name="pref_open_at_latest_strip">Immer auf den neuesten Streifen öffnen</string>
+    <string name="pref_widget_always_latest">Widget zeigen immer neuesten Streifen</string>
+    <string name="pref_title_general_settings">General Settings</string>
+    <string name="pref_title_application_settings">Application Settings</string>
+    <string name="pref_title_widget_settings">Widgets Settings</string>
+    <string name="menu_open_in_browser">Browser öffnen</string>
+    <string name="pref_default_zoom_level">Standard-Zoomstufe</string>
+    <string name="menu_show_offline">Browsen Sie offline</string>
+
+</resources>

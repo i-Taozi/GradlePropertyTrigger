@@ -1,0 +1,50 @@
+<resources>
+
+    <string name="menu_datepicker">Vybrat datum</string>
+    <string name="about_contents">Aplikaci vytvořil Marek Sebera 2013–2015, marek@msebera.cz</string>
+    <string name="cd_dilbert_image">Dilbert</string>
+    <string name="loading_exception_error">Dilbert.com není dostupná. Načítání selhalo.</string>
+    <string name="menu_latest">Zobraz nejnovější</string>
+    <string name="menu_oldest">Zobraz nejstarší</string>
+    <string name="menu_refresh">Aktualizovat</string>
+    <string name="download_manager_unsupported">Váš telefon nepodporuje ukládání obrázků</string>
+    <string name="menu_download">Uložit do telefonu</string>
+    <string name="menu_favorite_add">Přidat do oblíbených</string>
+    <string name="menu_favorite_remove">Odebrat z oblíbených</string>
+    <string name="menu_show_favorite">Zobrazit oblíbené</string>
+    <string name="menu_zoom">Zvětšit</string>
+    <string name="toast_no_favorites">Nemáte žádné oblíbené</string>
+    <string name="menu_random">Náhodný díl</string>
+    <string name="share_chooser">Sdílet komiks Dilbert</string>
+    <string name="menu_share">Sdílet</string>
+    <string name="title_preferences">Nastavení</string>
+    <string name="pref_force_landscape">Vynutit horizontální zobrazení</string>
+    <string name="pref_reverse_landscape">Invertovat horizontální zobrazení</string>
+    <string name="pref_force_dark_background">Použít tmavé zobrazení</string>
+    <string name="pref_hide_toolbars">Skrývat lišty</string>
+    <string name="pref_show_license">Zobrazit softwarovou licenci</string>
+    <string name="menu_settings">Nastavení</string>
+    <string name="pref_download_path">Adresář pro stahování:</string>
+    <string name="pref_share_image">Nesdílet obrázek, pouze odkaz</string>
+    <string name="widget_cd_next">Další</string>
+    <string name="widget_cd_latest">Nejnovější</string>
+    <string name="widget_cd_previous">Předchozí</string>
+    <string name="widget_cd_random">Náhodný</string>
+    <string name="menu_open_at">Otevřít tento díl</string>
+    <string name="folder_picker_cannot_write">Adresář není zapisovatelný</string>
+    <string name="folder_picker_select_this">Vybrat aktuální adresář</string>
+    <string name="folder_picker_show_hidden">Zbrazit skryté soubory</string>
+    <string name="folder_picker_show_files">Zobrazit soubory</string>
+    <string name="folder_picker_go_to_default">Přejít na výchozí adresář</string>
+    <string name="folder_picker_cannot_open">Adresář nelze otevřít</string>
+    <string name="pref_open_at_latest_strip">Vždy otevřít na posledním komiks</string>
+    <string name="pref_widget_always_latest">Ukázat vždy poslední komiks</string>
+    <string name="pref_title_general_settings">Obecná nastavení</string>
+    <string name="pref_title_application_settings">Nastavení aplikace</string>
+    <string name="pref_title_widget_settings">Nastavení widgetů</string>
+    <string name="menu_open_in_browser">Webový prohlížeč</string>
+    <string name="pref_default_zoom_level">Základní zvětšení</string>
+    <string name="menu_show_offline">Zobrazit offline</string>
+
+
+</resources>

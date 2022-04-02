@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string name="menu_datepicker">Choisir une date</string>
+    <string name="about_contents">Conçu par Marek Sebera 2013–2015</string>
+    <string name="cd_dilbert_image">Dilbert</string>
+    <string name="loading_exception_error">Dilbert.com n\'est pas disponible. Échec du chargement.</string>
+    <string name="menu_latest">Afficher le plus récent</string>
+    <string name="menu_oldest">Afficher le plus ancien</string>
+    <string name="menu_refresh">Actualiser</string>
+    <string name="download_manager_unsupported">Non supporté sur cet appareil</string>
+    <string name="menu_download">Sauvegarder l\'image actuelle</string>
+    <string name="menu_favorite_add">Favoris</string>
+    <string name="menu_favorite_remove">Retirer des favoris</string>
+    <string name="menu_show_favorite">Afficher les favoris</string>
+    <string name="menu_zoom">Zoomer</string>
+    <string name="toast_no_favorites">Vous n\'avez pas de strip favoris</string>
+    <string name="menu_random">Au hasard</string>
+    <string name="share_chooser">Partager les bandes dessinées Dilbert</string>
+    <string name="menu_share">Partager ça</string>
+    <string name="widget_cd_next">Suivant</string>
+    <string name="widget_cd_latest">Plus récent</string>
+    <string name="widget_cd_previous">Précédent</string>
+    <string name="widget_cd_random">Au hasard</string>
+    <string name="title_preferences">Préférences</string>
+    <string name="pref_force_landscape">Forcer l\'orientation paysage</string>
+    <string name="pref_reverse_landscape">Inverser l\'orientation paysage</string>
+    <string name="pref_force_dark_background">Utiliser des arrières-plans foncés</string>
+    <string name="pref_hide_toolbars">Cacher les barres d\'outils par défaut</string>
+    <string name="pref_show_license">Afficher la licence de logiciel</string>
+    <string name="menu_settings">Réglages</string>
+    <string name="pref_download_path">Dossier de destination pour les téléchargements:</string>
+    <string name="pref_share_image">Ne pas partager d\'image, seulement l\'URL</string>
+    <string name="menu_open_at">Ouvrir ce jour</string>
+    <string name="folder_picker_cannot_write">Le dossier actuel n\'est pas inscriptible</string>
+    <string name="folder_picker_select_this">Sélectionner ce dossier</string>
+    <string name="folder_picker_show_hidden">Afficher les fichiers cachés</string>
+    <string name="folder_picker_show_files">Afficher les fichiers</string>
+    <string name="folder_picker_go_to_default">Aller dans le dossier par défaut</string>
+    <string name="folder_picker_cannot_open">Impossible d\'ouvrir le dossier</string>
+    <string name="pref_open_at_latest_strip">Toujours ouvrir le dernier strip</string>
+    <string name="pref_widget_always_latest">Le widget montre toujours le dernier strip</string>
+    <string name="pref_title_general_settings">Réglages généraux</string>
+    <string name="pref_title_application_settings">Réglages de l\'application</string>
+    <string name="pref_title_widget_settings">Réglages du widget</string>
+    <string name="menu_open_in_browser">Ouvrir le navigateur</string>
+    <string name="pref_default_zoom_level">Choisir le niveau de zoom par défaut</string>
+    <string name="menu_show_offline">Naviguer hors connexion</string>
+
+</resources>
