@@ -1,0 +1,62 @@
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.artifactory'
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			pom {
+				afterEvaluate {
+					name = project.description
+					description = project.description
+				}
+				url = 'https://github.com/spring-projects/spring-integration-kafka'
+				organization {
+					name = 'Spring IO'
+					url = 'https://spring.io/projects/spring-integration'
+				}
+				licenses {
+					license {
+						name = 'Apache License, Version 2.0'
+						url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution = 'repo'
+					}
+				}
+				scm {
+					url = 'https://github.com/spring-projects/spring-integration-kafka'
+					connection = 'https://github.com/spring-projects/spring-integration-kafka.git'
+					developerConnection = 'git@github.com:spring-projects/spring-integration-kafka.git'
+				}
+				developers {
+					developer {
+						id = 'abilan'
+						name = 'Artem Bilan'
+						email = 'abilan@pivotal.io'
+						roles = ["project lead"]
+					}
+					developer {
+						id = 'garyrussell'
+						name = 'Gary Russell'
+						email = 'grussell@pivotal.io'
+						roles = ["project lead emeritus"]
+					}
+				}
+				issueManagement {
+					system = 'GitHub'
+					url = 'https://github.com/spring-projects/spring-integration-kafka/issues'
+				}
+			}
+			versionMapping {
+				usage('java-api') {
+					fromResolutionResult()
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+		}
+	}
+}
+
+artifactoryPublish {
+	publications(publishing.publications.mavenJava)
+}

@@ -1,0 +1,355 @@
+buildscript {
+	ext.kotlinVersion = '1.3.72'
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+		classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+	}
+}
+
+plugins {
+	id 'java'
+	id 'eclipse'
+	id 'idea'
+	id 'jacoco'
+	id 'org.sonarqube' version '2.8'
+	id 'checkstyle'
+	id 'org.ajoberstar.grgit' version '4.0.2'
+	id 'com.jfrog.artifactory' version '4.15.2' apply false
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+description = 'Spring Integration Kafka Support'
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+
+java {
+	withJavadocJar()
+	withSourcesJar()
+}
+
+apply from: "${rootProject.projectDir}/publish-maven.gradle"
+
+sourceSets {
+	test {
+		resources {
+			srcDirs = ['src/test/resources', 'src/test/java']
+		}
+	}
+}
+
+group = 'org.springframework.integration'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	if (version.endsWith('BUILD-SNAPSHOT')) {
+		maven { url 'https://repo.spring.io/libs-snapshot' }
+	}
+//	maven { url 'https://repo.spring.io/libs-staging-local' }
+}
+
+compileJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+compileTestKotlin {
+	kotlinOptions {
+		jvmTarget = '1.8'
+	}
+}
+
+ext {
+	assertkVersion = '0.23'
+	googleJsr305Version = '3.0.2'
+	jacksonVersion = '2.11.4'
+	junitJupiterVersion = '5.6.3'
+	log4jVersion = '2.13.3'
+	springIntegrationVersion = '5.3.7.RELEASE'
+	springKafkaVersion = '2.5.13.RELEASE'
+
+	idPrefix = 'kafka'
+
+	linkHomepage = 'https://github.com/spring-projects/spring-integration-kafka'
+	linkCi = 'https://build.spring.io/browse/INTEXT'
+	linkIssue = 'https://github.com/spring-projects/spring-integration-kafka/issues'
+	linkScmUrl = 'https://github.com/spring-projects/spring-integration-kafka'
+	linkScmConnection = 'https://github.com/spring-projects/spring-integration-kafka.git'
+	linkScmDevConnection = 'git@github.com:spring-projects/spring-integration-kafka.git'
+
+	modifiedFiles =
+			files(grgit.status().unstaged.modified).filter{ f -> f.name.endsWith('.java') || f.name.endsWith('.kt') }
+}
+
+dependencyManagement {
+	resolutionStrategy {
+		cacheChangingModulesFor 0, 'seconds'
+	}
+	applyMavenExclusions = false
+	generatedPomCustomization {
+		enabled = false
+	}
+	imports {
+		mavenBom "com.fasterxml.jackson:jackson-bom:$jacksonVersion"
+		mavenBom "org.junit:junit-bom:$junitJupiterVersion"
+		mavenBom "org.springframework.integration:spring-integration-bom:$springIntegrationVersion"
+	}
+}
+
+
+eclipse.project.natures += 'org.springframework.ide.eclipse.core.springnature'
+
+jacoco {
+	toolVersion = '0.8.5'
+}
+
+dependencies {
+	compileOnly "com.google.code.findbugs:jsr305:$googleJsr305Version"
+	api 'org.springframework.integration:spring-integration-core'
+	api "org.springframework.kafka:spring-kafka:$springKafkaVersion"
+
+	testImplementation "org.springframework.kafka:spring-kafka-test:$springKafkaVersion"
+	testImplementation 'org.springframework.integration:spring-integration-test'
+	testImplementation "com.willowtreeapps.assertk:assertk-jvm:$assertkVersion"
+	testImplementation 'org.jetbrains.kotlin:kotlin-reflect'
+	testImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api'
+	testImplementation 'org.scala-lang:scala-library:2.12.11'
+
+	// To avoid compiler warnings about @API annotations in JUnit code
+	testCompileOnly 'org.apiguardian:apiguardian-api:1.0.0'
+
+	testRuntimeOnly 'com.fasterxml.jackson.core:jackson-core'
+	testRuntimeOnly 'com.fasterxml.jackson.core:jackson-databind'
+	testRuntimeOnly "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// enable all compiler warnings; individual projects may customize further
+[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all,-options']
+
+test {
+	// suppress all console output during testing unless running `gradle -i`
+	logging.captureStandardOutput(LogLevel.INFO)
+	maxHeapSize = '1024m'
+	jacoco {
+		destinationFile = file("$buildDir/jacoco.exec")
+	}
+	useJUnitPlatform()
+}
+
+checkstyle {
+	configDirectory.set(rootProject.file('src/checkstyle'))
+	toolVersion = '8.41.1'
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			suppressAllPomMetadataWarnings()
+			from components.java
+		}
+	}
+}
+
+task updateCopyrights {
+	onlyIf { !System.getenv('TRAVIS') && !System.getenv('bamboo_buildKey') }
+	inputs.files(modifiedFiles)
+	outputs.dir('build')
+
+	doLast {
+		def now = Calendar.instance.get(Calendar.YEAR) as String
+		inputs.files.each { file ->
+			def line
+			file.withReader { reader ->
+				while (line = reader.readLine()) {
+					def matcher = line =~ /Copyright (20\d\d)-?(20\d\d)?/
+					if (matcher.count) {
+						def beginningYear = matcher[0][1]
+						if (now != beginningYear && now != matcher[0][2]) {
+							def years = "$beginningYear-$now"
+							def sourceCode = file.text
+							sourceCode = sourceCode.replaceFirst(/20\d\d(-20\d\d)?/, years)
+							file.write(sourceCode)
+							println "Copyright updated for file: $file"
+						}
+						break
+					}
+				}
+			}
+		}
+	}
+}
+
+compileKotlin.dependsOn updateCopyrights
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination file("${buildDir}/reports/jacoco/html")
+	}
+}
+
+build.dependsOn jacocoTestReport
+
+jar {
+	manifest {
+		attributes(
+				'Implementation-Version': archiveVersion,
+				'Created-By': "JDK ${System.properties['java.version']} (${System.properties['java.specification.vendor']})",
+				'Implementation-Title': project.name,
+				'Implementation-Vendor-Id': project.group,
+				'Implementation-Vendor': 'Pivotal Software, Inc.',
+				'Implementation-URL': linkHomepage,
+				'Automatic-Module-Name': project.name.replace('-', '.')  // for Jigsaw
+		)
+	}
+}
+
+sonarqube {
+	properties {
+		property 'sonar.jacoco.reportPath', "${buildDir.name}/jacoco.exec"
+		property 'sonar.links.homepage', linkHomepage
+		property 'sonar.links.ci', linkCi
+		property 'sonar.links.issue', linkIssue
+		property 'sonar.links.scm', linkScmUrl
+		property 'sonar.links.scm_dev', linkScmDevConnection
+		property 'sonar.java.coveragePlugin', 'jacoco'
+	}
+}
+
+task api(type: Javadoc) {
+	group = 'Documentation'
+	description = 'Generates the Javadoc API documentation.'
+	title = "${rootProject.description} ${version} API"
+	options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PROTECTED
+	options.author = true
+	options.header = rootProject.description
+	options.overview = 'src/api/overview.html'
+
+	source = sourceSets.main.allJava
+	classpath = project.sourceSets.main.compileClasspath
+	destinationDir = new File(buildDir, 'api')
+}
+
+task schemaZip(type: Zip) {
+	group = 'Distribution'
+	archiveClassifier = 'schema'
+	description = "Builds -${archiveClassifier} archive containing all " +
+			"XSDs for deployment at static.springframework.org/schema."
+
+	def Set files = new HashSet()
+	def Properties schemas = new Properties();
+	def shortName = idPrefix.replaceFirst("${idPrefix}-", '')
+
+	project.sourceSets.main.resources.find {
+		it.path.endsWith("META-INF${File.separator}spring.schemas")
+	}?.withInputStream { schemas.load(it) }
+
+	for (def key : schemas.keySet()) {
+		File xsdFile = project.sourceSets.main.resources.find {
+			it.path.replaceAll('\\\\', '/').endsWith(schemas.get(key))
+		}
+		assert xsdFile != null
+		if (!files.contains(xsdFile.path)) {
+			into ("integration/${shortName}") {
+				from xsdFile.path
+				rename { String fileName ->
+					String[] versionNumbers = project.version.split(/\./, 3)
+					fileName.replace('.xsd', "-${versionNumbers[0]}.${versionNumbers[1]}.xsd")
+				}
+			}
+			files.add(xsdFile.path)
+		}
+	}
+
+}
+
+task docsZip(type: Zip) {
+	group = 'Distribution'
+	archiveClassifier = 'docs'
+	description = "Builds -${archiveClassifier} archive containing api " +
+			"for deployment at static.spring.io/spring-integration/docs."
+
+	from('src/dist') {
+		include 'changelog.txt'
+	}
+
+	from(api) {
+		into 'api'
+	}
+}
+
+task distZip(type: Zip, dependsOn: [docsZip, schemaZip]) {
+	group = 'Distribution'
+	archiveClassifier = 'dist'
+	description = "Builds -${archiveClassifier} archive, containing all jars and docs, " +
+			"suitable for community download page."
+
+	ext.baseDir = "${project.name}-${project.version}";
+
+	from('src/dist') {
+		include 'readme.txt'
+		include 'license.txt'
+		include 'notice.txt'
+		into "${baseDir}"
+	}
+
+	from(zipTree(docsZip.archiveFile)) {
+		into "${baseDir}/docs"
+	}
+
+	from(zipTree(schemaZip.archiveFile)) {
+		into "${baseDir}/schema"
+	}
+
+	into("${baseDir}/libs") {
+		from project.jar
+		from project.sourcesJar
+		from project.javadocJar
+	}
+}
+
+// Create an optional "with dependencies" distribution.
+// Not published by default; only for use when building from source.
+task depsZip(type: Zip, dependsOn: distZip) { zipTask ->
+	group = 'Distribution'
+	archiveClassifier = 'dist-with-deps'
+	description = "Builds -${archiveClassifier} archive, containing everything " +
+			"in the -${distZip.archiveClassifier} archive plus all dependencies."
+
+	from zipTree(distZip.archiveFile)
+
+	gradle.taskGraph.whenReady { taskGraph ->
+		if (taskGraph.hasTask(":${zipTask.name}")) {
+			def projectName = rootProject.name
+			def artifacts = new HashSet()
+
+			rootProject.configurations.runtime.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+				def dependency = artifact.moduleVersion.id
+				if (!projectName.equals(dependency.name)) {
+					artifacts << artifact.file
+				}
+			}
+
+			zipTask.from(artifacts) {
+				into "${distZip.baseDir}/deps"
+			}
+		}
+	}
+}
+
+artifacts {
+	archives distZip
+	archives docsZip
+	archives schemaZip
+}
+
+task dist(dependsOn: assemble) {
+	group = 'Distribution'
+	description = 'Builds -dist, -docs and -schema distribution archives.'
+}
