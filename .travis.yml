@@ -78,4 +78,4 @@ notifications:
     on_success: change
     on_failure: always
 branches:
-  only: [TestFX/TestFX-735-origin]
+  only: [TestFX/TestFX-735-FILE_SYSTEM_WATCHING]
