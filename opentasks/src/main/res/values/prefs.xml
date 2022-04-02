@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="opentasks_pref_notification_enabled"
+            translatable="false">opentasks_pref_notification_enabled</string>
+
+    <string name="opentasks_pref_notification_sound"
+            translatable="false">opentasks_pref_notification_sound</string>
+
+    <string name="opentasks_pref_notification_vibrate"
+            translatable="false">opentasks_pref_notification_vibrate</string>
+
+    <string name="opentasks_pref_notification_lights"
+            translatable="false">opentasks_pref_notification_lights</string>
+
+    <string name="opentasks_pref_appearance_list_show_priority"
+            translatable="false">opentasks_pref_list_show_priority</string>
+
+    <string name="opentasks_pref_appearance_list_description_lines"
+            translatable="false">opentasks_pref_list_description_lines</string>
+
+    <string name="opentasks_pref_appearance_check_list_summary"
+            translatable="false">opentasks_pref_check_list_status</string>
+
+    <string name="opentasks_pref_appearance_progress_gradient"
+            translatable="false">opentasks_pref_progress_gradient</string>
+
+    <string name="opentasks_pref_appearance_system_theme"
+            translatable="false">opentasks_pref_system_theme</string>
+
+    <string name="opentasks_pref_appearance_dark_theme"
+            translatable="false">opentasks_pref_dark_theme</string>
+
+</resources>

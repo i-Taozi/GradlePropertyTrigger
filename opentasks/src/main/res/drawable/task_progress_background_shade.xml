@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                    android:angle="180"
+                    android:centerColor="?attr/opentasks_progress_gradient_start_color"
+                    android:endColor="?attr/opentasks_progress_gradient_start_color"
+                    android:startColor="?attr/opentasks_progress_gradient_end_color" />
+        </shape>
+    </item>
+
+</layer-list>
