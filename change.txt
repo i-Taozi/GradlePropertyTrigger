@@ -1,0 +1,337 @@
+Change log for DDogleg Numerics
+
+Date Format: YEAR-MONTH-DAY
+
+------------------------------------------------------
+Version:  0.21
+Date:     2022
+
+- FastArray
+  * Added resetReserve()
+
+------------------------------------------------------
+Version:  0.20
+Date:     2021-07-07
+
+- Updated for changes in EJML's API
+- K-Means
+  * Updated to be data type agnostic
+  * Designed to handle potentially very large sets of data
+- DogArray_**
+  * getTail(), setTail(idx,value)
+- DogArray<T>
+  * Added an initializer function
+- BigDogArray_**
+  * For when a regular dog isn't sufficient
+  * Does not use a single very large array internally
+  * This scales much better as array size gets very very large
+- PrimitiveArrays
+  * Added minIdx(), maxIdx(), sumD(), intersection(), union()
+  * Fixed how min/max was being computed. Thanks the-widmore for reporting and showing the fix!
+- ModelMatcher
+  * Created ModelMatcherPost that let's you specify the model after creation
+  * Concurrent implementations of RANSAC and LeastMedianOfSquares
+- Added QuickSortComparable
+- QuickSort
+  * Now can have an offset
+
+------------------------------------------------------
+Version:  0.19
+Date:     2020-12-19
+
+- Updated to Java 11 syntax but generates Java 8 byte code
+- Concurrency
+  * Added DDoglegConcurrency for controlling threads and turning it on and off
+  * Default is off
+  * Only HessianSchurComplement_DSCC is threaded at the moment
+- GrowQueue -> renamed to DogArray_TYPE
+  * Added resize( size , defaultValue )
+  * Added count( value )
+  * Added forIdx( idx, value )
+  * Added applyIdx( idx, value ) -> value
+  * Added removeSwap( idx )
+  * Added setTo(...)
+  * Added toArray()
+  * Added isEquals(...)
+  * Renamed setMaxSize() to reserve(). This matches more commonly used terms and tweaked behavior to match.
+- FastArray
+  * added remove(object)
+  * added forEach(lambda)
+  * Renamed growArray() to reserve()
+- FastAccess
+  * Moved functions into this that should have been here originally
+  * Added find(), findIdx(), findAll(), findAllIdx()
+- FastQueue is now DogArray
+  * GrowArray was the first choice but that was too common and everyone likes dogs
+- RANSAC
+  * When selecting an inlier set it will abort if there's no possible way it can do better than the best set
+- SchurComplement
+  * Swapped out inefficient sparse matrix multiplication functions greatly increasing the speed
+- QuickSortComparator
+  * Added function to sort List
+- DogLinkedList
+  * Fixed generics issue
+  * Added functions for getting the value of first and last elements
+  * previous is now prev to make formatting code easier as it's the same length as next.
+
+------------------------------------------------------
+Version:  0.18
+Date:     2020/May/15
+
+- Updated Gradle
+- QuickSort can now sort a List at the same time
+- PrimitiveArrays added lowerBound()
+- FastAccess, FastArray, FastQueue
+  * FastArray has external ownership of its elements
+  * FastQueue owns and manages elements in its list
+  * constructor which just takes in the Factory
+  * Can now specify a reset() function
+  * added copyAll() as a way to copy over elements into the list
+  * added removeSwap()
+- ModelMatcher
+  * Added reset() function to return it into its initial state
+- DistanceFromModel
+  * computeDistance() to distance() and distances() to make less verbose
+- GrowQueue
+  * Added getTail()
+
+------------------------------------------------------
+Version:  0.17
+Date:     2019/06/20
+
+- Nearest Neighbor searches can now have the search component parallelized across multiple threads
+  * Changed API to accommodate this feature
+- Fixed bug in GrowQueue dealing with an initialize size of zero.
+- FastQueue
+  * Added shuffle
+  * Added flip and swap
+  * Added remove set of indexes
+- Fixed typecast issue with KdTree
+
+------------------------------------------------------
+Version:  0.16
+Date:     2019/03/13
+
+- Created PrimitiveArrays
+- FastQueue now supports Lambdas in its constructor
+  * This is now the preferred method and the old override will be removed
+- GrowQueue
+  * Added setTo(array,offset,length)
+- FastQueue
+  * Added indexOf()
+- Optimization
+  * Added Dense Schur Complement. Useful when a robust linear solver is needed and not a large problem
+
+------------------------------------------------------
+Version:  0.15.2
+Date:     2018/12/25
+
+- Updated gradle
+- Fixed type-o in DerivativeChecker R variants
+- Added Tuple3, Tuple4
+
+------------------------------------------------------
+Version:  0.15.1
+Date:     2018/10/15
+
+- Fixed bug in KdTreeNearestNeighbor constructor
+
+------------------------------------------------------
+Version:  0.15
+Date:     2018/09/29
+
+- Non-Linear Optimization
+  * Rewrote and redesigned Trust-Region (TR) and Levenberg-Marquardt (LM)
+  * Scaled Hessian for least squares TR and LM
+  * Sparse LM and TR
+  * Schur Decomposition interface with TR and LM implementations
+  * Refactored line search and Quasi Newton
+  * Better verbose mode
+- Added float circular queues
+- GrowQueue
+  * Added contains()
+  * Added remove(a,b)
+  * Added indexOfGreatest() and indexOfLeast()
+- Misc
+  * Added SwapElement
+- Nearest-Neighbor Search
+  * generalized so that any data structure can now be used
+
+------------------------------------------------------
+Version:  0.14
+Date:     2018/06/20
+
+- Added Stoppable
+- Added DDoglegVersion an autogenerated version file
+- Various addition to the API
+
+------------------------------------------------------
+Version:  0.13
+Date:     2018/01/17
+
+- GrowQueue
+  * Created an interface for GrowQueue
+  * Added zero()
+  * Added extend()
+  * Added flip()
+  * Added sort()
+  * Added static function zeros(N)
+  * Added static function array(...)
+- Support for sparse matrix solvers in optimization
+- LeastMedianOfSquares
+  * Can make it optimize for values other than median
+
+------------------------------------------------------
+Version:  0.12
+Date:     2017/09/18
+
+- Refactored for changes in EJML
+- Changed behavior of NearestNeighbor. Search results are now cleared. No idea why it wasn't this way by default...
+
+------------------------------------------------------
+Version:  0.11
+Date:     2017/07/14
+
+- Added getType() functions to ModelMatcher
+- RANSAC now uses a much more efficient sampling method which works well on small and large lists
+  * First useful interview question I've been given!
+- ShellSort now supports multiple primitive data types
+
+------------------------------------------------------
+Version:  0.10
+Date:     2016/11/29
+
+- Added indexOf() to GrowQueue
+
+------------------------------------------------------
+Version:  0.9
+Date:     2016
+
+- Fixed bug in InitializePlusPlus where duplicate points in input set could cause a crash
+  * behavior is now defined
+- Moved Tuple2 into this project
+
+
+------------------------------------------------------
+Version:  0.9
+Date:     2016-01-23
+
+- Added bounds check to GrowQueue.get()
+- Added GrowQueue.unsafe_get()
+- Updated version of EJML
+
+------------------------------------------------------
+Version:  0.8
+Date:     2015-11-07
+
+- Added another variant of QuickSort that uses Comparator
+- Added FastQueue.getTail(index) for getting items relative to the end of the list
+- Added a variant of RecycleManager, RecycleManagerL, which keeps track of the used list
+- Added insert into GrowQueue
+- Added bounds check to GrowQueue.get() and unsafe_get()
+
+------------------------------------------------------
+Version:  0.7
+Date:     2015-09-18
+
+- Moved complex math into the EJML project
+- Added clustering algorithms
+  * k-means
+     - Random initialization
+     - k-means++ initialization
+  * Gaussian Mixture Model
+     - Work in progress... Doesn't work yet in all situations due to overflow issues
+- Created ModelManagerDefault which uses reflections
+  * Assumes no argument constructor and set() function
+- JacobianChecker
+  * Can use a relative fractional error threshold instead of an absolute
+  * Added support for gradient
+  * Renamed to DerivativeChecker
+- QuasiNewtonBFGS
+  * If the initial step is selected poorly it can recover now by selecting one half its size
+  * Can now handle the case where the derivative is zero and gtol is zero.  <= instead of <
+- GrowQueue
+  * Added addAll(array,start,end)
+  * Added removeTail()
+- Created UtilStatisticsQueue for computing statistics from GrowQueues
+- LinkedList
+- Added RecycleManager
+- Fixed Permute
+  * Was completely broken when run on lists larger than what was in the unit test
+
+------------------------------------------------------
+Version:  0.6
+Date:     2014-09-17
+
+- Switched build to Gradle
+- Added CircularQueue
+- QuickSort and QuickSortArray have been combined into one class
+- QuickSort comparable index has been added
+- Fixed a bug in AxisSplitRuleRandomK where is the number of consider was greater than the DOF it would throw
+  an out of bounds exception.
+- Added vantage point tree (VpTree).
+  * Thanks Karel Petránek
+- Fixed bug in KdTreeMemory.recycleGraph().  Didn't check to see if root was null
+
+------------------------------------------------------
+Version:  0.5
+Date:     2014-06-18
+
+- Added missing functions to GrowQueue_*
+- Nearest-neighbor search
+  * Maximum distance is specified as inclusive
+  * Maximum distance is specified as Euclidean squared
+- Added Counting Sort.  Sorts integer valued elements in O(N) time
+- Added approximate sort.  Counting sort for continuous valued data
+- Fixed bug in SturmSequence where it would get stuck in an infinite loop while bounding the roots
+- Tweaked FastQueue so that it is a valid Java Bean
+
+------------------------------------------------------
+Version:  0.4
+Date:     2013-12-26
+
+- Added N nearest-neighbor search.
+  * Modified NearestNeighbor interface
+  * Standard K-D tree
+  * Best-Bin-First K-D tree
+  * Random Forest K-D tree
+- Changed behavior of K-D tree constructor
+  * Empty leafs will be null instead of identical to the parent.  Duplicate data caused problems when searching
+    for the N nearest-neighbors
+- Refactored and tweaked documentation for ModelMatcher
+- Added ModelMatcherMulti
+  * Can be given different types of models to fit the data to
+  * RansacMulti added and only implementation of it so far
+- Added graph related data structure
+- Created ModelManager for making new instances and copying a model
+  * removed similar functions from ModelGenerator and ModelFitter
+- Added UtilOptimize.step() and changed behavior of UtilOptimize.process()
+- Added forwards + backwards numerical differentiation
+- Added remove(index)
+  * FastQueue and GrowQueue*
+- Renamed some optimization functions for getting size of input and output.  Less confusing now.
+
+------------------------------------------------------
+Version:  0.3
+Date:     2013-04-10
+
+- Added QuickSort_S32
+
+------------------------------------------------------
+Version:  0.2
+Date:     2013-02-16
+
+- Added Nearest-Neighbor Search
+ * Exhaustive
+ * K-D Trees
+ * K-D Random Forests
+- FindRealRootsSturm
+ * Fixed bug where it incorrectly handled the case when the max iterations has been exceeded and no roots were found
+ * Better handling of contradictory number of real roots
+
+------------------------------------------------------
+Version:  0.1
+Date:     2012-11-26
+
+- Initial public release
+- Code from other projects and cleaned up

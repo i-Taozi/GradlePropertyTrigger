@@ -1,0 +1,473 @@
+%% Template for ENG 401 reports
+%% by Robin Turner
+%% Adapted from the IEEE peer review template
+
+%
+% note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+
+% \documentclass[peerreview,onecolumn]{IEEEtran}
+\documentclass[peerreview,compsoc,onecolumn]{IEEEtran} 
+\usepackage[noadjust]{cite} % Tidies up citation numbers.
+\usepackage{url} % Provides better formatting of URLs.
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage[flushleft]{threeparttable}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newenvironment{enumargin}[1]{\begin{enumerate}[leftmargin=#1\textwidth , rightmargin=#1\textwidth]}{\end{enumerate}}
+
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\small DDogleg Technical Report: Nonlinear Optimization}
+
+\begin{document}
+%\begin{titlepage}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{DDogleg Technical Report\\ Nonlinear Optimization\\{\Large Revision 2018-1}\\{\footnotesize DDogleg v0.15}}
+
+% author names and affiliations
+
+\author{Peter Abeles}
+\date{September 30, 2018}
+
+% make the title area
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+%\end{titlepage}
+
+\IEEEpeerreviewmaketitle
+\begin{abstract}
+DDogleg\footnote{DDogleg's name comes from the double dogleg Trust Region method, which is not included with DDogleg.} is a general purposed numerics library. This technical report is focused on describing algorithmic details of nonlinear unconstrained optimization routines found in DDogleg v0.15 and is intended to be used as a reference. A solid understanding of the basic theory of unconstrained optimization is assumed. Theoretical details will only be touched upon with citations for where to find more information. Best practices for implementation, tuning, benchmark results, and justifications for specific implementation decisions are all discussed. API details can be found online at \url{http://ddogleg.org}.
+
+This document should be considered a living work in progress and its release is following the philosophy that it is better to release something than to wait forever for perfection. Corrections and other feedback are welcomed.
+\end{abstract}
+
+
+\section{Optimization Techniques}
+
+\begin{table}[h]
+\centering
+\caption{Variables and Terminology}
+\begin{tabular}{cl}
+$x$ & Parameters being optimized. $x \in \R^N$ \\
+$x_k$ & Value of parameters at iteration $k$ \\
+$p_k$ & Iteration step, the difference between $x_{k+1}-x_k$ \\
+$f(x)$ & Scalar cost function being optimized. $f \in \R$ \\
+$f_k$ & Short hand for $f(x_k)$ \\
+$g(x)$ & Gradient of $f(x)$. $g(x) \in \R^n$ \\
+$g_k$ & Short hand for $g(x_k)$ \\
+$B(x)$ & Hessian matrix or an approximation. $B(x) \in \R^{N \times N}$ \\ 
+$B_k$ & Short hand for $B(x_k)$ \\
+$H(x)$ & Inverse Hessian matrix or an approximation. $H(x) \in \R^{N \times N}$  \\ 
+$H_k$ & Short hand for $H(x_k)$ \\
+positive definite & Matrix $B$ is positive definite when $y^T B y > 0$ for all non-zero vectors $y$  \\
+$\Delta_k$ & Trust Region size at step $k$. $\Delta_k \in \R^{+}$\\
+MAX\_VALUE & The largest possible floating point value
+\end{tabular}
+\end{table}
+
+This section provides overview of different numerical techniques provided in DDogleg for unconstrained optimization. Techniques described here can often be applied to different specific problems.
+
+\subsection{Trust Region}
+
+\input{trust_region.tex}
+
+\subsection{Scaling}
+\label{section:scaling}
+
+Variable scaling can refer to several different parts of the non-linear optimization problem. Here we will discuss scaling of the input variables $x$ and scaling of the Hessian $B_k$ internally. Throughout the literature, correct scaling, in all of its forms, is emphasized as an essential task and that you are a bad person doomed to failure if you skip it. 
+
+In reality there are problems where it is essential, but in it does not always help and can sometimes hurt. How can it hurt? When correctly applied, scaling does not change the location of minimums, but will change the path towards a minimum \cite{dennis1996} and can change which variables are emphasized. Scaling should be treated like other tuning parameters and experimented with.
+
+In general, when performing floating point arithmetic \cite{goldberg1991every}, it is advisable to avoid mixing very large (e.g. 1e12) numbers with very small (e.g. 1e-12) numbers to reduce round off errors. Thus it is desirable to have all numbers take on values close to one and have a standard deviation of one.
+
+Another reason to scale variables is to reduce the emphasis on sensitive variables. A sensitive variable is one in which a small change in it's value results in a large error, e.g. $1/x^2$ when $x \approx 0$. This can cause the optimization routine to get stuck since any step causes a large error.
+
+\subsubsection{Input Scaling}
+
+The optimization cost functions should be designed so that the units of all the variables are on average one with a standard deviation of one. This scaling cannot be done by DDogleg automatically because it does not have knowledge of each variable's range.
+
+Further Reading:
+\begin{itemize}
+\item Chapter 2.2 of \cite{numopt2006} contains an illustration of poor scaling.
+\end{itemize}
+
+TODO provide examples in this document.
+
+\subsubsection{Hessian Scaling}
+
+For Hessian Scaling, the Hessian matrix is re-scaled so that the diagonal elements are approximately one. We will discuss Hessian scaling in regards to Trust Region (and Levenberg-Marquardt) methods.
+
+Hessian Scaling is done by applying a diagonal matrix $D$ with positive elements to the Trust Region sub-problem (\ref{eq:trust_region_subproblem}). Changing $p$ into its scalled scaled version $\tilde{p} = Dp$. The trust region is no longer a circle but an ellipse \cite{numopt2006}, resulting in this alternative trust region subproblem:
+\begin{equation}
+\begin{array}{lr}
+\min\limits_{p\in \R^n} m_k(p) = f_k + g^T_k p + \frac{1}{2}p^T B_k p & s.t. \norm{Dp} \le \Delta_k
+\end{array}
+\end{equation}
+As suggested in \cite{numopt2006} this is implemented internally in DDogleg by substituting $Dp$ for $p$, $D^{-1}g_k$ for $g_k$, and $D^{-1}B_k D^{-1}$ for $B_k$.  
+
+DDogleg can be configured to automatically compute and apply Hessian scaling at each iteration or to not apply Hessian scaling. Automatic scaling parameters are found using second derivatives $\frac{\partial^2 f}{\partial x^2_i}$ from in the Hessian's diagonal elements. Variables with larger second derivatives are more sensitive, thus their movement should be restricted more. The specific formula used in DDogleg is as follows:
+\begin{equation}
+D_k^{ii} = \max\left( d_{\bigtriangledown},\min\left( \sqrt{|B_k^{ii}|} , d_{\bigtriangleup} \right)\right)
+\end{equation}
+where $d_{\bigtriangledown}$ is the minimum allowed scaling value and $d_{\bigtriangleup}$ is the maximum. This approach can handle negative definite $B_k$ and has the desirable property \cite{dennis1996} that the diagonal elements in $\tilde{B}_k = D^{-1}B_k D^{-1}$ will typically be $\tilde{B}_k^{ii} \approx 1$, unless clamped or $B_k^{ii}$ is zero. 
+
+\subsection{Schur Complement}
+For sparse systems, with a specific structure, the Schur Complement can be used to greatly reduce the computational cost. What would have taken hours or days to solve can be solved in seconds or minutes. Bundle Adjustment is one such problem \cite{triggs1999bundle}. The power of the Schur Complement comes from breaking the system into sub-problems. Since the matrix has a special structure, smaller block diagonal matrices are inverted and sparse fill in \cite{davis2006} is avoided, making it highly efficient.
+
+Let $M \in \R^{N \times N}$ be an invertible square matrix which has been broken up into four submatrices. It can be factorized as follows:
+\begin{equation}
+M = \begin{bmatrix}
+A & B \\
+C & D
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 \\
+C A^{-1} & 1
+\end{bmatrix}
+\begin{bmatrix}
+A & 0 \\
+0 & \bar{D}
+\end{bmatrix}
+\begin{bmatrix}
+1 & A^{-1}B \\
+0 & 1
+\end{bmatrix}
+\end{equation}
+It can then be shown that
+\begin{equation}
+\bar{D} = D - C A^{-1}B
+\end{equation}
+This is known as the Schur complement of the block A of matrix M. The Schur Complement of block D of matrix M can also be found:
+\begin{equation}
+\bar{A} = A - B D^{-1}C
+\end{equation}
+We will discuss the former but either can be used. Which one is preferred is simply the one which can be computed fastest and is dependent on the matrix's structure.
+
+These relationships can then be used to solve the following system:
+\begin{equation}
+\begin{bmatrix}
+A & B \\
+C & D
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\ b_2
+\end{bmatrix}
+\end{equation}
+
+\begin{algorithm}{}
+\caption{\label{alg:schur_complement}Schur Complement to solve a reduced system}
+\begin{algorithmic}[1]
+	\State $\bar{D} = D - C A^{-1} B$
+	\State $\bar{b}_2 = b_2 - C A^{-1} b_1$  
+	\State $\bar{D} x_2 = \bar{b}_2$         \Comment{Reduced System}
+	\State $A x_1 = b_1 - B x_2$
+\end{algorithmic}
+\end{algorithm}
+
+For the least squares problem, the Schur Complement is applied to the Jacobian inner product:
+\begin{equation}
+J^T J =
+\begin{bmatrix}
+A & B \\
+B^T & D
+\end{bmatrix}
+\end{equation}
+Symmetry can be taken advantage of in matrix multiplication and when solving the system, which DDogleg does. The Schur Complement is implemented in DDogleg by having the user compute the Jacobian in two column matrices.
+\begin{equation}
+J = [ J_1 , J_2 ]
+\end{equation}
+The rest is handled automatically. See the \emph{SchurJacobian} interface and \emph{ExampleSchurComplementLeastSquares}.
+
+\subsection{Linear Algebra}
+
+Linear algebra and matrix operations are the workhorses that non-linear optimization is built upon. For Trust Region methods, linear solvers are extremely important. A linear solver solves equations of the form:
+\begin{equation}
+AB = y
+\end{equation}
+where $A \in \R^{M \times N}$, $B \in \R^N$ is unknown, and $y \in \R^M$. Solving for $B$ is the most expensive operation, potential source of numerical errors, and often the cause of fatal exceptions.
+
+A singular matrix is one in which there is no unique solution to $B$. This can happen when the search hits a region with zero slope over some of the parameters. A slope of zero indicates that changing the parameter does not affect the cost function's value. Not all linear methods can handle this situation, in fact most cannot. Nearly singular systems are a also problem and some solvers are more sensitive than others.
+
+Dense solvers tend to be very robust and typically have built in support to minimize overflow. There are many tools that dense solvers can use to mitigate singular and nearly singular systems. For example, they can dynamically change the order in which they decompose the matrix by pivoting (e.g. LUP and QRP). Methods exist which can even decompose and solve singular systems, (e.g. QRP and SVD). Default solvers in DDogleg attempt to strike a balance between speed and robustness. Thus the default will be Choleksy or QR, but if a request for a robust solver is made then QRP might be used instead. See Table \ref{results:initial_region} for a fairly dramatic example of how changing the solver can improve performance.
+
+Sparse solvers are another story. While by no means new, they are a younger field and orders of magnitude more complex to implement. An example of this is Cholesky decomposition. A minimal dense implementation can be done in around 10 lines of code. A direct sparse equivalent is measured in hundreds of lines of code. Automatic scaling is often omitted in the sparse case making sparse solvers more prone to overflow. Pivoting is difficult for sparse systems because the decomposed structure needs to be known in advance. For the reasons just mentioned, when dealing with large sparse systems, more emphasis is placed on massaging data prior to applying a linear solver. 
+
+Fortunately, for a user of DDogleg, almost all of this complexity is hidden from you. For advanced users there is still the option to choose the solver. Potentially enabling you to solve otherwise unsolvable singular/degenerate systems. Any of the solvers in Efficicient Java Matrix Library (EJML) \cite{ejml2018} can be used in DDogleg. Solvers from other libraries can be used too, if you wrap them in the appropriate interface. 
+
+If you wish to learn more about the computational side of linear algebra then ``Fundamentals of Matrix Computations'' \cite{watkins2010} and ``Direct Methods for Sparse Linear Systems'' \cite{davis2006} are recommended for dense and sparse systems, respectively.
+
+\section{Unconstrained Minimization}
+
+\begin{table}[h]
+\centering
+\caption{\label{definitions:UM}Definitions and API for Unconstrained Minimization}
+\begin{tabular}{cl}
+\textit{FunctionNtoS} & Interface for function $f(x)$ \\
+\textit{FunctionNtoN} & Interface for gradient $g(x)$ \\
+& Can be computed numerically \\
+\textit{UnconstrainedMinimization} & Interface for unconstrained minimization
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{\label{summary:UM}Summary of Unconstrained Minimization Methods.}
+\centering
+\begin{tabular}{lcccccc}
+Method & Iteration & Convergence & Singular & Negative-Definite & Dense & Sparse \\[1ex]
+\hline
+Quasi-Newton BFGS        & $O(N^2)$ & Super Linear & Yes & Yes & Yes &  \rule{0pt}{2.6ex} \\
+Trust Region BFGS Cauchy & $O(N^2)$ & Linear       & Yes & Yes & Yes & Yes  \\
+Trust Region BFGS Dogleg & $O(N^2)$ & Super Linear & [1] & [1] & Yes & Yes  \\[1ex]
+\hline
+\multicolumn{6}{l}{
+\begin{minipage}{0.6\textwidth}
+\centering
+\vspace{2mm}
+\begin{itemize}[leftmargin=*]
+\item \emph{Iteration}: Runtime complexity of update step. $N$ is number of parameters.
+\item \emph{Convergence}: how fast it converged.
+\item \emph{Singular}: indicates that it can process singular systems.
+\item \emph{Negative-Definite}: indicate that it can process negative definite systems
+\item \emph{Dense} and \emph{Sparse}: indicate that dense and/or sparse matrices can be processed. 
+\item {[1]} Switches to Cauchy in this situation.
+\end{itemize}
+\end{minipage}
+ }
+\end{tabular}
+\end{table}
+
+Unconstrained minimization seeks to find a set of parameters which minimizes a function, e.g.:
+\begin{equation}
+\min\limits_{x \in \R^N} f(x)
+\end{equation}
+where $x$ is an $N$-dimensional vector and $f : \R^N \Rightarrow \R $ is a function which outputs a scalar. A global minimum $x^*$ is a minimum such that $f(x^*) \le f(x)$ for all $x$. Local minimums are ones where $f(x^*) \le f(x)$ for all $x \in \mathcal{N}$, where $\mathcal{N}$ is bounded set of subset of $\R^N$. For most non-linear problems the best that can be done is to find a local minimum. A good introduction to the theory on this subject can be found in \cite{numopt2006}.
+
+In DDogleg, solutions to this problem are found using use the gradient and Hessian. Convergence is found by examining the function's rate of change and the gradient, Section \ref{sec:unmin_convergence}. Computing the Hessian is often tedious and computationally expensive so iterative approximations of the Hessian are used, Section \ref{sec:hessian_approx}. The remaining sections discuss specific implementation details of applying general purpose algorithms to this problem.
+
+\subsection{Convergence Test}
+\label{sec:unmin_convergence}
+
+All unconstrained minimization algorithms in DDogleg use the same convergence tests. F-Test checks the function's value to see if it has converged. G-Test checks the gradient to see if it zero and is at a local minima. To disable a test assign it a value less than zero.
+
+\begin{center}
+\begin{tabular}{lc}
+F-Test & $ftol \cdot f(x)  \leq f(x) - f(x+p)$ \\
+G-Test & $gtol \leq \norm{g(x)}_\infty$ 
+\end{tabular}
+\end{center}
+ 
+\subsection{Line Search}
+
+Line Search methods are iterative methods where at each iteration they seek to find a step length $\alpha_k$ which provides significant decrease in the cost along the search direction $p_k$ when starting at $x_k$. This can be summarized as:
+\begin{eqnarray}
+x_{k+1} & = & x_k + \alpha_k p_k \\
+f_{k+1} & < & \beta f_k
+\end{eqnarray}
+where $\beta$ is some how defined to describe the meaning of significant.
+
+In addition to significant decrease, curvature conditions also need to be meet. The strong Wolfe condition is used in some line search algorithms to decide if sufficient decrease and curvature conditions have been meet:
+\begin{eqnarray}
+f(x_k + \alpha_k p_k) &\le& f(x_k) + c_1 \alpha_k \Delta f^T_k p_k \\
+|\Delta f(x_k + \alpha_k p_k)^T p_k| &\le& c_2 |\Delta f_k^T p_k|
+\end{eqnarray}
+where $0 < c_1 < c_2 < 1$.
+
+In DDogleg, two line search methods are provided Fletcher86 \cite{Fletcher1986} and More94 \cite{More1994}. Both of which explicitly meet the Wolfe condition when selecting a step length. More94 has shown better convergence and is the default option. The implementation of More94 contained in DDogleg is a port of csrch function in MINPACK-2 \cite{MINPACK}.
+
+\subsection{Quasi-Newton}
+
+Quasi-Newton is a description of a general framework where at each iteration an approximation to a full Newton iteration is performed. In DDogleg, Quasi-Newton is done by solving for the search direction $p_k$ using an approximation to the inverse Hessian $B_k^{-1}$ followed by the line search method of your choice which meets the Wolfe condition.
+\begin{equation}
+p_k = -B_k^{-1}\delta f_k
+\end{equation}
+
+For computational efficiency and robustness, the inverse $H_k = B_k^{-1}$ is estimated directly using BFGS. By estimating the inverse matrix we avoid the requirement that $B_k$ be positive definite and a costly $O(N^3)$ matrix decomposition and replace it with an inexpensive $O(N^2)$ update instead.
+ 
+\subsection{Hessian Approximation}
+\label{sec:hessian_approx}
+
+Exact methods of calculating the Hessian can be difficult to derive and expensive to compute. Algorithms which utilize exact Hessians have faster convergence but this is often offset by additional computational cost \cite{numopt2006}. DDogleg uses gradient based methods for estimating the Hessian. DFP \cite{davidonDFP} to estimate the Hessian and BFGS (Broyden-Fletcher-Goldfarb-Shanno) \cite{fletcher1987,numopt2006}\footnote{A quick search failed to assertain the first paper which fully described BFGS. What appears to be a precursor is discussed in \cite{fletcher1987} and \cite{numopt2006} fully describes the method but provides no citations.} to estimate the inverse hessian.
+
+\begin{flalign}
+\text{DFP} && B_{k+1} &= (I- \rho_k \gamma_k s_k^T) B_k (I - \rho_k s_k \gamma_k^T) + \rho_k \gamma_k \gamma_k^T && \\
+\text{BFGS} && H_{k+1} &= H_k - \frac{H_k \gamma_k \gamma_k^T H_k }{\gamma_k^T H_k \gamma y_k} + \frac{s_k s_k^T}{y_k^T s_k} &&
+\end{flalign}
+\begin{equation*}
+\rho_k=\frac{1}{\gamma_k^T s_k}
+\end{equation*}
+where $H_k = B_k^{-1}$, $s_k = x_{k+1}-x_k$, and $y_k = \nabla f_{k+1} - \nabla f_k$.
+
+DDogleg does not explicitly provide support for using an exact Hessian. If you wish to use an exact Hessian this can be accomplished with a bit of coding by extending base classes in DDogleg. Search code for where BFGS is being used, extend that class, and override the function where the Hessian is estimated. For example, \textit{UnconMinTrustRegionBFGS} can be used to create your own exact Hessian unconstrained minimization trust region implementation.
+
+\subsection{Trust Region}
+Trust Region methods can be directly applied to unconstrained minimization without any change in their framework. Specific implementation details are listed below:
+\begin{enumargin}{0.2}
+    \item The Hessian is initialized with an identity matrix. 
+	\item The Hessian and inverse are iteratively approximated using DFP and BFGS.
+	\item The Hessian is only updated when the Wolfe condition is meet
+	\item Dogleg-BFGS avoids $O(N^3)$ matrix decomposition by computing the inverse Hessian directly with BFGS in $O(N^2)$ time.
+\end{enumargin}
+
+Future Work:
+\begin{enumargin}{0.2}
+	\item Remove the need to compute $B_k$ and $H_k$ by directly computing the Cholesky factors of $B_k$. 
+\end{enumargin}
+
+\section{Unconstrained Least-Squares}
+\begin{table*}[h]
+\caption{\label{definitions:UNLS}Definitions and API for Unconstrained Nonlinear Least-Squares}
+\centering
+\begin{tabular}{cl}
+$x$ & Parameter vector which is being optimized and has $n$ elements. $x \in \R^N$ \\
+$f(x)$ & Scalar error function being optimized. $f(x) \ge 0$ \\
+$f_k$ & Short hand for $f(x_k)$ \\
+$F(x)$ & Residual function from $\R^N \rightarrow \R^M$ \\
+$J(x)$ & Jacobian of residual function. $J(x) \in \R^{N \times M}$\\
+$B(x)$ & Hessian approximation and is set to $B=J^TJ \in \R^{N \times N}$ \\
+$g(x)$ & Gradient of $f(x)$, which is $J(x)^T  F(x) \in \R^{N}$ \\
+$g_k$ & Short hand for $g(x_k)$ \\
+$\alpha$ & Mixing coefficent for Levenberg's and Marquardt's equations \\
+\textit{FunctionNtoM} & Interface for residuals $F(x) \in \R^M$ \\
+\textit{FunctionNtoMxN} & Interface for Jacobian $J(x) \in \R^{M,N}$ \\
+& Can be computed numerically \\
+\textit{UnconstrainedLeastSquares} & High level interface for this unconstrained least squares \\
+\textit{UnconstrainedLeastSquaresSchur} & Least-Squares using Schur Complement
+\end{tabular}
+\end{table*}
+
+\begin{table}[h]
+\caption{\label{summary:UM}Summary of Unconstrained Least-Squares Methods.}
+\centering
+\begin{tabular}{lcccccc}
+Method & Iteration & Convergence & Singular & Dense & Sparse & Schur \\[1ex]
+\hline
+Trust Region LS Cauchy & $O(N^3)$ & Linear       & Yes  & Yes  & Yes & Yes \rule{0pt}{2.6ex}  \\
+Trust Region LS Dogleg & $O(N^3)$ & Super Linear & [1]  & Yes  & Yes & Yes \\
+Levenberg-Marquardt    & $O(N^3)$ & Super Linear & [2]  & Yes  & Yes & Yes \\[1ex]
+\multicolumn{6}{l}{
+\begin{minipage}{0.6\textwidth}
+\centering
+\vspace{2mm}
+\begin{itemize}[leftmargin=*]
+\item \emph{Iteration}: Runtime complexity of update step. $N$ is number of parameters.
+\item \emph{Convergence}: how fast it converged.
+\item \emph{Singular}: indicates that it can process singular systems.
+\item \emph{Negative-Definite}: indicate that it can process negative definite systems
+\item \emph{Dense} and \emph{Sparse}: indicate that dense and/or sparse matrices can be processed. 
+\item \emph{Schur}: If a variant is available that uses the Schur Complement
+\item {[1]} Switches to Cauchy in this situation.
+\item {[2]} Depends on solver and mixing coefficient, but in most configurations it can handle singular systems.
+\end{itemize}
+\end{minipage}
+ }
+\end{tabular}
+\end{table}
+
+Unconstrained Least-Squares is a special case of Unconstrained Minimization. It refers to a problem where the function being optimized has the form
+\begin{equation}
+\label{eq:residual_error}
+\min\limits_{x} f(x)=\frac{1}{2}\sum^m_{j=1} r^2_j(x)
+\end{equation}
+where $r_j(x)$ is a scalar function $j$  which outputs the residual (predicted value subtracted the observed value) error. By definition $f(x) \ge 0$. Matrix notation can also be used to defined (\ref{eq:residual_error}):
+\begin{equation}
+\min\limits_{x} f(x) =\frac{1}{2} F(x)^T F(x) = \frac{1}{2} \norm{F(x)}^2_2
+\end{equation}
+where $F(x) = [ r_1(x) , r_2(x) , \cdots , r_m(x) ]^T$. Then the Jacobian is defined as:
+\begin{eqnarray}
+J(x) &=&  \left[ \begin{array}{c}\nabla r_1(x)^T \\ \nabla r_2(x)^T \\ \vdots \\ \nabla r_m(x)^T \end{array}\right] \\
+\nabla r_j(x)^T &=& \left[ \frac{\partial r_j}{\partial x_1},\frac{\partial r_j}{\partial x_2}, \cdots , \frac{\partial r_j}{\partial x_n} \right]^T
+\end{eqnarray}
+and the Gradient as
+\begin{eqnarray}
+\nabla f(x) = g(x) &=& \sum^m_{j=1}r_j(x)\nabla r_j(x) \\
+&=& J(x)^T F(x)
+\end{eqnarray}
+
+\subsection{Convergence Test}
+
+The same convergence tests used in unconstrained minimization are used with least squares:
+\begin{center}
+\begin{tabular}{lc}
+F-Test & $ftol \cdot f(x)  \leq f(x) - f(x+p)$ \\
+G-Test & $gtol \leq \norm{g(x)}_\infty$ \\
+\end{tabular}
+\end{center}
+
+\subsection{Levenberg-Marquardt}
+
+Levenberg-Marquardt (LM) is a Trust Region based algorithm which was created before Trust Region had been formally been defined \cite{numopt2006,fletcher1987,dennis1996}. The main innovation proposed by Levenberg \cite{levenberg1944} is the dampening parameter $\lambda$.
+\begin{equation}
+\label{eq:levenberg}
+(J_k^T J_k + \lambda I) p_k = -g_k
+\end{equation} 
+The dampening parameter enables the solver to handle singular systems. Its value is automatically decreased when the quadratic model is accurate and increased when it is not accurate. Later on Marquardt \cite{marquardt1963} noted that as $\lambda$ increased information in $J_k^T J_k$ is used less, slowing convergence as it becomes a steepest descent search. Instead Marquardt proposed the following adjustment:
+\begin{equation}
+\label{eq:marquardt}
+(J_k^T J_k + \lambda \mbox{diag}(J_k^T J_k)) p_k = -g_k
+\end{equation} 
+This would result in larger steps along the direction with smaller gradient, avoiding slow convergence.
+
+DDogleg's implementation (Algorithm \ref{alg:levenberg_marquardt}) is primarily based upon the description found in \cite{IMM2004} but with the ability to choose a mixture of Levenberg's and Marquardt's formulations. Mixing (\ref{eq:levenberg}) and (\ref{eq:marquardt}) is advantagous because it allows you to avoid the negatives of either approach. If a partial derivative is zero then Marquardt's forumation will produce a singular matrix. While Levenberg's forumation will always produce a positive-definite matrix as long as $\lambda$ is greater than zero. The amount of mixing is specified using $\alpha$. If $\alpha=1$ then (\ref{eq:levenberg}) is used while if $\alpha=0$ then (\ref{eq:marquardt}) is used. Any value between 0 and 1 will result in a mixture of the two equations.
+
+The classes \emph{FactoryOptimization} and \emph{FactoryOptimizationSparse} provide easy to use functions for constructing specific implementations of Levenberg-Marquardt. As inputs they take in a \emph{ConfigLevenbergMarquardt} and a boolean flag called \emph{robust}. If the robust flag is set to true then a solver based on QR with column pivots is used and if false then it used Cholesky decomposition. The robust variant can handle degenerate matrices found in the Marquardt's formulation. DDogleg does not provide support for solving the least squares formation, i.e. $J_k p_k = -F_k$, due to the increase in computational cost and code complexity having no noticeable improvement in convergence in any situation the author is aware of.
+
+Scaling is done using the same methods described in Section \ref{section:scaling}.
+
+\begin{algorithm}{}
+\caption{\label{alg:levenberg_marquardt}Levenberg-Marquardt}
+\begin{algorithmic}[1]
+	\State $k \gets 0$, $\nu \gets 2$
+  	\State $B_k = J_k^T J_k$
+	\While{$k < k_{\mbox{max}}$ and not $done$}
+		\State Solve $\left(B_k + \lambda \left(\alpha I + (1-\alpha)\mbox{diag}(B_k) \right)\right) p_k = -g_k$ \Comment{LM Step}
+		\State $\delta_f \gets f(x_k) - f(x_k + p_k)$ \Comment{Actual reduction in score}
+		\State $\delta_m \gets m_k(x_k)-m_k(x_k + p_k) = -g^T_k p - \frac{1}{2}p^T J_k^T J_k p$ \Comment{Predicted reduction in score}
+		\State $\nu \gets \delta_f / \delta_f$ \Comment{Score reduction ratio} 
+		\If{ $\delta_f \ge 0$} \Comment{Score get better?}
+			\State $\lambda \gets \lambda \cdot \mbox{max}(1/3 , 1-(2\nu-1)^3)$
+			\State $\nu = 2$
+			\State $p_{k+1} \gets p_k$
+			\State $done$ $\gets$ $\mbox{F-Test}$ or $\mbox{G-Test}$ \Comment{Convergence testing}
+		\Else
+			\State $\lambda \gets \nu \lambda$ \Comment{Emphasize the gradient more}
+			\State $\nu = 2\nu$
+		\EndIf
+		\State $k \gets k + 1$
+	\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Trust Region}
+ Everything previously discussed about Trust Region still applies in the Least Squares case with the following variables defined as:
+\begin{eqnarray}
+g_k &=& J^T_k F_k  \\
+B_k &=& J_k^T J_k
+\end{eqnarray}
+
+\bibliographystyle{IEEEtran}
+\bibliography{mybib}
+
+
+\end{document}

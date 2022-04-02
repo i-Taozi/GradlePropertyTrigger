@@ -1,0 +1,37 @@
+- updated website
+  * cd docs/website/
+  * conf.py (version) and index.rst (date)
+  * Examples:
+    See what needs to be updated since TAG_NAME "git diff --name-status TAG_NAME examples"
+  * make html
+  * Double check examples and see if the ones that have changed look good.
+    Github links should be auto updated
+  * scp _build to ddogleg.org
+- update version in build.gradle
+- update change.txt
+- ./gradlew test
+- ./gradlew PublishToMavenLocal
+- Creating Files for Source Forge
+  git clone git@github.com:lessthanoptimal/ddogleg.git
+  VERSION=v0.15
+  cd ddogleg;git checkout SNAPSHOT;./gradlew createVersionFile;rm -rf .git;cd ..;zip -r ddogleg-$VERSION-src.zip ddogleg
+  cd ddogleg;./gradlew createLibraryDirectory;mv libraries ..;cd ..;mv libraries ddogleg-$VERSION-libs;zip -r ddogleg-$VERSION-libs.zip ddogleg-$VERSION-libs
+- Website JavaDoc
+  cd ddogleg;rm -rf build/docs/javadoc;./gradlew alljavadoc;cd build/docs/;zip -r javadoc.zip javadoc
+- commit and tag release
+- Upload to sourceforge (src,libs)
+- Update Maven central repository
+
+
+----
+Releasing code to Maven Central
+
+To post a SNAPSHOT:
+./gradlew publish
+
+To post a full release:
+./gradlew assemble;./gradlew publish -Dorg.gradle.parallel=false
+
+A SNAPSHOT is created if SNAPSHOT is in its name.
+
+log onto http://oss.sonatype.org

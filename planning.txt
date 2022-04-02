@@ -1,0 +1,20 @@
+- Improve k-means, see [1]
+- Get GMM to work on real-world Example
+
+
+[1] P. S. Bradley, U. Fayyad, Refining Initial Points for K-Means Clustering, in: Proc. of the 15th Int. Conf. on
+    Machine Learning, 1998, pp. 91–99.
+
+# Least-Squares Lack of User Specified Weighting Vector
+
+- Useful for robustified optimization
+
+# Dogleg Methods
+
+If the matrix is not positive definite then it converges very slowly. Potential solutions involve:
+- LDL with D being augmented to ensure it can be solved
+- Look into Ceres solver and see how it handles this situation
+  * Code comments mention solving a dampened system with a regular solver
+  * This is a bit like a hybrid of LM and TR
+
+# L-BFGS

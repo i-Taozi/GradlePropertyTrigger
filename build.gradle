@@ -1,0 +1,303 @@
+import net.ltgt.gradle.errorprone.CheckSeverity
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
+plugins {
+    id "com.peterabeles.gversion" version "1.10"
+    id "net.ltgt.errorprone" version "2.0.1"
+}
+
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+group = 'org.ddogleg'
+version = '0.21-SNAPSHOT'
+project.archivesBaseName = 'ddogleg'
+
+project.ext.set("lombok_version", '1.18.18')
+project.ext.set("errorprone_version", '2.9.0')
+project.ext.set("nullaway_version", '0.9.5')
+
+gversion {
+    srcDir       = "src"
+    classPackage = "org.ddogleg"
+    className    = "DDoglegVersion"
+    annotate     = true
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+    toolchain { languageVersion = JavaLanguageVersion.of(15) }
+}
+
+// Prevents tons of errors if someone is using ASCII
+tasks.withType(JavaCompile).configureEach { options.encoding = "UTF-8" }
+
+// Creates Java 8 byte code
+tasks.withType(JavaCompile).configureEach { options.release = 8 }
+
+// Enable incremental compile. Should make single file changes faster
+tasks.withType(JavaCompile) { options.incremental = true }
+
+// Fail on jar conflict
+configurations.all { resolutionStrategy { failOnVersionConflict() } }
+
+// Force the release build to fail if it depends on a SNAPSHOT
+project.jar.dependsOn project.checkDependsOnSNAPSHOT
+
+// Force publish to fail if trying to upload a stable release and git is dirty
+project.publish.dependsOn failDirtyNotSnapshot
+
+// To make ErrorProne and Kotlin plugins happy
+configurations.all {
+    resolutionStrategy {
+        force 'org.jetbrains:annotations:20.0.0'
+        force 'com.google.guava:guava:30.1-jre'
+        force "com.google.errorprone:error_prone_annotations:$project.errorprone_version"
+        force 'com.google.code.findbugs:jsr305:3.0.2'
+        force 'org.checkerframework:checker-qual:2.10.0'
+    }
+}
+
+test {
+    useJUnitPlatform()
+    reports.html.enabled = false
+    // Make the error logging verbose to make debugging on CI easier
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat TestExceptionFormat.FULL
+    testLogging.showCauses true
+    testLogging.showExceptions true
+    testLogging.showStackTraces true
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url = 'https://jitpack.io' } // Allows annotations past Java 8 to be used
+}
+
+sourceSets {
+    generate { java { srcDir 'generate' }  }
+
+    benchmark {
+        java { srcDir 'benchmark/src' }
+        resources {  srcDir 'benchmark/resources' }
+    }
+
+    examples { java { srcDir 'examples/src' } }
+
+    main {
+        java { srcDir 'src' }
+        resources { srcDir 'resources/src' }
+    }
+
+    test {
+        java {
+            srcDir 'test'
+            srcDir 'benchmark/test'
+        }
+        resources { srcDir 'resources/test' }
+    }
+}
+
+dependencies {
+    ['ejml-core','ejml-fdense','ejml-ddense','ejml-simple','ejml-dsparse'].each { String a ->
+        compile group: 'org.ejml', name: a, version: '0.41'}
+
+    compileOnly "org.projectlombok:lombok:$project.lombok_version"
+    compileOnly 'org.jetbrains:annotations:20.0.0' // @Nullable
+    compileOnly 'javax.annotation:jsr250-api:1.0'  // @Generated
+    testCompile project.sourceSets.main.compileClasspath
+
+    examplesImplementation project.sourceSets.main.compileClasspath
+    examplesImplementation project.sourceSets.main.runtimeClasspath
+
+    testImplementation( 'org.junit.jupiter:junit-jupiter-api:5.4.0')
+    testImplementation( 'org.junit.jupiter:junit-jupiter-params:5.4.0' )
+    testRuntimeOnly( 'org.junit.jupiter:junit-jupiter-engine:5.4.0')
+
+    generateCompile group: 'commons-io', name: 'commons-io', version: '2.6'
+    testCompile project.sourceSets.benchmark.output
+
+    benchmarkCompile project.sourceSets.main.output
+    benchmarkCompile project.sourceSets.main.runtimeClasspath
+    benchmarkCompile project.sourceSets.main.compileClasspath
+    examplesCompile project.sourceSets.main.output
+
+    // needed to use Java 11+ syntax with Java 1.8 byte code
+    annotationProcessor('com.github.bsideup.jabel:jabel-javac-plugin:0.3.0')
+    testAnnotationProcessor('com.github.bsideup.jabel:jabel-javac-plugin:0.3.0')
+    benchmarkAnnotationProcessor('com.github.bsideup.jabel:jabel-javac-plugin:0.3.0')
+
+    errorprone "com.google.errorprone:error_prone_core:$project.errorprone_version"
+    errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
+
+    // even if it's not used you still need to include the dependency
+    annotationProcessor "com.uber.nullaway:nullaway:${project.nullaway_version}"
+    testAnnotationProcessor "com.uber.nullaway:nullaway:${project.nullaway_version}"
+    benchmarkAnnotationProcessor "com.uber.nullaway:nullaway:${project.nullaway_version}"
+    examplesAnnotationProcessor "com.uber.nullaway:nullaway:${project.nullaway_version}"
+
+    annotationProcessor "org.projectlombok:lombok:$project.lombok_version" // @Getter @Setter
+    testAnnotationProcessor "org.projectlombok:lombok:$project.lombok_version"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.errorprone.enabled = false
+    if( path.contains("compileBenchmark") )
+        return
+    if( path.contains("example") )
+        return
+
+    options.errorprone.enabled = true
+    options.errorprone.disableWarningsInGeneratedCode = true
+    options.errorprone.disable("TypeParameterUnusedInFormals","StringSplitter","InconsistentCapitalization",
+            "HidingField", // this is sometimes done when the specific type is known by child. Clean up later.
+            "ClassNewInstance", // yes it's deprecated, but new version is more verbose with ignored errors
+            "FloatingPointLiteralPrecision", // too many false positives in test code
+            "MissingSummary","UnescapedEntity","EmptyBlockTag")
+    options.errorprone.error("MissingOverride","MissingCasesInEnumSwitch","BadInstanceof",
+            "PublicConstructorForAbstractClass","EmptyCatch","NarrowingCompoundAssignment","JdkObsolete")
+
+    if( name.startsWith("compileTest") ) {
+        options.errorprone.disable("ReferenceEquality","IntLongMath","ClassCanBeStatic")
+    }
+
+    options.errorprone {
+        check("NullAway", CheckSeverity.ERROR)
+        option("NullAway:TreatGeneratedAsUnannotated", true)
+        option("NullAway:AnnotatedPackages", "org.ddogleg")
+    }
+}
+
+javadoc {
+    configure(options) {
+        links = ['http://docs.oracle.com/javase/8/docs/api/',
+                 'http://ejml.org/javadoc/']
+        failOnError = false
+        enabled = !project.version.contains("SNAPSHOT") // disable to stop it from spamming stdout
+    }
+
+    // https://github.com/gradle/gradle/issues/11182 Error introduced in JDK 11
+    if (JavaVersion.current().compareTo(JavaVersion.VERSION_1_9) >= 0) {
+        options.addStringOption("-release", "8");
+    }
+
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+// if Maven central isn't setup in ~/.gradle/gradle.properties fill in these variables to make it happy
+if( !project.hasProperty('ossrhUsername') ) {
+    ext.ossrhUsername = "dummy"
+    ext.ossrhPassword = "dummy"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = 'DDogleg'
+                description = 'DDogleg Numerics is a high performance Java library for non-linear optimization, robust model fitting, polynomial root finding, sorting, and more.'
+                url = 'http://ddogleg.org'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'pabeles'
+                        name = 'Peter Abeles'
+                        email = 'peter.abeles@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/lessthanoptimal/ddogleg.git'
+                    developerConnection = 'scm:git:git://github.com/lessthanoptimal/ddogleg.git'
+                    url = 'https://github.com/lessthanoptimal/ddogleg'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
+    }
+}
+
+if (ext.ossrhPassword != "dummy") {
+    signing { sign publishing.publications.mavenJava }
+}
+
+// Creates a directory with all the compiled jars and the dependencies
+task createLibraryDirectory( dependsOn: ['jar','sourcesJar'] ) {
+    doLast {
+        ext.listExternal = files(project.configurations.compile)
+        ext.listInternal = files(project.tasks.jar.archivePath)
+        ext.listSource = files(project.tasks.sourcesJar.archivePath)
+
+        ext.listExternal = ext.listExternal - ext.listInternal
+
+        file('libraries').deleteDir()
+        file('libraries').mkdir()
+
+        copy {
+            from ext.listExternal
+            into 'libraries'
+        }
+
+        copy {
+            from ext.listInternal
+            from ext.listSource
+            into 'libraries'
+        }
+    }
+}
+
+task alljavadoc(type: Javadoc) {
+    // only include source code in src directory to avoid including 3rd party code which some projects do as a hack
+    source = project.fileTree('src').include('**/*.java')
+    classpath = project.sourceSets.main.compileClasspath
+
+    destinationDir = file("${buildDir}/docs/javadoc")
+
+    // Hack for Java 8u121 and beyond. Comment out if running an earlier version of Java
+    options.addBooleanOption("-allow-script-in-comments", true)
+
+    // Flag is no longer around in later versions of Java but required before
+    if (JavaVersion.current().ordinal() < JavaVersion.VERSION_13.ordinal()) {
+        options.addBooleanOption("-no-module-directories", true)
+    }
+
+    // Add a list of uses of a class to javadoc
+    options.use = true
+
+    configure(options) {
+        failOnError = false
+        docTitle = "DDogleg ($project.version)"
+        links = [ 'http://docs.oracle.com/javase/8/docs/api/',
+                  'http://ejml.org/javadoc/' ]
+        bottom = file('misc/bottom.txt').text
+    }
+}
+
+project.compileJava.dependsOn(createVersionFile)
+
+wrapper {
+    distributionType = Wrapper.DistributionType.BIN
+    gradleVersion = '6.8.3'
+}
