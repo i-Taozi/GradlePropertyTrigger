@@ -7,4 +7,4 @@ android:
 before_install: [chmod +x gradlew, yes | sdkmanager "build-tools;30.0.2"]
 script: [./gradlew check]
 branches:
-  only: [kshoji/USB-MIDI-Driver-70-origin]
+  only: [kshoji/USB-MIDI-Driver-70-FILE_SYSTEM_WATCHING]
