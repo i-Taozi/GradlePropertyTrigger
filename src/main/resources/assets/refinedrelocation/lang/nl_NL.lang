@@ -1,0 +1,85 @@
+# Block localizations
+tile.blockExtender0.name=Blok Verlenger
+tile.blockExtender1.name=Geavanceerde Blok Verlenger
+tile.blockExtender2.name=Gefiltreerde Blok Verlenger
+tile.blockExtender3.name=Geavanceerde Gefiltreerde Blok Verlenger
+tile.blockExtender4.name=Draadloze Blok Verlenger
+tile.buffer0.name=Buffer
+tile.buffer1.name=Geavanceerde Buffer
+tile.buffer2.name=Gefiltreerde Buffer
+tile.sortingChest.name=Sorterende Chest
+tile.sortingIronChest0.name=Sorterende Ijzeren Kist
+tile.sortingIronChest1.name=Sorterende Gouden Kist
+tile.sortingIronChest2.name=Sorterende Diamanten Kist
+tile.sortingIronChest3.name=Sorterende Koperen Kist
+tile.sortingIronChest4.name=Sorterende Zilveren Kist
+tile.sortingIronChest5.name=Sorterende Crystal Kist
+tile.sortingIronChest6.name=Sorterende Obsidianen Kist
+tile.sortingIronChest7.name=DirtChest 9001!
+tile.sortingConnector0.name=Sorterende Verbinder
+tile.sortingConnector1.name=Sorterende Interface
+tile.sortingConnector1.name=Sorterende Invoer
+tile.filteringHopper.name=Filtrerende Trechter
+tile.sortingBarrel.name=Sorterende Ton
+tile.relocationController.name=Verplaatsings Controller
+
+# Item localizations
+item.linker.name=Linker
+item.sortingUpgrade.name=Sorterende Upgrade
+tile.playerRelocator.name=Speler Verplaatser
+
+# Inventory localizations
+container.sortingChest.name=Sorterende Kist
+itemGroup.RefinedRelocation=Verfijnde Verplaatsing
+
+# GUI localizations
+gui.refinedrelocation.blacklist=Zwarte Lijst
+gui.refinedrelocation.whitelist=Witte Lijst
+gui.refinedrelocation.click=Klik
+gui.refinedrelocation.shiftClick=Shift+Klik
+gui.refinedrelocation.filteredExtr=Gefiltreerde Extractie
+gui.refinedrelocation.unfilteredExtr=Ongefiltreerde Extractie
+gui.refinedrelocation.maxStackSize=Maximale Hoop Grootte
+gui.refinedrelocation.mode=Mode
+gui.refinedrelocation.roundRobin=Rond om
+gui.refinedrelocation.roundRobinInfo=Versprijd over alle\nvalide zijden
+gui.refinedrelocation.greedy=Hebberig
+gui.refinedrelocation.greedyInfo=Alleen naar zijde met\nde hoogste prioriteit
+gui.refinedrelocation.spread=Verspreid voorwerpen
+gui.refinedrelocation.stack=Hoop voorwerpen op
+gui.refinedrelocation.disguised=Vermomd als: %
+gui.refinedrelocation.undisguised=Niet vermomd
+gui.refinedrelocation.disguisedInfo=Gebruik een ongelinkte linker\nom dit blok niet meer te vermommen
+gui.refinedrelocation.undisguisedInfo=Gebruik een linker om dit blok te vermommen
+gui.refinedrelocation.connected=Aangesloten
+gui.refinedrelocation.notConnected=Niet Aangesloten
+gui.refinedrelocation.bufferInsInfo=Uitvoer zijde prioriteit\nVoorwerpen die ingevoerd worden\nin de buffer zullen geprobeerd\nte worden uitgevoerd naar een valide \nzijde in volgorde van prioriteit\n(lager nummer = hogere prioriteit)
+gui.refinedrelocation.blockExtenderInsInfo=Invoer zijde\nVoorwerpen zullen worden ingevoerd\nin de gekozen zijde\nvan de verbonden inventaris\nals ze ingevoerde worden\nin de relevante zijde van\ndeze block verlenger
+gui.refinedrelocation.redstoneTrans=Redstone signaal transmissie
+gui.refinedrelocation.enabled=Aan
+gui.refinedrelocation.disabled=Uit
+gui.refinedrelocation.active=Actief
+gui.refinedrelocation.inactive=Inactief
+gui.refinedrelocation.customFilter=Eigen filter
+gui.refinedrelocation.regexFilter=Regex filter
+gui.refinedrelocation.nameMatching=Item name matching
+gui.refinedrelocation.wildcardChar=Jokerteken
+gui.refinedrelocation.oredictChar=Oredict teken
+gui.refinedrelocation.commaSeparation=Scheid filters met een komma of kabelbreuk
+gui.refinedrelocation.regexPatternsValid=Java Regex patronen zijn geldig
+gui.refinedrelocation.newlineSeparation=Afzonderlijke filters door linebreaks alleen
+gui.refinedrelocation.wirelessLink=Draadloze Link
+gui.refinedrelocation.linked=Gelinked met %s op %s
+gui.refinedrelocation.connections=Connecties
+gui.refinedrelocation.oreDictConversion=OreDict. Conversie
+gui.refinedrelocation.maxEnergy=De maximale energie doorvoer
+
+#Item Description Localizations
+itemDesc.refinedrelocation.linkedPos=Gelinkte positie: %s:%s:%s (%s)
+itemDesc.refinedrelocation.unlinked=Niet gelinked
+itemDesc.refinedrelocation.cannotDisguiseAs=Kan niet vermommen als: %s
+itemDesc.refinedrelocation.linkerSet=Linker gezet op positie: %s:%s:%s (%s)
+itemDesc.refinedrelocation.noLongerLinked=Linker is niet meer gelinked
+itemDesc.refinedrelocation.interDimensional=Inter-Dimensionale link met: %s
+itemDesc.refinedrelocation.brokenLink=Kapotte link!
+itemDesc.refinedrelocation.cooldown=Afkoelen: %s

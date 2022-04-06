@@ -1,0 +1,4 @@
+language: java
+before_install: [chmod +x gradlew]
+branches:
+  only: [Dynious/RefinedRelocation-415-origin]

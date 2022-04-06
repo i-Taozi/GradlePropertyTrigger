@@ -1,0 +1,16 @@
+[
+{
+  "modid": "RefinedRelocation",
+  "name": "Refined Relocation",
+  "description": "Filter, sort and relocate!",
+  "version": "@VERSION@",
+  "mcversion": "@MCVERSION@",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dynious", "BlayTheNinth"],
+  "credits": "Dynious: founder, developer; BlayTheNinth: developer; All other contributors!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,22 @@
+{
+	"versionList": [
+		{
+			"mcVersion":"Minecraft 1.7.10",
+			"modVersion":"1.1.34",
+			"changeLog":"Fixed wildcard sorting, added regex filter.",
+			"updateURL":"https://minecraft.curseforge.com/projects/refined-relocation/files/2393121/download"
+		},
+		{
+			"mcVersion":"Minecraft 1.7.2",
+			"modVersion":"1.0.5e",
+			"changeLog":"Added Sneaky Extraction module and fixed some nasty bugs!",
+			"updateURL":"http://minecraft.curseforge.com/mc-mods/75811-refined-relocation/files/2208002/download"
+		},
+		{
+			"mcVersion":"Minecraft 1.6.4",
+			"modVersion":"1.0.5e",
+			"changeLog":"Added Sneaky Extraction module and fixed some nasty bugs!",
+			"updateURL":"http://minecraft.curseforge.com/mc-mods/75811-refined-relocation/files/2208001/download"
+		}
+	]
+}
