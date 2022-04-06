@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Flag for freezing scroll positions in our custom views. -->
+    <attr name="enroscar_ui_frozeScrollPosition" format="boolean" />
+    <!-- Flag for notifying application about crucial GUI operations. -->
+    <attr name="enroscar_ui_notifyCrucialGUIOperations" format="boolean" />
+
+    <!-- Vertical scroll view attributes. -->
+    <declare-styleable name="enroscar_ui_ScrollView">
+        <attr name="enroscar_ui_frozeScrollPosition" />
+    </declare-styleable>
+
+    <!-- Horizontal scroll view attributes. -->
+    <declare-styleable name="enroscar_ui_HorizontalScrollView">
+        <attr name="enroscar_ui_frozeScrollPosition" />
+    </declare-styleable>
+
+    <declare-styleable name="enroscar_ui_RelativeRadioGroup">
+        <attr name="enroscar_ui_checkedButton" format="integer" />
+    </declare-styleable>
+
+    <!-- ImageView custom attributes. -->
+    <declare-styleable name="ImageView">
+        <!-- Corners radius. -->
+        <attr name="android:radius" />
+    </declare-styleable>
+
+</resources>

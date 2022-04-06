@@ -1,0 +1,1 @@
+dependOnProjects([':io', ':net'])

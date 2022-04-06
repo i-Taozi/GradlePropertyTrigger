@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainContainer"
+    android:id="@+id/fragment_container"
+    >
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/hello"
+      android:gravity="center_horizontal" 
+      />
+  
+  <LinearLayout 
+      style="@style/LinearHorizontalContainer"
+      android:padding="12dp"
+      >
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/qademo"
+        android:id="@+id/button_qademo" 
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/button_gallerydemo" 
+        android:text="@string/gallerydemo" 
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/button_pendingdemo" 
+        android:text="@string/pendingdemo" 
+        />
+    </LinearLayout>
+    
+</LinearLayout>

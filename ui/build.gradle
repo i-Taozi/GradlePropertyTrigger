@@ -1,0 +1,15 @@
+dependencies {
+  compile "com.android.support:support-v4:$androidSupportLibVersion"
+}
+
+// POM file modifications
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      pom.project {
+        name 'Enroscar UI'
+        description 'Set of Android widgets integrating with other Enroscar modules.'
+      }
+    }
+  }
+}

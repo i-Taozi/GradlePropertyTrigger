@@ -1,0 +1,15 @@
+dependencies {
+  compile "com.android.support:support-v4:$androidSupportLibVersion"
+}
+
+// POM file modifications
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      pom.project {
+        name 'Enroscar Content'
+        description 'Helper classes and extended abstractions for Android loaders, content resolvers, and DB access.'
+      }
+    }
+  }
+}

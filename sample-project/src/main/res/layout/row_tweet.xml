@@ -1,0 +1,21 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/StretchHorizontallyContainer"
+    >
+  
+  <ImageView
+      android:layout_width="75dp"
+      android:layout_height="75dp"
+      android:id="@+id/tweet_image"
+      />
+  
+  <TextView
+      style="@style/WrapContent"
+      android:id="@+id/tweet_text"
+      android:layout_toRightOf="@id/tweet_image"
+      android:layout_alignParentRight="true"
+      android:lines="4"
+      android:layout_margin="7dp"
+      />
+  
+</RelativeLayout>

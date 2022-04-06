@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+
+  <style name="Theme" parent="@android:style/Theme"/>
+
+  <style name="Theme.Activity">
+    <item name="android:windowNoTitle">true</item> 
+    <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
+  </style>
+   
+</resources>

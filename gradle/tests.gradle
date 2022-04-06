@@ -1,0 +1,15 @@
+android.testOptions.unitTests.all {
+
+  def selection = null
+  try {
+    selection = project.testSelection
+  } catch (def e) {
+    // ignore
+  }
+  if (!selection) {
+    selection = "**/*Test.class"
+  }
+
+  include selection
+  exclude "**/Abstract*.class", "**/*AndroidTest.java"
+}
