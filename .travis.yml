@@ -1,0 +1,16 @@
+language: android
+android:
+  components: [platform-tools, android-22, build-tools-22.0.1, extra]
+jdk: oraclejdk7
+notifications:
+  email: false
+  hipchat:
+    rooms: {secure: coAicb4gDk5m03J7BZLE7AtHXql1nFg4Uxv5jtGlUGLV9srNZ8X3SNZK+CnMywcKtMJlvJMi573TdrvUna4VP1XQkIEsZtL+xRvNkXszTjWmOlUW4EXTUZJoeywLhOAbtVYf0aaVtOCoFvxovamG7rNL+ylxBuxTcjcbHJywpHM=}
+before_install: [sudo apt-get update -qq, 'if [ `uname -m` = x86_64 ]; then sudo apt-get
+    install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null;
+    fi', mkdir -p ~/.gradle, 'echo "sonatypeRepo=https://oss.sonatype.org/content/repositories/snapshots/"
+    > ~/.gradle/gradle.properties', 'echo "sonatypeSnapshotRepo=https://oss.sonatype.org/content/repositories/snapshots/"
+    >> ~/.gradle/gradle.properties', echo "sonatypeUsername=xxx" >> ~/.gradle/gradle.properties,
+  echo "sonatypePassword=xxx" >> ~/.gradle/gradle.properties]
+branches:
+  only: [eyeem/potato-88-origin]
