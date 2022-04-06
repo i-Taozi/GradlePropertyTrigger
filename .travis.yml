@@ -22,4 +22,4 @@ notifications:
     on_success: change
     on_failure: always
 branches:
-  only: [i2p/i2p.i2p-23-origin]
+  only: [i2p/i2p.i2p-23-CONFIGURATION_ON_DEMAND]
