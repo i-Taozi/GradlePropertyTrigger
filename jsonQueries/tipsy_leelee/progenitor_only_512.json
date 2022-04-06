@@ -1,0 +1,313 @@
+{
+    "fragments": [
+        {
+            "operators": [
+                {
+                    "opId": 1,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp FROM [leelee#astro#cosmo512] WHERE type='star'"
+                },
+                {
+                    "argChild": 1,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 2,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 3,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp FROM [leelee#astro#cosmo512] WHERE grp<>0"
+                },
+                {
+                    "argChild": 3,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 4,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 2,
+                    "opId": 5,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 4,
+                    "opId": 6,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 5,
+                    "argChild2": 6,
+                    "argColumns1": [
+                        "0"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 7,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 7,
+                    "distributeFunction": {
+                        "indexes": [1],
+                        "type": "Hash"
+                    },
+                    "opId": 8,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 9,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "astro",
+                        "relationName": "grps_of_interest",
+                        "userName": "leelee"
+                    }
+                },
+                {
+                    "argChild": 9,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 10,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 8,
+                    "opId": 11,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 10,
+                    "opId": 12,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 11,
+                    "argChild2": 12,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
+                    "argSelect2": [
+                        "0"
+                    ],
+                    "opId": 13,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 13,
+                    "distributeFunction": {
+                        "indexes": [1,2],
+                        "type": "Hash"
+                    },
+                    "opId": 14,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 14,
+                    "opId": 15,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+	                "aggregators": [
+	                {
+                        "type": "CountAll"
+	                }],
+                    "argChild": 15,
+                    "argGroupFields": [
+                        "1",
+                        "2"
+                    ],
+                    "opId": 16,
+                    "opType": "MultiGroupByAggregate"
+                },
+                {
+                    "argChild": 16,
+                    "opId": 17,
+                    "opType": "LocalMultiwayProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 18,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "astro",
+                        "relationName": "masstable",
+                        "userName": "leelee"
+                    }
+                },
+                {
+                    "argChild": 18,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 19,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 19,
+                    "opId": 20,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 17,
+                    "opId": 21,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+	                "aggregators": [
+	                {
+                        "type": "SingleColumn",
+                        "column": 2,
+                        "aggOps" : ["MAX"]
+	                }],
+                    "argChild": 21,
+                    "argGroupField": 0,
+                    "opId": 22,
+                    "opType": "SingleGroupByAggregate"
+                },
+                {
+                    "argOperatorId": 17,
+                    "opId": 23,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild1": 23,
+                    "argChild2": 22,
+                    "argColumns1": [
+                        "0",
+                        "2"
+                    ],
+                    "argColumns2": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
+                    "argSelect2": [
+                        "0"
+                    ],
+                    "opId": 24,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+	                "aggregators": [
+	                {
+                        "type": "SingleColumn",
+                        "column": 1,
+                        "aggOps" : ["MIN"]
+	                }],
+                    "argChild": 24,
+                    "argGroupField": 0,
+                    "opId": 25,
+                    "opType": "SingleGroupByAggregate"
+                },
+                {
+                    "argChild1": 25,
+                    "argChild2": 20,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 26,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 26,
+                    "argOverwriteTable": true,
+                    "opId": 27,
+                    "opType": "DbInsert",
+                    "relationKey": {
+                        "programName": "astro",
+                        "relationName": "progenitor512_512",
+                        "userName": "leelee"
+                    }
+                }
+            ]
+        }
+    ],
+    "logicalRa": "progenitor512-512 holds the results of a large progenitor query",
+    "rawQuery": "blah."
+}

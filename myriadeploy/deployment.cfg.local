@@ -1,0 +1,42 @@
+# Deployment configuration
+[deployment]
+path = /tmp/myria
+name = twoNodeLocalParallel
+dbms = sqlite
+database_name = myria
+rest_port = 8753
+# Uncomment if need to set a specific username; does not work for localhost
+#username = dhalperi
+
+# Compute nodes configuration
+[master]
+0 = localhost:8001
+
+[workers]
+1 = localhost:9001:::10001
+2 = localhost:9002:::10002
+
+[runtime]
+# Uncomment to set number of virtual CPU cores used by the master process
+container.master.vcores.number = 1
+# Uncomment to set number of virtual CPU cores used by the worker processes
+container.worker.vcores.number = 1
+# Uncomment to set the minimum heap size of the master processes
+jvm.master.heap.size.min.gb = 0.9
+# Uncomment to set the minimum heap size of the worker processes
+jvm.worker.heap.size.min.gb = 0.9
+# Uncomment to set the maximum heap size of the master processes
+jvm.master.heap.size.max.gb = 0.9
+# Uncomment to set the maximum heap size of the worker processes
+jvm.worker.heap.size.max.gb = 0.9
+# Uncomment to set the driver container memory limit
+#container.driver.memory.size.gb = 0.5
+# Uncomment to set the master container memory limit
+container.master.memory.size.gb = 1
+# Uncomment to set the worker container memory limit
+container.worker.memory.size.gb = 1
+# Uncomment to set other JVM options, separate them with space
+#jvm.options = -XX:+UseG1GC
+
+[persist]
+persist_uri = hdfs://vega.cs.washington.edu:8020

@@ -1,0 +1,153 @@
+{
+	"fragments": 
+	[
+		{
+			"operators":
+			[
+			{
+				"opId" : 1,
+				"opType" : "Consumer",
+				"argOperatorId" : 8
+			},
+			{
+				"opId" : 2,
+				"opType" : "UnionAll",
+				"argChildren" : [1]
+			},
+			{
+				"opId" : 3,
+				"opType" : "EOSController",
+				"argChild" : 2
+			}
+			],
+			"overrideWorkers":
+			[
+				1
+			]
+		},
+		{
+			"operators":
+			[
+			{
+				"opId" : 4,
+				"opType" : "TableScan",
+				"relationKey" : {
+					"userName" : "jwang",
+					"programName" : "reachability",
+					"relationName" : "a0"
+				}
+			},
+			{
+				"opId" : 19,
+				"opType" : "ShuffleProducer",
+				"argChild" : 4,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [0]
+				}
+			}
+			]
+		},
+		{
+			"operators":
+			[
+			{
+				"opId" : 17,
+				"opType" : "TableScan",
+				"relationKey" : {
+					"userName" : "jwang",
+					"programName" : "reachability",
+					"relationName" : "g"
+				}
+			},
+			{
+				"opId" : 18,
+				"opType" : "ShuffleProducer",
+				"argChild" : 17,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [0]
+				}
+			}
+			]
+		},
+		{
+			"operators":
+			[
+			{
+				"opId" : 5,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 19
+			},
+			{
+				"opId" : 6,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 12
+			},
+			{
+				"opId" : 7,
+				"opType" : "Consumer",
+				"argOperatorId" : 3
+			},
+			{
+				"opId" : 8,
+				"opType" : "IDBController",
+				"argSelfIdbId" : "0",
+				"argInitialInput" : 5,
+				"argIterationInput" : 6,
+				"argState" :
+				{
+					"type" : "DupElim"
+				},
+				"relationKey" : {
+					"userName" : "jwang",
+					"programName" : "reachability",
+					"relationName" : "result"
+				},
+				"argEosControllerInput" : 7
+			},
+			{
+				"opId" : 13,
+				"opType" : "LocalMultiwayProducer",
+				"argChild" : 8
+			}
+			]
+		},
+		{
+			"operators":
+			[
+			{
+				"opId" : 9,
+				"opType" : "LocalMultiwayConsumer",
+				"argOperatorId" : 13
+			},
+			{
+				"opId" : 11,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 18
+			},
+			{
+				"opId" : 10,
+				"opType" : "SymmetricHashJoin",
+				"argChild1" : 9,
+				"argChild2" : 11,
+				"argColumns1" : ["0"],
+				"argColumns2" : ["0"],
+				"argSelect1" : [],
+				"argSelect2" : ["1"]
+			},
+			{
+				"opId" : 12,
+				"opType" : "ShuffleProducer",
+				"argChild" : 10,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [0]
+				}
+			}
+			]
+		}
+	],
+	"logicalRa": "",
+	"rawQuery": ""
+}

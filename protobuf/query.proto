@@ -1,0 +1,38 @@
+option java_package = "edu.washington.escience.myria.proto";
+option java_outer_classname = "QueryProto";
+
+message QueryMessage {
+ 
+  enum Type {
+    QUERY_DISTRIBUTE = 0; // distribute a query, master -> worker
+    QUERY_START = 1; // start the query, master -> worker
+    QUERY_PAUSE = 7; // master -> worker
+    QUERY_RESUME = 8; // master -> worker
+    QUERY_KILL = 9; // master -> worker
+    QUERY_READY_TO_EXECUTE = 2;  // worker -> master
+    QUERY_COMPLETE = 6; // worker -> master  
+    QUERY_RECOVER = 3; // master -> worker  
+  }
+  
+  required uint64 query_id = 1;
+  required uint64 subquery_id = 2;
+  required QueryMessage.Type type = 3;
+  optional QueryReport query_report = 4; //Report of the query execution. when type is QUERY_COMPLETE
+  optional Query query = 5; // query data, when type is QUERY_DISTRIBUTE 
+  optional int32 worker_id = 6; // worker id, when type is QUERY_RECOVER
+}
+
+message Query {
+ // for now, the query is a simple java serialized object.
+ required bytes query = 1;
+}
+
+message QueryReport {
+  required bool success = 1; // if the query execution succeeds.
+  required ExecutionStatistics execution_statistics = 2;
+  optional bytes cause = 3; // the cause of a failed execution. It should be a serialized java exception Object.
+}
+
+message ExecutionStatistics {
+  required uint64 elapse = 2; //elapse of query execution.
+}

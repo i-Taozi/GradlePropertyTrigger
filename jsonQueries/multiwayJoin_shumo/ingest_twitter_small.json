@@ -1,0 +1,16 @@
+{
+  "relationKey" : {
+    "userName" : "chushumo",
+    "programName" : "multiway_join",
+    "relationName" : "twitter_small"
+  },
+  "schema" : {
+    "columnTypes" : ["LONG_TYPE", "LONG_TYPE"],
+    "columnNames" : ["follower", "followee"]
+  },
+  "source" : {
+    "dataType" : "File",
+    "filename" : "/disk1/datasets/twitter/twitter_62000.txt"
+  },
+  "delimiter": ","
+}

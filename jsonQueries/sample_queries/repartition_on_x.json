@@ -1,0 +1,48 @@
+{
+    "fragments": [
+        {
+            "operators": [
+                {
+                    "opId": 0,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "global_join",
+                        "relationName": "smallTable",
+                        "userName": "jwang"
+                    }
+                },
+                {
+                    "argChild": 0,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 1,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 1,
+                    "opId": 2,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild": 2,
+                    "argOverwriteTable": true,
+                    "opId": 3,
+                    "opType": "DbInsert",
+                    "relationKey": {
+                        "programName": "global_join",
+                        "relationName": "smallTable_hash_follower",
+                        "userName": "jwang"
+                    }
+                }
+            ]
+        }
+    ],
+    "logicalRa": "Insert[Shuffle(0)[Scan[smallTable], smallTable2]]",
+    "rawQuery": "smallTable_hash_follower(x,y) :- smallTable(x,y), @hash(x)."
+}

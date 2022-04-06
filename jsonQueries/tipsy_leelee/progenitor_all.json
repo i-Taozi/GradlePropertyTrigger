@@ -1,0 +1,1374 @@
+{
+    "fragments": [
+        {
+            "operators": [
+                {
+                    "opId": 0,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 0 FROM [leelee#astro#cosmo512] WHERE grp<>0"
+                },
+                {
+                    "opId": 1,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 1 FROM [leelee#astro#cosmo504] WHERE grp<>0"
+                },
+                {
+                    "opId": 2,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 2 FROM [leelee#astro#cosmo480] WHERE grp<>0"
+                },
+                {
+                    "opId": 3,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 3 FROM [leelee#astro#cosmo466] WHERE grp<>0"
+                },
+                {
+                    "opId": 4,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 4 FROM [leelee#astro#cosmo456] WHERE grp<>0"
+                },
+                {
+                    "opId": 5,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 5 FROM [leelee#astro#cosmo455] WHERE grp<>0"
+                },
+                {
+                    "opId": 6,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 6 FROM [leelee#astro#cosmo432] WHERE grp<>0"
+                },
+                {
+                    "opId": 7,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 7 FROM [leelee#astro#cosmo408] WHERE grp<>0"
+                },
+                {
+                    "opId": 8,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 8 FROM [leelee#astro#cosmo406] WHERE grp<>0"
+                },
+                {
+                    "opId": 9,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 9 FROM [leelee#astro#cosmo384] WHERE grp<>0"
+                },
+                {
+                    "opId": 10,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 10 FROM [leelee#astro#cosmo336] WHERE grp<>0"
+                },
+                {
+                    "opId": 11,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 11 FROM [leelee#astro#cosmo328] WHERE grp<>0"
+                },
+                {
+                    "opId": 12,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 12 FROM [leelee#astro#cosmo312] WHERE grp<>0"
+                },
+                {
+                    "opId": 13,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 13 FROM [leelee#astro#cosmo288] WHERE grp<>0"
+                },
+                {
+                    "opId": 14,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 14 FROM [leelee#astro#cosmo264] WHERE grp<>0"
+                },
+                {
+                    "opId": 15,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 15 FROM [leelee#astro#cosmo240] WHERE grp<>0"
+                },
+                {
+                    "opId": 16,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 16 FROM [leelee#astro#cosmo226] WHERE grp<>0"
+                },
+                {
+                    "opId": 17,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 17 FROM [leelee#astro#cosmo216] WHERE grp<>0"
+                },
+                {
+                    "opId": 18,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 18 FROM [leelee#astro#cosmo192] WHERE grp<>0"
+                },
+                {
+                    "opId": 19,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 19 FROM [leelee#astro#cosmo168] WHERE grp<>0"
+                },
+                {
+                    "opId": 20,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 20 FROM [leelee#astro#cosmo144] WHERE grp<>0"
+                },
+                {
+                    "opId": 21,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 21 FROM [leelee#astro#cosmo128] WHERE grp<>0"
+                },
+                {
+                    "opId": 22,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 22 FROM [leelee#astro#cosmo096] WHERE grp<>0"
+                },
+                {
+                    "opId": 23,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 23 FROM [leelee#astro#cosmo084] WHERE grp<>0"
+                },
+                {
+                    "opId": 24,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 24 FROM [leelee#astro#cosmo072] WHERE grp<>0"
+                },
+                {
+                    "opId": 25,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 25 FROM [leelee#astro#cosmo048] WHERE grp<>0"
+                },
+                {
+                    "opId": 26,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp, 26 FROM [leelee#astro#cosmo024] WHERE grp<>0"
+                },
+                {
+                    "argChildren": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26
+                    ],
+                    "opId": 27,
+                    "opType": "UnionAll"
+                },
+                {
+                    "argChild": 27,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 28,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 29,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "iOrder",
+                            "grp"
+                        ],
+                        "columnTypes": [
+                            "LONG_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT iOrder, grp FROM [leelee#astro#cosmo512] WHERE type='star'"
+                },
+                {
+                    "argChild": 29,
+                    "distributeFunction": {
+                        "indexes": [1],
+                        "type": "Hash"
+                    },
+                    "opId": 30,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 31,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "astro",
+                        "relationName": "grps_of_interest",
+                        "userName": "leelee"
+                    }
+                },
+                {
+                    "argChild": 31,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 32,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 30,
+                    "opId": 33,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 32,
+                    "opId": 35,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 33,
+                    "argChild2": 35,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect2": [
+                        "0"
+                    ],
+                    "opId": 36,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 36,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 37,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId": 28,
+                    "opId": 38,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 37,
+                    "opId": 40,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 40,
+                    "argChild2": 38,
+                    "argColumns1": [
+                        "0"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect2": [
+                        "1",
+                        "2"
+                    ],
+                    "opId": 41,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 41,
+                    "distributeFunction": {
+                        "indexes": [1,2,3],
+                        "type": "Hash"
+                    },
+                    "opId": 42,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 42,
+                    "opId": 43,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "aggregators": [
+                    {
+                        "type": "CountAll"
+                    }],
+                    "argChild": 43,
+                    "argGroupFields": [
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "opId": 44,
+                    "opType": "MultiGroupByAggregate"
+                },
+                {
+                    "argChild": 44,
+                    "opId": 45,
+                    "opType": "LocalMultiwayProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId": 45,
+                    "opId": 46,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild": 46,
+                    "distributeFunction": {
+                        "indexes": [0,2],
+                        "type": "Hash"
+                    },
+                    "opId": 48,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 48,
+                    "opId": 49,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "aggregators": [
+                    {
+                        "type": "SingleColumn",
+                        "column": 3,
+                        "aggOps" : ["MAX"]
+                    }],
+                    "argChild": 49,
+                    "argGroupFields": [
+                        "0",
+                        "2"
+                    ],
+                    "opId": 50,
+                    "opType": "MultiGroupByAggregate"
+                },
+                {
+                    "argChild": 50,
+                    "distributeFunction": {
+                        "indexes": [0,1,2],
+                        "type": "Hash"
+                    },
+                    "opId": 51,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId": 45,
+                    "opId": 52,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild": 52,
+                    "distributeFunction": {
+                        "indexes": [0,2,3],
+                        "type": "Hash"
+                    },
+                    "opId": 54,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId": 51,
+                    "opId": 55,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 54,
+                    "opId": 56,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 56,
+                    "argChild2": 55,
+                    "argColumns1": [
+                        "0",
+                        "2",
+                        "3"
+                    ],
+                    "argColumns2": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
+                    "argSelect2": [
+                        "0"
+                    ],
+                    "opId": 57,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "aggregators": [
+                    {
+                        "type": "SingleColumn",
+                        "column": 1,
+                        "aggOps" : ["MIN"]
+                    }],
+                    "argChild": 57,
+                    "argGroupFields": [
+                        "0",
+                        "2"
+                    ],
+                    "opId": 58,
+                    "opType": "MultiGroupByAggregate"
+                },
+                {
+                    "argChild": 58,
+                    "distributeFunction": {
+                        "indexes": [2,1],
+                        "type": "Hash"
+                    },
+                    "opId": 59,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 60,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 0 FROM [leelee#astro#masstable512]"
+                },
+                {
+                    "opId": 61,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 1 FROM [leelee#astro#masstable504]"
+                },
+                {
+                    "opId": 62,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 2 FROM [leelee#astro#masstable480]"
+                },
+                {
+                    "opId": 63,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 3 FROM [leelee#astro#masstable466]"
+                },
+                {
+                    "opId": 64,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 4 FROM [leelee#astro#masstable456]"
+                },
+                {
+                    "opId": 65,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 5 FROM [leelee#astro#masstable455]"
+                },
+                {
+                    "opId": 66,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 6 FROM [leelee#astro#masstable432]"
+                },
+                {
+                    "opId": 67,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 7 FROM [leelee#astro#masstable408]"
+                },
+                {
+                    "opId": 68,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 8 FROM [leelee#astro#masstable406]"
+                },
+                {
+                    "opId": 69,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 9 FROM [leelee#astro#masstable384]"
+                },
+                {
+                    "opId": 70,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 10 FROM [leelee#astro#masstable336]"
+                },
+                {
+                    "opId": 71,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 11 FROM [leelee#astro#masstable328]"
+                },
+                {
+                    "opId": 72,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 12 FROM [leelee#astro#masstable312]"
+                },
+                {
+                    "opId": 73,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 13 FROM [leelee#astro#masstable288]"
+                },
+                {
+                    "opId": 74,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 14 FROM [leelee#astro#masstable264]"
+                },
+                {
+                    "opId": 75,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 15 FROM [leelee#astro#masstable240]"
+                },
+                {
+                    "opId": 76,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 16 FROM [leelee#astro#masstable226]"
+                },
+                {
+                    "opId": 77,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 17 FROM [leelee#astro#masstable216]"
+                },
+                {
+                    "opId": 78,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 18 FROM [leelee#astro#masstable192]"
+                },
+                {
+                    "opId": 79,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 19 FROM [leelee#astro#masstable168]"
+                },
+                {
+                    "opId": 80,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 20 FROM [leelee#astro#masstable144]"
+                },
+                {
+                    "opId": 81,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 21 FROM [leelee#astro#masstable128]"
+                },
+                {
+                    "opId": 82,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 22 FROM [leelee#astro#masstable096]"
+                },
+                {
+                    "opId": 83,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 23 FROM [leelee#astro#masstable084]"
+                },
+                {
+                    "opId": 84,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 24 FROM [leelee#astro#masstable072]"
+                },
+                {
+                    "opId": 85,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 25 FROM [leelee#astro#masstable048]"
+                },
+                {
+                    "opId": 86,
+                    "opType": "DbQueryScan",
+                    "schema": {
+                        "columnNames": [
+                            "grp",
+                            "tot_mass",
+                            "time"
+                        ],
+                        "columnTypes": [
+                            "INT_TYPE",
+                            "DOUBLE_TYPE",
+                            "INT_TYPE"
+                        ]
+                    },
+                    "sql": "SELECT grp, tot_mass, 26 FROM [leelee#astro#masstable024]"
+                },
+                {
+                    "argChildren": [
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65,
+                        66,
+                        67,
+                        68,
+                        69,
+                        70,
+                        71,
+                        72,
+                        73,
+                        74,
+                        75,
+                        76,
+                        77,
+                        78,
+                        79,
+                        80,
+                        81,
+                        82,
+                        83,
+                        84,
+                        85,
+                        86
+                    ],
+                    "opId": 87,
+                    "opType": "UnionAll"
+                },
+                {
+                    "argChild": 87,
+                    "distributeFunction": {
+                        "indexes": [0,2],
+                        "type": "Hash"
+                    },
+                    "opId": 88,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId": 59,
+                    "opId": 89,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 88,
+                    "opId": 90,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 89,
+                    "argChild2": 90,
+                    "argColumns1": [
+                        "2",
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0",
+                        "2"
+                    ],
+                    "argSelect1": [
+                        "1",
+                        "0",
+                        "2"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 91,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild":91,
+                    "opId":92,
+                    "opType":"CollectProducer"
+                }
+            ]
+        },
+        {
+            "operators":[
+                {
+                    "argOperatorId":92,
+                    "opId":93,
+                    "opType":"CollectConsumer"
+                },
+                {
+                    "argChild":93,
+                    "argOverwriteTable":false,
+                    "opId":94,
+                    "opType":"DbInsert",
+                    "relationKey":{
+                        "programName":"astro",
+                        "relationName":"progenitoralltestfinal",
+                        "userName":"leelee"
+                    }
+                }
+            ],
+            "overrideWorkers":[
+                1
+            ]
+        }
+    ],
+    "logicalRa": "progenitor-all holds the results of a large progenitor query",
+    "rawQuery": "blah."
+}

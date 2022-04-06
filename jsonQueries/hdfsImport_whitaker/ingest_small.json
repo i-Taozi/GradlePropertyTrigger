@@ -1,0 +1,15 @@
+{
+  "relationKey" : {
+    "userName" : "whitaker",
+    "programName" : "ingest_hdfs",
+    "relationName" : "small"
+  },
+  "schema" : {
+    "columnTypes" : ["STRING_TYPE", "STRING_TYPE"],
+    "columnNames" : ["source", "dest"]
+  },
+  "source" : {
+    "dataType" : 'URI',
+    "uri" : "hdfs://vega.cs.washington.edu:8020//whitaker/outputG/*"
+  }
+}

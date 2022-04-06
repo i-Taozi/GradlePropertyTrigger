@@ -1,0 +1,12 @@
+{
+  "relationKey" : {
+    "userName" : "shumochu",
+    "programName" : "broadcastjoin",
+    "relationName" : "UserBase"
+  },
+  "schema" : {
+    "columnTypes" : ["STRING_TYPE","STRING_TYPE","DATETIME_TYPE","FLOAT_TYPE","STRING_TYPE","STRING_TYPE","STRING_TYPE","STRING_TYPE","LONG_TYPE"],
+    "columnNames" : ["sourceIPAddr","destinationURL","visitDate","adRevenue","UserAgent","cCode","lCode","sKeyword", "avgTimeOnSite"]
+  },
+  "importFromDatabase" : true
+}

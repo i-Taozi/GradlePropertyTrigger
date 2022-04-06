@@ -1,0 +1,157 @@
+{
+	"fragments": 
+	[
+		{
+			"operators": 
+			[
+			{
+				"opId" : 2,
+				"opType" : "Consumer",
+				"argOperatorId" : 14
+			},
+			{
+				"opId" : 3,
+				"opType" : "UnionAll",
+				"argChildren" : [2]
+			},
+			{
+				"opId" : 4,
+				"opType" : "EOSController",
+				"argChild" : 3
+			}
+			],
+			"overrideWorkers": 
+			[
+				1
+			]
+		},
+		{
+			"operators": 
+			[
+			{
+				"opId" : 20,
+				"opType" : "TableScan",
+				"relationKey" : {
+					"userName" : "jwang",
+					"programName" : "connected_components",
+					"relationName" : "c"
+				}
+			},
+			{
+				"opId" : 18,
+				"opType" : "ShuffleProducer",
+				"argChild" : 20,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [0]
+				}
+			}
+			]
+		},
+		{
+			"operators": 
+			[
+			{
+				"opId" : 19,
+				"opType" : "TableScan",
+				"relationKey" : {
+					"userName" : "jwang",
+					"programName" : "connected_components",
+					"relationName" : "g"
+				}
+			},
+			{
+				"opId" : 17,
+				"opType" : "ShuffleProducer",
+				"argChild" : 19,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [1]
+				}
+			}
+			]
+		},
+		{
+			"operators": 
+			[
+			{
+				"opId" : 5,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 18
+			},
+			{
+				"opId" : 16,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 10
+			},
+			{
+				"opId" : 15,
+				"opType" : "Consumer",
+				"argOperatorId" : 4
+			},
+			{
+				"opId" : 14,
+				"opType" : "IDBController",
+				"argSelfIdbId" : "0",
+				"argInitialInput" : 5,
+				"argIterationInput" : 16,
+				"argState" : {
+					"type" : "KeepMinValue",
+					"keyColIndices" : [0],
+					"valueColIndices" : [1]
+				},
+				"argEosControllerInput" : 15,
+				"relationKey": {
+					"programName": "connected_components",
+					"relationName": "result",
+					"userName": "jwang"
+				}
+			},
+			{
+				"opId" : 6,
+				"opType" : "LocalMultiwayProducer",
+				"argChild" : 14
+			}
+			]
+		},
+		{
+			"operators": 
+			[
+			{
+				"opId" : 12,
+				"opType" : "ShuffleConsumer",
+				"argOperatorId" : 17
+			},
+			{
+				"opId" : 13,
+				"opType" : "LocalMultiwayConsumer",
+				"argOperatorId" : 6
+			},
+			{
+				"opId" : 11,
+				"opType" : "SymmetricHashJoin",
+				"argChild1" : 12,
+				"argChild2" : 13,
+				"argColumns1" : ["1"],
+				"argColumns2" : ["0"],
+				"argSelect1" : ["0"],
+				"argSelect2" : ["1"],
+				"argSetSemanticsLeft" : false,
+				"argSetSemanticsRight" : true
+			},
+			{
+				"opId" : 10,
+				"opType" : "ShuffleProducer",
+				"argChild" : 11,
+				"distributeFunction" : {
+					"type" : "Hash",
+					"indexes" : [0]
+				}
+			}
+			]
+		}
+	],
+	"logicalRa": "",
+	"rawQuery": "CC(x, x) :- Edge(x, y); CC(y, MIN(v)) :- CC(x, v), Edge(x, y); CC(y, MIN(v)) :- CC(y, v);",
+	"language": "datalog"
+}

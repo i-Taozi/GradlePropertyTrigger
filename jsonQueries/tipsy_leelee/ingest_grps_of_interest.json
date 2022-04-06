@@ -1,0 +1,15 @@
+{
+  "relationKey" : {
+    "userName" : "leelee",
+    "programName" : "astro",
+    "relationName" : "grps_of_interest"
+  },
+  "schema" : {
+    "columnTypes" : ["INT_TYPE"],
+    "columnNames" : ["grp"]
+  },
+  "source" : {
+    "dataType" : 'File',
+    "filename" : "/Users/dhalperi/escience/myria/data_nocommit/tipsy/groups_of_interest.txt"
+  }
+}

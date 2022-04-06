@@ -1,0 +1,398 @@
+{
+    "fragments": [
+        {
+            "operators": [
+                {
+                    "argOperatorId": 11,
+                    "opId": 1,
+                    "opType": "Consumer"
+                },
+                {
+                    "argOperatorId": 24,
+                    "opId": 2,
+                    "opType": "Consumer"
+                },
+                {
+                    "argOperatorId": 37,
+                    "opId": 3,
+                    "opType": "Consumer"
+                },
+                {
+                    "argChildren": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "opId": 4,
+                    "opType": "UnionAll"
+                },
+                {
+                    "argChild": 4,
+                    "opId": 5,
+                    "opType": "EOSController"
+                }
+            ],
+            "overrideWorkers": [
+                "1"
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 6,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "multiIDB",
+                        "relationName": "a0",
+                        "userName": "jwang"
+                    }
+                },
+                {
+                    "argChild": 6,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 7,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 7,
+                    "opId": 8,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 16,
+                    "opId": 9,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 5,
+                    "opId": 10,
+                    "opType": "Consumer"
+                },
+                {
+                    "argEosControllerInput": 10,
+                    "argInitialInput": 8,
+                    "argIterationInput": 9,
+                    "argState":
+                    {
+                        "type" : "DupElim"
+                    },
+                    "argSelfIdbId": "0",
+                    "opId": 11,
+                    "opType": "IDBController"
+                },
+                {
+                    "argChild": 11,
+                    "opId": 12,
+                    "opType": "LocalMultiwayProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 44,
+                    "opId": 13,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 12,
+                    "opId": 14,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild1": 13,
+                    "argChild2": 14,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 15,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 15,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 16,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 12,
+                    "opId": 17,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild": 17,
+                    "distributeFunction": {
+                        "indexes": [1],
+                        "type": "Hash"
+                    },
+                    "opId": 18,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 19,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "multiIDB",
+                        "relationName": "b0",
+                        "userName": "jwang"
+                    }
+                },
+                {
+                    "argChild": 19,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 20,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 20,
+                    "opId": 21,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 29,
+                    "opId": 22,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 5,
+                    "opId": 23,
+                    "opType": "Consumer"
+                },
+                {
+                    "argEosControllerInput": 23,
+                    "argInitialInput": 21,
+                    "argIterationInput": 22,
+                    "argState":
+                    {
+                        "type" : "DupElim"
+                    },
+                    "argSelfIdbId": "1",
+                    "opId": 24,
+                    "opType": "IDBController"
+                },
+                {
+                    "argChild": 24,
+                    "opId": 25,
+                    "opType": "LocalMultiwayProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 18,
+                    "opId": 26,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 25,
+                    "opId": 27,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild1": 26,
+                    "argChild2": 27,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 28,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 28,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 29,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 25,
+                    "opId": 30,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild": 30,
+                    "distributeFunction": {
+                        "indexes": [1],
+                        "type": "Hash"
+                    },
+                    "opId": 31,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 32,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "multiIDB",
+                        "relationName": "c0",
+                        "userName": "jwang"
+                    }
+                },
+                {
+                    "argChild": 32,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 33,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 33,
+                    "opId": 34,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 42,
+                    "opId": 35,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 5,
+                    "opId": 36,
+                    "opType": "Consumer"
+                },
+                {
+                    "argEosControllerInput": 36,
+                    "argInitialInput": 34,
+                    "argState":
+                    {
+                        "type" : "DupElim"
+                    },
+                    "argIterationInput": 35,
+                    "argSelfIdbId": "2",
+                    "opId": 37,
+                    "relationKey": {
+                        "programName": "joinCircle",
+                        "relationName": "C",
+                        "userName": "jwang"
+                    },
+                    "opType": "IDBController"
+                },
+                {
+                    "argChild": 37,
+                    "opId": 38,
+                    "opType": "LocalMultiwayProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 31,
+                    "opId": 39,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argOperatorId": 38,
+                    "opId": 40,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild1": 39,
+                    "argChild2": 40,
+                    "argColumns1": [
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0"
+                    ],
+                    "argSelect1": [
+                        "0"
+                    ],
+                    "argSelect2": [
+                        "1"
+                    ],
+                    "opId": 41,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 41,
+                    "distributeFunction": {
+                        "indexes": [0],
+                        "type": "Hash"
+                    },
+                    "opId": 42,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 38,
+                    "opId": 43,
+                    "opType": "LocalMultiwayConsumer"
+                },
+                {
+                    "argChild": 43,
+                    "distributeFunction": {
+                        "indexes": [1],
+                        "type": "Hash"
+                    },
+                    "opId": 44,
+                    "opType": "ShuffleProducer"
+                }
+            ]
+        }
+    ],
+    "logicalRa": "",
+    "rawQuery": "A(x, y) :- A0(x, y); A(x, y) :- C(x, z), A(z, y); B(x, y) :- B0(x, y); B(x, y) :- A(x, z), B(z, y); C(x, y) :- C0(x, y); C(x, y) :- B(x, z), C(z, y);"
+}

@@ -1,0 +1,78 @@
+{
+    "fragments":[
+        {
+            "operators":[
+                {
+                    "opId":0,
+                    "opType":"TableScan",
+                    "relationKey":{
+                        "programName":"triangleJoin",
+                        "relationName":"twitterR",
+                        "userName":"test"
+                    }
+                },
+                {
+                    "opId":1,
+                    "opType":"TableScan",
+                    "relationKey":{
+                        "programName":"triangleJoin",
+                        "relationName":"twitterS",
+                        "userName":"test"
+                    }
+                },
+                {
+                    "opId":2,
+                    "opType":"TableScan",
+                    "relationKey":{
+                        "programName":"triangleJoin",
+                        "relationName":"twitterT",
+                        "userName":"test"
+                    }
+                },
+                {
+                    "opId":5,
+                    "opType":"InMemoryOrderBy",
+                    "argChild": 0,
+                    "argSortColumns": [0,1],
+                    "argAscending": [true, true]
+                },
+                {
+                    "opId":6,
+                    "opType":"InMemoryOrderBy",
+                    "argChild": 1,
+                    "argSortColumns": [0,1],
+                    "argAscending": [true, true]
+                },
+                {
+                    "opId":7,
+                    "opType":"InMemoryOrderBy",
+                    "argChild": 2,
+                    "argSortColumns": [0,1],
+                    "argAscending": [true, true]
+                },
+                {
+                    "opId":3,
+                    "opType":"LeapFrogJoin",
+                    "argChildren": [5, 6, 7],
+                    "argColumnNames": ["x","y","z"],
+                    "joinFieldMapping": [[[0,0],[2,0]],[[0,1],[1,0]],[[1,1],[2,1]]],
+                    "outputFieldMapping": [[0,0],[1,0],[1,1]],
+                    "indexOnFirst": [true, true, true]
+                },
+                {
+                    "argChild":3,
+                    "argOverwriteTable":true,
+                    "opId":4,
+                    "opType":"DbInsert",
+                    "relationKey":{
+                        "programName":"triangleJoin",
+                        "relationName":"result",
+                        "userName":"test"
+                    }
+                }
+            ]
+        }
+    ],
+    "logicalRa":"local triangle ",
+    "rawQuery":"T(x,y,z) =: S(x,y), R(y,z), T(z,x)"
+} 

@@ -1,0 +1,158 @@
+{
+    "fragments": [
+        {
+            "operators": [
+                {
+                    "opId": 1,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "LSST_useCase",
+                        "relationName": "testtable",
+                        "userName": "vaspol"
+                    }
+                },
+                {
+                    "argChild": 1,
+                    "distributeFunction": {
+                        "indexes": [0,1],
+                        "type": "Hash"
+                    },
+                    "opId": 3,
+                    "opType": "ShuffleProducer"
+                }
+            ],
+            "overrideWorkers": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "opId": 2,
+                    "opType": "TableScan",
+                    "relationKey": {
+                        "programName": "LSST_useCase",
+                        "relationName": "testtable",
+                        "userName": "vaspol"
+                    }
+                },
+                {
+                    "argChild": 2,
+                    "distributeFunction": {
+                        "indexes": [0,1],
+                        "type": "Hash"
+                    },
+                    "opId": 7,
+                    "opType": "ShuffleProducer"
+                }
+            ],
+            "overrideWorkers": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 3,
+                    "opId": 4,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+	                "aggregators": [
+	                {
+                        "type": "SingleColumn",
+                        "column": 3,
+                        "aggOps" : ["AVG", "STDEV"]
+	                }],
+                    "argChild": 4,
+                    "argGroupFields": [
+                        "0",
+                        "1"
+                    ],
+                    "opId": 6,
+                    "opType": "MultiGroupByAggregate"
+                },
+                {
+                    "argOperatorId": 7,
+                    "opId": 5,
+                    "opType": "ShuffleConsumer"
+                },
+                {
+                    "argChild1": 6,
+                    "argChild2": 5,
+                    "argColumns1": [
+                        "0",
+                        "1"
+                    ],
+                    "argColumns2": [
+                        "0",
+                        "1"
+                    ],
+                    "argSelect1": [
+                        "0",
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "argSelect2": [
+                        "2",
+                        "3"
+                    ],
+                    "opId": 8,
+                    "opType": "SymmetricHashJoin"
+                },
+                {
+                    "argChild": 8,
+                    "argPredicate": {
+                        "argCompareIndex": "5",
+                        "argOperandIndices": [
+                            "2",
+                            "3"
+                        ],
+                        "type": "WithinSumRangePredicate"
+                    },
+                    "opId": 9,
+                    "opType": "Filter"
+                },
+                {
+                    "argChild": 9,
+                    "opId": 10,
+                    "opType": "CollectProducer"
+                }
+            ],
+            "overrideWorkers": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "operators": [
+                {
+                    "argOperatorId": 10,
+                    "opId": 11,
+                    "opType": "CollectConsumer"
+                },
+                {
+                    "argChild": 11,
+                    "opId": 12,
+                    "opType": "DbInsert",
+                    "relationKey": {
+                        "programName": "LSST_useCase",
+                        "relationName": "queryResult3",
+                        "userName": "vaspol"
+                    }
+                }
+            ],
+            "overrideWorkers": [
+                "1"
+            ]
+        }
+    ],
+    "logicalRa": "INSERT(JOIN(SCAN1,SCAN2))",
+    "rawQuery": "smallTableJoin(x,z) :- smallTable(x,y),smallTable(y,z)."
+}
