@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="3.0.0" versioncode="401" >
+        <change><![CDATA[<b>New name for the app. Ventoo is now JayPS!</b>]]></change>
+    </release>
+    <release version="2.9.5" versioncode="350" >
+        <change><![CDATA[<b>[Navigation] Waypoint notifications:</b><br/>
+            + If the imported GPX contains waypoints, show a notification on Pebble when they are reached<br/>
+            + [Online planner] Add Google Directions "turns" as notifications<br/>
+            + Detect climbs + notifications (start/end) - Export to OruxMaps]]></change>
+    </release>
+    <release version="2.9.1" versioncode="330" >
+        <change>[Pebble 2] Add support for Pebble 2 and built-in heart rate monitor</change>
+        <change>[Pebble classic] Add more functions thanks to advanced memory optimizations (Overlays, thanks gregoiresage)</change>
+        <change>[Firmware 4] Add App Glance : displays distance and ascent in the Pebble app menu</change>
+    </release>
+    <release version="2.8.0" versioncode="320" >
+        <change><![CDATA[<b>Navigation: follow a route on your Pebble</b><br/>
+            - load a GPX containing a route to follow in the menu<br/>
+            - get directions on your Pebble, using the compass or the map<br/>
+            - customize your screens to display navigation data: distance to next point, distance to destination, time to destination and time of arrival<br/>
+            - online planner to generate your own route from Google Directions<br/>
+            - Note: avoid routes with return path on the same path (after a half turn)]]></change>
+        <change>Pebble: add Italian (thanks Riccardo Fantoni), Japanese (thanks Moyashi) and Dutch (thanks Erwin Dirkx - specific watchapp)</change>
+        <change>[Pebble 4.0]: add App Glance with distance and ascent</change>
+        <change><![CDATA[<b>New watchface (click on "Install Watchface" in settings)]]></change>
+        <change><![CDATA[<a href="http://pebblebike.com/v2.8.0">More about v2.8.0 and navigation</a>]]></change>
+    </release>
+    <release version="2.7.0" versioncode="306" >
+        <change><![CDATA[<b>Runkeeper upload</b><br/>
+        - go in the settings to grant the access to Runkeeper<br/>
+        - upload manually from the menu or automatically at the end of the track<br/>
+        ]]></change>
+        <change><![CDATA[Do you like this free app? Please give us a heart on <a href="pebble://appstore/529289cee07df1fa76000009">Pebble Store</a> or rate us on <a href="https://play.google.com/store/apps/details?id=com.njackson">Google Play</a>. Thanks!]]></change>
+    </release>
+    <release version="2.6.0" versioncode="303" >
+        <change><![CDATA[<b>Strava upload</b><br/>
+        - go in the settings to grant the access to Strava<br/>
+        - upload manually from the menu or automatically at the end of the track<br/>
+        ]]></change>
+        <change>[Time series] Rotation mode: long press middle button to automatically cycle every 5 seconds between your data screens</change>
+    </release>
+    <release version="2.5.0" versioncode="291" >
+        <change><![CDATA[<b>Pebble: add graphs in top field</b> (altitude, ascent, heart rate, speed)]]></change>
+        <change><![CDATA[<b>Pebble: data screens share the same template</b>]]></change>
+        <change><![CDATA[<b>Add heart rate zones + alarms</b><br/>
+        - configure max heart rate in the android settings<br/>
+        - background color changes with HR zone (middle screen only)<br/>
+        - cumulative time in each zone]]></change>
+        <change>Pebble: add german (thanks Hanspeter Jochmann), spanish (thanks ZoretMan) and french</change>
+        <change>[Pebble Time and Round only] add steps and steps cadence (data from Pebble Health)</change>
+        <change><![CDATA[<a href="http://pebblebike.com/v2.5.0">More about v2.5.0</a>]]></change>
+    </release>
+    <release version="2.4.0" versioncode="281" >
+        <change><![CDATA[<b>Improve ascent calculation</b>]]></change>
+        <change><![CDATA[<b>Support for more HRM and CSC sensors</b>]]></change>
+        <change>Possibility to add a third BLE sensor</change>
+        <change>Settings: display data close to the right BLE sensor</change>
+    </release>
+    <release version="2.3.0" versioncode="271" >
+        <change><![CDATA[<b>New watchapp with more fields and colors</b>]]></change>
+        <change>Support for Pebble Time Round</change>
+        <change>New GPS adaptative modes to reduce battery usage</change>
+        <change><![CDATA[<b>=> New watchface (click on "Install Watchface" in settings)</b>]]></change>
+    </release>
+    <release version="2.2.0" versioncode="265" >
+        <change><![CDATA[<b>BLE: support for multiple devices at the same time (HRM+CSC)</b>]]></change>
+        <change><![CDATA[<b>GPX: use Garmin format for better compatibility with Strava and export hear rate and cadence by default</b>]]></change>
+        <change><![CDATA[<b>BLE CSC: use instant speed from sensor if available - Configure your wheel size in the settings</b>]]></change>
+        <change>BLE: support for temperature (Wahoo Blue SC)</change>
+        <change>BLE Running Speed and Cadence (RSC) - TickrX, experimental, Canvas only</change>
+        <change>Pebble: display phone battery levels in menu</change>
+        <change><![CDATA[<b>=> New watchface (click on "Install Watchface" in settings)</b>]]></change>
+    </release>
+    <release version="2.1.0" versioncode="253" >
+        <change><![CDATA[<b>New name for the app. Pebble Bike is now Ventoo!</b>]]></change>
+        <change><![CDATA[<b>Configurable screens on the Pebble</b>]]></change>
+        <change><![CDATA[<b>BLE Cycling Speed and Cadence (CSC)</b>]]></change>
+        <change>GPX: add heart rate and cadence</change>
+        <change>Improve accuracy for altitude from pressure sensor</change>
+        <change>Map My Tracks: send altitude and heart rate</change>
+        <change><![CDATA[<b>=> New watchface (click on "Install Watchface" in settings)</b>]]></change>
+    </release>
+    <release version="2.0.1" versioncode="223" >
+        <change>Bugfix: prevent crashes for Android 4.1 and 4.2</change>
+    </release>
+    <release version="2.0.0" versioncode="221" >
+        <change><![CDATA[<b>Android: New UI</b>]]></change>
+        <change><![CDATA[<b>Save tracks and export them as GPX</b>]]></change>
+        <change><![CDATA[<b>Customizable screens with Canvas plugin</b>]]></change>
+        <change>Pebble Time compatibility</change>
+        <change>New version 2: complete rewrite of the app since 1.x</change>
+        <change>New units: nautical and running</change>
+        <change>Improve data transmission to Pebble</change>
+        <change>=> New watchface (click on "Install Watchface" in settings)</change>
+  </release>
+  <release version="1.5.0" versioncode="30" >
+      <change>Map My Tracks integration</change>
+      <change>Live Tracking: send heart rate</change>
+      <change>Bugfix: distance calculation</change>
+      <change>Heart rate monitor: support for more BLE devices</change>
+      <change>Pebble: bigger topbar</change>
+      <change>Preferences: reset data from the phone</change>
+      <change>Bugfix: prevent crashes</change>
+  </release>
+  <release version="1.4.2" versioncode="27" >
+      <change>Improve battery level</change>
+  </release>
+  <release version="1.4.1" versioncode="26" >
+      <change>Bugfix: prevent crashes</change>
+  </release>
+  <release version="1.4.0" versioncode="25" >
+      <change>Bluetooth Smart (BLE) Heart Rate Monitor</change>
+      <change>If available, use pressure sensor to improve altitude accuracy</change>
+      <change>Display altitude above sea level (instead of WGS84)</change>
+      <change>OruxMaps: option to start it when Pebble Bike starts</change>
+      <change>Pebble: Bluetooth state</change>
+      <change>Pebble: display phone &amp; watch battery levels in menu</change>
+      <change>Notification when a new watchface is available</change>
+      <change>Improved communication to avoid bluetooth errors and pebble disconnections</change>
+      <change>=> Install the new watchface (click on "Install Watchface" in settings)</change>
+  </release>
+  <release version="1.3.0" versioncode="20" >
+      <change>Android UI Refresh</change>
+      <change>Live Tracking with JayPS</change>
+      <change>Map screen on Pebble, displays your track and your friends</change>
+      <change>Add support for Pebble 2.0</change>
+      <change>OruxMaps integration (start/stop/add waypoint)</change>
+      <change>Pebble menu</change>
+      <change>Several bugfixes to improve stability</change>
+      <change>=> Install the new watchface (click on "Install Watchface" in settings)</change>
+  </release>
+  <release version="1.2.1" versioncode="10" >
+      <change>Bugfix: reset then start gps from watchface could crash the android app (first use of the app only)</change>
+  </release>
+  <release version="1.2" versioncode="9" >
+      <change>Altitude functionalities (altitude, ascent, ascent rate, slope)</change>
+	  <change>Multipages pebble app (middle button to change the current page)</change>
+      <change>Improved stability</change>
+      <change>BUGFIXES:</change>
+      <change>speed display (missing separator &amp; wrong alignment)</change>
+      <change>saved distance &amp; average speed</change>
+	  <change>Foreground service (notification in status bar to prevent the app to be killed by android system low on memory)</change>
+  </release>
+  <release version="1.0" versioncode="1">
+      <change>First release</change>
+  </release>
+</changelog>

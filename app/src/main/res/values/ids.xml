@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="speed_label" type="id" />
+    <item name="speed_text" type="id" />
+    <item name="speed_units_label" type="id" />
+    <item name="time_label" type="id" />
+    <item name="time_text" type="id" />
+    <item name="avgspeed_label" type="id" />
+    <item name="avgspeed_text" type="id" />
+    <item name="distance_label" type="id" />
+    <item name="distance_text" type="id" />
+    <item name="distance_units_label" type="id" />
+    <item name="avgspeed_units_label" type="id" />
+    <item name="time_container" type="id" />
+    <item name="speed_container" type="id" />
+    <item name="distance_container" type="id" />
+    <item name="avgspeed_container" type="id" />
+    <item name="altitude_main_container" type="id" />
+    <item name="start_button" type="id" />
+    <item name="main_start_button" type="id" />
+    <item name="main_altitude" type="id"/>
+    <item name="main_speed" type="id"/>
+    <item name="altitude_text" type="id"/>
+    <item name="altitude_graph" type="id" />
+    <item name="altitude_gps_status" type="id" />
+    <item name="altitude_title_section" type="id" />
+    <item name="altitude_status_value" type="id" />
+    <item name="main_altitiude" type="id" />
+</resources>

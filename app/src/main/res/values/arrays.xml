@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="PREF_UNITS_ENTRIES">
+        <item>@string/PREF_UNITS_UNIT_IMPERIAL</item>
+        <item>@string/PREF_UNITS_UNIT_METRIC</item>
+        <item>@string/PREF_UNITS_UNIT_NAUTICAL_IMPERIAL</item>
+        <item>@string/PREF_UNITS_UNIT_NAUTICAL_METRIC</item>
+        <item>@string/PREF_UNITS_UNIT_RUNNING_IMPERIAL</item>
+        <item>@string/PREF_UNITS_UNIT_RUNNING_METRIC</item>
+    </string-array>
+    <string-array name="PREF_UNITS_ENTRY_VALUES">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="REFRESH_INTERVAL_ENTRIES">
+        <item>Adaptative Normal (3s-30s)</item>
+        <item>Adaptative Medium (3s-30s)</item>
+        <item>Adaptative Low (5s-30s)</item>
+        <item>High (500ms)</item>
+        <item>Normal (1s)</item>
+        <item>2s</item>
+        <item>5s</item>
+        <item>Save battery (10s)</item>
+        <item>Save battery (30s)</item>
+    </string-array>
+    <string-array name="REFRESH_INTERVAL_ENTRY_VALUES">
+        <item>103000</item>
+        <item>203000</item>
+        <item>305000</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>30000</item>
+    </string-array>
+
+    <string-array name="STRAVA_AUTO_ENTRIES">
+        <item>Disable</item>
+        <item>At the end of the track</item>
+    </string-array>
+    <string-array name="STRAVA_AUTO_ENTRY_VALUES">
+        <item>disable</item>
+        <item>end_track</item>
+    </string-array>
+
+    <string-array name="RUNKEEPER_AUTO_ENTRIES">
+        <item>Disable</item>
+        <item>At the end of the track</item>
+    </string-array>
+    <string-array name="RUNKEEPER_AUTO_ENTRY_VALUES">
+        <item>disable</item>
+        <item>end_track</item>
+    </string-array>
+
+    <string-array name="RUNKEEPER_ACTIVITY_TYPE_ENTRIES">
+        <item>Running</item>
+        <item>Cycling</item>
+        <item>Hiking</item>
+        <item>Walking</item>
+        <item>Mountain Biking</item>
+        <item>Cross-Country Skiing</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="RUNKEEPER_ACTIVITY_TYPE_ENTRY_VALUES">
+        <item>Running</item>
+        <item>Cycling</item>
+        <item>Hiking</item>
+        <item>Walking</item>
+        <item>Mountain Biking</item>
+        <item>Cross-Country Skiing</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="ORUXMAPS_AUTO_ENTRIES">
+        <item>Disable</item>
+        <item>Continue record</item>
+        <item>Start new segment</item>
+        <item>Start new track</item>
+        <item>Start new segment (less than 12h) or new track</item>
+    </string-array>
+    <string-array name="ORUXMAPS_AUTO_ENTRY_VALUES">
+        <item>disable</item>
+        <item>continue</item>
+        <item>new_segment</item>
+        <item>new_track</item>
+        <item>auto</item>
+    </string-array>
+
+    <string-array name="CANVAS_MODE_ENTRIES">
+        <item>Disable</item>
+        <item>Canvas only</item>
+        <item>Canvas + JayPS Watchapp</item>
+    </string-array>
+    <string-array name="CANVAS_MODE_ENTRY_VALUES">
+        <item>disable</item>
+        <item>canvas_only</item>
+        <item>canvas_and_pbw</item>
+    </string-array>
+
+    <string-array name="PREF_BLE_HRM_ZONE_NOTIFICATION_MODE_ENTRIES">
+        <item>Disable</item>
+        <item>Vibrate at every zone change (at least 30s in the previous zone)</item>
+        <item>Vibrate entering in maximum zone</item>
+    </string-array>
+    <string-array name="PREF_BLE_HRM_ZONE_NOTIFICATION_MODE_ENTRY_VALUES">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

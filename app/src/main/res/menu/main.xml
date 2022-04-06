@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.njackson.activities.MainActivity" >
+    
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100" />
+
+    <item android:id="@+id/action_export_gpx"
+        android:title="Export GPX"
+        android:orderInCategory="101" />
+
+    <item android:id="@+id/action_upload_strava"
+        android:title="Upload to Strava"
+        android:orderInCategory="102" />
+
+    <item android:id="@+id/action_upload_runkeeper"
+        android:title="Upload to Runkeeper"
+        android:orderInCategory="103" />
+
+    <item android:id="@+id/action_load_route"
+        android:title="Load route to follow"
+        android:orderInCategory="104" />
+
+    <item android:id="@+id/action_reset"
+        android:title="Reset data &amp; GPX"
+        android:orderInCategory="105" />
+</menu>
