@@ -9,4 +9,4 @@ install: true
 before_script: [./gradlew --version]
 script: [./gradlew test jacocoTestReport coveralls]
 branches:
-  only: [domix/jade4j-spring-boot-starter-19-origin]
+  only: [domix/jade4j-spring-boot-starter-19-FILE_SYSTEM_WATCHING]
