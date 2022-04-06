@@ -20,4 +20,4 @@ notifications:
   email:
     recipients: [sdk_developers@cloudinary.com]
 branches:
-  only: [cloudinary/cloudinary_android-125-origin]
+  only: [cloudinary/cloudinary_android-125-CONFIGURATION_ON_DEMAND]
