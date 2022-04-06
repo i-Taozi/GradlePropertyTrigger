@@ -1,0 +1,1605 @@
+﻿<?xml version="1.0" encoding="UTF-16"?>
+<!DOCTYPE model SYSTEM "Compendium.dtd">
+<model rootview="1270111382209449663">
+	<views>
+		<view viewref="1270111382209449663" noderef="1270111368267280971" XPosition="436" YPosition="420" created="1382209452427" lastModified="1382209452427" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111368252519842" XPosition="468" YPosition="322" created="1382209452552" lastModified="1382209452552" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252519842" noderef="1270111368339763961" XPosition="250" YPosition="52" created="1382209454702" lastModified="1382209454702" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="1" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339765027" XPosition="716" YPosition="127" created="1382209454808" lastModified="1382209454808" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="30" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368341730620" XPosition="7" YPosition="0" created="1382209454845" lastModified="1382209454845" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="45" fontsize="18" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368340644778" XPosition="395" YPosition="301" created="1382209454887" lastModified="1382209454887" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368342008888" XPosition="585" YPosition="257" created="1382209454933" lastModified="1382209454933" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="10" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339765071" XPosition="2" YPosition="80" created="1382209454972" lastModified="1382209454972" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="35" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339765128" XPosition="7" YPosition="158" created="1382209455013" lastModified="1382209455013" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="35" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339765229" XPosition="737" YPosition="343" created="1382209455053" lastModified="1382209455053" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339765183" XPosition="693" YPosition="245" created="1382209455090" lastModified="1382209455090" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="35" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368339764972" XPosition="8" YPosition="238" created="1382209455169" lastModified="1382209455169" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="true" hideIcon="false" labelWrapWidth="35" fontsize="12" fontface="Lucida Sans" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368341911247" XPosition="314" YPosition="263" created="1382209455136" lastModified="1382209455136" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="10" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368340223821" XPosition="381" YPosition="211" created="1382209455219" lastModified="1382209455219" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368444234837" XPosition="93" YPosition="418" created="1382209455266" lastModified="1382209455266" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339763961" noderef="1270111368341595001" XPosition="63" YPosition="326" created="1382209455317" lastModified="1382209455317" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252519842" noderef="137108242381068735714527" XPosition="50" YPosition="40" created="1382209454764" lastModified="1382209454764" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="1" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111367843460904" XPosition="106" YPosition="0" created="1382209452494" lastModified="1382209452494" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="30" fontsize="24" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111367843851238" XPosition="132" YPosition="198" created="1382209452367" lastModified="1382209452367" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="65" fontsize="16" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111367845169469" XPosition="0" YPosition="420" created="1382209452323" lastModified="1382209452323" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="50" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111367843527519" XPosition="110" YPosition="46" created="1382209452268" lastModified="1382209452268" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="70" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111382209449663" noderef="1270111368252471011" XPosition="129" YPosition="314" created="1382209451131" lastModified="1382209451131" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368256487885" XPosition="18" YPosition="302" created="1382209452608" lastModified="1382209452608" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="16" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368252758300" XPosition="3" YPosition="1" created="1382209452645" lastModified="1382209452645" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="30" fontsize="24" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368255477216" XPosition="6" YPosition="178" created="1382209452670" lastModified="1382209452670" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="55" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368255637280" XPosition="287" YPosition="122" created="1382209452703" lastModified="1382209452703" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="50" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368255622522" XPosition="50" YPosition="104" created="1382209452737" lastModified="1382209452737" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="50" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="137108251921158578649063" XPosition="300" YPosition="351" created="1382209452769" lastModified="1382209452769" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="137108251921158578649063" noderef="1270111368358511052" XPosition="9" YPosition="3" created="1382209452950" lastModified="1382209452950" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="22" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="137108251921158578649063" noderef="1270111368339764146" XPosition="256" YPosition="104" created="1382209452974" lastModified="1382209452974" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="1270111368339765486" XPosition="214" YPosition="10" created="1382209453081" lastModified="1382209453081" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="137108251921158578649454" XPosition="4" YPosition="60" created="1382209453107" lastModified="1382209453107" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="1270111368339765415" XPosition="503" YPosition="30" created="1382209453141" lastModified="1382209453141" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="1270111368339765376" XPosition="509" YPosition="40" created="1382209453170" lastModified="1382209453170" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="1270111368339765525" XPosition="498" YPosition="50" created="1382209453206" lastModified="1382209453206" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339764146" noderef="1270111368339765453" XPosition="217" YPosition="20" created="1382209453239" lastModified="1382209453239" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="137108251921158578649063" noderef="1270111368358601141" XPosition="8" YPosition="43" created="1382209453019" lastModified="1382209453019" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="58" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="137108251921158578649063" noderef="1270111368359104034" XPosition="11" YPosition="102" created="1382209453044" lastModified="1382209453044" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339765486" XPosition="307" YPosition="330" created="1368359448601" lastModified="1368359613366" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="30" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="137108251921158578649454" XPosition="36" YPosition="184" created="1368359448571" lastModified="1368359613376" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="137108251921158578650079" XPosition="791" YPosition="200" created="1382209453285" lastModified="1382209453285" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339765415" XPosition="571" YPosition="107" created="1368359448628" lastModified="1368359613357" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339765376" XPosition="567" YPosition="342" created="1368359448643" lastModified="1368359613353" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368359489242" XPosition="13" YPosition="47" created="1382209453331" lastModified="1382209453331" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="45" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339763825" XPosition="397" YPosition="515" created="1382209453360" lastModified="1382209453360" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="30" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764919" XPosition="44" YPosition="277" created="1382209453572" lastModified="1382209453572" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764437" XPosition="745" YPosition="277" created="1382209453627" lastModified="1382209453627" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764588" XPosition="720" YPosition="186" created="1382209453674" lastModified="1382209453674" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764314" XPosition="375" YPosition="17" created="1382209453722" lastModified="1382209453722" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764655" XPosition="128" YPosition="94" created="1382209453820" lastModified="1382209453820" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764724" XPosition="372" YPosition="476" created="1382209453771" lastModified="1382209453771" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764274" XPosition="176" YPosition="450" created="1382209453872" lastModified="1382209453872" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764496" XPosition="365" YPosition="256" created="1382209453924" lastModified="1382209453924" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764375" XPosition="62" YPosition="180" created="1382209453958" lastModified="1382209453958" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764785" XPosition="54" YPosition="370" created="1382209454004" lastModified="1382209454004" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764853" XPosition="588" YPosition="450" created="1382209454040" lastModified="1382209454040" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764201" XPosition="611" YPosition="87" created="1382209454076" lastModified="1382209454076" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368339763825" noderef="1270111368339764542" XPosition="726" YPosition="385" created="1382209454115" lastModified="1382209454115" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368359542722" XPosition="6" YPosition="5" created="1382209453403" lastModified="1382209453403" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="50" fontsize="22" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368359654286" XPosition="10" YPosition="505" created="1382209453442" lastModified="1382209453442" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="58" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339765525" XPosition="553" YPosition="187" created="1368359448659" lastModified="1368359613348" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368339765453" XPosition="315" YPosition="87" created="1368359448614" lastModified="1368359613362" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Arial" fontstyle="0" foreground="0" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="1270111368359976150" XPosition="762" YPosition="30" created="1382209453508" lastModified="1382209453508" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="30" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368359104034" noderef="137108251921158578649985" XPosition="774" YPosition="387" created="1382209453539" lastModified="1382209453539" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368256392480" XPosition="0" YPosition="347" created="1382209452825" lastModified="1382209452825" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368356967765" XPosition="1782" YPosition="1072" created="1382209454195" lastModified="1382209454195" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="28" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357154874" XPosition="2098" YPosition="1094" created="1382209454164" lastModified="1382209454164" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="20" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357457806" XPosition="2114" YPosition="294" created="1382209454224" lastModified="1382209454224" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="30" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357108572" XPosition="1800" YPosition="1318" created="1382209454252" lastModified="1382209454252" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="20" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357294958" XPosition="1741" YPosition="144" created="1382209454282" lastModified="1382209454282" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="35" fontsize="14" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368256005416" XPosition="2" YPosition="49" created="1382209454359" lastModified="1382209454359" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="62" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368356510875" XPosition="22" YPosition="5" created="1382209454328" lastModified="1382209454328" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="24" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357691232" XPosition="1808" YPosition="1000" created="1382209454391" lastModified="1382209454391" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368357452412" XPosition="2112" YPosition="0" created="1382209454426" lastModified="1382209454426" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368256392480" noderef="1270111368255293448" XPosition="49" YPosition="211" created="1382209454458" lastModified="1382209454458" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="36" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368255342744" XPosition="89" YPosition="58" created="1382209452864" lastModified="1382209452864" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="29" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368252471011" noderef="1270111368255136187" XPosition="153" YPosition="348" created="1382209452903" lastModified="1382209452903" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111367844087487" XPosition="215" YPosition="213" created="1382209454494" lastModified="1382209454494" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="16" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111368254024690" XPosition="277" YPosition="23" created="1382209454525" lastModified="1382209454525" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="false" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111367844277130" XPosition="0" YPosition="1" created="1382209454578" lastModified="1382209454578" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="22" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111367844304761" XPosition="41" YPosition="368" created="1382209454615" lastModified="1382209454615" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="30" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111367843680884" XPosition="6" YPosition="58" created="1382209454640" lastModified="1382209454640" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="30" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+		<view viewref="1270111368255136187" noderef="1270111367844559163" XPosition="886" YPosition="154" created="1382209454667" lastModified="1382209454667" showTags="true" showText="true" showTrans="true" showWeight="true" smallIcon="false" hideIcon="true" labelWrapWidth="25" fontsize="30" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1">
+		</view>
+	</views>
+	<nodes>
+		<node id="1270111382209449663" type="2" extendedtype="" originalid="" author="t" created="1382209449660" lastModified="1382209449660" label="Home Window" state="1" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111382209449663" author="t" created="1382209449660" lastModified="1382209449660" pageno="1">Home Window of t</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368267280971" type="9" extendedtype="" originalid="" author="t" created="1382209452427" lastModified="1382210575243" label="List of Changes in this release of CNG (2.1.3)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368267280971" author="t" created="1368665073791" lastModified="1368665073791" pageno="1"></page>
+			</details>
+			<source>http://github.com/CompendiumNG/CompendiumNG/wiki/List-of-Changes-in-2.1.3</source>
+			<image width="0" height="0">images/CNG-logo.png</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368252519842" type="2" extendedtype="" originalid="" author="t" created="1382209452552" lastModified="1382209452597" label="About CNG" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368252519842" author="t" created="1368665073875" lastModified="1368665073875" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339763961" type="2" extendedtype="" originalid="" author="t" created="1382209454702" lastModified="1382209454750" label="Acknowledgements to earlier developers of Compendium" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339763961" author="t" created="1368665074113" lastModified="1368665074113" pageno="1">(Imported Author: Administrator)
+
+(Creation Date: Sun May 12 12:54:09 EST 2013)
+
+(Modification Date: Sun May 12 12:54:09 EST 2013)</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765027" type="9" extendedtype="" originalid="" author="t" created="1382209454808" lastModified="1382209454834" label="NASA Mars Desert Research Station field trials" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765027" author="t" created="1368665074183" lastModified="1368665074183" pageno="1">(Imported Author: Administrator)
+
+(Creation Date: Sun May 12 12:54:10 EST 2013)
+
+(Modification Date: Sun May 12 12:54:10 EST 2013)</page>
+			</details>
+			<source>http://kmi.open.ac.uk/projects/coakting/nasa/</source>
+			<image width="0" height="0">images/project-default/mdrs-home.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368341730620" type="3" extendedtype="" originalid="" author="t" created="1382209454845" lastModified="1382209454871" label="CNG acknowledges the contrbutions made by earlier supporters and funders of Compendium" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368341730620" author="t" created="1368665074207" lastModified="1368665074207" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368340644778" type="9" extendedtype="" originalid="" author="t" created="1382209454887" lastModified="1382209454921" label="Compendium Institute" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368340644778" author="t" created="1368665074244" lastModified="1368665074244" pageno="1"></page>
+			</details>
+			<source>http://compendium.open.ac.uk/institute/</source>
+			<image width="0" height="0">images/project-default/compendiuminstitute.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368342008888" type="3" extendedtype="" originalid="" author="t" created="1382209454933" lastModified="1382209454963" label="for projects such as" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368342008888" author="t" created="1368665074266" lastModified="1368665074266" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765071" type="9" extendedtype="" originalid="" author="t" created="1382209454972" lastModified="1382209455003" label="Joint Information Systems Committee" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765071" author="t" created="1368665074311" lastModified="1368665074311" pageno="1"></page>
+			</details>
+			<source>http://www.jisc.ac.uk</source>
+			<image width="0" height="0">images/project-default/JISCcolour7.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765128" type="9" extendedtype="" originalid="" author="t" created="1382209455013" lastModified="1382209455041" label="UK Engineering &amp; Physical Sciences Research Council" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765128" author="t" created="1368665074360" lastModified="1368665074360" pageno="1"></page>
+			</details>
+			<source>http://www.epsrc.ac.uk</source>
+			<image width="0" height="0">images/project-default/EPSRC1MONOLO-sm.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765229" type="9" extendedtype="" originalid="" author="t" created="1382209455053" lastModified="1382209455075" label="Ecosensus - Compendium+GIS integration screencast" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765229" author="t" created="1368665074406" lastModified="1368665074406" pageno="1"></page>
+			</details>
+			<source>http://kmi.open.ac.uk/projects/ecosensus/software/screencasts/CompIntro/CompIntro.html</source>
+			<image width="0" height="0">images/project-default/ecosensus-screencast.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765183" type="9" extendedtype="" originalid="" author="t" created="1382209455090" lastModified="1382209455115" label="Collaborative Advanced Knowledge Technologies in the Grid" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765183" author="t" created="1368665074452" lastModified="1368665074452" pageno="1"></page>
+			</details>
+			<source>http://www.aktors.org/coakting</source>
+			<image width="117" height="34">images/project-default/compendiume.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764972" type="9" extendedtype="" originalid="" author="t" created="1382209455169" lastModified="1382209455203" label="Economic &amp; Social Research Council" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764972" author="t" created="1368665074524" lastModified="1368665074524" pageno="1"></page>
+			</details>
+			<source>http://www.esrc.ac.uk</source>
+			<image width="0" height="0">images/project-default/esrc-logo.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368341911247" type="3" extendedtype="" originalid="" author="t" created="1382209455136" lastModified="1382209455154" label=" all supported" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368341911247" author="t" created="1368665074482" lastModified="1368665074482" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368340223821" type="9" extendedtype="" originalid="" author="t" created="1382209455219" lastModified="1382209455253" label="Knowledge Media Institute" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368340223821" author="t" created="1368665074571" lastModified="1368665074571" pageno="1"></page>
+			</details>
+			<source>http://kmi.open.ac.uk/</source>
+			<image width="0" height="0">images/project-default/kmi.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368444234837" type="9" extendedtype="" originalid="" author="t" created="1382209455266" lastModified="1382209455302" label="Cognexus" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368444234837" author="t" created="1368665074609" lastModified="1368665074609" pageno="1"></page>
+			</details>
+			<source>http://cognexus.org</source>
+			<image width="0" height="0">images/project-default/cognexus-logo.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368341595001" type="9" extendedtype="" originalid="" author="t" created="1382209455317" lastModified="1382209455350" label="Open University" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368341595001" author="t" created="1368665074648" lastModified="1368665074648" pageno="1"></page>
+			</details>
+			<source>http://compendium.open.ac.uk/</source>
+			<image width="0" height="0">images/project-default/openuniversity.jpg</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="137108242381068735714527" type="9" extendedtype="" originalid="" author="t" created="1382209454764" lastModified="1382209454798" label="CompendiumNG Website" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="137108242381068735714527" author="t" created="1368665074148" lastModified="1368665074148" pageno="1"></page>
+			</details>
+			<source>http://compendiumng.org</source>
+			<image width="108" height="78">images/project-default/CNG-website-icon.png</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367843460904" type="4" extendedtype="" originalid="" author="t" created="1382209452494" lastModified="1382209452536" label="Welcome to CompendiumNG (CNG)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367843460904" author="t" created="1368665073948" lastModified="1368665073948" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367843851238" type="4" extendedtype="" originalid="" author="t" created="1382209452367" lastModified="1382209452414" label="To continue please select one of the following:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367843851238" author="t" created="1368665073709" lastModified="1368665073709" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367845169469" type="3" extendedtype="" originalid="" author="t" created="1382209452323" lastModified="1382209452354" label="To open a map double click it. Go ahead with this tutorial by double clicking the map node above" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367845169469" author="t" created="1368665073675" lastModified="1368665073675" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367843527519" type="4" extendedtype="" originalid="" author="t" created="1382209452268" lastModified="1382209452310" label="This is the Home Screen for this new project. The home screen is the map that will be opened automatically when you load a new project. From here you can create and open further maps. Generally CNG lets you use nodes which can be linked to organize your ideas, discussions and materials." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367843527519" author="t" created="1368665073575" lastModified="1368665073575" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368252471011" type="2" extendedtype="" originalid="" author="t" created="1382209451131" lastModified="1382209452218" label="Tutorial" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368252471011" author="t" created="1368665074038" lastModified="1368665074038" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368256487885" type="2" extendedtype="" originalid="" author="t" created="1382209452608" lastModified="1382209452634" label="Learn the Basics:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368256487885" author="t" created="1368665074698" lastModified="1368665074698" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368252758300" type="3" extendedtype="" originalid="" author="t" created="1382209452645" lastModified="1382209452660" label="Welcome to the CNG Tutorial" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368252758300" author="t" created="1368665074722" lastModified="1368665074722" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255477216" type="4" extendedtype="" originalid="" author="t" created="1382209452670" lastModified="1382209452689" label=" You work with CNG by creating nodes that you can then arrange and connect in any way you like. This way you can create complex maps. Importantly you can use a single node in multiple maps to enable cross referencing (called a transclusion). The type of map and types of nodes you create will depend on how you use compendium. We will come back to this later." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255477216" author="t" created="1368665074746" lastModified="1368665074746" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255637280" type="3" extendedtype="" originalid="" author="t" created="1382209452703" lastModified="1382209452723" label="" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255637280" author="t" created="1368665074768" lastModified="1368665074768" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255622522" type="3" extendedtype="" originalid="" author="t" created="1382209452737" lastModified="1382209452756" label="A node" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255622522" author="t" created="1368665074792" lastModified="1368665074792" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="137108251921158578649063" type="2" extendedtype="" originalid="" author="t" created="1382209452769" lastModified="1382209452804" label="Overview of Node Types" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="137108251921158578649063" author="t" created="1368665074828" lastModified="1368665074828" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368358511052" type="3" extendedtype="" originalid="" author="t" created="1382209452950" lastModified="1382209452963" label="Overview of Node Types" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368358511052" author="t" created="1368665074961" lastModified="1368665074961" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764146" type="1" extendedtype="" originalid="" author="t" created="1382209452974" lastModified="1382209453004" label="LISTS also contain other nodes, but display them in a list/table" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764146" author="t" created="1368665074999" lastModified="1368665074999" pageno="1">Pressing the &apos;L&apos; key will create a LIST VIEW icon on the screen where your mouse is located.Pressing the &apos;L&apos; key will create a LIST VIEW icon on the screen where your mouse is located.
+
+(Imported Author: t)
+
+(Creation Date: Sun May 12 12:54:09 EST 2013)
+
+(Modification Date: Sun May 12 12:54:09 EST 2013)</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765486" type="8" extendedtype="" originalid="" author="t" created="1382209453081" lastModified="1382209453094" label="Make an IDEA into a DECISION node to show commitment (right-click and select &apos;change type to ...&apos;)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765486" author="t" created="1368665075106" lastModified="1368665075106" pageno="1">Pressing the &apos;D&apos; key will create a DECISION icon on the screen where your mouse is located.Pressing the &apos;D&apos; key will create a DECISION icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="137108251921158578649454" type="3" extendedtype="" originalid="" author="t" created="1382209453107" lastModified="1382209453122" label="This is an ISSUE or QUESTION that you are thinking about" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="137108251921158578649454" author="t" created="1368665075138" lastModified="1368665075138" pageno="1">Pressing the &apos;Q&apos;, &apos;?&apos; or &apos;I&apos; key will create an ISSUE/QUESTION icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765415" type="7" extendedtype="" originalid="" author="t" created="1382209453141" lastModified="1382209453159" label="Use a CON to express a challenging argument" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765415" author="t" created="1368665075161" lastModified="1368665075161" pageno="1">Pressing the &quot; - &quot; (minus) key will create a CON icon on the screen where your mouse is located.Pressing the &quot; - &quot; (minus) key will create a CON icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765376" type="6" extendedtype="" originalid="" author="t" created="1382209453170" lastModified="1382209453190" label="Use a PRO to express a supporting argument " state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765376" author="t" created="1368665075191" lastModified="1368665075191" pageno="1">Pressing the &apos;+&apos; key will create a PRO icon on the screen where your mouse is located.\n\nNote:  You do NOT have to hold down the SHIFT button while pressing the &apos;+&apos; key.  Compendium knows that when you type a &apos;=&apos; you want a &apos;+&apos;.Pressing the &apos;+&apos; key will create a PRO icon on the screen where your mouse is located.\n\nNote:  You do NOT have to hold down the SHIFT button while pressing the &apos;+&apos; key.  Compendium knows that when you type a &apos;=&apos; you want a &apos;+&apos;.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765525" type="5" extendedtype="" originalid="" author="t" created="1382209453206" lastModified="1382209453223" label="Use an ARGUMENT to show support for one idea but challenging another (drag off the plus or minus)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765525" author="t" created="1368665075225" lastModified="1368665075225" pageno="1">Pressing the &apos;U&apos; key will create a ARGUMENT icon on the screen where your mouse is located.Pressing the &apos;U&apos; key will create a ARGUMENT icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339765453" type="4" extendedtype="" originalid="" author="t" created="1382209453239" lastModified="1382209453256" label="This is an IDEA which responds to an Issue. The asterisk shows there is detail text inside the node. Click on it to view." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339765453" author="t" created="1368665075255" lastModified="1368665075255" pageno="1">Pressing the &apos;!&apos;, &apos;A&apos; or &apos;P&apos; key will create an IDEA icon on the screen where your mouse is located.Pressing the &apos;!&apos;, &apos;A&apos; or &apos;P&apos; key will create an IDEA icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368358601141" type="3" extendedtype="" originalid="" author="t" created="1382209453019" lastModified="1382209453031" label="CNG supports different types of nodes. There are two types of nodes that can contain other nodes: maps and lists:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368358601141" author="t" created="1368665075028" lastModified="1368665075028" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368359104034" type="2" extendedtype="" originalid="" author="t" created="1382209453044" lastModified="1382209453070" label="MAPS contain other nodes which can be freely arranged" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368359104034" author="t" created="1368665075075" lastModified="1368665075075" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="137108251921158578650079" type="10" extendedtype="" originalid="" author="t" created="1382209453285" lastModified="1382209453301" label="This is a NOTE for misc. comments" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="137108251921158578650079" author="t" created="1368665075295" lastModified="1368665075295" pageno="1">Pressing the &apos;N&apos; key will create a NOTE icon on the screen where your mouse is located.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368359489242" type="3" extendedtype="" originalid="" author="t" created="1382209453331" lastModified="1382209453350" label="The default nodes set contained in CNG is designed for the IBIS methodology, which lets you map coversations, decisions and meetings. It distinguishes the following node types:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368359489242" author="t" created="1368665075331" lastModified="1368665075331" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339763825" type="2" extendedtype="" originalid="" author="t" created="1382209453360" lastModified="1382209453390" label="What kinds of Reference nodes might one link to? (Double click to open this map)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339763825" author="t" created="1368665075379" lastModified="1368665075379" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764919" type="9" extendedtype="" originalid="" author="t" created="1382209453572" lastModified="1382209453616" label="REFERENCE to an Acrobat PDF file" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764919" author="t" created="1368665075572" lastModified="1368665075572" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.pdf&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.pdf&apos; file you will see this icon</page>
+			</details>
+			<source>RefExamplePDF.pdf</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764437" type="9" extendedtype="" originalid="" author="t" created="1382209453627" lastModified="1382209453656" label="REFERENCE: with a Java file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764437" author="t" created="1368665075627" lastModified="1368665075627" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.java&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.java&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-Java.java</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764588" type="9" extendedtype="" originalid="" author="t" created="1382209453674" lastModified="1382209453706" label="REFERENCE: with an XML file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764588" author="t" created="1368665075681" lastModified="1368665075681" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.xml&apos; or &apos;.xsl&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.xml&apos; or &apos;.xsl&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-XML.xml</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764314" type="9" extendedtype="" originalid="" author="t" created="1382209453722" lastModified="1382209453758" label="REFERENCES link to external documents; double-click to launch, e.g...." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764314" author="t" created="1368665075719" lastModified="1368665075719" pageno="1">This shows how you can add an image to a reference node, and have it used as the node icon.This shows how you can add an image to a reference node, and have it used as the node icon.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0">images/project-default/sp001788.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764655" type="9" extendedtype="" originalid="" author="t" created="1382209453820" lastModified="1382209453856" label="REFERENCE: weblink to www.CompendiumInstitute.org" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764655" author="t" created="1368665075796" lastModified="1368665075796" pageno="1">If you link to a file ending in  &apos;.htm&apos;, &apos;.html&apos;, &apos;.asp&apos;, &apos;.jsp&apos; or &apos;.php&apos;, or a website link starting with &apos;www&apos; or &apos;http&apos;, you will see this iconIf you link to a file ending in  &apos;.htm&apos;, &apos;.html&apos;, &apos;.asp&apos;, &apos;.jsp&apos; or &apos;.php&apos;, or a website link starting with &apos;www&apos; or &apos;http&apos;, you will see this icon</page>
+			</details>
+			<source>http://compendiumng.org</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764724" type="9" extendedtype="" originalid="" author="t" created="1382209453771" lastModified="1382209453804" label="REFERENCE to an unrecognised file type (hence the generic Reference icon)" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764724" author="t" created="1368665075756" lastModified="1368665075756" pageno="1">Reference nodes with special icons point to file types that are recognised by Compendium. Others will have this icon.Reference nodes with special icons point to file types that are recognised by Compendium. Others will have this icon.</page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764274" type="9" extendedtype="" originalid="" author="t" created="1382209453872" lastModified="1382209453907" label="REFERENCE to a PowerPoint file" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764274" author="t" created="1368665075837" lastModified="1368665075837" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.ppt&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.ppt&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-PowerPoint.ppt</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764496" type="3" extendedtype="" originalid="" author="t" created="1382209453924" lastModified="1382209453947" label="What kinds of Reference nodes might one link to? (Double-clicking a Reference node launches the target document" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764496" author="t" created="1368665075867" lastModified="1368665075867" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764375" type="9" extendedtype="" originalid="" author="t" created="1382209453958" lastModified="1382209453987" label="REFERENCE: with a Word file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764375" author="t" created="1368665075912" lastModified="1368665075912" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.doc&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.doc&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-Word.doc</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764785" type="9" extendedtype="" originalid="" author="t" created="1382209454004" lastModified="1382209454031" label="REFERENCE: with a Excel file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764785" author="t" created="1368665075977" lastModified="1368665075977" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.xls&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.xls&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-Excel.xls</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764853" type="9" extendedtype="" originalid="" author="t" created="1382209454040" lastModified="1382209454066" label="REFERENCE: with an Access file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764853" author="t" created="1368665076020" lastModified="1368665076020" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an .mdb file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an .mdb file you will see this icon</page>
+			</details>
+			<source>RefExample-Access.mdb</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764201" type="9" extendedtype="" originalid="" author="t" created="1382209454076" lastModified="1382209454102" label="REFERENCE: with a text file link" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764201" author="t" created="1368665076057" lastModified="1368665076057" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an .txt file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an .txt file you will see this icon</page>
+			</details>
+			<source>RefExample-readme.txt</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368339764542" type="9" extendedtype="" originalid="" author="t" created="1382209454115" lastModified="1382209454147" label="REFERENCE to a movie file" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368339764542" author="t" created="1368665076114" lastModified="1368665076114" pageno="1">THIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.avi&apos; or &apos;.mov&apos; file you will see this iconTHIS IS ONLY AN EXAMPLE, THERE IS NO REAL FILE, SO IT WILL NOT LAUNCH. If you link to an &apos;.avi&apos; or &apos;.mov&apos; file you will see this icon</page>
+			</details>
+			<source>RefExample-movie.mov</source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368359542722" type="3" extendedtype="" originalid="" author="t" created="1382209453403" lastModified="1382209453424" label="Example of using node types for dialog mapping" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368359542722" author="t" created="1368665075408" lastModified="1368665075408" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368359654286" type="9" extendedtype="" originalid="" author="t" created="1382209453442" lastModified="1382209453478" label="In addition to these there are also &apos;reference&apos; type nodes that you can use to link to websites or documents. Often the most simple way to add a reference is by by simply using drag and drop of external files into CNG." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368359654286" author="t" created="1368665075452" lastModified="1368665075452" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368359976150" type="3" extendedtype="" originalid="" author="t" created="1382209453508" lastModified="1382209453526" label="You can add details to all your nodes. To see the detail for any node hover your mouse over the * symbol in the upper right corner" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368359976150" author="t" created="1368665075501" lastModified="1368665075501" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="137108251921158578649985" type="10" extendedtype="" originalid="" author="t" created="1382209453539" lastModified="1382209453558" label="All of these nodes are &quot;embedded&quot; into other views. Hover over the digit in the lower right to view the navigation menu which will take you to these other views" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="137108251921158578649985" author="t" created="1368665075527" lastModified="1368665075527" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368256392480" type="2" extendedtype="" originalid="" author="t" created="1382209452825" lastModified="1382209452851" label="Navigating Maps" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368256392480" author="t" created="1368665074871" lastModified="1368665074871" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368356967765" type="4" extendedtype="" originalid="" author="t" created="1382209454195" lastModified="1382209454210" label="Great you managed to navigate here. Alternatively to pushing the canvas you can also use your mouse wheel for navigation. " state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368356967765" author="t" created="1368665076182" lastModified="1368665076182" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357154874" type="3" extendedtype="" originalid="" author="t" created="1382209454164" lastModified="1382209454184" label="to move left right: hold SHIFT while using the mouse wheel" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357154874" author="t" created="1368665076148" lastModified="1368665076148" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357457806" type="7" extendedtype="" originalid="" author="t" created="1382209454224" lastModified="1382209454242" label="" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357457806" author="t" created="1368665076216" lastModified="1368665076216" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357108572" type="3" extendedtype="" originalid="" author="t" created="1382209454252" lastModified="1382209454268" label="to move up and down: Use your mouse wheel" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357108572" author="t" created="1368665076250" lastModified="1368665076250" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357294958" type="3" extendedtype="" originalid="" author="t" created="1382209454282" lastModified="1382209454299" label="Sometimes you like to see more or less nodes on screen. You can use the zoom function to achieve this:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357294958" author="t" created="1368665076279" lastModified="1368665076279" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368256005416" type="3" extendedtype="" originalid="" author="t" created="1382209454359" lastModified="1382209454380" label="In CNG your nodes and links are arranged on a big surface. You can think of this surface as a canvas similar to the canvas you would use for drawing. To use CNG efficiently It is important you learn how to navigate this canvas. Obviously you can use the scroll bars to the left and right of the screen. However, generally it is more more efficient if you simply right click anywhere onto the canvas without any content and then push the canvas around to the direction you like to go." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368256005416" author="t" created="1368665076350" lastModified="1368665076350" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368356510875" type="3" extendedtype="" originalid="" author="t" created="1382209454328" lastModified="1382209454345" label="Tutorial: Navigating Maps" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368356510875" author="t" created="1368665076322" lastModified="1368665076322" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357691232" type="3" extendedtype="" originalid="" author="t" created="1382209454391" lastModified="1382209454411" label="to continue scroll up ..." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357691232" author="t" created="1368665076377" lastModified="1368665076377" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368357452412" type="6" extendedtype="" originalid="" author="t" created="1382209454426" lastModified="1382209454443" label="" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368357452412" author="t" created="1368665076405" lastModified="1368665076405" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255293448" type="4" extendedtype="" originalid="" author="t" created="1382209454458" lastModified="1382209454483" label="Try navigating the canvas by following this link to the other end." state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255293448" author="t" created="1368665076435" lastModified="1368665076435" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255342744" type="3" extendedtype="" originalid="" author="t" created="1382209452864" lastModified="1382209452879" label="Two basic units exist in CNG: Nodes and Links" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255342744" author="t" created="1368665074894" lastModified="1368665074894" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368255136187" type="2" extendedtype="" originalid="" author="t" created="1382209452903" lastModified="1382209452930" label="Creating Nodes" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368255136187" author="t" created="1368665074938" lastModified="1368665074938" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367844087487" type="4" extendedtype="" originalid="" author="t" created="1382209454494" lastModified="1382209454512" label="" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367844087487" author="t" created="1368665076466" lastModified="1368665076466" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111368254024690" type="9" extendedtype="" originalid="" author="t" created="1382209454525" lastModified="1382209454564" label="" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111368254024690" author="t" created="1368665076508" lastModified="1368665076508" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="403" height="471">images/project-default/tutorial-1.gif</image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367844277130" type="3" extendedtype="" originalid="" author="t" created="1382209454578" lastModified="1382209454602" label="Creating Nodes:" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367844277130" author="t" created="1368665076542" lastModified="1368665076542" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367844304761" type="3" extendedtype="" originalid="" author="t" created="1382209454615" lastModified="1382209454629" label="2" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367844304761" author="t" created="1368665076576" lastModified="1368665076576" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367843680884" type="4" extendedtype="" originalid="" author="t" created="1382209454640" lastModified="1382209454654" label="1" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367843680884" author="t" created="1368665076604" lastModified="1368665076604" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+		<node id="1270111367844559163" type="3" extendedtype="" originalid="" author="t" created="1382209454667" lastModified="1382209454686" label="3" state="2" lastModificationAuthor="t">
+			<details>
+				<page nodeid="1270111367844559163" author="t" created="1368665076635" lastModified="1368665076635" pageno="1"></page>
+			</details>
+			<source></source>
+			<image width="0" height="0"></image>
+			<background></background>
+			<coderefs>
+			</coderefs>
+			<shortcutrefs>
+			</shortcutrefs>
+			<movies>
+			</movies>
+		</node>
+	</nodes>
+	<links>
+		<link id="1270111368252527014" created="1382209455366" lastModified="1382209455366" author="t" type="39" originalid="" from="1270111367843851238" to="1270111368252519842" label="find out more about CNG">
+			<linkviews>
+				<linkview id="1270111382209449663" created="1382209455408" lastModified="1382209455408" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="3" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111367844860766" created="1382209455463" lastModified="1382209455463" author="t" type="39" originalid="" from="1270111367843527519" to="1270111367843851238" label="">
+			<linkviews>
+				<linkview id="1270111382209449663" created="1382209455470" lastModified="1382209455470" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="3" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368270740667" created="1382209455487" lastModified="1382209455487" author="t" type="39" originalid="" from="1270111368252519842" to="1270111368267280971" label="">
+			<linkviews>
+				<linkview id="1270111382209449663" created="1382209455493" lastModified="1382209455493" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="2" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368252514839" created="1382209455506" lastModified="1382209455506" author="t" type="39" originalid="" from="1270111367843851238" to="1270111368252471011" label="learn the basics">
+			<linkviews>
+				<linkview id="1270111382209449663" created="1382209455518" lastModified="1382209455518" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="3" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368666901269" created="1382209455525" lastModified="1382209455525" author="t" type="39" originalid="" from="1270111367845169469" to="1270111368252471011" label="">
+			<linkviews>
+				<linkview id="1270111382209449663" created="1382209455530" lastModified="1382209455530" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368444293156" created="1382209456002" lastModified="1382209456002" author="t" type="39" originalid="" from="1270111368444234837" to="1270111368341911247" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456010" lastModified="1382209456010" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368342026674" created="1382209456017" lastModified="1382209456017" author="t" type="39" originalid="" from="1270111368342008888" to="1270111368339765183" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456025" lastModified="1382209456025" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368341913298" created="1382209456032" lastModified="1382209456032" author="t" type="39" originalid="" from="1270111368339765071" to="1270111368341911247" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456039" lastModified="1382209456039" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368342025508" created="1382209456045" lastModified="1382209456045" author="t" type="39" originalid="" from="1270111368342008888" to="1270111368339765027" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456057" lastModified="1382209456057" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368341918113" created="1382209456062" lastModified="1382209456062" author="t" type="39" originalid="" from="1270111368341595001" to="1270111368341911247" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456068" lastModified="1382209456068" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368341914858" created="1382209456072" lastModified="1382209456072" author="t" type="39" originalid="" from="1270111368339765128" to="1270111368341911247" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456077" lastModified="1382209456077" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368342028405" created="1382209456086" lastModified="1382209456086" author="t" type="39" originalid="" from="1270111368342008888" to="1270111368339765229" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456093" lastModified="1382209456093" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368341916314" created="1382209456098" lastModified="1382209456098" author="t" type="39" originalid="" from="1270111368339764972" to="1270111368341911247" label="">
+			<linkviews>
+				<linkview id="1270111368339763961" created="1382209456106" lastModified="1382209456106" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368256453428" created="1382209455538" lastModified="1382209455538" author="t" type="39" originalid="" from="1270111368255136187" to="137108251921158578649063" label="">
+			<linkviews>
+				<linkview id="1270111368252471011" created="1382209455545" lastModified="1382209455545" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368255645956" created="1382209455551" lastModified="1382209455551" author="t" type="39" originalid="" from="1270111368255622522" to="1270111368255637280" label="a link">
+			<linkviews>
+				<linkview id="1270111368252471011" created="1382209455555" lastModified="1382209455555" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="50" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368256413396" created="1382209455561" lastModified="1382209455561" author="t" type="39" originalid="" from="1270111368256392480" to="1270111368255136187" label="">
+			<linkviews>
+				<linkview id="1270111368252471011" created="1382209455569" lastModified="1382209455569" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358409990" created="1382209455575" lastModified="1382209455575" author="t" type="41" originalid="" from="1270111368339765415" to="1270111368339765453" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455580" lastModified="1382209455580" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-65536" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358326598" created="1382209455585" lastModified="1382209455585" author="t" type="39" originalid="" from="1270111368339765486" to="137108251921158578649454" label="(right click + drag to make links between nodes">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455595" lastModified="1382209455595" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358251904" created="1382209455601" lastModified="1382209455601" author="t" type="40" originalid="" from="1270111368339765525" to="1270111368339765486" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455605" lastModified="1382209455605" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-16711936" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358285297" created="1382209455609" lastModified="1382209455609" author="t" type="39" originalid="" from="1270111368339765453" to="137108251921158578649454" label="responds to ">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455615" lastModified="1382209455615" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368359885910" created="1382209455623" lastModified="1382209455623" author="t" type="39" originalid="" from="1270111368359654286" to="1270111368339763825" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455634" lastModified="1382209455634" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358420402" created="1382209455639" lastModified="1382209455639" author="t" type="41" originalid="" from="1270111368339765525" to="1270111368339765453" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455645" lastModified="1382209455645" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-65536" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360250318" created="1382209455652" lastModified="1382209455652" author="t" type="39" originalid="" from="1270111368359976150" to="1270111368339765415" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455656" lastModified="1382209455656" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368359637838" created="1382209455662" lastModified="1382209455662" author="t" type="39" originalid="" from="137108251921158578650079" to="1270111368339765525" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455673" lastModified="1382209455673" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358210589" created="1382209455681" lastModified="1382209455681" author="t" type="39" originalid="" from="137108251921158578649985" to="1270111368339765376" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455687" lastModified="1382209455687" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368358248482" created="1382209455694" lastModified="1382209455694" author="t" type="40" originalid="" from="1270111368339765376" to="1270111368339765486" label="">
+			<linkviews>
+				<linkview id="1270111368359104034" created="1382209455702" lastModified="1382209455702" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="1" linkcolour="-16711936" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360641335" created="1382209455710" lastModified="1382209455710" author="t" type="39" originalid="" from="1270111368339764201" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455717" lastModified="1382209455717" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360622510" created="1382209455728" lastModified="1382209455728" author="t" type="39" originalid="" from="1270111368339764919" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455735" lastModified="1382209455735" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360620650" created="1382209455740" lastModified="1382209455740" author="t" type="39" originalid="" from="1270111368339764375" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455746" lastModified="1382209455746" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360626874" created="1382209455753" lastModified="1382209455753" author="t" type="39" originalid="" from="1270111368339764724" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455759" lastModified="1382209455759" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360637716" created="1382209455765" lastModified="1382209455765" author="t" type="39" originalid="" from="1270111368339764437" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455770" lastModified="1382209455770" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360639480" created="1382209455774" lastModified="1382209455774" author="t" type="39" originalid="" from="1270111368339764588" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455780" lastModified="1382209455780" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360623946" created="1382209455787" lastModified="1382209455787" author="t" type="39" originalid="" from="1270111368339764785" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455794" lastModified="1382209455794" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360643980" created="1382209455801" lastModified="1382209455801" author="t" type="39" originalid="" from="1270111368339764314" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455810" lastModified="1382209455810" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360633988" created="1382209455818" lastModified="1382209455818" author="t" type="39" originalid="" from="1270111368339764853" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455825" lastModified="1382209455825" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360636348" created="1382209455836" lastModified="1382209455836" author="t" type="39" originalid="" from="1270111368339764542" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455844" lastModified="1382209455844" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360625454" created="1382209455852" lastModified="1382209455852" author="t" type="39" originalid="" from="1270111368339764274" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455858" lastModified="1382209455858" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368360594320" created="1382209455865" lastModified="1382209455865" author="t" type="39" originalid="" from="1270111368339764655" to="1270111368339764496" label="">
+			<linkviews>
+				<linkview id="1270111368339763825" created="1382209455873" lastModified="1382209455873" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368357465348" created="1382209455881" lastModified="1382209455881" author="t" type="45" originalid="" from="1270111368357457806" to="1270111368357452412" label="to zoome in and out hold down the CTRL button while using the mouse  wheel">
+			<linkviews>
+				<linkview id="1270111368256392480" created="1382209455888" lastModified="1382209455888" arrowtype="3" linkstyle="1" linkdashed="0" linkweight="5" linkcolour="-16777216" labelWrapWidth="27" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368357141370" created="1382209455896" lastModified="1382209455896" author="t" type="39" originalid="" from="1270111368356967765" to="1270111368357108572" label="">
+			<linkviews>
+				<linkview id="1270111368256392480" created="1382209455905" lastModified="1382209455905" arrowtype="3" linkstyle="1" linkdashed="0" linkweight="5" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368356970485" created="1382209455913" lastModified="1382209455913" author="t" type="39" originalid="" from="1270111368255293448" to="1270111368356967765" label="">
+			<linkviews>
+				<linkview id="1270111368256392480" created="1382209455919" lastModified="1382209455919" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368357274002" created="1382209455927" lastModified="1382209455927" author="t" type="39" originalid="" from="1270111368357154874" to="1270111368356967765" label="">
+			<linkviews>
+				<linkview id="1270111368256392480" created="1382209455936" lastModified="1382209455936" arrowtype="3" linkstyle="0" linkdashed="0" linkweight="5" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368357630376" created="1382209455944" lastModified="1382209455944" author="t" type="39" originalid="" from="1270111368356967765" to="1270111368357294958" label="">
+			<linkviews>
+				<linkview id="1270111368256392480" created="1382209455950" lastModified="1382209455950" arrowtype="1" linkstyle="0" linkdashed="0" linkweight="1" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="0" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111367844097532" created="1382209455957" lastModified="1382209455957" author="t" type="39" originalid="" from="1270111367844087487" to="1270111367843680884" label="simply create new nodes and maps by dragging different node types from the Node Cration Toolbar into the map area">
+			<linkviews>
+				<linkview id="1270111368255136187" created="1382209455965" lastModified="1382209455965" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="5" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368254794925" created="1382209455972" lastModified="1382209455972" author="t" type="39" originalid="" from="1270111367844304761" to="1270111368254024690" label="right click at an empty space and select &apos;Create Node&apos; ">
+			<linkviews>
+				<linkview id="1270111368255136187" created="1382209455980" lastModified="1382209455980" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="3" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+
+		<link id="1270111368254846270" created="1382209455987" lastModified="1382209455987" author="t" type="39" originalid="" from="1270111367844559163" to="1270111368254024690" label=" Use keyboard shortcuts to create nodes by pressing the key associated with a node type, e.g. &apos;M&apos; for a map node">
+			<linkviews>
+				<linkview id="1270111368255136187" created="1382209455995" lastModified="1382209455995" arrowtype="1" linkstyle="1" linkdashed="0" linkweight="3" linkcolour="-13434727" labelWrapWidth="25" fontsize="12" fontface="Dialog" fontstyle="1" foreground="-16777216" background="-1" />
+
+			</linkviews>
+		</link>
+	</links>
+	<codes>
+	</codes>
+</model>

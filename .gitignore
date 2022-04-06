@@ -1,0 +1,17 @@
+.settings
+.project
+.classpath
+target
+build
+log
+.pmd
+*.swp
+*.iml
+*.ipr
+*.iws
+.idea
+**/bin
+.gradle
+test-output
+/bin/
+/bin/

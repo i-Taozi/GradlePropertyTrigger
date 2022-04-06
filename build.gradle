@@ -1,0 +1,90 @@
+defaultTasks 'build'
+
+apply plugin: 'idea'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}
+
+configure(allprojects.findAll()) {
+    if (it.name.equals("CompendiumNG-parent")) {
+        version = '2.1.5-SNAPSHOT'
+    }  else if (it.name.equals('application')) {
+	    version = '2.1.5-SNAPSHOT'
+	    apply plugin: 'application'
+	    apply plugin: 'izpack'
+        mainClassName = "com.compendium.ProjectCompendium"
+
+        compileJava {
+            sourceCompatibility = 1.7
+            targetCompatibility = 1.7
+        }
+
+        dependencies {
+            izpack 'org.codehaus.izpack:izpack-standalone-compiler:4.3.5'
+        }
+
+        izpack {
+            baseDir = file("$buildDir")
+            installFile = file('application/src/main/izpack/install.xml')
+            outputFile = file("$buildDir/CompendiumNG-installer.jar")
+            compression = 'deflate'
+            compressionLevel = 9
+            appProperties = ['app.group': 'org.compendiumng', 'app.name': 'CompendiumNG', 'app.title': 'CompendiumNG', 'app.version': version, 'app.subpath': "CompendiumNG-$version"]
+        }
+
+        jar {
+            destinationDir=file("$buildDir")
+            archiveName='CompendiumNG.jar'
+            manifest {
+                attributes 'Implementation-Title': 'CompendiumNG application', 'Implementation-Version': version, 'Main-class': mainClassName
+            }
+            from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+            exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+        }
+
+        build.dependsOn izPackCreateInstaller
+
+   } else if (it.name.equals(':ROOT')) {
+       version = '2.1.5-SNAPSHOT'
+   } else if (it.name.equals('website')) {
+	   version = '2.1.5-SNAPSHOT'
+   } else {
+	println "unknown module found $it.name"
+	version = "0.0.0-SNAPSHOT"
+   }
+	
+   group = 'org.compendiumng'
+   println "configured project $group:$it.name version: $version"
+   repositories {
+	mavenLocal()
+    mavenCentral()
+   }
+}
+
+buildscript {
+   	repositories {
+   		mavenLocal()
+	        mavenCentral()
+   	}
+
+	dependencies {
+       		classpath 'org.gradle.api.plugins:gradle-izpack-plugin:0.2.3'
+    	}
+}
+
+
+
+idea.project {
+	jdkName = '1.7'
+	ipr.withXml { provider ->
+		def node = provider.asNode()
+		def vcsConfig = node.component.find { it.'@name' == 'VcsDirectoryMappings' }
+		vcsConfig.mapping[0].'@vcs' = 'Git'
+	
+		//  Gradle home setting
+		def gradleSettings = node.appendNode('component', [name: 'GradleSettings'])
+		gradleSettings.appendNode('option', [name: 'SDK_HOME', value: gradle.gradleHomeDir])
+	}
+}
+

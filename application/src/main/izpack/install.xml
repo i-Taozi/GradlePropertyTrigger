@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<installation version="1.0">
+		<info>
+				<appname>CompendiumNG</appname>
+				<appversion>2.1.5-SNAPSHOT</appversion>
+
+				<authors>
+						<author name="Michal Stekrt (lead developer)"  email="michal@compendiumng.org" />
+						<author name="Sebastian Boell" email="sebastian@compendiumng.org" />
+				</authors>
+
+				<url>http://www.compendiumng.org</url>
+				<javaversion>1.7</javaversion>
+				<requiresjdk>no</requiresjdk>
+				<run-privileged condition="izpack.windowsinstall|izpack.macinstall" />
+		</info>
+
+		<variables>
+				<variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/installer.log" />
+				<variable name="desktopshortcutcheckboxenabled" value="true" />
+			 	<variable name="app-name" value="CompendiumNG"/>
+				<variable name="TargetPanel.dir.mac" value="$APPLICATIONS_DEFAULT_ROOT/${APP_NAME}/"/>
+				<variable name="TargetPanel.dir.macosx" value="$APPLICATIONS_DEFAULT_ROOT/${APP_NAME}/"/>
+				<variable name="TargetPanel.dir.unix" value="$APPLICATIONS_DEFAULT_ROOT/${APP_NAME}/"/>
+				<variable name="TargetPanel.dir.linux" value="$APPLICATIONS_DEFAULT_ROOT/${APP_NAME}/"/>
+				<variable name="TargetPanel.dir.windows" value="$APPLICATIONS_DEFAULT_ROOT/${APP_NAME}/"/>
+		</variables>
+
+		<dynamicvariables>
+			 	<!--  variable name="app-version" value="@{project.version}"/ -->
+		</dynamicvariables>
+
+		<guiprefs width="750" height="480" resizable="yes">
+
+				<laf name="kunststoff">
+						<os family="unix" />
+				</laf>
+				<laf name="looks">
+						<os family="windows" />
+						<param name="variant" value="extwin" />
+				</laf>
+		</guiprefs>
+
+		<locale>
+				<langpack iso3="eng" />
+		</locale>
+
+		<panels>
+				<panel classname="HTMLInfoPanel" id="readme" />
+				<panel classname="LicencePanel" />
+				<panel classname="TargetPanel" />
+				<panel classname="PacksPanel" />
+				<panel classname="ShortcutPanel" />
+				<panel classname="InstallPanel" />
+				<panel classname="FinishPanel" />
+		</panels>
+
+		<resources>
+				<res id="Installer.image" src="resources/main/banner-vertical.png"/>
+				<res id="installer_banner" src="resources/main/installer_banner.png"/>
+				<res id="HTMLInfoPanel.readme" src="resources/main/installer_readme.html" />
+				<res id="LicencePanel.licence" src="resources/main/installer_license.txt" />
+				<res id="Win_shortcutSpec.xml" src="resources/main/Win_shortcutSpec.xml" />
+				<res id="Unix_shortcutSpec.xml" src="resources/main/Unix_shortcutSpec.xml" />
+		</resources>
+		
+
+		<packs>
+				<pack name="Core" required="no" hidden="false">
+						<description>'Core' is a required component for the CompendiumNG installation. It contains all the main program files necessary for running CompendiumNG.</description>
+						<file src="CompendiumNG.jar" targetdir="$INSTALL_PATH"	unpack="false" override="true"/>
+						<fileset dir="resources/main" targetdir="$INSTALL_PATH" override="true" />
+						<singlefile src="resources/main/logback.xml" target="$INSTALL_PATH/logback.xml" override="true" />
+						<singlefile src="resources/main/main.properties.default" target="$INSTALL_PATH/main.properties.default" override="true" />
+						<singlefile src="resources/main/toolbars.xml.default" target="$INSTALL_PATH/toolbars.xml.default" override="true" />
+						<parsable targetfile="$INSTALL_PATH/logback.xml" type="javaprop"/>
+				</pack>
+
+				<pack name="OS Shortcuts" required="no" hidden="false"	preselected="yes">
+						<description>'OS Shortcuts' contains starters for different OS, which will allow you install and to run CompendiumNG on a USB stick or through a cloud service (see FAQ on the CompendiumNG website for details).</description>
+						
+						<executable targetfile="$INSTALL_PATH/CompendiumNG.sh" stage="never" override="true"> <os family="unix"/> </executable>
+						<executable targetfile="$INSTALL_PATH/CompendiumNG-portable.sh" stage="never" override="true"> </executable>
+
+						<singlefile src="resources/main/CompendiumNG.sh" target="$INSTALL_PATH/CompendiumNG.sh" override="true"> <os family="unix"/> </singlefile>
+						<singlefile src="resources/main/CompendiumNG-portable.sh" target="$INSTALL_PATH/CompendiumNG-portable.sh" override="true"><os family="unix"/></singlefile>
+						<singlefile src="resources/main/CompendiumNG-portable.sh" target="$INSTALL_PATH/CompendiumNG-portable.sh" override="true"><os family="windows"/></singlefile>
+
+						<singlefile src="resources/main/CompendiumNG.bat" target="$INSTALL_PATH/CompendiumNG.bat" override="true"> <os family="windows"/> </singlefile>
+						<singlefile src="resources/main/CompendiumNG-portable.bat" target="$INSTALL_PATH/CompendiumNG-portable.bat" override="true"><os family="unix"/></singlefile>
+						<singlefile src="resources/main/CompendiumNG-portable.bat" target="$INSTALL_PATH/CompendiumNG-portable.bat" override="true"><os family="windows"/></singlefile>
+
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG.sh" type="shell"> <os family="unix"/> </parsable>
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG.bat"> <os family="windows"/> </parsable>
+
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG-portable.sh" type="shell"><os family="unix"/>  </parsable>
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG-portable.sh" type="shell"><os family="windows"/>  </parsable>
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG-portable.bat"><os family="unix"/> </parsable>
+						<parsable targetfile="$INSTALL_PATH/CompendiumNG-portable.bat"><os family="windows"/> </parsable>
+				</pack>
+		</packs>
+		
+		<native type="izpack" name="ShellLink.dll"/>
+		<native type="izpack" name="ShellLink_x64.dll"/>
+
+</installation>

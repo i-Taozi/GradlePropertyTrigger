@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<shortcuts>
+
+  <programGroup defaultName="CompendiumNG"
+  location="applications"/>
+
+  <shortcut
+    name="Compendium NG"
+    target="$INSTALL_PATH\CompendiumNG.sh"
+    commandLine=""
+    workingDirectory="$INSTALL_PATH"
+    description="start Compendium NG application"
+    iconFile="$INSTALL_PATH\CompendiumNG.ico"
+    iconIndex="0"
+    initialState="normal"
+    programGroup="no"
+    desktop="yes"
+    applications="yes"
+    startMenu="no"
+    startup="no"
+    type="Application"
+    encoding="UTF-8"
+    terminal="no">
+    <createForPack name="OS Shortcuts"/>
+  </shortcut>
+
+   <shortcut
+     name="CompendiumNG Uninstaller"
+     programGroup="yes"
+     desktop="yes"
+     applications="no"
+     startMenu="yes"
+     startup="yes"
+     target="java"
+     commandLine="-jar
+     &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+     initialState="noShow"
+     iconFile="$INSTALL_PATH\CompendiumNG-uninstaller.ico"
+     iconIndex="0"
+     workingDirectory=""
+     type="Application"
+     encoding="UTF-8"
+     description="CompendiumNG uninstaller"
+     terminal="false">
+     
+     <createForPack name="OS Shortcuts" />
+   </shortcut>
+
+</shortcuts>
