@@ -9,4 +9,4 @@ env:
   - {secure: mhYqGLbfUt0WA/qL+Tm4EbAE8DYbLWpuFdk2m0CTZmSPt24Hlg0Wl1xk32zwav+hdlXLkoNO5FPoUA+5JHTs0fe0Ibe82+d3o4j87ovpUr1US6s+6nd2NqJYb2vGfMI5BB+92vnPqrno7/gI4PPHiV6uoKSmiQZWt75y92wqbTQ=}
   - {secure: Ln16Jt+I9SnC0JArt4U1pAJHKUxRtOvOVrDrF3N9gwIpFoqYszDAU8j+VC0Rt1ICiwpGuCRkzFPAQ4ou1u5g8fq/yELPcqM8YwrS0m+uHld0qfD+1ERnvU73bKUoaJXp8Uw5/fIiY5a2mUsE+adWhGUrTfqkTnpzGkh1WBRWTp8=}
 branches:
-  only: [Netflix/denominator-383-origin]
+  only: [Netflix/denominator-383-CONFIGURATION_ON_DEMAND]
