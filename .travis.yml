@@ -11,4 +11,4 @@ script: [TERM=dumb ./gradlew clean build -S]
 after_success: [TERM=dumb ./gradlew test jacocoTestReport jacocoRootReport coveralls
     -S]
 branches:
-  only: [miho/VWorkflows-71-origin]
+  only: [miho/VWorkflows-71-CONFIGURATION_ON_DEMAND]
