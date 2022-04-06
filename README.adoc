@@ -1,0 +1,353 @@
+= deck2pdf
+:toc:
+:numbered:
+:icons: font
+:linkcss!:
+
+`deck2pdf` is a simple application that will convert your http://imakewebthings.com/deck.js/[deck.js],
+ http://lab.hakim.se/reveal-js[reveal.js], http://bartaz.github.io/impress.js[impress.js],
+ http://flowtime-js.marcolago.com/[Flowtime.js],
+ http://code.google.com/p/html5slides/[Google html5slides],
+ https://github.com/briancavalier/slides[Slide Presentation Framework],
+ https://github.com/loicfrering/ruban[ruban]
+  or https://github.com/paulrouget/dzslides[DZSlides] slide deck into a PDF file. Deck2PDF is also capable
+  of handling other HTML5 libraries as long as you feed it <<CustomProfiles,with a profile>>.
+
+This application relies on a JavaFX application, so you need at least a Java 7 installation that bundles JavaFX (which should be the case for all newer installs of Java).
+
+== Download
+
+Pre-built binaries for JDK 8 can be download from https://bintray.com/melix/generic-maven/deck2pdf/0.3.0/view#files[Bintray].
+
+If you use Gradle (or any Maven-compatible dependency resolution engine), artifacts are available on JCenter:
+
+```groovy
+repositories {
+    jcenter()
+}
+dependencies {
+   compile 'me.champeau.deck2pdf:deck2pdf:0.3.0'
+}
+```
+
+== Install from source
+
+image::https://travis-ci.org/melix/deck2pdf.png?branch=master[Build Status, link="https://travis-ci.org/melix/deck2pdf"]
+
+Alternatively, you can install deck2pdf from sources.
+
+----
+./gradlew distZip
+----
+
+Will generate a distribution into `build/distributions/` that you can unzip wherever you want.
+
+== Changelog
+
+=== 0.3.0
+
+* Change `group` from `com.github.melix` to `me.champeau.deck2pdf`
+* Add ability to export to PNG or JPEG
+* Require Java 8
+
+== Usage
+
+----
+deck2pdf --profile=deckjs <inputfile> <outputfile>
+----
+
+By default, deck2pdf assumes that you are using deck.js, but there more profiles supported:
+
+* deckjs, for http://imakewebthings.com/deck.js/[deck.js]
+* revealjs, for http://lab.hakim.se/reveal-js[reveal.js]
+* impressjs, for http://bartaz.github.io/impress.js[impress.js]
+* dzslides, for https://github.com/paulrouget/dzslides[DZSlides]
+* flowtimejs, for http://flowtime-js.marcolago.com/[Flowtime.js]
+* googlehtml5, for http://code.google.com/p/html5slides/[Google html5slides]
+* spf, for https://github.com/briancavalier/slides[Slide Presentation Framework]
+* remarkjs, for https://github.com/gnab/remark[remark.js]
+* ruban, for https://github.com/loicfrering/ruban[ruban]. Note that the ruban profile expects to find the Ruban object in the global variable `ruban`. The minimum version of Ruban is 0.3.2.
+
+For example, to convert a Deck.js slidedeck into PDF:
+
+----
+deck2pdf slides.html slides.pdf
+----
+
+Or for a reveal.js slidedeck:
+
+----
+deck2pdf --profile=revealjs slides.html slides.pdf
+----
+
+Optionally, you can specify width and height:
+
+----
+deck2pdf --width=1024 --height=768 slides.html slides.pdf
+----
+
+To export the slides as multiple images (PNG or JPG), change the file extension of the export file to .png or .jpg.
+
+----
+deck2pdf slides.html slides.png
+----
+
+You can use a number pattern in the file name (e.g., `%03d`) to have the slide numbers padded so they have a fixed length:
+
+----
+deck2pdf slides.html slides-%03d.png
+----
+
+You can also specify a quality option for JPG (default: 0.95):
+
+----
+deck2pdf --quality=75 slides.html slides.jpg
+----
+
+WARNING: The JPG export is not available when using OpenJDK.
+You must use the Oracle JDK instead.
+
+For a remark.js slideshow, make sure you use `window.slideshow = remark.create();` to initialize the slideshow
+
+== Profile specific options
+
+Some profiles have specific command line options that allow further configuration of the export. This section summarizes
+the options available for such profiles.
+
+=== reveal.js
+
+[cols="1,3,1,1",options="header,footer"]
+|=======================================================================
+|Option|Behavior|Default|Example
+|skipFragments|If `true`, fragments will be ignored, otherwise each fragment will generate an individual slide|false|`deck2pdf --skipFragments=true revealjs.html`
+|=======================================================================
+
+=== ruban
+
+[cols="1,3,1,1",options="header,footer"]
+|=======================================================================
+|Option|Behavior|Default|Example
+|skipSteps|If `true`, instead of generating one PDF page per step, generates one PDF slide per section, with the last step of each section.|false|`deck2pdf --skipSteps=true index.html`
+|=======================================================================
+
+
+[[CustomProfiles]]
+== Support for other HTML5 slideshows
+
+`deck2pdf` is capable of handling many HTML5 slideshows. The current distribution supports several profiles out of the
+box but it is easy to add yours. Depending on the complexity of the the framework, you can use either a simple
+properties file to describe your framework or a more complex Groovy file. Both profile types rely on the fact that
+you communicate with the browser with Javascript. This means that `deck2js` should be compatible with any HTML5
+slideshow that exposes a Javascript API.
+
+=== Simple profile using properties
+
+The easiest way to define a new profile is to create a properties file. For example, here is the file that the
+`deck.js` export uses:
+
+----
+include::src/main/resources/deckjs.properties[]
+----
+
+The properties files consists of two entries:
+
+* `totalSlides` is a Javascript snippet which will compute the total number of slides of the deck
+* `nextSlide` is the Javascript code which needs to be called to jump to the next slide
+
+Properties files are very simple, so are only capable of handling decks for which the number of slides is known in
+advance and the command to jump from one slide to another is always the same. For more complex slide shows, you can
+use the http://groovy.codehaus.org[Groovy] profiles.
+
+=== Advanced profiles
+==== Example
+Advanced profiles are written using the http://groovy.codehaus.org[Groovy] scripting language. However, they are pretty
+simple too and they expose a simple API that should fit most situations.
+
+Here is an example of profile as it is defined for `impress.js`:
+
+[source,groovy]
+----
+include::src/main/resources/impressjs.groovy[]
+----
+
+The file name for a properties profile *must* end with `.properties`.
+
+==== Groovy API
+
+The http://groovy.codehaus.org[Groovy] allows you to define more complex interactions with the slide deck. It also allows
+you to export slide decks for which you don't know the number of slides in advance, as long as you are capable of telling
+that you've reached the end of the slide deck.
+
+Calling javascript in the browser from the profile is done using the `js` function:
+
+[source,groovy]
+----
+js 'var slideCount = slides.length;'
+----
+
+Then the http://groovy.codehaus.org[Groovy] profile exposes some hooks that you can use:
+
+* `setup` is called once the slide deck is loaded and ready for export. It gives you a chance to perform an initial
+customization before exporting the slides. For example:
+
+[source,groovy]
+----
+setup = {
+    // disable controls for better rendering
+    js 'Reveal.configure({controls: false, progress: false});'
+}
+----
+
+* `isLastSlide` is called after a slide has been exported. If the method returns true, then export is complete. For
+example:
+
+[source,groovy]
+----
+isLastSlide = {
+    js '''
+        var totalSlides = Dz.slides.length;
+        var cSlide = Dz.idx;
+        cSlide==totalSlides && Dz.step==Dz.slides[cSlide - 1].$$('.incremental > *').length
+    '''
+}
+----
+
+* `totalSlides` can be used to determine the total number of slides (if a slide contains a transition, each transition
+is counted as a slide). It is optional, as long as you define the `isLastSlide` hook. Providing it would add a counter
+to the log output.
+
+[source,groovy]
+----
+totalSlides = {
+    js (/$$(".step", byId('impress')).length/)
+}
+----
+
+* `nextSlide` must be implemented so that `deck2pdf` knows how to jump from one slide to another (or one transition
+to another). For example:
+
+[source,groovy]
+----
+nextSlide = {
+    js('api.next()')
+}
+----
+
+As the Groovy profile is stateful, you can for example keep track of the slide number and have a distinct operation
+depending on the slide number:
+
+[source,groovy]
+----
+int curSlide = 0
+nextSlide = {
+    curSlide++
+    switch (curSlide) {
+        case 1:
+            js 'api.next()'
+            break;
+        case 2:
+            js 'api.goto(2)'
+            break;
+        default:
+            js "api.goto($curSlide)"
+    }
+}
+----
+
+* `pause` lets you change the duration before next slide is exported, in milliseconds. Currently, you are not allowed
+to set a distinct pause for each slide, the change is global. For example:
+
+[source,groovy]
+----
+pause = 2000
+----
+
+The file name for a Groovy profile *must* end with `.groovy`.
+
+===== Accessing command line options
+
+It is possible for a Groovy profile to access command line options. This can be useful if you want the profile to be
+configurable from command line. Accessing the command line options is easy, since the named parameters from the
+command line are directly exported in the script through the `options` variable:
+
+[source,groovy]
+----
+setup {
+    if (Boolean.valueOf(options.verbose)) {
+        // --verbose=true on command line
+        println "Hello, I'm in verbose mode!"
+    }
+    String mode = options.mode?:'auto'
+    switch (mode) {
+        case 'auto':
+            ...
+            break;
+        case 'skip':
+            ...
+            break;
+    }
+
+}
+----
+
+=== Using a custom profile
+
+Once you've written a new profile, you can use it with the `--profile` switch:
+
+----
+deck2pdf --profile=/path/to/profile.groovy slides.html slides.pdf
+----
+
+Of course, you can submit a pull request so that we include your profile into the distribution!
+
+== Custom fonts
+
+You'll need to read this section if you have custom fonts in your presenation.
+
+=== JavaFX 3.0: CSS3 @font-face
+
+In order to use custom fonts in your presentation, as defined using the CSS3 +@font-face@, you need to use at least JavaFX 3.0 (available in JDK 8). Otherwise, the embedded browser will fall back to using the default system font.
+
+Here's an example custom font sourced from http://www.google.com/fonts[Google Fonts]:
+
+[source,html]
+----
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700">
+----
+
+This link element imports the following CSS:
+
+[source,css]
+----
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(http://themes.googleusercontent.com/static/fonts/yanonekaffeesatz/v4/YDAoLskQQ5MOAgvHUQCcLbvy90DtE_Pg_qiF9bHvTzw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Yanone Kaffeesatz Bold'), local('YanoneKaffeesatz-Bold'), url(http://themes.googleusercontent.com/static/fonts/yanonekaffeesatz/v4/We_iSDqttE3etzfdfhuPRUgbSk09ekaEjkXjfj0Ujx8.ttf) format('truetype');
+}
+----
+
+You can now use these two combinations of +font-family+, +font-style+ and +font-weight+ in your presentation. Unlike a normal browser (e.g., Chrome, Firefox, etc), you cannot use a font combination that is not represented here (or on your system). If you attempt to use a combination not represented here (such as a combination that include `font-style: italic;`), the embedded browser will fall back to using the default font.
+
+Aside from that exception, custom fonts should just work when using JavaFX 3.0.
+
+=== JavaFX 2.2: Explicit font loading
+
+If you you're using JavaFX 2.2 (available in JDK 7), you can still use custom fonts, but you must load them explicitly before the embedded browser loads the presentation.
+
+First, download the TTF file for each font you want to use and copy it to a directory of your choice. The files should be named using the hyphenated form shown in the CSS above. For example:
+
+* YanoneKaffeesatz-Regular.ttf
+* YanoneKaffeesatz-Bold.ttf
+
+Now you can use the `fontsdir` command line option to tell `deck2pdf` where to load the fonts from:
+
+----
+deck2pdf --fontsdir=/path/to/ttf/files slides.html slides.pdf
+----
