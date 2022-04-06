@@ -4,4 +4,4 @@ install: ['git clone https://github.com/coreos/etcd', pushd etcd && git checkout
 before_script: [etcd/bin/etcd &]
 after_script: [pkill -f etcd]
 branches:
-  only: [diwakergupta/jetcd-21-origin]
+  only: [diwakergupta/jetcd-21-GRADLE_DAEMON]
