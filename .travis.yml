@@ -12,4 +12,4 @@ android:
 script: ['${ANDROID_NDK_HOME}/ndk-build', ./gradlew assembleDebug, 'find . -name ''*.apk''
     -exec ls -l {} \;']
 branches:
-  only: [opentelecoms-org/lumicall-71-origin]
+  only: [opentelecoms-org/lumicall-71-GRADLE_DAEMON]
