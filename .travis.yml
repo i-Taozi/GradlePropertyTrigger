@@ -11,4 +11,4 @@ before_script: ['keytool -genkey -noprompt   -alias androiddebugkey  -dname "CN=
   cp new_ui/debug.keystore dashclock/debug.keystore]
 script: [gradle testFdroidDebugUnitTest]
 branches:
-  only: [MirakelX/mirakel-android-629-origin]
+  only: [MirakelX/mirakel-android-629-GRADLE_DAEMON]
