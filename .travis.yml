@@ -9,4 +9,4 @@ before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET 
   adb shell input keyevent 82 &]
 script: [./gradlew build connectedCheck]
 branches:
-  only: [chaosbastler/opentraining-53-origin]
+  only: [chaosbastler/opentraining-53-GRADLE_DAEMON]
