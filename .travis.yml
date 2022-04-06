@@ -16,4 +16,4 @@ after_success: ['curl -sSL "https://raw.githubusercontent.com/h5bp-bot/scripts/0
     | bash -s -- --commands "true" --commit-message "Build generated on $DATE by Travis
     [ci skip]" --directory "build" --distribution-branch "build" --source-branch "dev"']
 branches:
-  only: [sheimi/SGit-289-origin]
+  only: [sheimi/SGit-289-GRADLE_DAEMON]
