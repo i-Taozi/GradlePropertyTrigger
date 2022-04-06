@@ -1,0 +1,7 @@
+language: android
+android:
+  components: [build-tools-21.1.1, extra-android-m2repository]
+before_install: null
+script: [./gradlew assembleDebug]
+branches:
+  only: [Protocoder/Protocoder-106-origin]
