@@ -11,4 +11,4 @@ before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET 
 after_success: [./gradlew -p AndroidDeviceCompatibility -b AndroidDeviceCompatibility/coverage.gradle
     coveralls]
 branches:
-  only: [mixi-inc/Android-Device-Compatibility-62-origin]
+  only: [mixi-inc/Android-Device-Compatibility-62-GRADLE_DAEMON]
