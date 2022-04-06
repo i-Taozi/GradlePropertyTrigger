@@ -1,0 +1,16 @@
+*~
+_site/
+/docs/.pygments-cache/
+/docs/javadoc/
+/private/
+/dist/
+/artifacts
+/nbproject
+build/
+.DS_Store
+/nb-build.xml
+/catalog.xml
+/.gradle/
+/ivy-build.xml
+/.nb-gradle/
+/.nb-gradle-properties

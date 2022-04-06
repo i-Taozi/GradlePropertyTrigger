@@ -1,0 +1,13 @@
+markdown: enhanced_kramdown
+highligeter: pygments
+lsi: false
+safe: false
+baseurl: /galaxy
+
+# Site globals used throughout docs.
+project: Galaxy
+version: 1.4
+github: puniverse/galaxy
+google_group: "https://groups.google.com/forum/#!forum/galaxy-user"
+ga_tracking_id: UA-25007319-2
+
