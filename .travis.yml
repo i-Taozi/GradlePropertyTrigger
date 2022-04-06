@@ -11,4 +11,4 @@ env:
 cache:
   directories: [$HOME/.gradle/caches]
 branches:
-  only: [Netflix/archaius-626-origin]
+  only: [Netflix/archaius-626-GRADLE_DAEMON]
