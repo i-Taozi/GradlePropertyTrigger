@@ -3,7 +3,7 @@ install: gradle -q assemble
 script: set -o pipefail; gradle -i check | sed 's/\e\[?.*?[\@-~]//g'
 jdk: [oraclejdk7, oraclejdk8]
 branches:
-  only: [puniverse/galaxy-44-origin]
+  only: [puniverse/galaxy-44-GRADLE_DAEMON]
 env:
   global:
   - {secure: Tmj51N8U7Ya20r1+Y0s1zwG5PV/TsKC3/ycpavk34bJ8na7MRE/ZPI57x7IRNElowOf3LRMcapWjHS0BkoxUKnUTfoP0H1cpqlgjoOHSdoVOZ+aeQKca4CRNe7CSKZVPj2zRMtlerDtNxXpa7i63ZDlWWP/L61uTbBqf4Bu8d5c=}
