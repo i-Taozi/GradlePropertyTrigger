@@ -15,4 +15,4 @@ install: [./gradlew assemble]
 script: [./gradlew --continue check]
 after_success: [chmod +x scripts/deploy_to_maven.sh, ./scripts/deploy_to_maven.sh]
 branches:
-  only: [stanfy/enroscar-74-origin]
+  only: [stanfy/enroscar-74-PARALLEL_BUILDS]
