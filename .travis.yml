@@ -1,0 +1,7 @@
+language: android
+jdk: [oraclejdk7, oraclejdk8]
+android:
+  components: [build-tools-23.0.1, android-23, tools]
+branches:
+  only: [JakeWharton/hugo-176-origin]
+notifications: {email: false}
