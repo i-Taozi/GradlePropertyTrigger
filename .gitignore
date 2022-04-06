@@ -1,0 +1,35 @@
+# built application files
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+.settings
+
+#build
+ant.properties
+*.keystore
+StartupNews/app/src/main/res/values/analytics.xml
+
+# IntelliJ files
+.idea
+*.iml
+out/
+module_*.xml
+
+#gradle
+build/
+.gradle/

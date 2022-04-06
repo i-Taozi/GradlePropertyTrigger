@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile dataDependencies.rxJava
+    compile dataDependencies.rxAndroid
+    compile dataDependencies.okHttp
+    compile dataDependencies.okHttpUrlConnection
+    compile dataDependencies.gson
+    compile dataDependencies.androidAnnotations
+    apt dataDependencies.daggerCompiler
+    compile dataDependencies.dagger
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    compile 'org.jsoup:jsoup:1.7.2'
+
+}

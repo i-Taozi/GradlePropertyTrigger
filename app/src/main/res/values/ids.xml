@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pull_refresh_list" type="id"/>
+    <item name="menu_logout" type="id"/>
+    <item name="menu_login" type="id"/>
+
+    <item name="drawer_layout" type="id"/>
+    <item name="left_drawer_list" type="id"/>
+    
+    <item name="browse_back" type="id"/>
+    <item name="browse_forward" type="id"/>
+    <item name="browse_readability" type="id"/>
+    <item name="browse_refresh" type="id"/>
+    <item name="browse_website" type="id"/>
+    <item name="browse_webview" type="id"/>
+
+    <item name="swipe_refresh_layout" type="id"/>
+    <item name="recycler_view" type="id"/>
+</resources>
