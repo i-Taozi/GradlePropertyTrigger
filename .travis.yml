@@ -13,4 +13,4 @@ before_script: [echo no | android create avd --force -n test -t android-19 --abi
     shell input keyevent 82 &]
 script: ./gradlew assembleDebug connectedCheck
 branches:
-  only: [halzhang/StartupNews-14-origin]
+  only: [halzhang/StartupNews-14-CONFIGURATION_ON_DEMAND]
