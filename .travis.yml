@@ -13,4 +13,4 @@ env:
   - {secure: RwfGxwmXIaHBq0Q+NVPeAHlj5yA841jU/HWOxYsOjwlKTcIN5QIZnbiweeK4nr0/RF3vBlD8SUY4BwVQT307Sbn4ZL1Yd3swMFoQd3ta9eJVRUEIiCeZpFMO9/vZUS7m7ddAl1NWcCee6Mh+L/F0FUrumUR4Vx2Xll5uKGqoDjM=}
   - {secure: oJJKAPfS7SOdmy1t0C/Tcyp8PxsYPUul/1E6YgjFSTIE+U0DDPh//kyCe/SvbqGeJy3JoW1KKYO7c9bD7VY/+LyEBML3O/RNFRKhc0Rxa0bCkmVb9pDBDeC/Xt3vNagK/GgFrXKgvWpzaeXT58jPnOq3fBDNMCz1iQrIIUtGio8=}
 branches:
-  only: [Netflix/karyon-360-origin]
+  only: [Netflix/karyon-360-CONFIGURATION_ON_DEMAND]
