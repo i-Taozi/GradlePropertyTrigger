@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/episode_list_header_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sanfrancisco" />
+
+    <LinearLayout
+        android:id="@+id/app_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_contents"
+        android:paddingRight="@dimen/padding_contents">
+
+        <TextView
+            style="@style/RebuildLogText"
+            android:text="@string/app_name"
+            android:textSize="28sp" />
+
+        <TextView
+            style="@style/RebuildLogText"
+            android:text="@string/rebuild_description"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <rejasupotaro.rebuild.views.RecentTweetView
+        android:id="@+id/recent_tweet_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:layout_marginLeft="@dimen/spacing_large" />
+</FrameLayout>

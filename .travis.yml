@@ -1,0 +1,11 @@
+language: android
+jdk: oraclejdk7
+android:
+  components: [build-tools-19.1.0, android-18, sysimg-18, extra-android-support]
+  licenses: [android-sdk-license-5be876d5, .*intel.+]
+before_install: [android list sdk --no-ui --all --extended, echo no | android create
+    avd --force -n test -t android-18 --abi armeabi-v7a, emulator -avd test -no-skin
+    -no-audio -no-window &, adb wait-for-device, adb shell input keyevent 82 &]
+script: [./gradlew connectedAndroidTestStagingDebug]
+branches:
+  only: [rejasupotaro/Rebuild-48-origin]
