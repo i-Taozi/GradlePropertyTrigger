@@ -13,4 +13,4 @@ deploy:
     -Prelease.disableChecks -Prelease.pushTagsOnly release && ./gradlew build publish
   true: {branch: master, jdk: openjdk8}
 branches:
-  only: [ical4j/ical4j-535-origin]
+  only: [ical4j/ical4j-535-FILE_SYSTEM_WATCHING]
