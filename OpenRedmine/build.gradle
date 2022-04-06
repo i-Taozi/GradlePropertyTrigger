@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+android {
+    //Apply versions
+    def compile_version = System.getenv("ANDROID_COMPILE_SDK_VERSION") ?: "30"
+    def build_tool_version = System.getenv("ANDROID_BUILD_TOOL_VERSION") ?: '30.0.3'
+    def target_sdk_version =System.getenv("ANDROID_TARGET_SDK_VERSION") ?: "30"
+    println "Compile SDK: $compile_version Tool version: $build_tool_version Target version: $target_sdk_version"
+
+    //Make version code
+    def build_environment = "dev"
+    if ("${System.env.CI_JOB_NAME}" != "null")
+        build_environment = "f-droid:${System.env.CI_JOB_NAME}"
+    else if ("${System.env.TRAVIS_BRANCH}" != "null")
+        build_environment = "Travis CI:${System.env.TRAVIS_BRANCH}-${System.env.TRAVIS_BUILD_NUMBER}"
+
+    println "Build environment: $build_environment"
+
+    compileSdkVersion Integer.decode(compile_version)
+    buildToolsVersion build_tool_version
+    testBuildType "debug"
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion Integer.decode(target_sdk_version)
+
+        versionCode 666
+        versionName '3.24'
+        testApplicationId "jp.redmine.redmineclienttest"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testHandleProfiling true
+        testFunctionalTest true
+        multiDexEnabled false
+        buildConfigField 'String', 'BUILD_ENV', '"' + "$build_environment" + '"'
+
+    }
+    lintOptions {
+        abortOnError true
+        disable 'MissingTranslation', 'StringFormatMatches', 'InvalidPackage'
+    }
+    signingConfigs {
+        release
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            zipAlignEnabled true
+            buildConfigField 'boolean', 'DEBUG_XML', 'false'
+        }
+        release {
+            //runProguard true
+            //proguardFile getDefaultProguardFile('proguard-android.txt')
+            //proguardFile file('proguard-project.txt')
+
+            debuggable false
+            zipAlignEnabled true
+            //minifyEnabled true
+            //shrinkResources true
+            buildConfigField 'boolean', 'DEBUG_XML', 'false'
+            if (project.hasProperty('keyAlias')) {
+                signingConfigs.release.keyAlias = keyAlias
+                signingConfigs.release.keyPassword = keyPassword
+                signingConfigs.release.storeFile = file(storeFile)
+                signingConfigs.release.storePassword = storePassword
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+    bundle {
+        language {
+            enableSplit = true
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'com.google.guava:guava:24.1-jre'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:support-fragment:25.3.1'
+    implementation 'com.android.support:animated-vector-drawable:25.3.1'
+    implementation 'com.android.support:design:25.3.1'
+    implementation 'com.andreabaccega:android-form-edittext:1.2.1'
+    //implementation 'se.emilsjolander:stickylistheaders:2.7.0'
+    implementation 'com.github.mtotschnig:StickyListHeaders:2.7.1'
+    implementation 'com.j256.ormlite:ormlite-core:5.1'
+    implementation 'com.j256.ormlite:ormlite-android:5.1'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation 'net.java:textile-j:2.2'
+    implementation 'org.commonjava.googlecode.markdown4j:markdown4j:2.2-cj-1.0'
+}
+
