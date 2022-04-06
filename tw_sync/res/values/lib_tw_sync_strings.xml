@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- Sync -->
+    <string name="sync_add">Add account</string>
+    <string name="sync_title">Sync</string>
+    <string name="sync_new">New account</string>
+    <string name="sync_use">Use Sync</string>
+    <string name="sync_warning">Sync is Experimental</string>
+    <string name="sync_warning_message">The sync is currently very experimental. But you can try it at your own risk (Make a backup!) – Are you sure?</string>
+    <string name="sync_use_summary_taskwarrior">Sync with Taskwarrior as %s</string>
+    <string name="sync_use_summary_mirakel">Sync with Mirakel as %s</string>
+    <string name="sync_use_summary_nothing">Do not use the sync</string>
+    <string name="sync_user">Username</string>
+    <string name="sync_user_summary">Server side username</string>
+    <string name="sync_server">Server</string>
+    <string name="sync_server_summary">Sync with %s</string>
+    <string name="sync_frequency">Frequency</string>
+    <string name="sync_frequency_summary">Sync every %s min</string>
+    <string name="sync_frequency_summary_man">Sync manually only</string>
+
+    <string-array name="sync_types">
+        <item>CalDAV sync</item>
+        <item>Taskwarrior sync</item>
+    </string-array>
+
+    <string name="sync_caldav">CalDAV sync</string>
+    <string name="sync_caldav_howto"></string>
+    <string name="sync_caldav_howto_">
+<![CDATA[You have to setup a Mirakel-compatible CalDAV-syncing app. Currently you have to install our modified DAVdroid version from our page.<br /><br />
+Soon the official DAVdroid app will also support Mirakel and we are working together with some others to make it possible to sync with Mirakel.
+        ]]>
+    </string>
+    <string name="download">Download</string>
+    <string name="sync_add_account">Add account</string>
+    <string name="sync_taskwarrior_configure">Configure Taskwarrior</string>
+    <string name="sync_taskwarrior_scan_qr">Scan QR code</string>
+    <string name="sync_taskwarrior_select_file">Select config file</string>
+    <string name="sync_taskwarrior_how_to">How to setup your own server</string>
+    <string name="sync_taskwarrior_own_server">or just use your own server</string>
+    <string name="sync_taskwarrior_configuring">Configuring sync…</string>
+    <string name="sync_taskwarrior_about">If you already have a taskwarrior account:</string>
+    <string name="sync_taskwarrior_register">If not, you can register a new account on our server:</string>
+    <string name="sync_taskwarrior_register_button">Register</string>
+    <string name="sync_taskwarrior_setup_success">Account setup was successful</string>
+    <string name="sync_defaultAccount">Use as default account?</string>
+    <string name="tw_account">Taskwarrior</string>
+    <string name="calDavName">CalDav</string>
+    <string name="type">Type</string>
+    <string name="no_barcode_app">No barcode scanner installed</string>
+    <string name="no_barcode_app_message">We recommend the Barcode scanner:</string>
+    <string name="no_barcode_app_install">Install</string>
+    <string name="menu_edit_listaccount">Account</string>
+    <string name="change_account">Change Account</string>
+    <string name="wrong_config">It looks like you used a wrong config file</string>
+    <string name="cert_not_found">The certificate vanished please recreate your account</string>
+    <string name="could_not_find_common_ancestor"><![CDATA[
+        There was an error while syncing. But we have made a workaround and some data could be lost :(. We have made a backup of your Database. Check it if there is something wrong. <br /><br />
+        For more information\'s see <a href="https://mirakel.atlassian.net/browse/MIR-453">here</a>
+        ]]></string>
+    <string name="client_sync_key_not_found">Client sync key not found. Please check your taskwarrior configuration.</string>
+    
+    <string name="config_404">Configuration file not found</string>
+    <string name="config_error_empty">There is no %s entry in the config</string>
+    
+    <string name="load_config">Select the config file for Taskwarrior</string>
+    <string name="select_config">Select Taskwarrior config file</string>
+    <string name="message_try_later">Try to sync later</string>
+    <string name="message_access_denied">Access denied!\nDid you use the right config file?\nYou have to configure the Taskwarrior server such it accepts syncing with Mirakel.</string>
+    <string name="message_create_socket">Cannot create socket!\nDid you enable your network connection?</string>
+    <string name="message_account_suspended">Your account is suspended!</string>
+    <string name="message_parse_message">Cannot parse tasks – please write how this happened</string>
+    <string name="message_message_error">Unknown response from the server – please write how this happened</string>
+    <string name="finish_sync">Finish sync</string>
+    <string name="account_vanished">Account vanished. This should never, ever happen</string>
+    <string name="create_account">Create Account</string>
+</resources>

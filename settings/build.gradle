@@ -1,0 +1,63 @@
+/*******************************************************************************
+ * Mirakel is an Android App for managing your ToDo-Lists
+ *
+ *   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU General Public License as published by
+ *       the Free Software Foundation, either version 3 of the License, or
+ *       any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU General Public License for more details.
+ *
+ *       You should have received a copy of the GNU General Public License
+ *       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+
+android {
+    lintOptions{
+        disable 'ExtraTranslation'
+        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+        disable 'ImpliedQuantity'
+        disable 'MissingQuantity'
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['merged-res']
+            assets.srcDirs = ['assets']
+        }
+
+    }
+}
+dependencies {
+    debugCompile project(path: ':helper',configuration: 'debug')
+    releaseCompile project(path: ':helper',configuration: 'release')
+    debugCompile project(path: ':model',configuration: 'debug')
+    releaseCompile project(path: ':model',configuration: 'release')
+    debugCompile project(path: ':tw_sync',configuration: 'debug')
+    releaseCompile project(path: ':tw_sync',configuration: 'release')
+    debugCompile project(path: ':donationslib',configuration: 'debug')
+    releaseCompile project(path: ':donationslib',configuration: 'release')
+    debugCompile project(path: ':colorpickerpreference',configuration: 'debug')
+    releaseCompile project(path: ':colorpickerpreference',configuration: 'release')
+    debugCompile project(path: ':colorpicker',configuration: 'debug')
+    releaseCompile project(path: ':colorpicker',configuration: 'release')
+    compile "com.github.gabrielemariotti.changeloglib:changelog:$changelogVersion"
+}
+
+dependencyVerification {
+    verify = [
+        'com.github.gabrielemariotti.changeloglib:changelog:df83c71bac90b5cbb2f63d0a4db983bef72db90c06baf09435d4c3700f8728ac',
+        'com.android.support:support-v4:7bb6e40a18774aa2595e4d8f9fe0ae14e61670f71a1279272fb0b79b8be71180',
+        'com.android.support:recyclerview-v7:3a8da14585fa1c81f06e7cef4d93a7641f0323d8f984ff9a7bd7a6e416b46888',
+        'com.android.support:support-annotations:beac5cae60bdb597df9af9c916f785c2f71f8c8ae4be9a32d4298dea85496a42',
+    ]
+}

@@ -1,0 +1,14 @@
+language: android
+jdk: oraclejdk7
+env:
+  matrix: [ANDROID_TARGET=android-22 ANDROID_ABI=x86]
+android:
+  components: [build-tools-22.0.1, extra-android-support, android-22, extra-google-m2repository,
+    extra-android-m2repository]
+before_script: ['keytool -genkey -noprompt   -alias androiddebugkey  -dname "CN=mirakel.azapps.de,
+    OU=ID, O=az, L=Mirakel, S=A, C=ANT"   -keystore new_ui/debug.keystore  -storepass
+    android  -keypass android', cp new_ui/local.properties.dist new_ui/local.properties,
+  cp new_ui/debug.keystore dashclock/debug.keystore]
+script: [gradle testFdroidDebugUnitTest]
+branches:
+  only: [MirakelX/mirakel-android-629-origin]

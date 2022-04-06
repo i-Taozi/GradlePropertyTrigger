@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="sync_add">Přidat účet</string>
+  <string name="account_title">Účty</string>
+  <string name="sync_new">Nový účet</string>
+  <string name="sync_use">Použít synchronizaci</string>
+  <string name="sync_warning">Synchronizace je experimentální</string>
+  <string name="sync_warning_message">Synchronizace je v současné době v experimentálním stavu. Ale můžete ji vyzkoušet na vlastní riziko (zazálohujte si předem data!). Pokračovat?</string>
+  <string name="sync_use_summary_taskwarrior">Synchronizovat s Taskwarrior jako %s</string>
+  <string name="sync_use_summary_mirakel">Synchronizovat s Mirakel jako %s</string>
+  <string name="sync_use_summary_nothing">Nesynchronizovat</string>
+  <string name="sync_user">Uživatelské jméno</string>
+  <string name="sync_user_summary">Uživatelské jméno na serveru</string>
+  <string name="sync_server">Server</string>
+  <string name="sync_server_summary">Synchronizace s %s</string>
+  <string name="sync_frequency">Plán synchronizace</string>
+  <string name="sync_frequency_summary">Synchronizovat každých %s minut</string>
+  <string name="sync_frequency_summary_man">Synchronizovat pouze ručně</string>
+  <string name="account_informations">Informace</string>
+  <string-array name="sync_types">
+    <item>CalDAV synchronizace</item>
+    <item>Taskwarrior synchronizace</item>
+  </string-array>
+  <string name="sync_caldav">CalDAV synchronizace</string>
+  <string name="sync_caldav_howto"><![CDATA[Je třeba nastavit aplikaci pro synchronizaci CalDAV kompatibilní s Mirakel. Momentálně musíte použít naši upravenou verzi DAVdroid z našich stránek.<br /><br />
+Již brzy by měla být funkční podpora Mirakel i v oficiální verzi DAVdroid a my se to společně s několika dalšími lidmi snažíme zajistit.]]></string>
+  <string name="download">Stahování</string>
+  <string name="sync_add_account">Přidat účet</string>
+  <string name="sync_taskwarrior_configure">Konfigurovat Taskwarrior</string>
+  <string name="sync_taskwarrior_scan_qr">Načíst QR kód</string>
+  <string name="sync_taskwarrior_select_file">Vybrat konfigurační soubor</string>
+  <string name="sync_taskwarrior_how_to">Jak nastavit vlastní server</string>
+  <string name="sync_taskwarrior_own_server">nebo jen použít svůj server</string>
+  <string name="sync_taskwarrior_url_error">Adresa URL není správná. Opravdu jste načetli správný kód?</string>
+  <string name="sync_taskwarrior_configuring">Konfigurace synchronizace…</string>
+  <string name="sync_taskwarrior_about">Pokud již máte účet taskwarrior:</string>
+  <string name="sync_taskwarrior_register">Pokud ne, můžete si zaregistrovat nový účet na našem serveru:</string>
+  <string name="sync_taskwarrior_register_button">Registrace</string>
+  <string name="sync_taskwarrior_setup_success">Nastavení účtu bylo úspěšné</string>
+  <string name="sync_taskwarrior_error_download">Nelze stáhnout konfigurační soubor</string>
+  <string name="sync_taskwarrior_select_file_not_exists">Soubor neexistuje</string>
+  <string name="sync_defaultAccount">Použít jako výchozí účet?</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="type">Typ</string>
+  <string name="no_barcode_app">Čtečka čárových kódů není nainstalována</string>
+  <string name="no_barcode_app_message">Doporučujeme tuto čtečku čárových kódů:</string>
+  <string name="no_barcode_app_install">Nainstalovat</string>
+  <string name="menu_edit_listaccount">Účet</string>
+  <string name="change_account">Změnit účet</string>
+  <string name="version">Verze aplikace</string>
+  <string name="no">Ne</string>
+  <string name="not">Ne</string>
+  <string name="notification_title">Upozornění v horní liště</string>
+  <string name="notifications_use">Zobrazovat upozornění</string>
+  <string name="notifications_persistent">Trvalá oznámení</string>
+  <string name="notifications_list">Zobrazit seznam</string>
+  <string name="notifications_list_summary">Zobrazit  \"%s\"</string>
+  <string name="default_list">Výchozí seznam</string>
+  <string name="reminder">Upozornění</string>
+  <string name="reminders_persistent">Trvalé upozornění</string>
+  <string name="reminders_persistent_summary">Umožnit zavření upozornění</string>
+  <string name="startup_title">Spuštění aplikace</string>
+  <string name="startup_list">Vybrat výchozí seznam</string>
+  <string name="startup_list_summary">Zobrazit úkoly z \"%s\"</string>
+  <string name="special_lists_click">Spravovat meta seznamy</string>
+  <string name="special_lists_new">Nový meta seznam</string>
+  <string name="settings_misc">Různá nastavení</string>
+  <string name="settings_backup">Záloha, obnovení a import dat</string>
+  <string name="backup_click_summary">Zálohovat databázi na SD kartu (%s)</string>
+  <string name="backup_click">Zálohovat</string>
+  <string name="import_click_summary">Import databázi</string>
+  <string name="import_click">Importovat</string>
+  <string name="import_sure">Opravdu?</string>
+  <string name="import_sure_summary">Všechna data budou přepsána! (Import z %s)</string>
+  <string name="import_title">Vyberte soubor s daty pro Mirakel</string>
+  <string name="no_filemanager">Nainstalujte si prosím správce souborů</string>
+  <string name="import_default_list_summary">Importovat do \"%s\"</string>
+  <string name="import_no_default_list_summary">Nebyl vybrán žádný výchozí seznam</string>
+  <string name="import_default_list">Importovat výchozí seznam</string>
+  <string name="import_to">Importovat do</string>
+  <string name="changelog">Seznam změn</string>
+  <string name="changelog_click_summary">Zobrazit seznam změn</string>
+  <string name="changelog_click">Seznam změn</string>
+  <string name="settings_about">O aplikaci</string>
+  <string name="settings_help">Nápověda</string>
+  <string name="get_dashclock">Stáhnout Mirakel Dashclock</string>
+  <string name="get_dashclock_summary">Získat rozšíření Mirakel pro Dashclock</string>
+  <string name="import_astrid_click">Importovat z Astrid</string>
+  <string name="astrid_success">Všechna data byla úspěšně importována!</string>
+  <string name="importing">Probíhá import</string>
+  <string name="astrid_import_title">Vyberte soubor Astrid</string>
+  <string name="import_any_do_click">Importovat z Any.Do</string>
+  <string name="any_do_import_title">Vyberat záložní soubor Any.Do</string>
+  <string name="any_do_this_file">Import z %s?\nPokud jiný, vyberte soubor sami</string>
+  <string name="any_do_how_to">Nejdříve prosím zálohujte svá Any.Do data. Jděte na Any.Do → Nastavení → Záloha → Vytvořit zálohu. Poté se vraťte a zmáčkněte OK.\nNebo vyberte soubor sami.</string>
+  <string name="select_file">Vybrat soubor</string>
+  <string name="wait">Počkejte prosím…</string>
+  <string name="import_wunderlist_click">Importovat z Wunderlist</string>
+  <string name="import_wunderlist_title">Vybrat Wunderlist soubor</string>
+  <string name="import_wunderlist_howto">Jak importovat z Wunderlist</string>
+  <string name="import_wunderlist_howto_text">Aplikace Wunderlist nepodporuje zálohování.\n\nJe třeba se přihlásit na webovou stránku, pak jít na Předvolby → Účet → Vytvořit zálohu → (počkat) → Stáhnout. Zkopírujte stažený soubor do zařízení a pak se vraťte sem.</string>
+  <string name="showDone">Zobrazit vyřešené úkoly</string>
+  <string name="ui_settings_title">Uživatelské rozhraní</string>
+  <string name="undo_number">Počet uložených změn</string>
+  <string name="undo_number_summary">Vrátit %s změn</string>
+  <string name="settings_semantic">Šablony úloh</string>
+  <string name="semantic_new_task">Nová šablona úlohy</string>
+  <string name="semantic_new_task_config_summary">Konfigurovat podmínky pro vytváření nových úkolů</string>
+  <string name="semantic_new_task_config">Konfigurovat šablony úloh</string>
+  <string name="useTabletLayout">Použít vzhled pro tablet</string>
+  <string name="general">Všeobecné</string>
+  <string-array name="tablet_options">
+    <item>nikdy</item>
+    <item>Na šířku</item>
+    <item>Na výšku</item>
+    <item>navýšku a našířku</item>
+  </string-array>
+  <string name="delete_done">Odstranit vyřešené úkoly</string>
+  <string name="delete_done_summary">Odstranit všechny vyřešené úkoly</string>
+  <string name="delete_done_warning">Opravdu?</string>
+  <string name="delete_done_warning_message">Vytvořte si zálohu dat, následující krok nepůjde vrátit zpět!</string>
+  <string name="delete_done_success">Vyřešené úkoly úspěšně odstraněny.</string>
+  <string name="menu_color">Změnit barvu</string>
+  <string name="howto_setup_server">Jak nastavit server</string>
+  <string name="register_server">Pokud budete potřebovat synchronizační účet na našem serveru, pošlete nám e-mail. V dalších verzích aplikace bude možné účet založit rovnou.</string>
+  <string name="special_lists_title">Meta seznamy</string>
+  <string name="register">Registrace</string>
+  <string name="auto_backup_interval">Interval automatického zálohování</string>
+  <string name="auto_backup_interval_summary">Zálohování databáze po uplynutí %s dnů</string>
+  <string name="settings_semantics_title">Konfigurovat šablony úloh</string>
+  <string name="settings_semantics_condition">Klíčové slovo</string>
+  <string name="settings_semantics_actions">Akce</string>
+  <string name="settings_semantics_list">Vybrat seznam</string>
+  <string name="settings_semantics_priority">Nastavit prioritu</string>
+  <string name="settings_semantics_due">Nastavení termín</string>
+  <string name="settings_semantics_weekday">Nastavit termín na další pracovní den</string>
+  <string-array name="weekdays">
+    <item>Nenastavovat</item>
+    <item>Pondělí</item>
+    <item>Úterý</item>
+    <item>Středa</item>
+    <item>Čtvrtek</item>
+    <item>Pátek</item>
+    <item>Sobota</item>
+    <item>Neděle</item>
+  </string-array>
+  <string-array name="priority_entries">
+    <item>Bez určení priority</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string-array name="priority_entry_values">
+    <item>null</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string name="semantics_no_list">Nenastavovat seznam</string>
+  <string name="semantics_no_due">Nenastavovat termín</string>
+  <string name="settings_file_default_title">Název úkolu pro importované soubory</string>
+  <string name="semantic_new">Šablona</string>
+  <string name="tag_new">Nový štítek</string>
+  <string name="tag_settings">Nastavení štítků</string>
+  <string name="color">Barva</string>
+  <string name="tag_name">Jméno</string>
+  <string name="tag_dark_text">Měl by být text černý?</string>
+  <string name="tag_click">Štítky</string>
+  <string name="settings_subtask">Podúkoly</string>
+  <string name="settings_subtask_default_new">Standardně zobrazit nový úkol</string>
+  <string name="settings_subtask_add_to_same_list">Přidat podúkol do seznamu úkolů</string>
+  <string name="settings_subtask_add_to_same_list_summary">Nebo do seznamu vyhrazeného pro podúkoly?</string>
+  <string name="settings_subtask_add_to_list_summary">Přidat podúkol pro %s</string>
+  <string name="preferences_colorize_subtasks">Obarvit podúkoly?</string>
+  <string name="settings_tasks_title">Úkoly</string>
+  <string name="settings_dev">Vývojářská nastavení</string>
+  <string name="settings_dev_sync">Synchronizace</string>
+  <string name="settings_dev_dump_tw_summary">Zapsat přijatý text do /sdcard/mirakel</string>
+  <string name="settings_dev_dump_tw">Ukládat přijaté synchronizované zprávy</string>
+  <string name="enable">povoluji</string>
+  <string name="disable">zakazuji</string>
+  <string name="enabled">povoleno</string>
+  <string name="disabled">zakázáno</string>
+  <string name="change_dev_mode">Máte %s vývojářské nastavení!</string>
+  <string name="enableDebugLog">Povolit debug Logcat?</string>
+  <string name="action_contact">Kontakt / nahlásit chybu</string>
+  <string name="action_contact_summary">Pošlete nám e-mail!</string>
+  <string name="title_donations">Podpořit</string>
+  <string name="add">Přidat</string>
+  <string name="action_credits">Poděkování</string>
+  <string name="action_credits_summary">O nás</string>
+  <string name="demo_mode">Demo režim</string>
+  <string name="demo_drop_db">Resetovat demo databázi</string>
+  <string name="write_logs_to_file">Zapisovat logy do souboru</string>
+  <string name="alert_caldav">CalDAV synchronizace je problémová a nemáme na její podporu již čas. Před pokračování vytvořte záložní kopii dat.</string>
+  <string name="alert_caldav_title">Informace pro CalDAV</string>
+  <string name="alert_taskwarrior">Taskwarrior synchronizace je problémová a nemáme na její podporu již čas. Před pokračování vytvořte záložní kopii dat.</string>
+  <string name="alert_taskwarrior_title">Informace pro Taskwarrior</string>
+  <string name="special_list_where_subtask_title_text">Podúkoly</string>
+  <string name="special_list_where_tag_title_text">Štítky</string>
+  <string name="special_list_where_progress_title_text">Stav</string>
+  <string name="special_list_where_file_title_text">Soubor</string>
+  <string-array name="special_lists_subtask_options">
+    <item>Prohodit výběr</item>
+    <item>Hledat úkoly s podúkoly, nebo podúkoly samotné</item>
+  </string-array>
+  <string-array name="file_choice">
+    <item>Nenastaveno</item>
+    <item>Má soubor</item>
+    <item>Nemá žádný soubor</item>
+  </string-array>
+  <string name="remove">Odstranit</string>
+  <string name="no_account_selected">Není vybrán žádný účet</string>
+  <string name="no_recurrence_selected">Opakování nebylo vybráno</string>
+  <string name="no_semantic_selected">Nebyla vybrána předloha pro úkol</string>
+  <string name="no_special_list_selected">Není vybrán žádný meta seznam</string>
+  <string name="no_tag_selected">Nebyl vybrán štítek</string>
+  <string name="sharing_title">Sdílení</string>
+  <string name="backup_title">Zálohovat</string>
+  <string name="third_party_title">Aplikace třetích stran</string>
+  <string name="title_settings">Nastavení</string>
+  <string name="subcondition">Podpodmínka</string>
+  <string name="done_text">Pouze hotové úkoly</string>
+  <string name="file_text">Pouze úkoly obsahující soubor</string>
+  <string name="due_exist_text">Pouze úkoly bez termínu</string>
+  <string name="reminder_text">Pouze úkoly s připomínkou</string>
+  <string name="is_subtask_parent">Je nadřazen</string>
+  <string name="has_subtasks">Obsahuje podkúkoly</string>
+  <string name="has_parent">Má nadřazený úkol</string>
+  <string name="special_lists_condition_title">Podmínky</string>
+  <string name="Undo">Vrátit odstranění podmínky</string>
+  <string name="add_condition">Přidat podmínku</string>
+  <string name="undo_taskui_change">Vrátit odstranění %s</string>
+  <string name="due_dialog_negated">Ne po</string>
+  <string name="settings_advanced">Pokročilé</string>
+  <string name="delete_condition">Odstranit podmínku</string>
+  <string name="delete_semantic">Smazat šablonu úlohy</string>
+  <string name="delete_special_lists">Smazat meta seznam</string>
+  <string name="settings_widget_title">Nastavení widgetu</string>
+  <string name="version_string">Verze: %1$s sestavena na %2$s</string>
+  <string name="analytics_use">Hlásit anonymní statistiku</string>
+  <string name="analytics_use_summary">Zprávy o použití aplikace nám pomáhají při jejím dalším vylepšování</string>
+  <string name="credits_title">Mirakel</string>
+  <string name="credits_subtitle">Mirakel je open source, neváhejte přispět prostřednictvím GitHub</string>
+  <string name="credits_github">GitHub</string>
+  <string name="credits_gplus">Google+</string>
+  <string name="credits_feedback">Odeslat názor</string>
+  <string name="credits_translations">Překlady</string>
+  <string name="credits_libraries">Knihovny</string>
+  <string name="credits_license_title">Licence</string>
+  <string name="credits_license"><![CDATA[<p>Toto je svobodný software: můžete jej šířit a upravovat podle podmínek <a href="https://www.gnu.org/licenses/gpl.html">GNU General Public License</a> vydávané Free Software Foundation, buď verze 3 licence, nebo (dle vlastního uvážení) libovolné pozdější verze.</p>
+<p>Tento program je šířen v naději, že bude užitečný, ale bez JAKÉKOLI ZÁRUKY; bez odvozené záruky PRODEJNOSTI nebo VHODNOSTI PRO URČITÝ ÚČEL. Viz GNU General Public License pro další podrobnosti.</p>]]></string>
+</resources>
+

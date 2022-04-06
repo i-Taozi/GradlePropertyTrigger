@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="widget_list">Lijst</string>
+  <string name="widget_list_summary">Toon \"%s\"</string>
+  <string name="widget_done">afgeronde taken</string>
+  <string name="fontcolor">Lettertype kleur</string>
+  <string name="widget_transparency">Transparantie</string>
+  <string name="widget_transparency_summary">%s%% transparant</string>
+  <string name="widget_due_colors">vervaldata inkleuren</string>
+  <string name="dark_theme">Donker thema</string>
+  <string name="notifications_list_summary">Toon \"%s\"</string>
+  <string name="empty_list">Geen taken</string>
+  <string name="preferences">Instellingen</string>
+  <string name="widget_use_gradient">Gebruik verloop</string>
+  <string name="widget_style">Widget stijl</string>
+</resources>
+

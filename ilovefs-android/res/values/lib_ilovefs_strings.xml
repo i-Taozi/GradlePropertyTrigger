@@ -1,0 +1,37 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<resources
+     xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="ilovefs_title">I ♥ Free Software Day</string>
+    <string name="ilovefs_message"><![CDATA[
+        <p>Valentine\'s Day traditionally is a day to show and celebrate love. So why do not take this as a chance to show your love for Free Software this year?</p>
+        <p><a href="https://fsfe.org/campaigns/ilovefs/">Learn more</a></p> 
+        ]]></string>
+    <string name="ilovefs_rate">Rate!</string>
+    <string name="ilovefs_email">Write us!</string>
+    <string name="ilovefs_email_no_client">Didn\'t find any mail client</string>
+    <string name="ilovefs_donate">Donate</string>
+    <string name="ilovefs_email_title">#ILoveFS</string>
+    <!-- 
+    <string name="ilovefs_"></string>
+     -->
+
+</resources>

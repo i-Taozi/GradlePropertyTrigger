@@ -1,0 +1,54 @@
+/*******************************************************************************
+ * Mirakel is an Android App for managing your ToDo-Lists
+ *
+ *   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU General Public License as published by
+ *       the Free Software Foundation, either version 3 of the License, or
+ *       any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU General Public License for more details.
+ *
+ *       You should have received a copy of the GNU General Public License
+ *       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile "com.android.support:design:$androidSupportVersion"
+    compile "com.nispok:snackbar:2.10.6"
+    compile "com.android.support:appcompat-v7:$androidSupportVersion"
+}
+
+dependencyVerification {
+    verify = [
+        'com.android.support:design:41a9cd75ca78f25df5f573db7cedf8bb66beae00c330943923ba9f3e2051736d',
+        'com.android.support:appcompat-v7:0a8762214382b7e8d4b989b4ac10b5c846b957d767ccb7bccbc6be5afa885a82',
+        'com.android.support:recyclerview-v7:7606373da0931a1e62588335465a0e390cd676c98117edab29220317495faefd',
+        'com.android.support:support-v4:5c7dceb6c824089fe80f502e5206264048ef8bffa4e8ddeab180b81723e79b7f',
+        'com.android.support:support-annotations:f347a35b9748a4103b39a6714a77e2100f488d623fd6268e259c177b200e9d82',
+        'com.nispok:snackbar:473d4ac972638d6db6562173871c469d6647b60c03538c3c75207ec3fff3bfcd',
+    ]
+}

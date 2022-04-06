@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="sync_add">إضافة حساب</string>
+  <string name="account_title">حسابات</string>
+  <string name="sync_new">حساب جديد</string>
+  <string name="sync_use">استخدام المزامنة</string>
+  <string name="sync_warning">يتم تجريب المزامنة</string>
+  <string name="sync_warning_message">المزامنة حاليا في طورتجريبي جداً. ولكن يمكنك أن تجرب ذلك على مسؤوليتك الخاصة (إجراء نسخة احتياطية!) – هل أنت متأكد؟</string>
+  <string name="sync_use_summary_taskwarrior">المزامنة مع Taskwarrior ك %s</string>
+  <string name="sync_use_summary_mirakel">المزامنة معMirakel ك %s</string>
+  <string name="sync_use_summary_nothing">عدم استخدام المزامنة</string>
+  <string name="sync_user">اسم المستخدم</string>
+  <string name="sync_user_summary">اسم المستخدم للخادم</string>
+  <string name="sync_server">خادم</string>
+  <string name="sync_server_summary">المزامنة مع %s</string>
+  <string name="sync_frequency">تردد</string>
+  <string name="sync_frequency_summary">مزامنة كل دقيقة %s</string>
+  <string name="sync_frequency_summary_man">مزامنة يدوياً فقط</string>
+  <string-array name="sync_types">
+    <item>مزامنة CalDAV</item>
+    <item>مزامنة Taskwarrior</item>
+  </string-array>
+  <string name="sync_caldav">مزامنة CalDAV</string>
+  <string name="download">تحميل</string>
+  <string name="sync_add_account">إضافة حساب</string>
+  <string name="sync_taskwarrior_configure">تكوين Taskwarrior</string>
+  <string name="sync_taskwarrior_scan_qr">مسح رمز QR</string>
+  <string name="sync_taskwarrior_select_file">حدد ملف التهيئة</string>
+  <string name="sync_taskwarrior_how_to">كيفية إعداد الخادم الخاص بك</string>
+  <string name="sync_taskwarrior_own_server">أو استخدم خادمك الخاص</string>
+  <string name="sync_taskwarrior_url_error">عنوان URL غير صحيح. هل مسحت الرمز الصحيح حقاً؟</string>
+  <string name="sync_taskwarrior_configuring">تكوين المزامنة…</string>
+  <string name="sync_taskwarrior_about">إذا كان لديك حساب taskwarrior:</string>
+  <string name="sync_taskwarrior_register">إذا لم يكن الأمر كذلك، يمكنك تسجيل حساب جديد على الخادم لدينا:</string>
+  <string name="sync_taskwarrior_register_button">تسجيل</string>
+  <string name="sync_taskwarrior_setup_success">تم إعداد الحساب بنجاح</string>
+  <string name="sync_taskwarrior_error_download">لا يمكن تحميل ملف التكوين</string>
+  <string name="sync_taskwarrior_select_file_not_exists">ملف غير موجود</string>
+  <string name="sync_defaultAccount">استخدامه كحساب افتراضي؟</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="type">نوع</string>
+  <string name="no_barcode_app">لم يُثبَّت ماسح الرمز الشريطي</string>
+  <string name="no_barcode_app_message">نقترح ماسح الرمز الشريطي التالي:</string>
+  <string name="no_barcode_app_install">تثبيت</string>
+  <string name="menu_edit_listaccount">حساب</string>
+  <string name="change_account">تغيير حساب</string>
+  <string name="no">لا</string>
+  <string name="not">لا</string>
+  <string name="notification_title">الإشعارات</string>
+  <string name="notifications_use">استخدام الإشعارات</string>
+  <string name="notifications_persistent">إشعارات مستمرة</string>
+  <string name="notifications_list">إظهار قائمة</string>
+  <string name="notifications_list_summary">إظهار \"%s\"</string>
+  <string name="default_list">القائمة الافتراضية</string>
+  <string name="reminder">تذكير</string>
+  <string name="reminders_persistent">تذكير باستمرار</string>
+  <string name="reminders_persistent_summary">إجعل إغلاق التذكير مستحيلاً</string>
+  <string name="startup_title">بدء التطبيق</string>
+  <string name="startup_list_summary">إظهار المهام من \"%s\"</string>
+  <string name="special_lists_click">إدارة القوائم الوصفيَّة</string>
+  <string name="special_lists_new">قائمة وصفيَّة جديدة</string>
+  <string name="settings_misc">متفرقات</string>
+  <string name="settings_backup">الاحتياطي والاستيراد</string>
+  <string name="backup_click_summary">قم بوضع نسخ إحتياطية لقاعدة البيانات على بطاقة s%) SD)</string>
+  <string name="backup_click">النسخ الاحتياطية</string>
+  <string name="import_click_summary">استيراد قاعدة البيانات</string>
+  <string name="import_click">استيراد</string>
+  <string name="import_sure">هل أنت متأكد؟</string>
+  <string name="import_sure_summary">سيتم تجاوز كافة البيانات! (الاستيراد من %s )</string>
+  <string name="import_title">حدد ملف Mirakel</string>
+  <string name="no_filemanager">الرجاء تثبيت مدير الملفات</string>
+  <string name="import_default_list_summary">استيراد إلى \"%s\"</string>
+  <string name="import_no_default_list_summary">لا توجد قائمة افتراضية محددة</string>
+  <string name="import_default_list">استيراد القائمة الافتراضية</string>
+  <string name="import_to">استيراد إلى</string>
+  <string name="changelog">سِجل التغييرات</string>
+  <string name="changelog_click_summary">عرض سجل التغييرات</string>
+  <string name="changelog_click">سِجل التغييرات</string>
+  <string name="settings_about">حول</string>
+  <string name="settings_help">مساعدة</string>
+  <string name="import_astrid_click">الاستيراد من Astrid</string>
+  <string name="astrid_success">استيراد كافة البيانات بنجاح!</string>
+  <string name="importing">جاري  الإستيراد</string>
+  <string name="astrid_import_title">حدد ملف Astrid</string>
+  <string name="import_any_do_click">استيراد من Any.Do</string>
+  <string name="any_do_this_file">استيراد من %s?\nIf في حال تم الرفض, يرجى تحديد الملف بنفسك</string>
+  <string name="any_do_how_to">يرجى أولاً النسخ الاحتياطي لبيانات Any.Do.  لفعل هذا اذهب إلى  Any.Do → Settings → Backup → Create Backup ثم ارجع هنا واضغط OK.\n أو اختر الملف بنفسك.</string>
+  <string name="select_file">حدد الملف</string>
+  <string name="wait">الرجاء الانتظار…</string>
+  <string name="import_wunderlist_click">استيراد من Wunderlist</string>
+  <string name="import_wunderlist_title">حدد الملف Wunderlist</string>
+  <string name="import_wunderlist_howto">Howto يستورد من Wunderlist</string>
+  <string name="import_wunderlist_howto_text">نسخة آندرويد من تطبيق Wunderlist ليس بها إمكانية النسخ الاحتياطي.\n\n ولهذا عليك تسجيل الدخول إلى تطبيق الوب.  إذهب إلى Preferences → Account → Create Backup → (wait) → Click to download.  إنسخ هذا الملف إلى جهازك ثم عُد هنا.</string>
+  <string name="showDone">إظهار المهام المنجزة</string>
+  <string name="ui_settings_title">واجهة المستخدم</string>
+  <string name="undo_number">عدد من التغييرات المحفوظة</string>
+  <string name="undo_number_summary">التراجع عن التغييرات %s</string>
+  <string name="settings_semantic">قوالب مهمة</string>
+  <string name="semantic_new_task">قالب المهمة الجديدة</string>
+  <string name="semantic_new_task_config_summary">تكوين الشروط اللازمة لإنشاء مهام جديدة</string>
+  <string name="semantic_new_task_config">تكوين قوالب مهمة</string>
+  <string name="general">عام</string>
+  <string-array name="tablet_options">
+    <item>ابدا</item>
+    <item>المناظر الطبيعية</item>
+    <item>عمودي</item>
+    <item>portrait and landscape</item>
+  </string-array>
+  <string name="delete_done">حذف المهام المنجزة</string>
+  <string name="delete_done_summary">حذف كافة المهام المنجزة</string>
+  <string name="delete_done_warning">هل أنت متأكد؟</string>
+  <string name="delete_done_warning_message">لا يمكنك التراجع عن ذلك. إجراء نسخة احتياطية!</string>
+  <string name="delete_done_success">حذف المهام المنجزة الخاصة بنجاح.</string>
+  <string name="menu_color">تغيير اللون</string>
+  <string name="howto_setup_server">كيفية إعداد خادم</string>
+  <string name="register_server">إذا كنت بحاجة حساب للمزامنة على الخادم الخاص بنا، الرجاء إرسال بريد إلكتروني إلينا. مع الإصدار التالي ستحصل على إمكانية تسجيل حساب جديد!</string>
+  <string name="special_lists_title">القوائم الوصفيَّة</string>
+  <string name="register">تسجيل</string>
+  <string name="auto_backup_interval">الفاصل الزمني للنسخ الاحتياطي التلقائي</string>
+  <string name="auto_backup_interval_summary">النسخ الاحتياطي لقاعدة البيانات كل أيام %s</string>
+  <string name="settings_semantics_title">تكوين قوالب مهمة</string>
+  <string name="settings_semantics_condition">الشرط</string>
+  <string name="settings_semantics_actions">الاجراءات</string>
+  <string name="settings_semantics_list">تعيين قائمة</string>
+  <string name="settings_semantics_priority">تعيين الأولوية</string>
+  <string name="settings_semantics_due">تعيين تاريخ الواجب</string>
+  <string name="settings_semantics_weekday">تعيين الواجب في أيام الأسبوع القادم</string>
+  <string-array name="weekdays">
+    <item>لا تقم بتعيين</item>
+    <item>الاثنين</item>
+    <item>الثلاثاء</item>
+    <item>الأربعاء</item>
+    <item>الخميس</item>
+    <item>الجمعة</item>
+    <item>السبت</item>
+    <item>الأحد</item>
+  </string-array>
+  <string-array name="priority_entries">
+    <item>لا تقم بتعيين أولوية</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string-array name="priority_entry_values">
+    <item>معدوم</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string name="semantics_no_list">لا تقم بتعيين قائمة</string>
+  <string name="semantics_no_due">لا تقم بتعيين تاريخ الواجب</string>
+  <string name="settings_file_default_title">اسم المهمة للملفات التي تم استيرادها</string>
+  <string name="semantic_new">قالب</string>
+  <string name="tag_name">الإسم</string>
+  <string name="settings_subtask">المهام الفرعية</string>
+  <string name="settings_subtask_default_new">إظهار المهام الجديدة الافتراضية</string>
+  <string name="settings_subtask_add_to_same_list">إضافة مهمة فرعية إلى قائمة المهمة</string>
+  <string name="settings_subtask_add_to_same_list_summary">أو حدد قائمة افتراضية، حيث سيتم إضافة المهمة الفرعية</string>
+  <string name="settings_subtask_add_to_list_summary">إضافة المهمة الفرعية إلى %s</string>
+  <string name="preferences_colorize_subtasks">تلوين المهام الفرعية؟</string>
+  <string name="settings_tasks_title">المهام</string>
+  <string name="settings_dev">إعدادات التنمية</string>
+  <string name="settings_dev_sync">مزامنة</string>
+  <string name="enable">تمكين</string>
+  <string name="disable">تعطيل</string>
+  <string name="enabled">تمكين</string>
+  <string name="disabled">تعطيل</string>
+  <string name="change_dev_mode">لديك %s إعدادات التنمية!</string>
+  <string name="action_contact">جهات الاتصال/تقرير الشوائب</string>
+  <string name="action_contact_summary">يكتب لنا رسالة بالبريد إلكتروني!</string>
+  <string name="title_donations">تبرع</string>
+  <string name="add">إضافة</string>
+  <string name="action_credits">شكر وتقدير</string>
+  <string name="demo_mode">طريقة العرض</string>
+  <string name="write_logs_to_file">كتابة سجلات ملف</string>
+  <string name="special_list_where_subtask_title_text">المهام الفرعية</string>
+  <string name="special_list_where_progress_title_text">التقدم</string>
+  <string-array name="file_choice">
+    <item>Not set</item>
+    <item>يحوي ملفاً</item>
+    <item>Has no file</item>
+  </string-array>
+  <string name="backup_title">النسخ الاحتياطية</string>
+  <string name="title_settings">إعدادات</string>
+  <string name="delete_semantic">حذف قالب المهمة</string>
+  <string name="credits_title">Mirakel</string>
+  <string name="credits_translations">الترجمات</string>
+  <string name="credits_license_title">الترخيص</string>
+</resources>
+

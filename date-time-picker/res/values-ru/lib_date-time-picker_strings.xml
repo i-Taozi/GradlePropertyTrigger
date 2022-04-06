@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:xliff="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="day_picker_description">Сетка дней на месяц</string>
+  <string name="year_picker_description">Список годов</string>
+  <string name="item_is_selected">%1$s выбрано</string>
+  <string name="deleted_key"><xliff:g id="key" example="4"> %1$s </xliff:g> удалено</string>
+  <string name="hour_picker_description">Круговой слайдер для часов</string>
+  <string name="minute_picker_description">Круговой слайдер для минут</string>
+  <string name="select_hours">Выбрать часы</string>
+  <string name="select_minutes">Выбрать минуты</string>
+  <string name="recurrence_month_pattern_by_day">в тот же день каждого месяца</string>
+  <string name="acessibility_recurrence_choose_end_date_description">изменить дату окончания</string>
+  <string name="save_label">Выполнено</string>
+  <string name="set_date">Установить дату</string>
+  <string name="set_time">Установить время</string>
+  <string name="remove_reminder">Удалить</string>
+</resources>
+

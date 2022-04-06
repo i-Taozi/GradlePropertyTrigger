@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:xliff="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="day_picker_description">Grille du mois de jours</string>
+  <string name="year_picker_description">Liste de l\'année</string>
+  <string name="item_is_selected">%1$s sélectionné</string>
+  <string name="deleted_key"><xliff:g id="key" example="4"> %1$s </xliff:g> supprimé</string>
+  <string name="hour_picker_description">Curseur circulaire heures</string>
+  <string name="minute_picker_description">Curseur circulaire minutes</string>
+  <string name="select_hours">Sélectionnez heures</string>
+  <string name="select_minutes">Sélectionnez minutes</string>
+  <string name="recurrence_month_pattern_by_day">mensuel</string>
+  <string name="acessibility_recurrence_choose_end_date_description">changer la date de fin</string>
+  <string name="save_label">Fini</string>
+  <string name="set_date">Définir la date</string>
+  <string name="set_time">Définir l\'heure</string>
+  <string name="remove_reminder">Enlever</string>
+  <string name="recurrence_start_label">Début:</string>
+  <string name="recurrence_end_label">Fin:</string>
+  <string name="never">Jamais</string>
+</resources>
+

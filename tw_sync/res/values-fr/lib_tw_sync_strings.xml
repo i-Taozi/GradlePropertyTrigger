@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="sync_add">Ajouter un compte</string>
+  <string name="sync_title">Synchronisation</string>
+  <string name="sync_new">Nouveau compte</string>
+  <string name="sync_use">Utiliser la synchronisation</string>
+  <string name="sync_warning">La synchronisation est expérimentale</string>
+  <string name="sync_warning_message">La synchronisation est actuellement très expérimentale. Mais vous pouvez l\'essayer à vos risques (Faites une sauvegarde !) - Êtes-vous sûr ?</string>
+  <string name="sync_use_summary_taskwarrior">Synchroniser avec Taskwarrior en tant que %s</string>
+  <string name="sync_use_summary_mirakel">Synchroniser avec Mirakel en tant que %s</string>
+  <string name="sync_use_summary_nothing">Ne pas utiliser la synchronisation</string>
+  <string name="sync_user">Nom d\'utilisateur</string>
+  <string name="sync_user_summary">Nom d\'utilisateur de côté serveur</string>
+  <string name="sync_server">Serveur</string>
+  <string name="sync_server_summary">Synchroniser avec %s</string>
+  <string name="sync_frequency">Fréquence</string>
+  <string name="sync_frequency_summary">Synchroniser toutes les %s min</string>
+  <string name="sync_frequency_summary_man">Ne synchroniser que manuellement</string>
+  <string-array name="sync_types">
+    <item>CalDAV sync</item>
+    <item>Taskwarrior sync</item>
+  </string-array>
+  <string name="sync_caldav">CalDAV sync</string>
+  <string name="sync_caldav_howto_">Vous devez configurer une application de synchronisation CalDAV compatible avec Mirakel. Actuellement vous devez installer notre version modifiée de DAVdroid depuis notre page.&lt;br /&gt;&lt;br /&gt;Bientôt l\'application DAVdroid officielle supportera Mirakel et nous travaillons ensemble avec d\'autres pour rendre possible la synchronisation avec Mirakel.</string>
+  <string name="download">Télécharger</string>
+  <string name="sync_add_account">Ajouter un compte</string>
+  <string name="sync_taskwarrior_configure">Configurer Taskwarrior</string>
+  <string name="sync_taskwarrior_scan_qr">Scanner le code QR</string>
+  <string name="sync_taskwarrior_select_file">Sélectionnez le fichier de config</string>
+  <string name="sync_taskwarrior_how_to">Comment configurer votre propre serveur</string>
+  <string name="sync_taskwarrior_own_server">ou il suffit d\'utiliser votre propre serveur</string>
+  <string name="sync_taskwarrior_configuring">Configuration de synchronisation…</string>
+  <string name="sync_taskwarrior_about">Si vous avez déjà un compte taskwarrior:</string>
+  <string name="sync_taskwarrior_register">Si ce n\'est pas le cas, vous pouvez enregistrer un nouveau compte sur notre serveur:</string>
+  <string name="sync_taskwarrior_register_button">S\'enregistrer</string>
+  <string name="sync_taskwarrior_setup_success">Configuration des comptes a réussi</string>
+  <string name="sync_defaultAccount">Utiliser comme compte par défaut?</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="type">Type</string>
+  <string name="no_barcode_app">Aucune application capable de lire des code-barres n\'est installée</string>
+  <string name="no_barcode_app_message">Nous vous recommandons l\'application permettant de scanner des codes-barres :</string>
+  <string name="no_barcode_app_install">Installer</string>
+  <string name="menu_edit_listaccount">Compte</string>
+  <string name="change_account">Changer le compte</string>
+  <string name="wrong_config">On dirait que vous utilisez un mauvais fichier de configuration</string>
+  <string name="cert_not_found">Le certificat a disparu. Merci de créer de nouveau votre compte.</string>
+  <string name="could_not_find_common_ancestor"><![CDATA[Une erreur est survenue lors de la synchronisation. Nous l\'avons contournée, mais quelques données ont pu être perdues :(. Une sauvegarde de votre base de données a été faite. Vérifiez-la si quelque chose ne va pas.<br /><br />
+        Pour plus d\'informations, cliquer <a href="https://mirakel.atlassian.net/browse/MIR-453">ici</a>]]></string>
+  <string name="client_sync_key_not_found">La clé de synchronisation n\'a pas été trouvé. Merci de vérifier votre configuration de taskwarrior.</string>
+  <string name="config_404">Fichier de configuration non trouvé</string>
+  <string name="config_error_empty">Il n\'y a pas d\'entrée %s dans la configuration</string>
+  <string name="load_config">Sélectionner le fichier de configuration pour Taskwarrior</string>
+  <string name="select_config">Sélectionner le fichier de configuration Taskwarrior</string>
+  <string name="message_try_later">Essayez de lancer la synchronisation plus tard</string>
+  <string name="message_access_denied">Accès refusé !\nAvez-vous utilisé le bon fichier de configuration ?\nVous devez configurer le serveur Taskwarrior pour qu\'il accepte la synchronisation avec Mirakel.</string>
+  <string name="message_create_socket">Impossible de créer le socket! \nAvez-vous activé votre connexion réseau ?</string>
+  <string name="message_account_suspended">Votre compte est suspendu!</string>
+  <string name="message_parse_message">Impossible d\'analyser vos tâches – veuillez-nous contacter pour décrire comment cet état est-il survenu.</string>
+  <string name="message_message_error">Réponse inconnue du serveur. Merci de nous contacter pour nous expliquer comment l\'erreur est survenue</string>
+  <string name="finish_sync">La synchronisation est terminée</string>
+  <string name="account_vanished">Le compte a disparu. Cela ne devrait absolument jamais se produire</string>
+  <string name="create_account">Créer un compte</string>
+</resources>
+

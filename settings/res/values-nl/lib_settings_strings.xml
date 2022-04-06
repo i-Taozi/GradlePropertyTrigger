@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="sync_message">Door een gebrek aan tijd zijn we niet in staat om de resterende problemen met synchronisatie op te lossen.      Doe aub geen bug verzoeken met betrekking tot de synchronisatie. Iedere ontwikkelaar is welkom te helpen deze bugs op te lossen.</string>
+  <string name="sync_help_dev">Ik wil helpen!</string>
+  <string name="sync_understand">Ik begrijp het</string>
+  <string name="sync_add">Account toevoegen</string>
+  <string name="account_title">Lidmaatschap</string>
+  <string name="sync_new">Nieuwe account</string>
+  <string name="sync_use">Gebruik synchronisatie</string>
+  <string name="sync_warning">Synchronisatie is experimenteel</string>
+  <string name="sync_warning_message">De synchronisatie is momenteel zeer experimenteel. Je kunt het op eigen risico proberen (Maak een back-up!)</string>
+  <string name="sync_use_summary_taskwarrior">Synchronisatie met Taskwarrior als %s</string>
+  <string name="sync_use_summary_mirakel">Synchronisatie met Mirakel als %s</string>
+  <string name="sync_use_summary_nothing">Synchronisatie niet gebruiken</string>
+  <string name="sync_user">Gebruikersnaam</string>
+  <string name="sync_user_summary">Server gebruikersnaam</string>
+  <string name="sync_server">Server</string>
+  <string name="sync_server_summary">Synchroniseer met %s</string>
+  <string name="sync_frequency">Frequentie</string>
+  <string name="sync_frequency_summary">Synchroniseer elke %s min</string>
+  <string name="sync_frequency_summary_man">Alleen handmatig synchroniseren</string>
+  <string name="account_informations">Informatie</string>
+  <string-array name="sync_types">
+    <item>CalDAV synchronisatie</item>
+    <item>Taskwarrior synchronisatie</item>
+  </string-array>
+  <string name="sync_caldav">CalDAV synchronisatie</string>
+  <string name="sync_caldav_howto"><![CDATA[You have to setup a Mirakel-compatible CalDAV-syncing app. Currently you have to install our modified DAVdroid version from our page.<br /><br />
+Binnenkort zal Mirakel de officiële DAVdroid app ondersteunen. Verder werken we samen met enkele anderen om ook een sync met Mirakel mogelijk te maken.]]></string>
+  <string name="download">Download</string>
+  <string name="sync_add_account">Account toevoegen</string>
+  <string name="sync_taskwarrior_configure">Taskwarrior instellen</string>
+  <string name="sync_taskwarrior_scan_qr">QR-code scannen</string>
+  <string name="sync_taskwarrior_select_file">instellingenbestand selecteren</string>
+  <string name="sync_taskwarrior_how_to">Hoe een eigen server op te zetten</string>
+  <string name="sync_taskwarrior_own_server">of maak gebruik van uw eigen server</string>
+  <string name="sync_taskwarrior_url_error">De URL is niet correct. Heeft u de juiste code gescand?</string>
+  <string name="sync_taskwarrior_configuring">Synchronisatie instellen…</string>
+  <string name="sync_taskwarrior_about">Als u al een taskwarrior account hebt:</string>
+  <string name="sync_taskwarrior_register">Als dat niet het geval is, kunt u een nieuwe account op onze server registreren:</string>
+  <string name="sync_taskwarrior_register_button">Registreren</string>
+  <string name="sync_taskwarrior_setup_success">Accountinstelling was succesvol</string>
+  <string name="sync_taskwarrior_error_download">Kon het configuratiebestand niet downloaden</string>
+  <string name="sync_taskwarrior_select_file_not_exists">Bestand bestaat niet</string>
+  <string name="sync_defaultAccount">Gebruik als standaard account?</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="type">Type</string>
+  <string name="no_barcode_app">Geen barcodescanner geïnstalleerd</string>
+  <string name="no_barcode_app_message">Wij raden de volgende barcodescanner aan:</string>
+  <string name="no_barcode_app_install">Installeren</string>
+  <string name="menu_edit_listaccount">Account</string>
+  <string name="change_account">Account wijzigen</string>
+  <string name="version">App versie</string>
+  <string name="no">nee</string>
+  <string name="not">niet</string>
+  <string name="notification_title">Meldingen</string>
+  <string name="notifications_use">Meldingen gebruiken</string>
+  <string name="notifications_persistent">Herhalende meldingen</string>
+  <string name="notifications_list">Lijst weergeven</string>
+  <string name="notifications_list_summary">Toon \"%s\"</string>
+  <string name="default_list">voorkeurslijst</string>
+  <string name="reminder">Herinnnering</string>
+  <string name="reminders_persistent">Aanhoudende herinnering</string>
+  <string name="reminders_persistent_summary">Maak het onmogelijk de herinnering te sluiten</string>
+  <string name="startup_title">Start applicatie</string>
+  <string name="startup_list">Opstart lijst selecteren</string>
+  <string name="startup_list_summary">Taken tonen van \"%s\"</string>
+  <string name="special_lists_click">Meta lijsten beheren</string>
+  <string name="special_lists_new">Nieuwe meta lijst</string>
+  <string name="settings_misc">Diversen</string>
+  <string name="settings_backup">Reservekopie en importeren</string>
+  <string name="backup_click_summary">Reservekopie op de SD-kaart kopiëren (%s)</string>
+  <string name="backup_click">Reservekopie</string>
+  <string name="import_click_summary">Importeer de database</string>
+  <string name="import_click">Importeer</string>
+  <string name="import_sure">Weet u het zeker?</string>
+  <string name="import_sure_summary">Alle gegevens zullen worden overschreven! (Importeren vanaf %s)</string>
+  <string name="import_title">Mirakel bestand selecteren</string>
+  <string name="no_filemanager">Installeer een bestandsbeheerder</string>
+  <string name="import_default_list_summary">Importeren naar \"%s\"</string>
+  <string name="import_no_default_list_summary">Geen voorkeurslijst geselecteerd</string>
+  <string name="import_default_list">Importeer voorkeurslijst</string>
+  <string name="import_to">Importeren</string>
+  <string name="changelog">Logboekwijzigingen</string>
+  <string name="rate">Waardeer</string>
+  <string name="changelog_click_summary">Bekijk het logboek</string>
+  <string name="changelog_click">Logboekwijzigingen</string>
+  <string name="settings_about">Over</string>
+  <string name="settings_help">Help</string>
+  <string name="get_dashclock">Mirakel-Dashclock verkrijgen</string>
+  <string name="get_dashclock_summary">De extensie Mirakel voor Dashclock verkrijgen</string>
+  <string name="import_astrid_click">Astrid importeren</string>
+  <string name="astrid_success">Alle gegevens zijn geïmporteerd!</string>
+  <string name="importing">Importeren</string>
+  <string name="astrid_import_title">Astrid bestand selecteren</string>
+  <string name="import_any_do_click">Any.Do importeren</string>
+  <string name="any_do_import_title">Any.Do reservekopie selecteren</string>
+  <string name="any_do_this_file">Importeren uit %s?\nWanneer niet selecteer zelf een bestand</string>
+  <string name="any_do_how_to">Maak eerst uw reservekopie van de Any.Do gegevens . Om dit te doen, ga naar Any.Do → instellingen → Backup → reservekopie maken. Kom dan terug en druk op OK.\nSelecteer het bestand zelf.</string>
+  <string name="select_file">bestand selecteren</string>
+  <string name="wait">Even geduld a.u.b.…</string>
+  <string name="import_wunderlist_click">Wunderlist importeren</string>
+  <string name="import_wunderlist_title">Wunderlist bestand selecteren</string>
+  <string name="import_wunderlist_howto">Howto importeren van Wunderlist</string>
+  <string name="import_wunderlist_howto_text">De Android-app van Wunderlist biedt geen ondersteuning voor een reservekopie.\n\n dus je moet inloggen in het web-app. Ga naar Voorkeuren → Account → reservekopie maken → (wachten) → Klik om te downloaden. Kopieer dit bestand naar uw apparaat en kom dan terug.</string>
+  <string name="showDone">Afgeronde taken weergeven</string>
+  <string name="ui_settings_title">Gebruiksinterface</string>
+  <string name="undo_number">Aantal opgeslagen wijzigingen</string>
+  <string name="undo_number_summary">%s wijzigingen ongedaan maken</string>
+  <string name="settings_semantic">Taak sjabloon</string>
+  <string name="semantic_new_task">Nieuwe taak sjabloon</string>
+  <string name="semantic_new_task_config_summary">Condities van nieuwe taken instellen</string>
+  <string name="semantic_new_task_config">Taak sjablonen instellen</string>
+  <string name="useTabletLayout">Tablet weergave gebruiken</string>
+  <string name="general">Algemeen</string>
+  <string-array name="tablet_options">
+    <item>nooit</item>
+    <item>horizontaal</item>
+    <item>portret</item>
+    <item>portret en landschap</item>
+  </string-array>
+  <string name="delete_done">Verwijder afgeronde taken</string>
+  <string name="delete_done_summary">Verwijder alle afgeronde taken</string>
+  <string name="delete_done_warning">Weet u het zeker?</string>
+  <string name="delete_done_warning_message">U kunt dit niet ongedaan maken. Maak een reservekopie!</string>
+  <string name="delete_done_success">Alle afgeronde taken zijn verwijderd.</string>
+  <string name="menu_color">Kleur wijzigen</string>
+  <string name="howto_setup_server">Hoe een server in te stellen</string>
+  <string name="register_server">Als u een account nodig voor de synchronisatie op onze server, stuur ons dan een e-mail. Met de volgende versie krijgt u de mogelijkheid om een account te registreren!</string>
+  <string name="special_lists_title">Meta lijsten</string>
+  <string name="register">Registreren</string>
+  <string name="auto_backup_interval">Reservekopie interval</string>
+  <string name="auto_backup_interval_summary">Reservekopie maken van de database om %s dagen</string>
+  <string name="settings_semantics_title">Taak sjablonen instellen</string>
+  <string name="settings_semantics_condition">Voorwaarde</string>
+  <string name="settings_semantics_actions">Acties</string>
+  <string name="settings_semantics_list">Lijst instellen</string>
+  <string name="settings_semantics_priority">Prioriteit instellen</string>
+  <string name="settings_semantics_due">Vervaldatum instellen</string>
+  <string name="settings_semantics_weekday">Vervaldatum instellen op de volgende weekdag</string>
+  <string-array name="weekdays">
+    <item>Niet ingesteld</item>
+    <item>Maandag</item>
+    <item>Dinsdag</item>
+    <item>Woensdag</item>
+    <item>Donderdag</item>
+    <item>Vrijdag</item>
+    <item>Zaterdag</item>
+    <item>Zondag</item>
+  </string-array>
+  <string-array name="priority_entries">
+    <item>Geen prioriteit instellen</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string-array name="priority_entry_values">
+    <item>Nul</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string name="semantics_no_list">Lijst niet instellen</string>
+  <string name="semantics_no_due">Vervaldatum niet instellen</string>
+  <string name="settings_file_default_title">Taaknaam bij geïmporteerd bestand</string>
+  <string name="semantic_new">sjabloon</string>
+  <string name="tag_new">Nieuwe Tag</string>
+  <string name="tag_settings">Label instellingen</string>
+  <string name="color">Kleur</string>
+  <string name="tag_name">Naam</string>
+  <string name="tag_dark_text">Moet de tekst zwart zijn?</string>
+  <string name="tag_click">Tags</string>
+  <string name="settings_subtask">Subtaken</string>
+  <string name="settings_subtask_default_new">Nieuwe taak direct weergeven</string>
+  <string name="settings_subtask_add_to_same_list">Subtaak toevoegen aan de lijst van de taak</string>
+  <string name="settings_subtask_add_to_same_list_summary">Of selecteer een standaardlijst, waar de subtaak wordt toegevoegd</string>
+  <string name="settings_subtask_add_to_list_summary">Subtaak toevoegen naar %s</string>
+  <string name="preferences_colorize_subtasks">Subtaken inkleuren?</string>
+  <string name="settings_tasks_title">Taken</string>
+  <string name="settings_dev">Ontwikkel instellingen</string>
+  <string name="settings_dev_sync">Synchronisatie</string>
+  <string name="settings_dev_dump_tw_summary">Opslaan van de ontvangen tekst in /sdcard/mirakel/</string>
+  <string name="settings_dev_dump_tw">Ontvangen gesynchroniseerde berichten opslaan</string>
+  <string name="enable">Aan het inschakelen</string>
+  <string name="disable">Aan het uitschakelen</string>
+  <string name="enabled">Ingeschakeld</string>
+  <string name="disabled">Uitgeschakeld</string>
+  <string name="change_dev_mode">U heeft de ontwikkelingsinstellingen %s!</string>
+  <string name="enableDebugLog">Machtig debug Logcat?</string>
+  <string name="action_contact">Contact opnemen/ fouten melden</string>
+  <string name="action_contact_summary">Schrijf ons een e-mail!</string>
+  <string name="title_donations">Doneer</string>
+  <string name="add">Toevoegen</string>
+  <string name="action_credits">Colofon</string>
+  <string name="action_credits_summary">Over ons</string>
+  <string name="demo_mode">Demonstratie modus</string>
+  <string name="demo_drop_db">Start met oorpsronkelijke demo database</string>
+  <string name="write_logs_to_file">Schrijf logs weg in een bestand</string>
+  <string name="alert_caldav">De CalDAV sync is niet stabiel en wij hebben niet de tijd om dit te ondersteunen. Maak een reservekopie van de gegevens voordat u verdergaat.</string>
+  <string name="alert_caldav_title">Informatie voor CalDAV</string>
+  <string name="alert_taskwarrior">De Taskwarrior sync is niet stabiel en wij hebben niet de tijd om dit te ondersteunen. Maak een reservekopie van uw gegevens voordat u verdergaat.</string>
+  <string name="alert_taskwarrior_title">Informatie voor Taskwarrior</string>
+  <string name="special_list_where_subtask_title_text">Subtaken</string>
+  <string name="special_list_where_tag_title_text">Tags</string>
+  <string name="special_list_where_progress_title_text">Voortgang</string>
+  <string name="special_list_where_file_title_text">Bestand</string>
+  <string-array name="special_lists_subtask_options">
+    <item>Selectie omkeren</item>
+    <item>Zoek naar sub-taken of taken met sub-taken</item>
+  </string-array>
+  <string-array name="file_choice">
+    <item>Niet actief</item>
+    <item>Heeft bestand</item>
+    <item>Heeft geen bestand</item>
+  </string-array>
+  <string name="remove">Verwijder</string>
+  <string name="no_account_selected">Geen Account geselecteerd</string>
+  <string name="no_recurrence_selected">Geen herhaling geselecteerd</string>
+  <string name="no_semantic_selected">Geen taak template geselecteerd</string>
+  <string name="no_special_list_selected">Geen meta lijst geselecteerd</string>
+  <string name="no_tag_selected">Geen tag geselecteerd</string>
+  <string name="sharing_title">Delen</string>
+  <string name="backup_title">Reservekopie</string>
+  <string name="third_party_title">Apps van derden</string>
+  <string name="title_settings">Instellingen</string>
+  <string name="subcondition">Subconditie</string>
+  <string name="done_text">Alleen voltooide taken</string>
+  <string name="file_text">Alleen taken met bestanden</string>
+  <string name="due_exist_text">Alleen taken zonder vervaldatum</string>
+  <string name="reminder_text">Alleen taken met herinnering</string>
+  <string name="is_subtask_parent">Is bovenliggend</string>
+  <string name="has_subtasks">Heeft subtaken</string>
+  <string name="has_parent">Heeft bovenliggende taak</string>
+  <string name="special_lists_condition_title">Voorwaarden</string>
+  <string name="Undo">Ongedaan maken verwijderen voorwaarde</string>
+  <string name="add_condition">Voorwaarde toevoegen</string>
+  <string name="undo_taskui_change">Ongedaan maken verwijderen van %s</string>
+  <string name="due_dialog_negated">Niet na</string>
+  <string name="settings_advanced">Gevorderd</string>
+  <string name="delete_condition">Voorwaarde verwijderen</string>
+  <string name="delete_semantic">Taak sjabloon verwijderen</string>
+  <string name="delete_special_lists">Meta lijst verwijderen</string>
+  <string name="settings_widget_title">Widget voorkeuren</string>
+  <string name="version_string">Versie: %1$s bouwen op %2$s</string>
+  <string name="analytics_use">Statistieken anoniem raporteren</string>
+  <string name="analytics_use_summary">De verslagen helpen ons Mirakel voor u te verbeteren</string>
+  <string name="credits_title">Mirakel</string>
+  <string name="credits_subtitle">Mirakel is open source, voel je vrij om bij te dragen via GitHub</string>
+  <string name="credits_dev">Ontwikkeling door &lt;a href="mailto:anatolij@zelenin.de"&gt;Anatoli Zelenin&lt;/a&gt; en &lt;a href="https://github.com/weiznich"&gt;Georg Semmler&lt;/a&gt;</string>
+  <string name="credits_design">Pictogram &amp; Interface ontwerp door &lt;a href="http://alexkaessner.de/"&gt;Alexander Käßner&lt;/a&gt;</string>
+  <string name="credits_github">GitHub</string>
+  <string name="credits_gplus">Google+</string>
+  <string name="credits_feedback">Feedback verzenden</string>
+  <string name="credits_copyright">© 2013 – 2015 Anatolij Zelenin, Georg Semmler\nDit is Vrije Software beschikbaar onder de GPLv3</string>
+  <string name="credits_translations">Vertalingen</string>
+  <string name="credits_libraries">Bibliotheken</string>
+  <string name="credits_license_title">Licentie</string>
+  <string name="credits_license"><![CDATA[<p>Dit programma is vrije software:  U kan de software distribueren en/of bewerken onder de voorwaarden van  de <a href="https://www.gnu.org/licenses/gpl.html">GNU Algemene Publieke Licentie</a> zoals gepubliceerd door de Free Software Foundation, ofwel versie 3 van de Licentie, of (naar eigen keuze) een latere versie.</p>
+<p>Dit programma is gedistribueerd in de hoop dat het nuttig is, maar komt ZONDER ENIGE GARANTIE; zonder zelfs de impliciete garantie van VERKOOPBAARHEID of geschiktheid voor EEN SPECIFIEK DOEL. Bekijk de GNU Algemene Publieke Licentie voor meer details.</p>]]></string>
+</resources>
+

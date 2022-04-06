@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="subtask_list_name">Podúkoly</string>
+  <string name="daily">Denně</string>
+  <string name="second_day">Každý druhý den</string>
+  <string name="weekly">Týdně</string>
+  <string name="two_weekly">Každý druhý týden</string>
+  <string name="yearly">Ročně</string>
+  <string name="monthly">Měsíčně</string>
+  <string name="hourly">Každou hodinu</string>
+  <string name="minutly">Každou minutu</string>
+  <string name="recurring">Opakování</string>
+  <string name="label">Štítek</string>
+  <string name="forDue">Použít jako termín ukončení</string>
+  <string name="minute">Minuta</string>
+  <string name="hour">Hodina</string>
+  <string name="day">Den</string>
+  <string name="month">Měsíc</string>
+  <string name="year">Rok</string>
+  <string name="new_recurring">Nové opakování</string>
+  <string name="interval">Interval</string>
+  <string name="beginning">Začátek</string>
+  <string name="end">Konec</string>
+  <string name="no_begin_end">Žádný %s</string>
+  <string name="beginning_end">Začátek a konec</string>
+  <string name="save">Uložit</string>
+  <string name="every">Každý</string>
+  <string name="recurrence_end_continously">Navždy</string>
+  <string name="recurrence_end_date_label">Do data</string>
+  <string name="use_exact_recurrence">Nastavit opakování na základě data dokončení?</string>
+  <string name="recurrence_from_now">Od teď</string>
+  <string name="recurrence_from">Od</string>
+  <string name="list_all">Všechny seznamy</string>
+  <string name="list_today">Dnes</string>
+  <string name="list_overdue">Zpožděné</string>
+  <string name="inbox">Inbox</string>
+  <string name="first_task">První úkol</string>
+  <string-array name="weekdays">
+    <item>Nenastavovat</item>
+    <item>Pondělí</item>
+    <item>Úterý</item>
+    <item>Středa</item>
+    <item>Čtvrtek</item>
+    <item>Pátek</item>
+    <item>Sobota</item>
+    <item>Neděle</item>
+  </string-array>
+  <string name="local_account">Místní účet</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="search_result_title">Hledat %s</string>
+  <string name="task_empty">Není vybrán žádný úkol…</string>
+  <string name="no_lists">Tento úkol nelze synchronizovat, protože nemáte žádné seznamy</string>
+  <string name="import_any_do_click">Importovat z Any.Do</string>
+  <string name="any_do_import_title">Vyberte soubor se zálohou ve formátu Any.Do</string>
+  <string name="any_do_this_file">Import z %s?\nPokud jiný, vyberte soubor sami</string>
+  <string name="any_do_how_to">Nejdříve prosím zálohujte svá Any.Do data. Jděte na Any.Do → Nastavení → Záloha → Vytvořit zálohu. Poté se vraťte a zmáčkněte OK.\nNebo vyberte soubor sami.</string>
+  <string name="select_file">Vybrat soubor</string>
+  <string name="wait">Počkejte prosím…</string>
+  <string name="backup_import_ok">Import proběhl v pořádku - prosím restartujte Mirakel</string>
+  <string name="backup_export_ok">Exportováno do %s</string>
+  <string name="add_content">Přidat poznámku…</string>
+  <string name="task_has_content">Úkol s poznámkou</string>
+  <string name="notification_title_general">%1$d úkolů v %2$s</string>
+  <string name="notification_title_general_single">1 úkol v %s</string>
+  <string name="notification_title_empty">Ať máte krásný den!</string>
+  <string name="reminder_notification_title">K vyřešení: %s</string>
+  <string name="reminder_notification_priority">Priorita: %s</string>
+  <string name="reminder_notification_list">Seznam: %s</string>
+  <string name="reminder_notification_due">Termín: %s</string>
+  <string name="reminder_notification_done">Hotovo</string>
+  <string name="reminder_notification_done_confirm">Označil jsem úkol jako vyřešený</string>
+  <string name="reminder_notification_later_confirm">Upozorním vás za %d minut</string>
+  <string name="list_vanished">Jejda, úkol zmizel. Omlouvám se…</string>
+  <string name="task_sorting_title">Seřadit úkoly podle</string>
+  <string name="share_using">Sdílet pomocí</string>
+  <string name="share_task">Sdílet úkol</string>
+  <string name="share_task_title_with_date">%1$s (%2$s)</string>
+  <string name="share_task_title">%s</string>
+  <string name="share_list">Sdílet seznam</string>
+  <string name="share_list_title">%1$s (%2$d)</string>
+  <string name="share_footer">Odesláno z Mirakel\nOpenSource ToDo aplikace pro Android a Web\nhttp://mirakel.azapps.de</string>
+  <string name="special_list_name">Jméno</string>
+  <string name="special_list_active">Zobrazit</string>
+  <string name="special_list_sort_by">Seřadit podle</string>
+  <string name="special_list_def_list">Výchozí seznam</string>
+  <string name="special_list_def_date">Výchozí datum</string>
+  <string name="special_list_first">Výchozí</string>
+  <string name="special_list_contains">Argumenty výběru</string>
+  <string name="special_list_summary">Popis</string>
+  <string name="special_lists_defaults">Výchozí hodnoty</string>
+  <string-array name="special_list_def_date_picker">
+    <item>Bez data</item>
+    <item>Včera</item>
+    <item>Dnes</item>
+    <item>+ 1 den</item>
+    <item>+ 7 dní</item>
+    <item>+ 14 dní</item>
+    <item>+ 1 měsíc</item>
+    <item>+ 1 rok</item>
+  </string-array>
+  <integer-array name="special_list_def_date_picker_val">
+    <item>-1337</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>7</item>
+    <item>14</item>
+    <item>30</item>
+    <item>365</item>
+  </integer-array>
+  <string-array name="task_sorting_items">
+    <item>Výchozí</item>
+    <item>Termín</item>
+    <item>Priorita</item>
+    <item>Datum vytvoření</item>
+    <item>Nejprve podle priority, pak podle data</item>
+  </string-array>
+  <string name="special_list_where_prio_title_text">Priorita</string>
+  <string name="special_list_where_name_title_text">Jméno</string>
+  <string name="special_list_where_content_title_text">Obsah</string>
+  <string name="special_list_where_list_title_text">Seznam</string>
+  <string name="special_list_where_done_title_text">Hotovo</string>
+  <string name="special_list_where_reminder_title_text">Upozornění</string>
+  <string name="special_list_where_due_title_text">Termín</string>
+  <string name="empty">Nezáleží</string>
+  <string name="select_by">Vybrat podle</string>
+  <string name="done">Vyřešené úkoly</string>
+  <string name="undone">Nevyřešené úkoly</string>
+  <string name="recurrence_custom">Vlastní</string>
+  <string name="today">Dnes</string>
+  <string name="tomorrow">Zítra</string>
+  <string name="reminder_set">Nastavit upozornění</string>
+  <string name="reminder_unset">Vypnout upozornění</string>
+  <string name="inverte">Invertovat výběr</string>
+  <string name="not_in">Nepatří do</string>
+  <string name="where_like_contain_text">Obsahuje %s</string>
+  <string name="where_like_begin_text">Začíná s %s</string>
+  <string name="where_like_end_text">Končí s %s</string>
+  <string name="delete">Smazat</string>
+  <string name="delete_model_title">Chcete smazat \"%s\"?</string>
+  <string name="special_list_progress_equal">Stejné jako %d</string>
+  <string name="special_list_progress_less_than">Méně než %d</string>
+  <string name="special_list_progress_greater_than">Více než %d</string>
+  <string name="special_list_subtask_parent">Má podúkol</string>
+  <string name="special_list_subtask_parent_not">Nemá podúkol</string>
+  <string name="special_list_subtask_child">Je podúkol</string>
+  <string name="special_list_subtask_child_not">Není podúkol</string>
+  <string name="no_file">Nemá soubor</string>
+  <string name="has_file">Má soubor</string>
+  <string-array name="due_day_year_values">
+    <item>Den</item>
+    <item>Měsíc</item>
+    <item>Rok</item>
+  </string-array>
+  <string-array name="due_day_year_values_plural">
+    <item>Dnů</item>
+    <item>Měsíců</item>
+    <item>Let</item>
+  </string-array>
+  <string name="nothing">Bez opakování</string>
+  <string name="special_lists_content_title">Obsah</string>
+  <string name="special_lists_done_title">Hotovo</string>
+  <string name="special_lists_due_exist_title">Existence termínu</string>
+  <string name="special_lists_due_title">Termín</string>
+  <string name="special_lists_file_title">Soubor</string>
+  <string name="special_lists_list_title">Seznamy</string>
+  <string name="special_lists_name_title">Jméno</string>
+  <string name="special_lists_priority_title">Priorita</string>
+  <string name="special_lists_progress_title">Stav</string>
+  <string name="special_lists_reminder_title">Upozornění</string>
+  <string name="special_lists_subtask_title">Podúkoly</string>
+  <string name="special_lists_tag_title">Štítek</string>
+  <string name="and">A</string>
+  <string name="or">NEBO</string>
+  <string name="new_tag">Nový štítek</string>
+  <string name="special_list_list_name">Název seznamu</string>
+  <string name="special_lists_due_negated">Ne dříve než dnes %s</string>
+  <string name="special_lists_due">Před dneškem %s</string>
+  <string name="due_exists">Termín existuje</string>
+  <string name="due_dont_exist">Termín neexistuje</string>
+  <string-array name="demo_lists">
+    <item>Práce</item>
+    <item>Doma</item>
+    <item>Nákupy</item>
+  </string-array>
+  <string-array name="demo_tasks">
+    <item>Koupit narozeninový dárek pro dědečka</item>
+    <item>Hudba</item>
+    <item>Uspořádat večírek</item>
+    <item>Ukončit prezentaci</item>
+    <item>Mléko</item>
+    <item>Sýr</item>
+  </string-array>
+  <plurals name="day">
+    <item quantity="one">den</item>
+    <item quantity="few">dny</item>
+    <item quantity="other">dnů</item>
+  </plurals>
+  <plurals name="month">
+    <item quantity="one">měsíc</item>
+    <item quantity="few">měsíce</item>
+    <item quantity="other">měsíců</item>
+  </plurals>
+  <plurals name="year">
+    <item quantity="one">rok</item>
+    <item quantity="few">roky</item>
+    <item quantity="other">let</item>
+  </plurals>
+  <plurals name="repeat_day">
+    <item quantity="one">den</item>
+    <item quantity="few">%d dny</item>
+    <item quantity="other">%d dní</item>
+  </plurals>
+  <plurals name="repeat_week">
+    <item quantity="one">týden</item>
+    <item quantity="few">%d týdny</item>
+    <item quantity="other">%d týdnů</item>
+  </plurals>
+  <plurals name="repeat_month">
+    <item quantity="one">měsíc</item>
+    <item quantity="few">%d měsíce</item>
+    <item quantity="other">%d měsíců</item>
+  </plurals>
+  <plurals name="repeat_year">
+    <item quantity="one">rok</item>
+    <item quantity="few">%d roky</item>
+    <item quantity="other">%d let</item>
+  </plurals>
+  <plurals name="repeat_hour">
+    <item quantity="one">hodina</item>
+    <item quantity="few">%d hodiny</item>
+    <item quantity="other">%d hodin</item>
+  </plurals>
+  <plurals name="repeat_minute">
+    <item quantity="one">minuta</item>
+    <item quantity="few">%d minuty</item>
+    <item quantity="other">%d minut</item>
+  </plurals>
+  <string name="monday">Pondělí</string>
+  <string name="tuesday">Úterý</string>
+  <string name="wednesday">Středa</string>
+  <string name="thursday">Čtvrtek</string>
+  <string name="friday">Pátek</string>
+  <string name="saturday">Sobota</string>
+  <string name="sunday">Neděle</string>
+  <string name="begin_repeat">Začít %s</string>
+  <string name="end_repeat">až %s</string>
+  <string name="every_repeat">každých %s</string>
+  <string name="weekday">Den v týdnu</string>
+  <string name="accounts_all">Všechny účty</string>
+  <string name="stub_list_name">Nový seznam</string>
+  <string name="search_title">Hledat: </string>
+</resources>
+

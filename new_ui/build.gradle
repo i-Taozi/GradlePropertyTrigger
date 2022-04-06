@@ -1,0 +1,273 @@
+/*******************************************************************************
+ * Mirakel is an Android App for managing your ToDo-Lists
+ *
+ *   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+ *
+ *       This program is free software: you can redistribute it and/or modify
+ *       it under the terms of the GNU General Public License as published by
+ *       the Free Software Foundation, either version 3 of the License, or
+ *       any later version.
+ *
+ *       This program is distributed in the hope that it will be useful,
+ *       but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *       GNU General Public License for more details.
+ *
+ *       You should have received a copy of the GNU General Public License
+ *       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+
+import java.util.regex.Pattern
+
+def getVersionCode() {
+    def manifestFile = file("src/main/AndroidManifest.xml")
+    def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
+    def manifestText = manifestFile.getText()
+    def matcher = pattern.matcher(manifestText)
+    matcher.find()
+    return Integer.parseInt(matcher.group(1))
+}
+
+
+android {
+  packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'LICENSE.txt'
+        exclude 'about.html'
+        exclude 'META-INF/maven/org.jacoco/org.jacoco.agent.rt/pom.xml'
+        exclude 'META-INF/maven/org.jacoco/org.jacoco.agent.rt/pom.properties'
+        exclude 'META-INF/maven/org.jacoco/org.jacoco.core/pom.xml'
+        exclude 'META-INF/maven/org.jacoco/org.jacoco.core/pom.properties'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/core/jacoco.properties'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/attrs/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/commons/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/signature/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/tree/analysis/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/tree/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/util/package.html'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/xml/asm-xml.dtd'
+        exclude 'org/jacoco/agent/rt/internal_b0d6a23/asm/xml/package.html'
+        exclude '.readme'
+        exclude 'org/jacoco/agent/rt/RT.class'
+    }
+    flavorDimensions "stores"
+    lintOptions {
+        disable 'MissingTranslation','InvalidPackage','ImpliedQuantity','MissingQuantity'
+        enable 'NewerVersionAvailable','RtlHardcoded','RtlCompat', 'RtlEnabled'
+    }
+    def Properties localProps = new Properties()
+    localProps.load(new FileInputStream(file('./local.properties')))
+    signingConfigs {
+        release {
+            def Properties keyProps = new Properties()
+            assert localProps['keystore.props.file'];
+            keyProps.load(new FileInputStream(file(localProps['keystore.props.file'])))
+            storeFile file(keyProps["store"])
+            keyAlias keyProps["alias"]
+            storePassword keyProps["storePass"]
+            keyPassword keyProps["pass"]
+        }
+        debug {
+            storeFile file("debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),'proguard-mirakel.txt'
+            testCoverageEnabled = false
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            debuggable true
+            testCoverageEnabled = true
+        }
+    }
+    productFlavors {
+        google {
+            dimension "stores"
+            assert localProps['analytics.trackingid'];
+            buildConfigField "String", "TRACKER_ID", localProps['analytics.trackingid']
+        }
+        fdroid {
+            dimension "stores"
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = ['merged-res']
+            assets.srcDirs = ['assets']
+        }
+
+
+        google {
+            res.srcDirs = ['res-google']
+        }
+    }
+    testOptions {
+      unitTests.all {
+        forkEvery = 100
+        // more forks will make the build unstable
+        maxParallelForks 1
+        maxHeapSize "1024m"
+        testLogging {
+          events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+        exclude '**/*Suite*.class'
+        include '**/*Test.class'
+      }
+  }
+}
+
+project.gradle.taskGraph.whenReady {
+   testFdroidDebugUnitTest {
+      ignoreFailures = gradle.getTaskGraph().hasTask(':new_ui:testFdroidDebugCoverage')
+   }
+   testGoogleDebugUnitTest {
+      ignoreFailures = gradle.getTaskGraph().hasTask(':new_ui:testGoogleDebugCoverage')
+   }
+}
+
+apply plugin: 'jacoco'
+
+
+project.afterEvaluate {
+  def buildTypes = android.buildTypes.collect { type -> type.name }
+  def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
+
+  if (!productFlavors) productFlavors.add('')
+
+  productFlavors.each { productFlavorName ->
+    buildTypes.each { buildTypeName ->
+      def sourceName = "${buildTypeName}"
+      if (productFlavorName) {
+        sourceName = "${productFlavorName}${sourceName.capitalize()}"
+      }
+      if(!sourceName.toLowerCase().contains("release")){
+        def targetName = "${sourceName.capitalize()}"
+        def testTaskName = "test${sourceName.capitalize()}UnitTest"
+        def coverageTaskName = "test${sourceName.capitalize()}Coverage"
+
+        task "$coverageTaskName" (type:JacocoReport, dependsOn: "$testTaskName") {
+          group = "Reporting"
+          description = "Generate Jacoco coverage reports on the ${targetName} build."
+          classDirectories = fileTree(
+            dir: "${project.buildDir}/../../",
+            includes: ['*/build/intermediates/classes/**/*.class'],
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*',
+                       '**/release/**',
+                       '**/google/**']
+          )
+          def coverageSourceDirs = [
+            "src/main/java",
+            "src/$productFlavorName/java",
+            "src/$buildTypeName/java",
+            "../model/src/main/java",
+            "../colorpickerpreference/src",
+            "../colorpicker/src",
+            "../date-time-picker/src",
+            "../donationslib/src",
+            "../helper/src/main/java",
+            "../ilovefs-android/src",
+            "../material-elements/src/main/java",
+            "../settings/src",
+            "../tw_sync/src",
+            "../widget/src"
+          ]
+          additionalSourceDirs = files(coverageSourceDirs)
+          sourceDirectories = files(coverageSourceDirs)
+          executionData = fileTree(dir: "${project.buildDir}/../../", includes: ['**/*.exec', '**/*.ec'])
+
+          reports {
+            xml.enabled = true
+            html.enabled = true
+          }
+          doLast {
+            println "See report at: file://${project.buildDir.toURI().path}/reports/jacoco/${coverageTaskName}/html/index.html"
+          }
+        }
+      }
+    }
+  }
+}
+
+clean.doFirst {
+    delete "${project.buildDir}/../jacoco.exec"
+}
+
+
+ext {
+    flavor = ""
+}
+
+gradle.startParameter.getTaskNames().each { task ->
+    if(task.contains("Google") || task.contains("google")){
+        flavor = "google"
+    }
+}
+
+dependencies {
+    releaseCompile project(path: ':helper',configuration: 'release')
+    debugCompile project(path: ':helper',configuration: 'debug')
+    releaseCompile project(path: ':model',configuration: 'release')
+    debugCompile project(path: ':model',configuration: 'debug')
+    releaseCompile project(path: ':widget',configuration: 'release')
+    debugCompile project(path: ':widget',configuration: 'debug')
+    releaseCompile project(path: ':tw_sync',configuration: 'release')
+    debugCompile project(path: ':tw_sync',configuration: 'debug')
+    releaseCompile project(path: ':settings',configuration: 'release')
+    debugCompile project(path: ':settings',configuration: 'debug')
+    releaseCompile project(path: ':ilovefs-android',configuration: 'release')
+    debugCompile project(path: ':ilovefs-android',configuration: 'debug')
+    releaseCompile project(path: ':date-time-picker',configuration: 'release')
+    debugCompile project(path: ':date-time-picker',configuration: 'debug')
+    releaseCompile project(path: ':colorpicker',configuration: 'release')
+    debugCompile project(path: ':colorpicker',configuration: 'debug')
+
+    compile "ch.acra:acra:$acraVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+
+    //for tests
+    testCompile "junit:junit:4.11"
+    testCompile "org.robolectric:robolectric:3.0"
+    testCompile 'com.google.truth:truth:0.27'
+
+    googleCompile 'com.google.android.gms:play-services-analytics:7.5.0'
+
+}
+
+dependencyVerification {
+    verify = [
+        'ch.acra:acra:6e2468ea1b75e349bca0d57ffc8aa8e031277c96a8572fc3d2fba182f0da362c',
+        'com.jakewharton:butterknife:f025eeeea1dce0a134be609af63866f4f56aaaeb8b87ba5481694bbaccec1da8',
+    ]
+}
+
+
+task deploy(dependsOn: build) << {
+    println "Do you realy want to deploy Mirakel?"
+    def c=System.console().readLine().toLowerCase();
+    if ( c== 'y'||c=='j'){
+        def script = (rootDir.toString()+"/build/scripts/deploy.sh").execute()
+        script.err.eachLine {line -> println "ERROR: " + line}
+        script.out.each {line -> println line}
+        script.waitFor()
+    }
+}
+
+apply plugin: 'idea'

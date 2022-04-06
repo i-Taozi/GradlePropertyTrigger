@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Mirakel is an Android App for managing your ToDo-Lists
+  ~
+  ~   Copyright (c) 2013-2015 Anatolij Zelenin, Georg Semmler.
+  ~
+  ~       This program is free software: you can redistribute it and/or modify
+  ~       it under the terms of the GNU General Public License as published by
+  ~       the Free Software Foundation, either version 3 of the License, or
+  ~       any later version.
+  ~
+  ~       This program is distributed in the hope that it will be useful,
+  ~       but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~       GNU General Public License for more details.
+  ~
+  ~       You should have received a copy of the GNU General Public License
+  ~       along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+  <string name="sync_message"><![CDATA[Durch unseren Mangel an Zeit sind wir nicht in der Lage die verbleibenden Synchronisierungsprobleme in einem angemessenen Zeitraum zu beheben.
+Bitte melden Sie daher keine Fehler bezüglich der Synchronisierung. Sofern Sie Entwickler sind, bitte helfen SIe uns diese Fehler zu beheben.]]></string>
+  <string name="sync_help_dev">Ich möchte helfen!</string>
+  <string name="sync_understand">Verstanden</string>
+  <string name="sync_add">Konto hinzufügen</string>
+  <string name="account_title">Accounts</string>
+  <string name="sync_new">Neues Konto</string>
+  <string name="sync_use">Verwende Synchronisation</string>
+  <string name="sync_warning">Der Sync ist noch sehr experimentell</string>
+  <string name="sync_warning_message">Die Synchronisierung läuft noch sehr instabil. Du kannst sie aber gerne Ausprobieren (Mach vorher aber ein Backup!) – Bist du sicher?</string>
+  <string name="sync_use_summary_taskwarrior">Sync mit Taskwarrior als %s</string>
+  <string name="sync_use_summary_mirakel">Sync mit Mirakel als %s</string>
+  <string name="sync_use_summary_nothing">Sync nicht benutzen</string>
+  <string name="sync_user">Nutzername</string>
+  <string name="sync_user_summary">Benutzername auf dem Server</string>
+  <string name="sync_server">Server</string>
+  <string name="sync_server_summary">Sync mit %s</string>
+  <string name="sync_frequency">Häufigkeit</string>
+  <string name="sync_frequency_summary">Synchronisiere alle %s min</string>
+  <string name="sync_frequency_summary_man">Nur manuell synchronisieren</string>
+  <string name="account_informations">Informationen</string>
+  <string-array name="sync_types">
+    <item>CalDAV Synchronisierung</item>
+    <item>Taskwarrior-Sync</item>
+  </string-array>
+  <string name="sync_caldav">CalDAV Synchronisierung</string>
+  <string name="sync_caldav_howto"><![CDATA[Eine Mirakel-kompatible App zur Synchronisierung per CalDAV muss installiert werden. Derzeit muss eine von uns modifizierte Version von DAVdroid installiert werden die man auf unserer Webseite findet.<br /><br />
+In Kürze wird die officizielle DAVdroid App ebenfalls Mirakel unterstützen. Wir arbeiten mit Anderen zusammen, um eine Synchronisation mit Mirakel zu ermöglichen.]]></string>
+  <string name="download">Herunterladen</string>
+  <string name="sync_add_account">Konto hinzufügen</string>
+  <string name="sync_taskwarrior_configure">Taskwarrior konfigurieren</string>
+  <string name="sync_taskwarrior_scan_qr">QR-Code scannen</string>
+  <string name="sync_taskwarrior_select_file">Konfiguration auswählen</string>
+  <string name="sync_taskwarrior_how_to">Wie installiert man seinen eigenen Server</string>
+  <string name="sync_taskwarrior_own_server">oder nutze Deinen eigenen Server</string>
+  <string name="sync_taskwarrior_url_error">Die URL ist nicht korrekt. Wurde der Code richtig eingescannt?</string>
+  <string name="sync_taskwarrior_configuring">Richte Synchronisierung ein…</string>
+  <string name="sync_taskwarrior_about">Wenn Du bereits ein Taskwarrior-Konto besitzt:</string>
+  <string name="sync_taskwarrior_register">Wenn nicht, kannst Du ein Konto auf unserem Server erstellen:</string>
+  <string name="sync_taskwarrior_register_button">Registrieren</string>
+  <string name="sync_taskwarrior_setup_success">Einrichtung des Kontos war erfolgreich</string>
+  <string name="sync_taskwarrior_error_download">Konnte Konfigurationsdatei nicht herunterladen</string>
+  <string name="sync_taskwarrior_select_file_not_exists">Datei ist nicht vorhanden</string>
+  <string name="sync_defaultAccount">Als Standardkonto verwenden?</string>
+  <string name="tw_account">Taskwarrior</string>
+  <string name="calDavName">CalDav</string>
+  <string name="type">Typ</string>
+  <string name="no_barcode_app">Keine Barcodescanner-Anwendung installiert</string>
+  <string name="no_barcode_app_message">Wir empfehlen die Barcodescanner-Anwendung:</string>
+  <string name="no_barcode_app_install">Installieren</string>
+  <string name="menu_edit_listaccount">Konto</string>
+  <string name="change_account">Konto ändern</string>
+  <string name="version">App Version</string>
+  <string name="no">Nein</string>
+  <string name="not">nicht</string>
+  <string name="notification_title">Benachrichtigungen</string>
+  <string name="notifications_use">Benachrichtigungen verwenden</string>
+  <string name="notifications_persistent">Dauerhafte Benachrichtigungen</string>
+  <string name="notifications_list">Liste anzeigen</string>
+  <string name="notifications_list_summary">Zeige \"%s\"</string>
+  <string name="default_list">Standardliste</string>
+  <string name="reminder">Erinnerung</string>
+  <string name="reminders_persistent">Dauerhafte Erinnerungen</string>
+  <string name="reminders_persistent_summary">Mache es unmöglich, die Erinnerung zu schließen</string>
+  <string name="startup_title">Startvorgang</string>
+  <string name="startup_list">Wähle Startliste</string>
+  <string name="startup_list_summary">Zeige Aufgaben aus \"%s\"</string>
+  <string name="special_lists_click">Meta-Listen verwalten</string>
+  <string name="special_lists_new">Neue Meta-Liste</string>
+  <string name="settings_misc">Sonstiges</string>
+  <string name="settings_backup">Backup und Import</string>
+  <string name="backup_click_summary">Sichere die Datenbank auf die SD-Karte (%s)</string>
+  <string name="backup_click">Backup</string>
+  <string name="import_click_summary">Importiere die Datenbank</string>
+  <string name="import_click">Import</string>
+  <string name="import_sure">Bist du sicher?</string>
+  <string name="import_sure_summary">Alle Daten werden überschrieben! (Import von %s)</string>
+  <string name="import_title">Mirakel Datei auswählen</string>
+  <string name="no_filemanager">Installiere bitte einen Datei-Manager</string>
+  <string name="import_default_list_summary">Importiere in \"%s\"</string>
+  <string name="import_no_default_list_summary">Keine Standardliste ausgewählt</string>
+  <string name="import_default_list">Standardliste für den Import</string>
+  <string name="import_to">Importiere in</string>
+  <string name="changelog">Changelog</string>
+  <string name="rate">Bewerten</string>
+  <string name="changelog_click_summary">Changelog anzeigen</string>
+  <string name="changelog_click">Changelog</string>
+  <string name="settings_about">Über uns</string>
+  <string name="settings_help">Hilfe</string>
+  <string name="get_dashclock">Mirakel-Dashclock installieren</string>
+  <string name="get_dashclock_summary">Mirakel-Erweiterung für Dashclock installieren</string>
+  <string name="import_astrid_click">Astrid Import</string>
+  <string name="astrid_success">Alle Daten erfolgreich importiert!</string>
+  <string name="importing">Importiere</string>
+  <string name="astrid_import_title">Astrid Datei auswählen</string>
+  <string name="import_any_do_click">Any.Do Import</string>
+  <string name="any_do_import_title">Any.Do Backup-Datei auswählen</string>
+  <string name="any_do_this_file">Soll ich von %s importieren?\nWenn nicht, dann wähle eine Datei aus</string>
+  <string name="any_do_how_to">Bitte erstelle zuerst ein Backup deiner Any.Do Daten. Öffne Any.Do → Einstellungen → Backup → Backup erstellen. Dann komm zurück und klicke OK.\nOder wähle die Datei händisch aus.</string>
+  <string name="select_file">Datei auswählen</string>
+  <string name="wait">Bitte warten…</string>
+  <string name="import_wunderlist_click">Wunderlist Import</string>
+  <string name="import_wunderlist_title">Wunderlist-Datei auswählen</string>
+  <string name="import_wunderlist_howto">Wie importiere ich die Wunderlist-Daten?</string>
+  <string name="import_wunderlist_howto_text">Die Android App unterstützt kein Backup.\n\nBitte melde dich im Webinterface an. Dann gehe zu Einstellungen → Account → Backup erstellen → Herunterladen. Kopiere die Datei auf dein Gerät und komm zurück.</string>
+  <string name="showDone">Erledigt Aufgaben anzeigen</string>
+  <string name="ui_settings_title">Benutzeroberfläche</string>
+  <string name="undo_number">Anzahl der Änderungen im Log</string>
+  <string name="undo_number_summary">%s Änderungen rückgängig machen</string>
+  <string name="settings_semantic">Aufgabenvorlagen</string>
+  <string name="semantic_new_task">Neue Aufgabenvorlage</string>
+  <string name="semantic_new_task_config_summary">Konfiguriere die Bedingungen für das Erstellen neuer Aufgaben</string>
+  <string name="semantic_new_task_config">Aufgabenvorlagen konfigurieren</string>
+  <string name="useTabletLayout">Tablet-Layout verwenden</string>
+  <string name="general">Allgemein</string>
+  <string-array name="tablet_options">
+    <item>nie</item>
+    <item>Querformat</item>
+    <item>Hochformat</item>
+    <item>Hoch- und Querformat</item>
+  </string-array>
+  <string name="delete_done">Erledigte Aufgaben löschen</string>
+  <string name="delete_done_summary">Löscht alle erledigten Aufgaben</string>
+  <string name="delete_done_warning">Bist du sicher?</string>
+  <string name="delete_done_warning_message">Du kannst das nicht rückgängig machen. Mach ein Backup!</string>
+  <string name="delete_done_success">Die erledigten Aufgaben wurden erfolgreich gelöscht.</string>
+  <string name="menu_color">Farbe ändern</string>
+  <string name="howto_setup_server">Wie man einen Server einrichtet</string>
+  <string name="register_server">Wenn Du einen Account auf unserem Server benötigst, sende uns bitte eine E-Mail. Mit der nächsten Version wirst Du auch selbst einen Account anlegen können.</string>
+  <string name="special_lists_title">Meta-Listen</string>
+  <string name="register">Registrieren</string>
+  <string name="auto_backup_interval">Sicherungsintervall</string>
+  <string name="auto_backup_interval_summary">Alle %s Tage ein Datenbankbackup erstellen</string>
+  <string name="settings_semantics_title">Aufgabenvorlagen konfigurieren</string>
+  <string name="settings_semantics_condition">Bedingung</string>
+  <string name="settings_semantics_actions">Aktionen</string>
+  <string name="settings_semantics_list">Liste einstellen</string>
+  <string name="settings_semantics_priority">Priorität festlegen</string>
+  <string name="settings_semantics_due">Setze Fälligkeitsdatum</string>
+  <string name="settings_semantics_weekday">Setze die Fälligkeit auf den nächsten Wochentag</string>
+  <string-array name="weekdays">
+    <item>Nicht festlegen</item>
+    <item>Montag</item>
+    <item>Dienstag</item>
+    <item>Mittwoch</item>
+    <item>Donnerstag</item>
+    <item>Freitag</item>
+    <item>Samstag</item>
+    <item>Sonntag</item>
+  </string-array>
+  <string-array name="priority_entries">
+    <item>Priorität nicht setzen</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string-array name="priority_entry_values">
+    <item>null</item>
+    <item>-2</item>
+    <item>-1</item>
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+  <string name="semantics_no_list">Keine Liste festlegen</string>
+  <string name="semantics_no_due">Kein Fälligkeitsdatum setzen</string>
+  <string name="settings_file_default_title">Aufgabenname für importierte Dateien</string>
+  <string name="semantic_new">Vorlage</string>
+  <string name="tag_new">Neuer Tag</string>
+  <string name="tag_settings">Tag-Einstellungen</string>
+  <string name="color">Farbe</string>
+  <string name="tag_name">Name</string>
+  <string name="tag_dark_text">Soll der Text schwarz sein?</string>
+  <string name="tag_click">Tags</string>
+  <string name="settings_subtask">Unteraufgaben</string>
+  <string name="settings_subtask_default_new">Standardmäßig neue Aufgabe anzeigen</string>
+  <string name="settings_subtask_add_to_same_list">Füge eine Unteraufgabe zur Liste dieser Aufgabe hinzu</string>
+  <string name="settings_subtask_add_to_same_list_summary">Oder wähle eine Standardliste aus, in welche Unteraufgaben hinzugefügt werden</string>
+  <string name="settings_subtask_add_to_list_summary">Füge Unteraufgabe zu %s  hinzu</string>
+  <string name="preferences_colorize_subtasks">Unteraufgaben einfärben?</string>
+  <string name="settings_tasks_title">Aufgaben</string>
+  <string name="settings_dev">Entwicklungseinstellungen</string>
+  <string name="settings_dev_sync">Sync</string>
+  <string name="settings_dev_dump_tw_summary">Speichere erhaltene Nachrichten unter /sdcard/Mirakel/</string>
+  <string name="settings_dev_dump_tw">Speichere empfangene Synchronisierungsnachrichten</string>
+  <string name="enable">Aktiviere</string>
+  <string name="disable">Deaktiviere</string>
+  <string name="enabled">aktiviert</string>
+  <string name="disabled">deaktiviert</string>
+  <string name="change_dev_mode">Du hast die Entwicklungseinstellungen %s!</string>
+  <string name="enableDebugLog">Aktiviere Debug Logcat?</string>
+  <string name="action_contact">Kontakt / Fehler melden</string>
+  <string name="action_contact_summary">Schreib uns eine E-Mail!</string>
+  <string name="title_donations">Spenden</string>
+  <string name="add">Hinzufügen</string>
+  <string name="action_credits">Credits</string>
+  <string name="action_credits_summary">Über uns</string>
+  <string name="demo_mode">Demo-Modus</string>
+  <string name="demo_drop_db">Demo-Datenbank zurücksetzen</string>
+  <string name="write_logs_to_file">Log in Datei speichern</string>
+  <string name="alert_caldav">Der CalDAV-Sync ist fehlerhaft. Wir haben keine Zeit, CalDAV weiter zu unterstützen. Bitte sichere deine Daten bevor du fortfährst.</string>
+  <string name="alert_caldav_title">CalDAV-Informationen</string>
+  <string name="alert_taskwarrior">Der Taskwarrior Sync ist fehlerhaft. Wir haben keine Zeit, Taskwarrior weiter zu unterstützen. Bitte sichere deine Daten bevor du fortfährst.</string>
+  <string name="alert_taskwarrior_title">Taskwarrior-Informationen</string>
+  <string name="special_list_where_subtask_title_text">Unteraufgaben</string>
+  <string name="special_list_where_tag_title_text">Tags</string>
+  <string name="special_list_where_progress_title_text">Fortschritt</string>
+  <string name="special_list_where_file_title_text">Datei</string>
+  <string-array name="special_lists_subtask_options">
+    <item>Auswahl umkehren</item>
+    <item>Suche nach Unteraufgaben oder nach Aufgaben mit Unteraufgaben</item>
+  </string-array>
+  <string-array name="file_choice">
+    <item>Nicht festgelegt</item>
+    <item>Datei vorhanden</item>
+    <item>Enthält keine Datei</item>
+  </string-array>
+  <string name="remove">Entfernen</string>
+  <string name="no_account_selected">Kein Konto ausgewählt</string>
+  <string name="no_recurrence_selected">Keine Wiederholung ausgewählt</string>
+  <string name="no_semantic_selected">Keine Aufgabenvorlage ausgewählt</string>
+  <string name="no_special_list_selected">Keine Meta-Liste ausgewählt</string>
+  <string name="no_tag_selected">Kein Tag ausgewählt</string>
+  <string name="sharing_title">Teilen</string>
+  <string name="backup_title">Backup</string>
+  <string name="third_party_title">Apps von Drittanbietern</string>
+  <string name="title_settings">Einstellungen</string>
+  <string name="subcondition">Unterbedingung</string>
+  <string name="done_text">Nur erledigte Aufgaben</string>
+  <string name="file_text">Nur Aufgaben mit Datei</string>
+  <string name="due_exist_text">Nur Aufgaben ohne Termin</string>
+  <string name="reminder_text">Nur Aufgaben mit Erinnerung</string>
+  <string name="is_subtask_parent">Ist Hauptaufgabe</string>
+  <string name="has_subtasks">Besitzt Unteraufgaben</string>
+  <string name="has_parent">Ist Unteraufgabe</string>
+  <string name="special_lists_condition_title">Bedingung</string>
+  <string name="Undo">Bedingung entfernen rückgängig machen</string>
+  <string name="add_condition">Bedingung hinzufügen</string>
+  <string name="undo_taskui_change">Entfernen von %s rückgängig machen</string>
+  <string name="due_dialog_negated">Nicht nach</string>
+  <string name="settings_advanced">Erweitert</string>
+  <string name="delete_condition">Bedingung löschen</string>
+  <string name="delete_semantic">Aufgabenvorlage löschen</string>
+  <string name="delete_special_lists">Meta-Liste löschen</string>
+  <string name="settings_widget_title">Widget-Einstellungen</string>
+  <string name="version_string">Version: %1$s Basierend auf %2$s</string>
+  <string name="analytics_use">Anonyme Statistiken senden</string>
+  <string name="analytics_use_summary">Die Statistiken helfen uns, Mirakel zu verbessern</string>
+  <string name="credits_title">Mirakel</string>
+  <string name="credits_subtitle">Mirakel ist open Source, helfen Sie auf GitHub</string>
+  <string name="credits_dev">Entwickelt von &lt;a href="mailto:anatolij@zelenin.de"&gt;Anatolij Zelenin&lt;/a&gt; und &lt;a href="https://github.com/weiznich"&gt;Georg Semmler&lt;/a&gt;</string>
+  <string name="credits_design">Icon- und Oberflächendesign von &lt;a href="http://alexkaessner.de/"&gt;Alexander Käßner&lt;/a&gt;</string>
+  <string name="credits_github">GitHub</string>
+  <string name="credits_gplus">Google+</string>
+  <string name="credits_feedback">Feedback geben</string>
+  <string name="credits_copyright">© 2013–2015 Anatolij Zelenin, Georg Semmler\nThis is Free Software licensed under the GPLv3</string>
+  <string name="credits_translations">Übersetzungen</string>
+  <string name="credits_libraries">Bibliotheken</string>
+  <string name="credits_license_title">Lizenz</string>
+  <string name="credits_license">&lt;p&gt;Dieses Programm ist freie Software: Sie können dies weitergeben und verändern jeweils unter den Bedingungen der &lt;a href="https://www.gnu.org/licenses/gpl.html"&gt; GNU General Public License&lt;/a&gt;, wie von der Free Software Foundation, entweder gemäß Version 3 der Lizenz oder jeder späteren Version veröffentlicht.&lt;/p&gt; &lt;p&gt;Dieses Programm wird in der Hoffnung, dass es nützlich ist, aber ohne jede Garantie; und ohne stillschweigende Garantien der Marktgängigkeit oder Eignung für einen bestimmten Zweck zur Verfügung gestellt.  Unter der GNU General Public License finden Sie weitere Details.&lt;/p&gt;</string>
+</resources>
+
