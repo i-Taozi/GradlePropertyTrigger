@@ -13,4 +13,4 @@ before_script: [android list targets, echo no | android create avd --force -n te
 script: [android list target, ./gradlew check connectedAndroidTest]
 after_script: [cat /home/travis/build/dmfs/opentasks/opentasks/build/reports/lint-results.xml]
 branches:
-  only: [dmfs/opentasks-1049-origin]
+  only: [dmfs/opentasks-1049-CONFIGURATION_ON_DEMAND]
