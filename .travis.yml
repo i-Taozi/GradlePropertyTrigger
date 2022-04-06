@@ -38,4 +38,4 @@ after_failure:
   fi
 after_script: [echo leader=$BUILD_LEADER status=$BUILD_AGGREGATE_STATUS]
 branches:
-  only: [cloudfoundry-attic/login-server-56-origin]
+  only: [cloudfoundry-attic/login-server-56-PARALLEL_BUILDS]
