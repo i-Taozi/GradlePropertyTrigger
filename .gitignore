@@ -1,0 +1,22 @@
+#eclipse
+/bin
+/.classpath
+/.project
+/.settings
+
+# IDEA
+.idea
+classes
+*.iml
+/out
+
+#Gradle
+/.gradle
+/build
+
+# Mac
+.DS_Store
+
+# Other
+/nbproject/private/
+internal
