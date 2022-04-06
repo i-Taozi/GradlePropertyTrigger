@@ -1,0 +1,144 @@
+ v0.8 (not released yet)
+ - issue #183 : add fastlane metadata
+ - issue #185 : Fix Hebrew translation not being displayed
+ - simplify string placeholder notation app_website string
+ - Fix Indonesian language code (symlink id -> in)
+ - issue #184 : build against Android SDK 10.0 (API 29)
+ - improved Spanish translation, thanks to badlop
+ - issue #186 : add screenshots to fastlane
+ - upgrade build toolchain to gradle 6.8, gradle for Android plugin 4.1.1
+ - issue #126, #172: convert unittests to junit5 (Jupiter)
+ - improved Hindi translation, thanks to Dormin
+ - export coverity-scan certificate before Travis-ci build
+ - properly escape variables in bash utility scripts
+ - cleanup unused constants in tests
+ - remove shippable config
+
+ v0.7 (released on 02Jan2021)
+ - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
+ - translated to Ukrainian, thanks to Oleksiy
+ - translated to Turkish, thanks to Mesut Akcan
+ - increase required translated strings for a language to 85%
+ - translated to Hungarian, thanks to Balázs Úr
+ - translated to Persian, thanks to AbbasBHF
+ - translated to Portuguese, thanks to Silvério Santos
+ - translated to Hebrew, thanks to Yaron Shahrabani
+ - translated to Kabyle, thanks to MozillaKab
+
+ v0.6 (released on 03Mar2019)
+ - build against Android SDK 8.0 (API 26)
+ - improved German translation, thanks to Silvério Santos
+ - issue #176 : build with Gradle 4.6 and Gradle android plugin 3.2.1
+ - issue #175 : build against Android SDK 9.0 (API 28)
+ - issue #177 : increase minimum supported Android SDK 4.0 (API 14)
+ - issue #167 : check application location access permissions
+ - issue #178 : stop using Maven build
+ - remove buildtime trend implementation
+ - use isOrientationLandscape() to set shorter strings
+ - improved Danish translation, thanks to Jan Madsen
+ - improved Japanese translation, thanks to Naofum
+ - improved Belarusian translation, thanks to Viktar Vaŭčkievič
+ - improved Estonian translation, thanks to Kristjan Räts
+ - improved Dutch translation
+ - improved French translation, thanks to Nam
+ - improved Norwegian Bokmål translation, thanks to Allan Nordhøy
+ - improved Sardinian translation, thanks to asezere
+ - improved Chinese (Traditional) translation, thanks to ezjerry liao
+ - improved Arabic translation, thanks to TWINS DZ
+
+ v0.5.1 (released on 02Nov2018)
+ - improved Polish translation, thanks to WaldiS
+ - specify backup behaviour
+
+ v0.5 (released on 14Jan2018)
+ - translated to Croatian, thanks to Dag Velovic
+ - build against Android SDK 5.1 (API 22)
+ - issue #164 : display altitude/height in meters
+ - issue #31 : save altitude and calculate height difference to destination
+ - support RTL languages
+ - translated to Chinese (China), thanks to YFdyh000
+ - build against Android SDK 6.0 (API 23)
+ - translated to Estonian, thanks to Kristjan Räts
+ - translated to Norwegian Bokmål, thanks to Allan Nordhøy
+ - translated to Polish, thanks to Dominik Danelski
+ 
+ v0.4.1 (released on 08Jan2015)
+ - translated to Sardinian, thanks to Lu Ca
+ - translated to Hindi, thanks to Atul Pratap Singh
+ - translation to Romanian completed, thanks to Eduard Moraru
+ - translation to German completed, thanks to Niemand Jedermann
+
+ v0.4 (released on 26Oct2014)
+ - translated to Italian, thanks to Matteo Regazzi
+ - translated to Spanish, thanks to alunacast38 and Swyter, J.S.Sebastian
+ - translated to Korean, thanks to Cho Bkwon
+ - display in About activity when app was built
+ - translated to Belarusian, thanks to Kastuś Kašenia
+ - translated to Catalan, thanks to Josep Constanti
+ - CID 60861-60864 : fix Coverity issue : dereference null return value
+ - build against Android SDK 4.4W (API 20)
+ - translated to Russian, thanks to Олег Нощенко
+ - issue #161 : implement isValidFragment to fix Android bug fixed in Android
+ API 19 (Kitkat), thanks to Олег Нощенко for reporting
+ - CID 72849 : fix Coverity issue : dereference null return value
+ - translated to Japanese, thanks to naofum and J.S.Sebastian
+ - issue #16, #162 : add a name to a destination
+ - issue #157 : display compass rose when orientation is accurate
+
+ v0.3 (released on 07Jul2014)
+ - CID 60865 : fix Coverity issue : dereference null return value
+ - CID 60867 : fix Coverity issue : EC: Comparing incompatible types for equality
+ - CID 60866, 60868 : fix Coverity issue : Casting from integer values
+ - issue #147 : introduce CircularAverage class to make sensor based orientation value less jumpy
+ - rename FormatUtils.CIRCLE_* constants
+ - translated to Danish, thanks to Jan Madsen
+ - translated to Portuguese (Brazil), thanks to Zoé Junior
+ - issue #152 : detect Travel Direction and adjust relative direction to destionation accordingly
+ - issue #155 : add script to remove incomplete translations
+ - use enum NavigationMode for NavigationView.mMode
+ - translated to Chinese (Traditional), thanks to Ezjerry Liao
+ - issue #128 : Draw a compass rose pointing North
+ - translated to French, thanks to Pierre Barre and an anonymous contributor
+ - CID 68697 : fix Coverity issue : dereference null return value, when getting package info
+
+ v0.2 (released on 26Apr2014)
+ - issue #112 : update ic_launcher-web.png icon
+ - issue #111 : add xxhdpi and xxxhdpi version of all images
+ - optimize size of PNG images
+ - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in AriadneLocation.isRecent()
+ - issue #78 : add classes to convert (rotate) sets of coordinates
+ - redesign arrow pointing to destination, using RotationConverter and Coordinates classes
+ - issue #125 : add property to Coordinates class to close a line 
+ - issue #130 : remove unnecessary AriadneLocation conversion and try-catch in DetailsActivity and MainActivity
+ - issue #132 : remove Android permission INTERNET, it is not needed to get WiFi/cell phone based location updates
+ - issue #133 : add list of used sensors to AndroidManifest
+ - issue #103 : don't calculate speed if distance between current and previous location is smaller than the current accuracy
+ - issue #135 : update JavaDoc on website (gh-pages) after a successful Travis CI build.
+ - translated to German, thanks to Christian Orj and Kilian Köppchen
+ - translated to Romanian, thanks to Eduard Moraru
+ - issue #143 : compile against latest Android SDK using maven-android-sdk-deployer plugin
+ - issue #144 : use Robolectric for unit tests
+ - issue #41 : use sensors (gyroscope, acceleration, compass) to get more accurate bearing
+ - move isTimestampRecent() to Tools class, using it in GeoOrientation and AriadneLocation classes
+ - issue #131 : add Preference to enable sensor based updates of current bearing
+ - add preference to select prefered orientation sensor
+ - issue #148 : current bearing is not updated when using sensors
+ - issue #137 : combine sensor and location based bearing to get quicker and more accurate updates
+ - invert value of boolean parameter displayInaccurate of refreshCurrentViews()
+ - issue #151 : use realtime timestamp for sensor events
+ - issue #138 : limit UI updates based on timestamp
+
+ v0.1.1 (released on 04Dec2013)
+ - updated license info about third party material
+ - updated ic_action_refresh.png icon
+ - added feature list to README.md
+
+ v0.1 (released on 03Dec2013)
+features :
+ - determine location based on GPS signal, WiFi or cell phone network :
+     - use best/most accurate location provider
+     - get location updates automatically (based on a time interval or change of location) or
+     - get location on demand (by manually refreshing)
+ - save a location
+ - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
+ - indicate current speed and current bearing

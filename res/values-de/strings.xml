@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Finde den Rückweg zu einem vorher besuchten Ort mit Hilfe der GPS-Koordinaten.</string>
+    <string name="inaccurate_location">Dein jetztiger Ort ist nicht akkurat</string>
+    <string name="notice_no_dest">Speichere deine Position um einen Zielpunkt zu speichern</string>
+    <string name="inaccurate_direction">Fang an dich zu bewegen um die exakte Richtung auf dein Ziel zu bekommen</string>
+    <string name="notice_destination_reached">Du bist an deinem Ziel</string>
+    <string name="current_speed">Derzeitige Geschwindigkeit</string>
+    <string name="speed_kph">km/h</string>
+    <string name="distance">Entfernung</string>
+    <string name="direction">Richtung</string>
+    <string name="northeast_unit">NO</string>
+    <string name="southeast_unit">SO</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Ort aktualisiert</string>
+    <string name="inaccurate">Ungenau</string>
+    <string name="destination_reached">Am Ziel</string>
+    <string name="no_destination">Kein Ziel angegeben</string>
+    <string name="unknown">Unbekannt</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="store_location">Ort speichern</string>
+    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen</string>
+    <string name="location_stored">Ort gespeichert</string>
+    <string name="menu_details">Ort Details</string>
+    <string name="activity_details">Details</string>
+    <string name="location_provider">Ort Provider</string>
+    <string name="provider">Provider</string>
+    <string name="loc_provider_network">Netzwerk (Telefon/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Provider wird nicht unterstützt.</string>
+    <string name="curr_location">Aktueller (letzter bekannter) Ort</string>
+    <string name="latitude">Breitengrad</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Längengrad</string>
+    <string name="longitude_east_unit">O</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="speed">Geschwindigkeit</string>
+    <string name="bearing">Peilung</string>
+    <string name="accuracy">Genauigkeit</string>
+    <string name="timestamp">Zeitstempel</string>
+    <string name="destination">Ziel</string>
+    <string name="to_dest">Zum Ziel</string>
+    <string name="direction_relative">relativ zu laufender Richtung</string>
+    <string name="raw">Unformatiert</string>
+    <string name="none">None</string>
+    <string name="notset">nicht festgelegt</string>
+    <string name="loc_updated_recent">Ort kürzlich aktualisiert.</string>
+    <string name="loc_updated_not_recent">Ort NICHT kürzlich aktualisiert.</string>
+    <string name="settings">Einstellungen</string>
+    <string name="pref_header_general">Allgemein</string>
+    <string name="disabled">Inaktiv</string>
+    <string name="about">Über</string>
+    <string name="version">Version</string>
+    <string name="license">Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder jeder späteren Version.\n
+\n
+Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.\n
+\n
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="altitude">Höhe</string>
+    <string name="current_bearing">Aktueller Peilung</string>
+    <string name="pref_header_loc_update">Standort Aktualisierungen</string>
+    <string name="pref_loc_update_dist">Entfernungsbasierte Aktualisierung</string>
+    <string name="pref_loc_update_time">Zeitbasierte Aktualisierung</string>
+    <string name="build_time">Erstellt am %s.</string>
+    <string name="app_website">Besuche die &lt;a href=%s&gt;Internetseite&lt;/a&gt; für mehr Informationen.</string>
+    <string name="copyright">Urheberrecht</string>
+    <string name="pref_enable_sensors">Benutze verfügbare Sensoren</string>
+    <string name="sensors_disabled">Inaktiv : Stromsparend</string>
+    <string name="pref_geo_orientation_sensor">Standard Orientierungssensor</string>
+    <string name="sensors_enabled">Aktiv: Schneller aktualisierte und genauere Peilung</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d Meter</item>
+        <item quantity="other">%d Meter</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d Sekunde</item>
+        <item quantity="other">%d Sekunden</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d Minute</item>
+        <item quantity="other">%d Minuten</item>
+    </plurals>
+    <string name="dialog_store_location_name">Geben Sie einen Namen für Ihren momentanen Ort ein:</string>
+    <string name="dialog_rename_destination">Geben Sie einen neuen Namen für ihr Ziel ein:</string>
+    <string name="location_name">Ortsname</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="rename_destination">Ziel umbenennen</string>
+    <string name="rename_destination_disabled">Ziel kann nicht umbenannt werden, speichern Sie zuerst den Ort</string>
+    <string name="location_name_stored">Ort „%s“ gespeichert</string>
+    <string name="destination_renamed">Ziel umbenannt</string>
+    <string name="no_location_name">Ortsname wurde nicht festgelegt</string>
+    <string name="name">Name</string>
+    <string name="sensor_bearing_offset">Sensorbasierte Kurskorrektur</string>
+    <string name="travel_direction">Bewegungsrichtung</string>
+    <string name="travel_direction_forward">Vorwärts</string>
+    <string name="travel_direction_backwards">Rückwärts</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Höhenunterschied</string>
+    <string name="notice_location_permission_required">Erlaube Zugriff auf Deinen Geräte-Standort, damit die App Standortaktualisierungen bekommen kann</string>
+    <string name="notice_location_no_permission">Standortaktualisierung ist ausgeschaltet: Kein Zugriff auf Standort möglich</string>
+    <string name="notice_location_permission_granted">Zugriff auf Standortaktualisierungen gewährt</string>
+    <string name="enter_location_invalid_longitude">Der Längengrad liegt außerhalb des gültigen Bereichs [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Der Breitengrad liegt außerhalb des gültigen Bereichs [-90°,90°]</string>
+    <string name="enter_location">Ziel manuell eingeben</string>
+    <string name="location_longitude">Längengrad des Standorts</string>
+    <string name="location_latitude">Breitengrad des Standorts</string>
+    <string name="dialog_enter_location">Geben Sie einen Namen und GPS-Koordinaten für Ihren Standort ein:</string>
+</resources>

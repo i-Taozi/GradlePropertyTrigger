@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
+    <string name="none">Žádný</string>
+    <string name="unknown">Neznámý</string>
+    <string name="notset">Nenastavený</string>
+    <string name="location_provider">Poskytovatel polohy</string>
+    <string name="provider">Poskytovatel</string>
+    <string name="curr_location">Současné (poslední známé) umístění</string>
+    <string name="store_location">Uložit umístění</string>
+    <string name="latitude">Zeměpisná šířka</string>
+    <string name="longitude">Zeměpisná délka</string>
+    <string name="altitude">Výška</string>
+    <string name="speed">Rychlost</string>
+    <string name="accuracy">Přesnost</string>
+    <string name="timestamp">Čas</string>
+    <string name="destination">Cíl</string>
+    <string name="to_dest">Do cíle</string>
+    <string name="distance">Vzdálenost</string>
+    <string name="direction">Směr</string>
+    <string name="raw">Neformátované</string>
+    <string name="refresh">Obnovit</string>
+    <string name="provider_no_support">Poskytovatel není podporovaný.</string>
+    <string name="version">Verze</string>
+    <string name="about">O programu</string>
+    <string name="disabled">Vypnuté</string>
+    <string name="bearing">Azimut</string>
+    <string name="settings">Nastavení</string>
+    <string name="pref_header_loc_update">Aktualizace polohy</string>
+    <string name="pref_loc_update_dist">Podle vzdálenosti</string>
+    <string name="pref_loc_update_time">Podle času</string>
+    <string name="license">Tento program je svobodný software: můžete jej šířit a upravovat podle ustanovení Obecné veřejné licence GNU (GNU General Public Licence), vydávané Free Software Foundation a to buď podle 3. verze této Licence, nebo kterékoli pozdější verze.\n
+\n
+Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉKOLIV ZÁRUKY. Neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL. Další podrobnosti hledejte v Obecné veřejné licenci GNU.\n
+\n
+Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem. Pokud se tak nestalo, najdete ji zde: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>.</string>
+    <string name="loc_provider_network">Síť (mobilní/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="pref_header_general">Obecné</string>
+    <string name="copyright">Copyright</string>
+    <string name="app_website">Pro více informací navštivte &lt;a href="%s"&gt;webové stránky&lt;/a&gt;.</string>
+    <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
+    <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
+    <string name="inaccurate_direction">Začněte se pohybovat aby byl směr k cíli přesný</string>
+    <string name="location_updated">Umístění obnoveno</string>
+    <string name="location_stored">Umístění uloženo</string>
+    <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
+    <string name="menu_details">Podrobnosti polohy</string>
+    <string name="activity_details">Podrobnosti</string>
+    <string name="current_speed">Současná rychlost</string>
+    <string name="current_bearing">Současný azimut</string>
+    <string name="store_location_disabled">Nelze uložit umístění pokud není současné umístění známo</string>
+    <string name="latitude_north_unit">S</string>
+    <string name="latitude_south_unit">J</string>
+    <string name="longitude_east_unit">V</string>
+    <string name="longitude_west_unit">Z</string>
+    <string name="speed_kph">km/h</string>
+    <string name="direction_relative">relativně k současnému směru</string>
+    <string name="inaccurate">nepřesné</string>
+    <string name="inaccurate_location">Vaše současné umístění není přesné</string>
+    <string name="build_time">Zkompilováno %s.</string>
+    <string name="notice_destination_reached">Jste u vašeho cíle</string>
+    <string name="northeast_unit">SV</string>
+    <string name="southeast_unit">JV</string>
+    <string name="southwest_unit">JZ</string>
+    <string name="northwest_unit">SZ</string>
+    <string name="destination_reached">Na cíl</string>
+    <string name="no_destination">Nebyl nastaven cíl</string>
+    <string name="pref_enable_sensors">Použít čidla</string>
+    <string name="pref_geo_orientation_sensor">Výchozí čidlo orientace</string>
+    <string name="sensors_enabled">Povoleno: Přesnější a rychlejší změny azimutu</string>
+    <string name="sensors_disabled">Vypnuto: šetří energii</string>
+    <string name="dialog_store_location_name">Zadejte název tohoto místa:</string>
+    <string name="location_name">Název místa</string>
+    <string name="cancel">Zrušit</string>
+    <string name="location_name_stored">Uloženo místo „%s“</string>
+    <string name="no_location_name">Nebyl zadán název místa</string>
+    <string name="name">Název</string>
+    <string name="sensor_bearing_offset">Posun azimutu založený na čidlech</string>
+    <string name="travel_direction">Směr cesty</string>
+    <string name="travel_direction_forward">Dopředu</string>
+    <string name="travel_direction_backwards">Zpět</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d metr</item>
+        <item quantity="few">%d metry</item>
+        <item quantity="other">%d metrů</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d sekunda</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
+    <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
+    <string name="rename_destination">Přejmenovat cíl</string>
+    <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
+    <string name="destination_renamed">Cíl byl přejmenován</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Výškový rozdíl</string>
+</resources>

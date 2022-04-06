@@ -1,0 +1,15 @@
+bin
+.metadata
+target
+.classpath
+.project
+.settings
+out
+/.idea
+*.iml
+*.swp
+.gradle/
+local.properties
+build/
+.vagrant/
+*console.log

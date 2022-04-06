@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
+    <!-- Strings related to Settings -->
+    <!-- General settings -->
+
+    <string-array name="pref_loc_update_dist_list_titles">
+        <item>100 meter</item>
+        <item>50 meter</item>
+        <item>10 meter</item>
+        <item>5 meter</item>
+        <item>1 meter</item>
+        <item>disabled</item>
+    </string-array>
+    <string-array name="pref_loc_update_dist_list_values">
+        <item>100</item>
+        <item>50</item>
+        <item>10</item>
+        <item>5</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="pref_loc_update_time_list_titles">
+        <item>5 minutes</item>
+        <item>1 minute</item>
+        <item>30 seconds</item>
+        <item>10 seconds</item>
+        <item>5 seconds</item>
+        <item>1 second</item>
+    </string-array>
+    <string-array name="pref_loc_update_time_list_values">
+        <item>300000</item>
+        <item>60000</item>
+        <item>30000</item>
+        <item>10000</item>
+        <item>5000</item>
+        <item>1000</item>
+    </string-array>
+
+    <!-- string-array name="pref_geo_orientation_sensor_titles"
+    was moved to res/values/strings.xml to be translatable in Weblate -->
+    <string-array name="pref_geo_orientation_sensor_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

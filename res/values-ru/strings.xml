@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Найдите свой путь к ранее посещённому месту с помощью координат GPS.</string>
+    <string name="inaccurate_location">Ваше текущее местонахождение является неточным</string>
+    <string name="notice_no_dest">Сохраните своё местонахождение, чтобы задать пункт назначения</string>
+    <string name="inaccurate_direction">Начните движение, чтобы получить точное направление к вашему пункту назначения</string>
+    <string name="notice_destination_reached">Вы находитесь в вашем пункте назначения</string>
+    <string name="current_speed">Скорость</string>
+    <string name="speed_kph">км/ч</string>
+    <string name="current_bearing">Азимут</string>
+    <string name="distance">Расстояние</string>
+    <string name="direction">Направление</string>
+    <string name="northeast_unit">СВ</string>
+    <string name="southeast_unit">ЮВ</string>
+    <string name="southwest_unit">ЮЗ</string>
+    <string name="northwest_unit">СЗ</string>
+    <string name="location_updated">Местонахождение обновлено</string>
+    <string name="inaccurate">Неточно</string>
+    <string name="destination_reached">В пункте назначения</string>
+    <string name="no_destination">Не задан пункт назначения</string>
+    <string name="unknown">Неизвестно</string>
+    <string name="refresh">Обновить</string>
+    <string name="store_location">Сохранить местонахождение</string>
+    <string name="store_location_disabled">Невозможно сохранить местонахождение, если нет текущего местонахождения</string>
+    <string name="location_stored">Местонахождение сохранено</string>
+    <string name="menu_details">Подробнее о местонахождении</string>
+    <string name="activity_details">Подробнее</string>
+    <string name="location_provider">Провайдер местонахождения</string>
+    <string name="provider">Провайдер</string>
+    <string name="loc_provider_network">Сеть (Сотовый телефон/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Провайдер не поддерживается.</string>
+    <string name="curr_location">Текущее (последнее известное) местонахождение</string>
+    <string name="latitude">Широта</string>
+    <string name="latitude_north_unit">С</string>
+    <string name="latitude_south_unit">Ю</string>
+    <string name="longitude">Долгота</string>
+    <string name="longitude_east_unit">В</string>
+    <string name="longitude_west_unit">З</string>
+    <string name="altitude">Высота</string>
+    <string name="speed">Скорость</string>
+    <string name="bearing">Азимут</string>
+    <string name="name">Название</string>
+    <string name="sensor_bearing_offset">Смещение азимута на основе датчика</string>
+    <string name="travel_direction">Направление движения</string>
+    <string name="travel_direction_forward">Вперёд</string>
+    <string name="travel_direction_backwards">Назад</string>
+    <string name="accuracy">Точность</string>
+    <string name="timestamp">Время</string>
+    <string name="destination">Пункт назначения</string>
+    <string name="to_dest">К пункту назначения</string>
+    <string name="direction_relative">Oтносительно текущего направления</string>
+    <string name="raw">Необработанный</string>
+    <string name="none">Нет</string>
+    <string name="notset">Не установлено</string>
+    <string name="loc_updated_recent">Местонахождение недавно обновлено.</string>
+    <string name="loc_updated_not_recent">Местонахождение давно не обновлялось.</string>
+    <string name="settings">Настройки</string>
+    <string name="pref_header_general">Общие</string>
+    <string name="pref_header_loc_update">Обновление местонахождения</string>
+    <string name="pref_loc_update_dist">Обновление на основе расстояния</string>
+    <string name="pref_loc_update_time">Обновление на основе времени</string>
+    <string name="pref_enable_sensors">Использовать имеющиеся датчики</string>
+    <string name="pref_geo_orientation_sensor">Датчик ориентации по умолчанию</string>
+    <string name="sensors_enabled">Включено: Более быстрое обновление и более точный азимут</string>
+    <string name="sensors_disabled">Выключено: Экономия энергии</string>
+    <string name="disabled">Выключено</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d метр</item>
+        <item quantity="few">%d метров</item>
+        <item quantity="many">%d метров</item>
+        <item quantity="other"/>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d секунда</item>
+        <item quantity="few">%d секунд</item>
+        <item quantity="many">%d секунд</item>
+        <item quantity="other"/>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d минута</item>
+        <item quantity="few">%d минут</item>
+        <item quantity="many">%d минут</item>
+        <item quantity="other"/>
+    </plurals>
+    <string name="about">О программе</string>
+    <string name="version">Версия</string>
+    <string name="build_time">Скомпилировано %s</string>
+    <string name="app_website">Посетите &lt;a href=%s&gt;сайт&lt;/a&gt; для получения дополнительной информации.</string>
+    <string name="copyright">Авторское право</string>
+    <string name="license">Эта программа является свободным программным обеспечением: вы можете распространять ее и/или изменять в соответствии с условиями Стандартной общественной лицензии GNU, опубликованной Фондом свободного программного обеспечения, либо версии 3 этой лицензии, либо любой более поздней версии.
+\n
+\n Эта программа распространяется в надежде, что она будет полезной, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий товарности или пригодности для определенной цели. Более подробную информацию см. в Стандартной общественной лицензии GNU.
+\n
+\n Вы должны были получить копию Стандартной общественной лицензии GNU вместе с этой программой. Если нет, смотрите <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="dialog_store_location_name">Введите название для вашего текущего местонахождения:</string>
+    <string name="location_name">Название местонахождения</string>
+    <string name="cancel">Отмена</string>
+    <string name="location_name_stored">Местонахождение \"%s\" сохранено</string>
+    <string name="no_location_name">Название местонахождения не указано</string>
+    <string name="dialog_rename_destination">Введите новое название для вашего пункта назначения:</string>
+    <string name="rename_destination">Переименовать пункт назначения</string>
+    <string name="rename_destination_disabled">Невозможно переименовать пункт назначения, сначала сохраните местонахождение</string>
+    <string name="destination_renamed">Пункт назначения переименован</string>
+    <string name="enter_location_invalid_longitude">Долгота находится за пределами допустимого диапазона [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Широта находится за пределами допустимого диапазона [-90°,90°]</string>
+    <string name="enter_location">Введите пункт назначения вручную</string>
+    <string name="location_latitude">Широта</string>
+    <string name="location_longitude">Долгота</string>
+    <string name="dialog_enter_location">Введите название и GPS координаты вашего местоположения:</string>
+    <string name="height_difference">Перепад высот</string>
+    <string name="distance_km">км</string>
+    <string name="distance_m">м</string>
+    <string name="notice_location_permission_required">Разрешите доступ к местоположению этого устройства, чтобы включить обновление местоположения</string>
+    <string name="notice_location_permission_granted">Разрешение на обновление местоположения получено</string>
+    <string name="notice_location_no_permission">Обновление местоположения отключено: разрешение отклонено</string>
+</resources>
