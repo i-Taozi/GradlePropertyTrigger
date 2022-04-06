@@ -1,0 +1,13 @@
+language: android
+android:
+  components: [build-tools-23.0.1, extra-android-m2repository, extra-google-m2repository,
+    android-22]
+  licenses: [android-sdk-license-5be876d5]
+jdk: [oraclejdk8]
+script: [./gradlew clean check]
+branches:
+  only: [f2prateek/device-frame-generator-129-origin]
+notifications: {email: false}
+sudo: false
+cache:
+  directories: [$HOME/.gradle]
