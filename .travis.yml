@@ -1,6 +1,6 @@
 language: java
 jdk: [oraclejdk8]
 branches:
-  only: [AndreasFagschlunger/O2Xfs-90-origin]
+  only: [AndreasFagschlunger/O2Xfs-90-CONFIGURATION_ON_DEMAND]
 before_install: [chmod +x gradlew]
 script: [./gradlew clean build -x test --continue --stacktrace]
