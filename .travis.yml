@@ -8,4 +8,4 @@ cache:
   directories: [$HOME/.gradle]
 script: ./gradlew check --info --stacktrace
 branches:
-  only: [michaelklishin/quartz-mongodb-227-origin]
+  only: [michaelklishin/quartz-mongodb-227-FILE_SYSTEM_WATCHING]
