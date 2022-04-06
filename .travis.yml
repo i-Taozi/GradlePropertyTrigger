@@ -1,0 +1,4 @@
+language: java
+jdk: [oraclejdk8]
+branches:
+  only: [Netflix/Turbine-136-origin]
