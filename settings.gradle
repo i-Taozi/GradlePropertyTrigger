@@ -1,0 +1,4 @@
+include ':googlemediaframework'
+include ':playerSDK'
+include ':kalturaPlay'
+/*include ':testapp'*/

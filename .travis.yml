@@ -1,0 +1,30 @@
+sudo: false
+language: android
+jdk: [oraclejdk8]
+android:
+  components: [tools, platform-tools, build-tools-24.0.2, build-tools-24.0.0, android-24,
+    extra-android-m2repository, extra-google-m2repository]
+before_install: [./travis-verify-version-tag.sh]
+cache:
+  directories: [$HOME/.gradle/caches/, $HOME/.gradle/wrapper/]
+before_cache: [rm -f $HOME/.gradle/caches/modules-2/modules-2.lock]
+script: ['./gradlew :kalturaPlay:assembleRelease', './gradlew :kalturaPlay:assembleDebug',
+  'for DEMO in AdPlayerDemo CCPlayerDemo DTGPlayerDemo MultiPlayerDemo PlayerFragmentDemo;
+    do ./gradlew -p KalturaDemos $DEMO:assembleDebug; done']
+after_success: [ls -lh kalturaPlay/build/outputs/apk, ./travis-pull-artifacts-upload.sh,
+  ./travis-verify-no-hacks.sh]
+deploy:
+  provider: releases
+  draft: true
+  skip_cleanup: true
+  file: [kalturaPlay/build/outputs/apk/kalturaPlay-debug.apk]
+  true: {tags: true}
+  api-key: $GH_TOKEN
+notifications:
+  email:
+    recipients: [noam.tamim@kaltura.com, itay.kinnrot@kaltura.com, oren.melamed@kaltura.com,
+      gilad.nadav@kaltura.com, g.kozlov@synergetica.co, anton.afanasiev@kaltura.com]
+    on_success: change
+    on_failure: always
+branches:
+  only: [kaltura/player-sdk-native-android-314-origin]
