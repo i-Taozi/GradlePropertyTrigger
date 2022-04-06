@@ -2,4 +2,4 @@ language: java
 jdk: [oraclejdk8]
 script: ./gradlew test distZip
 branches:
-  only: [melix/deck2pdf-38-origin]
+  only: [melix/deck2pdf-38-GRADLE_DAEMON]
