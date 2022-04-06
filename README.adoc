@@ -1,0 +1,169 @@
+= pug4j Spring Boot Starter
+
+image:https://img.shields.io/travis/domix/jade4j-spring-boot-starter/master.svg?style=flat["Build Status", link="https://travis-ci.org/domix/jade4j-spring-boot-starter"]
+image:https://img.shields.io/coveralls/domix/spring-boot-starter-jade4j/master.svg?style=flat["Coverage Status", link="https://coveralls.io/r/domix/spring-boot-starter-jade4j"]
+image:https://img.shields.io/badge/license-ASF2-blue.svg?style=flat["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
+image:https://badges.gitter.im/Join%20Chat.svg["Gitter", link="https://gitter.im/domix/spring-boot-starter-jade4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+
+---
+
+This Starter provides you the minimal and required configuration to use https://pugjs.org[pug/jade templates] as views in your Spring Boot application.
+
+Behind the scenes, this starter uses the https://github.com/neuland/pug4j[pug4j] and https://github.com/neuland/spring-pug4j[spring-pug4j] libraries.
+
+== Environment
+
+image:https://img.shields.io/badge/JDK-8.0+-F30000.svg?style=flat["JDK", link="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"]
+image:https://img.shields.io/badge/Spring%20Framework-5.0.x-green.svg?style=flat&["Spring Framework", link="https://docs.spring.io/spring/docs/5.0.x/spring-framework-reference/"]
+image:https://img.shields.io/badge/Spring%20Boot-2.0.x-green.svg?style=flat&["Spring Boot", link="https://docs.spring.io/spring-boot/docs/2.0.x/reference/htmlsingle/"]
+
+== Download
+
+Maven Central
+image:https://maven-badges.herokuapp.com/maven-central/com.domingosuarez.boot/jade4j-spring-boot-starter/badge.svg?style=flat["Download",link="https://maven-badges.herokuapp.com/maven-central/com.domingosuarez.boot/jade4j-spring-boot-starter"]
+
+JCenter
+image:https://api.bintray.com/packages/domix/spring-boot/jade4j-spring-boot-starter/images/download.svg["Download", link="https://bintray.com/domix/spring-boot/jade4j-spring-boot-starter/_latestVersion"]
+
+== GitHub, Factoids and Stats
+
+image:https://img.shields.io/github/forks/domix/jade4j-spring-boot-starter.svg?style=flat["Forks", link="https://github.com/domix/jade4j-spring-boot-starter/network"]
+image:https://img.shields.io/github/release/domix/jade4j-spring-boot-starter.svg?style=flat["Release", link="https://github.com/domix/jade4j-spring-boot-starter/releases"]
+image:https://img.shields.io/github/issues/domix/jade4j-spring-boot-starter.svg?style=flat["Issues", link="https://github.com/domix/jade4j-spring-boot-starter/issues"]
+
+++++
+<script type="text/javascript" src="http://www.openhub.net/p/721264/widgets/project_basic_stats.js"></script>
+++++
+
+---
+
+== Usage
+
+The usage is pretty straightforward as you can expect for any Spring Boot Starter
+
+
+=== Add Maven dependency
+`build.gradle`
+[source,ruby]
+----
+...
+dependencies {
+  compile "com.domingosuarez.boot:jade4j-spring-boot-starter:2.0.4.RELEASE"
+}
+...
+----
+
+
+`pom.xml`
+[source,xml]
+----
+<project>
+  ...
+  <dependencies>
+    <dependency>
+      <groupId>com.domingosuarez.boot</groupId>
+      <artifactId>jade4j-spring-boot-starter</artifactId>
+      <version>2.0.4.RELEASE</version>
+    </dependency>
+  </dependencies>
+</project>
+----
+
+=== Pug templates
+Add the pug templates in the following directory
+[indent=0]
+----
+  src
+  └── main
+      └── resources
+          └── templates
+              └── index.pug
+----
+
+Then you can add new Spring MVC controllers as usual
+
+---
+
+== Helpers
+You can add https://github.com/neuland/pug4j#helpers[helpers] automatically using the annotation https://github.com/domix/jade4j-spring-boot-starter/blob/master/src/main/java/com/domingosuarez/boot/autoconfigure/pug4j/PugHelper.java[@PugHelper]
+
+[source,java]
+----
+package demo;
+
+import com.domingosuarez.boot.autoconfigure.pug4j.JadeHelper;
+
+@PugHelper
+public class Util {
+  public String format(double number) {
+    return "some formating";
+  }
+}
+----
+
+`template.pug`
+----
+html
+  head
+    title Hello
+  body
+    h
+    h1
+      #{util.format(4)} # <1>
+----
+<1> The helper name's is the Spring Bean id
+
+
+=== Customize the helper's name
+You can customize the helper's name using the https://github.com/domix/jade4j-spring-boot-starter/blob/master/src/main/java/com/domingosuarez/boot/autoconfigure/pug4j/PugHelper.java[PugHelper] annotation
+[source,java]
+----
+package demo;
+
+import com.domingosuarez.boot.autoconfigure.pug4j.PugHelper;
+
+@PugHelper("myId") // <1>
+public class Util {
+  public String format(double number) {
+    return "some formating";
+  }
+}
+----
+<1> The new id
+
+`template.pug`
+----
+html
+  head
+    title Hello
+  body
+    h
+    h1
+      #{myId.format(4)}
+----
+
+---
+
+== Configuration
+
+The following settings are available:
+
+[format="csv", options="header"]
+|===
+Setting key, Type, Default value
+spring.pug4j.checkTemplateLocation, Boolean, true
+spring.pug4j.prefix, String, 'classpath:/templates/'
+spring.pug4j.suffix, String, '.pug'
+spring.pug4j.encoding, String, 'UTF-8'
+spring.pug4j.caching, Boolean, true
+spring.pug4j.prettyPrint, Boolean, false
+spring.pug4j.mode, String, 'HTML'
+spring.pug4j.contentType, String, 'text/html'
+spring.pug4j.resolver.order, Integer, Ordered.LOWEST_PRECEDENCE - 50
+|===
+
+---
+
+== Complete demo application
+
+Please take a look into this https://github.com/domix/jade4j-spring-boot-starter-showcase[application] if you want to checkout a fully application.

@@ -1,0 +1,12 @@
+sudo: false
+before_cache: [rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock, rm -fr $HOME/.gradle/caches/*/plugin-resolution/]
+cache:
+  directories: [$HOME/.gradle/caches/, $HOME/.gradle/wrapper/]
+language: groovy
+jdk: [openjdk8]
+env: [TERM=dumb]
+install: true
+before_script: [./gradlew --version]
+script: [./gradlew test jacocoTestReport coveralls]
+branches:
+  only: [domix/jade4j-spring-boot-starter-19-origin]
