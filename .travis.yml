@@ -1,0 +1,14 @@
+language: android
+env:
+  global: [ADB_INSTALL_TIMEOUT=10]
+  matrix: [ANDROID_TARGET=android-8  ANDROID_ABI=armeabi, ANDROID_TARGET=android-10
+      ANDROID_ABI=armeabi, ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a]
+android:
+  components: [tools, build-tools-19.1.0, $ANDROID_TARGET, extra-android-m2repository]
+before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET --abi
+    $ANDROID_ABI, emulator -avd test -no-skin -no-audio -no-window &, android-wait-for-emulator,
+  adb shell input keyevent 82 &]
+after_success: [./gradlew -p AndroidDeviceCompatibility -b AndroidDeviceCompatibility/coverage.gradle
+    coveralls]
+branches:
+  only: [mixi-inc/Android-Device-Compatibility-62-origin]
