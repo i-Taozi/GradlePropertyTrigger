@@ -6,7 +6,7 @@ android:
 jdk: [oraclejdk8]
 script: [./gradlew clean check]
 branches:
-  only: [f2prateek/device-frame-generator-129-origin]
+  only: [f2prateek/device-frame-generator-129-GRADLE_DAEMON]
 notifications: {email: false}
 sudo: false
 cache:
