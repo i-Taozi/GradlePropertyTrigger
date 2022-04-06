@@ -1,0 +1,63 @@
+allprojects {
+
+    buildscript {
+        repositories {
+            google()
+            jcenter()
+            maven {
+                url "https://plugins.gradle.org/m2/"
+            }
+        }
+
+        dependencies {
+            classpath 'com.android.tools.build:gradle:4.0.0'
+            classpath "de.marcphilipp.gradle:nexus-publish-plugin:0.4.0"
+            classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.1"
+            classpath 'digital.wup:android-maven-publish:3.6.2'
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    project.ext.set("publishGroupId", group)
+}
+
+ext.loadExtraProperties = { fileName ->
+    def props = new Properties()
+    props.load(new FileInputStream(fileName))
+
+    props.each { key, val ->
+        project.ext[key] = val
+    }
+}
+
+ext.getCloudinaryUrl = { ->
+    return findProperty("cloudinaryUrl") ?: System.getenv('CLOUDINARY_URL')
+}
+
+ext.generateAndLoadLocalGradleProperties = { rootPath ->
+    // Create default local gradle properties (ignored by git)
+    def file = new File( 'gradle-local.properties')
+    if (file.createNewFile()) {
+        file.text = '# Uncomment and fill in your cloudinary url from cloudinary.com/console.  *** IMPORTANT - This should be the url WITHOUT the api secret.\n# cloudinaryUrl=fill_in_your_cloudinary_url'
+    }
+
+    loadExtraProperties file
+}
+
+subprojects {
+    tasks.withType(Test) {
+        maxParallelForks = Runtime.runtime.availableProcessors()
+        testLogging.showStandardStreams = true
+    }
+}
+
+generateAndLoadLocalGradleProperties ''
