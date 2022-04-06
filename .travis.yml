@@ -4,4 +4,4 @@ android:
 before_install: null
 script: [./gradlew assembleDebug]
 branches:
-  only: [Protocoder/Protocoder-106-origin]
+  only: [Protocoder/Protocoder-106-GRADLE_DAEMON]
