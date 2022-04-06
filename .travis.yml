@@ -20,4 +20,4 @@ addons:
     build_command: ./gradlew clean assemble
     branch_pattern: coverity_scan
 branches:
-  only: [ruleant/getback_gps-192-origin]
+  only: [ruleant/getback_gps-192-FILE_SYSTEM_WATCHING]
