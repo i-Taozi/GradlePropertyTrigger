@@ -27,4 +27,4 @@ notifications:
     on_success: change
     on_failure: always
 branches:
-  only: [kaltura/player-sdk-native-android-314-origin]
+  only: [kaltura/player-sdk-native-android-314-CONFIGURATION_ON_DEMAND]
