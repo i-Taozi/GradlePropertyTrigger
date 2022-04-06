@@ -3,4 +3,4 @@ notifications:
   email: [michal@is76.org]
   jdk: [oraclejdk7, openjdk7]
 branches:
-  only: [CompendiumNG/CompendiumNG-293-origin]
+  only: [CompendiumNG/CompendiumNG-293-PARALLEL_BUILDS]
