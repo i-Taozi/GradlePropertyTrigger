@@ -1,0 +1,93 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.github.nrudenko:gradle-android-cq-plugin:0.1.7'
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+apply plugin: 'com.android.application'
+//apply plugin: 'android-cq'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "org.primftpd"
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 55
+        versionName "6.9-SNAPSHOT"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest {
+                srcFile 'AndroidManifest.xml'
+            }
+
+            java {
+                srcDir 'src'
+            }
+            res {
+                srcDir 'res'
+            }
+        }
+    }
+
+    packagingOptions {
+        // required due to jars
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/BCKEY.SF'
+        exclude 'META-INF/BCKEY.DSA'
+    }
+
+    lintOptions {
+        // we cannot be sure that all translations are present
+        abortOnError false
+    }
+}
+
+configurations {
+    implementation.exclude group: 'org.slf4j', module: 'slf4j-api'
+    implementation.exclude group: 'org.slf4j', module: 'jcl-over-slf4j'
+    implementation.exclude group: 'org.springframework'
+}
+
+dependencies {
+    // print dependency tree:
+    // ./gradlew primitiveFTPd:dependencies --configuration releaseCompileClasspath
+    implementation project(':pftpd-pojo-lib')
+    implementation project(':slf4j-android-1.6.1-RC1')
+    implementation project(':apache-ftpserver-1.1.1:core')
+    implementation project(':apache-ftpserver-1.1.1:ftplet-api')
+    implementation project(':sshd-core-0.14.0')
+    implementation 'org.apache.mina:mina-core:2.0.21'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+    implementation 'androidx.fragment:fragment:1.2.2'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'eu.chainfire:libsuperuser:1.0.0.201704021214'
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.0'
+}
