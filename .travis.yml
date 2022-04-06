@@ -8,4 +8,4 @@ before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET 
     $ANDROID_ABI, emulator -avd test -no-skin -no-audio -no-window &, adb wait-for-device,
   adb shell input keyevent 82 &]
 branches:
-  only: [GDG-Korea/PinterestLikeAdapterView-54-origin]
+  only: [GDG-Korea/PinterestLikeAdapterView-54-CONFIGURATION_ON_DEMAND]
