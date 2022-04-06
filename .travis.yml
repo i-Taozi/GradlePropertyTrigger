@@ -8,4 +8,4 @@ android:
 before_script: ['export GRADLE_OPTS="-XX:MaxPermSize=2048m -Xmx1536m"']
 script: ./gradlew clean assembleDevDebug
 branches:
-  only: [DroidPlanner/Tower-1911-origin]
+  only: [DroidPlanner/Tower-1911-GRADLE_DAEMON]
