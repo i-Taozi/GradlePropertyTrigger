@@ -11,4 +11,4 @@ before_install: [sudo apt-get update -qq, 'if [ `uname -m` = x86_64 ]; then sudo
     >> ~/.gradle/gradle.properties', echo "sonatypeUsername=xxx" >> ~/.gradle/gradle.properties,
   echo "sonatypePassword=xxx" >> ~/.gradle/gradle.properties]
 branches:
-  only: [eyeem/chips-android-30-origin]
+  only: [eyeem/chips-android-30-GRADLE_DAEMON]
