@@ -11,4 +11,4 @@ before_install: [android list sdk --extended --no-ui --all, echo y | android upd
 before_script: [chmod a+x ./ci/wait_for_emulator, ./ci/wait_for_emulator, adb shell
     input keyevent 82 &]
 branches:
-  only: [openintents/shoppinglist-76-origin]
+  only: [openintents/shoppinglist-76-PARALLEL_BUILDS]
