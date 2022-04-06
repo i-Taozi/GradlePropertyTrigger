@@ -1,0 +1,12 @@
+language: android
+android:
+  components: [tools, build-tools-23.0.2, android-23]
+  licenses: [android-sdk-license-5be876d5]
+jdk: [oraclejdk8]
+script: [./gradlew clean build check]
+notifications: {email: false}
+sudo: false
+cache:
+  directories: [$HOME/.gradle]
+branches:
+  only: [square/mortar-205-origin]
