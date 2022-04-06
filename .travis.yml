@@ -4,4 +4,4 @@ install: ./gradlew downloadSdk unzipSdk
 script: ./gradlew clean allTests
 jdk: [oraclejdk8]
 branches:
-  only: [ligasgr/intellij-xquery-233-origin]
+  only: [ligasgr/intellij-xquery-233-GRADLE_DAEMON]
