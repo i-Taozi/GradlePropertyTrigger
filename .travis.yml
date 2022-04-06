@@ -4,4 +4,4 @@ android:
   components: [tools, build-tools-29.0.2, android-29, extra-android-m2repository]
 jdk: [oraclejdk8]
 branches:
-  only: [wolpi/prim-ftpd-247-origin]
+  only: [wolpi/prim-ftpd-247-FILE_SYSTEM_WATCHING]
