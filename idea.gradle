@@ -1,0 +1,91 @@
+/*
+ * Copyright 2013-2014 Grzegorz Ligas <ligasgr@gmail.com> and other contributors
+ * (see the CONTRIBUTORS file).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
+
+
+
+
+
+
+// --- changes to idea plugin ---
+idea {
+    module {
+        testSourceDirs += file('src/testFunctional/java')
+        testSourceDirs += file('src/testGui/java')
+        testSourceDirs += file('src/testPerformance/java')
+        iml {
+            whenMerged { module ->
+                removeIdeaJdkDependencies(module)
+            }
+            withXml {
+                def module = it.asNode()
+                changeModuleType(module)
+                removeUnnecessaryComponent(module)
+                appendRequiredComponent(module)
+            }
+        }
+    }
+}
+
+idea.project.ipr {
+    withXml {
+        it.node.component.find { it.@name == 'VcsDirectoryMappings' }.mapping.@vcs = 'Git'
+        prepareJdk(it)
+        prepareCopyright(it)
+    }
+}
+
+private void prepareCopyright(it) {
+    def cm = it.node.component.find { it.@name == 'CopyrightManager' }
+    cm.@'default' = 'apache'
+    def copyright = cm.appendNode('copyright')
+    copyright.appendNode('option', ['name': 'notice', 'value': project.file('NOTICE').text])
+    copyright.appendNode('option', ['name': 'keyword', 'value': 'Copyright'])
+    copyright.appendNode('option', ['name': 'allowReplaceKeyword', 'value': ''])
+    copyright.appendNode('option', ['name': 'myName', 'value': 'apache'])
+    copyright.appendNode('option', ['name': 'myLocal', 'value': 'true'])
+}
+
+private void prepareJdk(it) {
+    def prm = it.node.component.find { it.@name == 'ProjectRootManager' }
+    prm.@'project-jdk-name' = project.ext.ideaSdkName
+    prm.@'project-jdk-type' = 'IDEA JDK'
+    prm.attributes().remove('assert-jdk-15')
+}
+
+// --- changes to idea plugin ---
+
+
+def removeIdeaJdkDependencies(def module) {
+    def deps = module.dependencies.findAll { !(it instanceof org.gradle.plugins.ide.idea.model.ModuleDependency) && it.classes.url[0].contains(ideaInstallationPath) }
+    if (deps)
+        module.dependencies.removeAll(deps)
+}
+
+def changeModuleType(def module) {
+    module.@type = 'PLUGIN_MODULE'
+}
+
+def removeUnnecessaryComponent(def module) {
+    module.remove(module.component.find { it.@name == 'ModuleRootManager' })
+}
+
+def appendRequiredComponent(def module) {
+    module.appendNode('component', ['name': 'DevKit.ModuleBuildProperties', 'url': 'file://$MODULE_DIR$/src/main/resources/META-INF/plugin.xml'])
+}

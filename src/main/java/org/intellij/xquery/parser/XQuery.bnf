@@ -1,0 +1,690 @@
+/*
+ * Copyright 2013-2017 Grzegorz Ligas <ligasgr@gmail.com> and other contributors
+ * (see the CONTRIBUTORS file).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Grammar originally taken from http://www.w3.org/TR/xquery-30/#nt-bnf
+ */
+{
+  parserClass="org.intellij.xquery.parser.XQueryParser"
+  parserUtilClass="org.intellij.grammar.parser.GeneratedParserUtilBase"
+
+  implements="org.intellij.xquery.psi.XQueryPsiElement"
+  extends="org.intellij.xquery.psi.impl.XQueryPsiElementImpl"
+
+  psiClassPrefix="XQuery"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.intellij.xquery.psi"
+  psiImplPackage="org.intellij.xquery.psi.impl"
+
+  elementTypeHolderClass="org.intellij.xquery.psi.XQueryTypes"
+  elementTypeClass="org.intellij.xquery.psi.XQueryElementType"
+  tokenTypeClass="org.intellij.xquery.psi.XQueryTokenType"
+
+  psiImplUtilClass="org.intellij.xquery.psi.impl.XQueryPsiImplUtil"
+
+  tokens = [
+  EQUAL        = "="
+  NOT_EQUAL    = "!="
+  QUESTIONMARK = "?"
+  OP_PLUS         = "+"
+  OP_MINUS        = "-"
+  OP_ASSIGN       = ":="
+  L_BRACKET    = "["
+  R_BRACKET    = "]"
+  STRING_CONSTR_START = "``["
+  STRING_CONSTR_END = "]``"
+  L_PAR        = "("
+  R_PAR        = ")"
+  DBL_L_C_BRACE    = "{{"
+  L_C_BRACE    = "{"
+  DBL_R_C_BRACE    = "}}"
+  R_C_BRACE    = "}"
+  STRING_CONSTR_EXPR_START = "`{"
+  STRING_CONSTR_EXPR_END = "}`"
+  BACKTICK     = "`"
+  SEMICOLON    = ";"
+  SLASH_SLASH  = "//"
+  SLASH        = "/"
+  AT_SIGN      = "@"
+  COMMA         = ","
+  DOLLAR_SIGN  = "$"
+  STAR_SIGN    = "*"
+  PRAGMA_BEGIN = "(#"
+  PRAGMA_END   = "#)"
+  EXPR_COMMENT_START = "(:"
+  EXPR_COMMENT_END = ":)"
+  DIR_COMMENT_BEGIN = "<!--"
+  DIR_COMMENT_END = "-->"
+  CDATA_BEGIN  = "<![CDATA["
+  CDATA_END    = "]]>"
+  PI_BEGIN     = "<?"
+  PI_END       = "?>"
+  DOT_DOT      = ".."
+  DOT          = "."
+  COLON_COLON  = "::"
+  COLON        = ":"
+  END_TAG      = "</"
+  LT_CHAR      = "<"
+  CLOSE_TAG    = "/>"
+  GT_CHAR      = ">"
+  LE_CHARS     = "<="
+  GE_CHARS     = ">="
+  EQ           = "eq"
+  NE           = "ne"
+  LT           = "lt"
+  LE           = "le"
+  GT           = "gt"
+  GE           = "ge"
+  NODECOMP_LT  = "<<"
+  NODECOMP_GT  = ">>"
+  HASH         = "#"
+  PERCENT      = "%"
+  AMPERSAND    = "&"
+  PIPE_PIPE    = "||"
+  PIPE    = "|"
+  EXCLAMATION_MARK = "!"
+  K_NAMESPACE    = "namespace"
+  K_DEFAULT      = "default"
+  K_IMPORT       = "import"
+  K_DECLARE      = "declare"
+  K_SCHEMA       = "schema"
+  K_AT           = "at"
+  K_COLLATION    = "collation"
+  K_ELEMENT      = "element"
+  K_FUNCTION     = "function"
+  K_TEXT         = "text"
+  K_COMMENT      = "comment"
+  K_NODE         = "node"
+  K_PI           = "processing-instruction"
+  K_IF           = "if"
+  K_THEN         = "then"
+  K_ELSE         = "else"
+  K_TYPESWITCH   = "typeswitch"
+  K_SWITCH       = "switch"
+  K_VALIDATE     = "validate"
+  K_CONTEXT      = "context"
+  K_MODULE       = "module"
+  K_INHERIT      = "inherit"
+  K_NO_INHERIT   = "no-inherit"
+  K_PRESERVE     = "preserve"
+  K_NO_PRESERVE  = "no-preserve"
+  K_BASE_URI     = "base-uri"
+  K_XQUERY       = "xquery"
+  K_VERSION      = "version"
+  K_ENCODING     = "encoding"
+  K_OPTION       = "option"
+  K_STRIP        = "strip"
+  K_SOME         = "some"
+  K_IN           = "in"
+  K_AS           = "as"
+  K_LET          = "let"
+  K_RETURN       = "return"
+  K_AND          = "and"
+  K_OR           = "or"
+  K_CASE         = "case"
+  K_FOR          = "for"
+  K_VARIABLE     = "variable"
+  K_COPY_NAMESPACES = "copy-namespaces"
+  K_CONSTRUCTION = "construction"
+  K_ORDER        = "order"
+  K_EVERY        = "every"
+  K_BOUNDARY_SPACE = "boundary-space"
+  K_ORDERING    = "ordering"
+  K_ORDERED     = "ordered"
+  K_UNORDERED   = "unordered"
+  K_EMPTY       = "empty"
+  K_GREATEST    = "greatest"
+  K_LEAST       = "least"
+  K_DECIMAL_FORMAT = "decimal-format"
+  K_DECIMAL_SEPARATOR = "decimal-separator"
+  K_GROUPING_SEPARATOR = "grouping-separator"
+  K_INFINITY    = "infinity"
+  K_MINUS_SIGN  = "minus-sign"
+  K_NAN         = "NaN"
+  K_PERCENT     = "percent"
+  K_PER_MILLE   = "per-mille"
+  K_ZERO_DIGIT  = "zero-digit"
+  K_DIGIT       = "digit"
+  K_PATTERN_SEPARATOR = "pattern-separator"
+  K_ITEM        = "item"
+  K_TO          = "to"
+  K_WHERE       = "where"
+  K_GROUP       = "group"
+  K_BY          = "by"
+  K_ALLOWING    = "allowing"
+  K_ASCENDING   = "ascending"
+  K_DESCENDING  = "descending"
+  K_INSTANCE    = "instance"
+  K_OF          = "of"
+  K_SATISFIES   = "satisfies"
+  K_MAP         = "map"
+  K_ATTRIBUTE   = "attribute"
+  K_DOCUMENT_NODE = "document-node"
+  K_EMPTY_SEQUENCE = "empty-sequence"
+  K_NAMESPACE_NODE = "namespace-node"
+  K_SCHEMA_ATTRIBUTE = "schema-attribute"
+  K_SCHEMA_ELEMENT = "schema-element"
+  K_DOCUMENT    = "document"
+  K_STABLE      = "stable"
+  K_CHILD                =  "child"
+  K_DESCENDANT           =  "descendant"
+  K_SELF                 =  "self"
+  K_DESCENDANT_OR_SELF   =  "descendant-or-self"
+  K_FOLLOWING_SIBLING    =  "following-sibling"
+  K_FOLLOWING            =  "following"
+  K_PARENT               =  "parent"
+  K_ANCESTOR             =  "ancestor"
+  K_PRECEDING_SIBLING    =  "preceding-sibling"
+  K_PRECEDING            =  "preceding"
+  K_ANCESTOR_OR_SELF     =  "ancestor-or-self"
+  K_TUMBLING             =  "tumbling"
+  K_SLIDING              =  "sliding"
+  K_WINDOW               =  "window"
+  K_START                =  "start"
+  K_WHEN                 =  "when"
+  K_ONLY                 =  "only"
+  K_END                  =  "end"
+  K_PREVIOUS             =  "previous"
+  K_NEXT                 =  "next"
+  K_COUNT                =  "count"
+  K_TRY                  =  "try"
+  K_CATCH                =  "catch"
+  K_DIV                  =  "div"
+  K_IDIV                 =  "idiv"
+  K_MOD                  =  "mod"
+  K_UNION                =  "union"
+  K_INTERSECT            =  "intersect"
+  K_EXCEPT               =  "except"
+  K_TREAT                =  "treat"
+  K_CASTABLE             =  "castable"
+  K_CAST                 =  "cast"
+  K_IS                   =  "is"
+  K_TYPE                 =  "type"
+  K_LAX                  =  "lax"
+  K_STRICT               =  "strict"
+  K_EXTERNAL             =  "external"
+  K_REVALIDATION         =  "revalidation"
+  K_UPDATING             =  "updating"
+  K_SKIP                 =  "skip"
+  K_INSERT               =  "insert"
+  K_NODES                =  "nodes"
+  K_FIRST                =  "first"
+  K_LAST                 =  "last"
+  K_INTO                 =  "into"
+  K_AFTER                =  "after"
+  K_BEFORE               =  "before"
+  K_DELETE               =  "delete"
+  K_VALUE                =  "value"
+  K_WITH                 =  "with"
+  K_COPY                 =  "copy"
+  K_MODIFY               =  "modify"
+  K_RENAME               =  "rename"
+  K_REPLACE              =  "replace"
+  K_PRIVATE              =  "private"
+  K_BINARY               =  "binary"
+  K_OBJECT_NODE          =  "object-node"
+  K_NUMBER_NODE          =  "number-node"
+  K_BOOLEAN_NODE         =  "boolean-node"
+  K_NULL_NODE            =  "null-node"
+  K_ARRAY_NODE           =  "array-node"
+  K_ARRAY                =  "array"
+  K_EXPONENT_SEPARATOR   =  "exponent-separator"
+  OP_ARROW               =  "=>"
+//  IntegerLiteral = "regexp:[0-9]+"
+//  DecimalLiteral = "regexp:(\.[0-9]+|[0-9]+\.[0-9]*)"
+//  DoubleLiteral  = "regexp:(\.[0-9]+|[0-9]+(\.[0-9]*)?)[eE][+-]?[0-9]+"
+//  StringLiteral = "regexp:\"[^\"]+\""
+//  NCName        = "regexp:[a-zA-Z0-9]+"
+//  QName         = "regexp:[a-zA-Z0-9:-]+"
+  ]
+
+  extends(".+Expr")=ExprSingle
+  implements("NamespacePrefix|VarName|FunctionName|Prefix|XmlTagNamespace|XmlTagName|AttrNamespace|AttrLocalName")="org.intellij.xquery.psi.XQueryNamedElement"
+  implements("NamedFunctionRef|FunctionCall|ArrowFunctionReference")="org.intellij.xquery.psi.XQueryFunctionInvocation"
+  implements("ModuleDecl|ModuleImport|NamespaceDecl")="org.intellij.xquery.psi.XQueryNamespaceSource"
+  extends("NamespacePrefix|VarName|FunctionName|Prefix|XmlTagNamespace|XmlTagName|AttrNamespace|AttrLocalName")="org.intellij.xquery.psi.impl.XQueryNamedElementImpl"
+}
+
+xqueryFile ::= Module {pin(".*")=1}
+
+private Module ::= VersionDecl? (LibraryModule | MainModule)
+VersionDecl ::= "xquery" ((VersionDeclEncoding) | (VersionDeclVersion)) Separator {pin=1 recoverWhile=VersionDeclRecover}
+private VersionDeclRecover ::= !('$' | '%' | '(#' | '(' | '*' | '+' | '-' | '.' | '..' | '/' | '//' | '<!--' | '<?' | '?' | '@' | '[' | '``[' | 'ancestor' | 'ancestor-or-self' | 'array' | 'array-node' | 'attribute' | 'binary' | 'boolean-node' | 'child' | 'comment' | 'copy' | 'declare' | 'delete' | 'descendant' | 'descendant-or-self' | 'document' | 'document-node' | 'element' | 'every' | 'following' | 'following-sibling' | 'for' | 'function' | 'if' | 'import' | 'insert' | 'let' | 'map' | 'module' | 'namespace' | 'namespace-node' | 'node' | 'null-node' | 'number-node' | 'object-node' | 'ordered' | 'parent' | 'preceding' | 'preceding-sibling' | 'processing-instruction' | 'rename' | 'replace' | 'schema-attribute' | 'schema-element' | 'self' | 'some' | 'switch' | 'text' | 'try' | 'typeswitch' | 'unordered' | 'validate' | <<eof>> | BracedURILiteral | DecimalLiteral | DoubleLiteral | IntegerLiteral | NCName | OpeningApos | OpeningQuot | URIQualifiedName | XmlStartTagStart)
+private VersionDeclEncoding ::= "encoding" StringLiteral {pin=1}
+private VersionDeclVersion ::= "version" Version ("encoding" StringLiteral)? {pin=1}
+Version ::= StringLiteral {methods=[getVersionString]}
+private MainModule ::= Prolog QueryBody {pin=1}
+private LibraryModule ::= ModuleDecl Prolog {pin=1}
+ModuleDecl ::= "module" "namespace" NamespacePrefix "=" URILiteral Separator {pin=1 recoverWhile=ModuleDeclRecover methods=[getNamespace]}
+NamespacePrefix ::= NCName {methods=[getName setName getNameIdentifier delete]}
+private ModuleDeclRecover ::= !('declare' | 'import')
+private Prolog ::= FirstDecl* SecondDecl*
+private FirstDecl ::= DefaultNamespaceDecl | Setter | NamespaceDecl | Import
+private SecondDecl ::= ContextItemDecl | OptionDecl | AnnotatedDecl
+Separator ::= ";"
+private Setter ::= BoundarySpaceDecl | DefaultCollationDecl | BaseURIDecl | ConstructionDecl | OrderingModeDecl | EmptyOrderDecl | RevalidationDecl | CopyNamespacesDecl | DecimalFormatDecl
+BoundarySpaceDecl ::= "declare" "boundary-space" ("preserve" | "strip") Separator {pin=2}
+DefaultCollationDecl ::= "declare" "default" "collation" URILiteral Separator {pin=3}
+BaseURIDecl ::= "declare" "base-uri" URILiteral Separator {pin=2}
+ConstructionDecl ::= "declare" "construction" ("strip" | "preserve") Separator {pin=2}
+OrderingModeDecl ::= "declare" "ordering" ("ordered" | "unordered") Separator {pin=2}
+EmptyOrderDecl ::= "declare" "default" "order" "empty" ("greatest" | "least") Separator {pin=3}
+CopyNamespacesDecl ::= "declare" "copy-namespaces" PreserveMode "," InheritMode Separator {pin=2}
+PreserveMode ::= "preserve" | "no-preserve"
+InheritMode ::= "inherit" | "no-inherit"
+DecimalFormatDecl ::= "declare" (("decimal-format" EQName) | ("default" "decimal-format")) (DFPropertyName "=" StringLiteral)* Separator {pin=2}
+private DFPropertyName ::= "decimal-separator" | "grouping-separator" | "infinity" | "minus-sign" | "NaN" | "percent" | "per-mille" | "zero-digit" | "digit" | "pattern-separator" | "exponent-separator"
+private Import ::= SchemaImport | ModuleImport
+SchemaImport ::= "import" "schema" (("namespace" NamespacePrefix "=") | ("default" "element" "namespace"))? URILiteral ("at" URILiteral ("," URILiteral)*)? Separator {pin=2}
+ModuleImport ::= "import" "module" ("namespace" NamespacePrefix "=")? ModuleImportNamespace ("at" ModuleImportPath ("," ModuleImportPath)*)? Separator {pin=2 methods=[getNamespace]}
+ModuleImportNamespace ::= ModuleImportPath
+ModuleImportPath ::= URILiteral {methods=[getReference]}
+NamespaceDecl ::= "declare" "namespace" NamespacePrefix "=" URILiteral Separator {pin=2 methods=[getNamespace]}
+private DefaultNamespaceDecl ::= (DefaultFunctionNamespaceDecl | DefaultElementNamespaceDecl) Separator
+DefaultFunctionNamespaceDecl ::= "declare" "default" "function" "namespace" URILiteral {pin=3}
+DefaultElementNamespaceDecl ::= "declare" "default" "element" "namespace" URILiteral {pin=3}
+private AnnotatedDecl ::= (VarDecl | FunctionDecl)
+CompatibilityAnnotation	   ::=   	"updating"
+Annotation ::= "%" AnnotationName ("(" Literal ("," Literal)* ")")?
+AnnotationName ::= EQName
+MarklogicAnnotation ::= "private"
+VarDecl ::= "declare" (MarklogicAnnotation | CompatibilityAnnotation | Annotation)* "variable" "$" VarName TypeDeclaration? (VarDetails) Separator {pin=3 methods=[getPresentation isExternal getTextOffset isPublic]}
+private VarDetails ::= VarValueAssignment | ExternalVarPart
+private VarValueAssignment ::= ":=" VarValue {pin=1}
+ExternalVarPart ::= "external" (":=" VarDefaultValue)? {pin=1}
+VarValue ::= ExprSingle
+VarDefaultValue ::= ExprSingle
+ContextItemDecl ::= "declare" "context" "item" ("as" ItemType)? (VarValueAssignment | ("external" (":=" VarDefaultValue)?)) Separator {pin=2}
+FunctionDecl ::= "declare" (MarklogicAnnotation | CompatibilityAnnotation | Annotation)* "function" FunctionName ParamList ("as" SequenceType)? (FunctionBody | "external") Separator /* xgc: reserved-function-names */ {pin=3 methods=[getPresentation getArity hasValidFunctionName isPublic getTextOffset]}
+ParamList ::= "(" (Param ("," Param)*)? ")" {pin=1}
+Param ::= "$" VarName TypeDeclaration?
+FunctionBody ::= EnclosedExpression
+EnclosedExpression ::= "{" Expr? "}" {pin=1}
+OptionDecl ::= "declare" "option" EQName StringLiteral Separator {pin=2}
+QueryBody ::= Expr {pin=1 methods=[getPresentation] recoverWhile=QueryBodyRecover}
+private QueryBodyRecover ::= !<<eof>>
+Expr ::= ExprSingle ExprSingleAfterComma* {pin=1}
+private ExprSingleAfterComma ::= "," ExprSingle {pin=1}
+ExprSingle ::= FLWORExpr
+ | QuantifiedExpr
+ | SwitchExpr
+ | TypeswitchExpr
+ | IfExpr
+ | TryCatchExpr
+ | InsertExpr
+ | DeleteExpr
+ | RenameExpr
+ | ReplaceExpr
+ | TransformExpr
+ | OrExpr
+FLWORExpr ::= InitialClause IntermediateClause* ReturnClause {pin=1}
+private FLWORExprRecover ::= !('count' | 'for' | 'group' | 'let' | 'order' | 'return' | 'stable' | 'where' | '}' | XmlEndTagStart TagName | XmlStartTagStart TagName | ',')
+private InitialClause ::= ForClause | WindowClause | LetClause {pin=1}
+private IntermediateClause ::= InitialClause | WhereClause | GroupByClause | OrderByClause | CountClause
+ForClause ::= "for" ForBinding ("," ForBinding)* {pin=2}
+ForBinding ::= "$" ForBindingDetails {pin=1 methods=[processDeclarations]}
+private ForBindingDetails ::= VarName TypeDeclaration? AllowingEmpty? PositionalVar? "in" ExprSingle {recoverWhile=FLWORExprRecover}
+AllowingEmpty ::= "allowing" "empty"
+PositionalVar ::= "at" "$" VarName
+LetClause ::= "let" LetBinding ("," LetBinding)* {pin=1}
+LetBinding ::= "$" VarName TypeDeclaration? ":=" ExprSingle {recoverWhile=FLWORExprRecover methods=[processDeclarations]}
+WindowClause ::= "for" (TumblingWindowClause | SlidingWindowClause) {pin=2}
+private TumblingWindowClause ::= "tumbling" TumblingWindowDetails {pin=1}
+private TumblingWindowDetails ::= "window" "$" VarName TypeDeclaration? "in" ExprSingle WindowStartCondition WindowEndCondition? {recoverWhile=FLWORExprRecover}
+private SlidingWindowClause ::= "sliding" SlidingWindowDetails {pin=1}
+private SlidingWindowDetails ::= "window" "$" VarName TypeDeclaration? "in" ExprSingle WindowStartCondition WindowEndCondition {recoverWhile=FLWORExprRecover}
+private WindowStartCondition ::= "start" WindowVars "when" ExprSingle
+private WindowEndCondition ::= "only"? "end" WindowVars "when" ExprSingle
+private WindowVars ::= ("$" CurrentItem)? PositionalVar? ("previous" "$" PreviousItem)? ("next" "$" NextItem)?
+CurrentItem ::= VarName
+PreviousItem ::= VarName
+NextItem ::= VarName
+CountClause ::= "count" "$" VarName {pin=1 recoverWhile=FLWORExprRecover}
+WhereClause ::= "where" ExprSingle {pin=1 recoverWhile=FLWORExprRecover}
+GroupByClause ::= "group" "by" GroupingSpecList {pin=2 recoverWhile=FLWORExprRecover}
+GroupingSpecList ::= GroupingSpec ("," GroupingSpec)*
+GroupingSpec ::= GroupingVariable (TypeDeclaration? ":=" ExprSingle)? ("collation" URILiteral)?
+GroupingVariable ::= "$" VarName
+OrderByClause ::= (("order" "by") | ("stable" "order" "by")) OrderSpecList {pin=1 recoverWhile=FLWORExprRecover}
+OrderSpecList ::= OrderSpec ("," OrderSpec)*
+OrderSpec ::= ExprSingle OrderModifier
+private OrderModifier ::= ("ascending" | "descending")? ("empty" ("greatest" | "least"))? ("collation" URILiteral)?
+ReturnClause ::= "return" ExprSingle {pin=1}
+QuantifiedExpr ::= ("some" | "every") MultiVariableBinding ("," MultiVariableBinding)* "satisfies" ExprSingle {pin=1}
+MultiVariableBinding ::= "$" VarName TypeDeclaration? "in" ExprSingle
+SwitchExpr ::= "switch" "(" Expr ")" SwitchCaseClause+ SwitchDefaultReturnClause {pin=1}
+SwitchDefaultReturnClause ::= "default" SwitchReturnClause {pin=1}
+SwitchCaseClause ::= ("case" SwitchCaseOperand)+ SwitchReturnClause
+SwitchCaseOperand ::= ExprSingle
+TypeswitchExpr ::= "typeswitch" "(" Expr ")" CaseClause+ TypeswitchDefaultReturnClause {pin=1}
+TypeswitchDefaultReturnClause ::= "default" ("$" VarName)? SwitchReturnClause {pin=1}
+SwitchReturnClause ::= "return" ExprSingle
+CaseClause ::= "case" ("$" VarName "as")? SequenceTypeUnion SwitchReturnClause {pin=1}
+SequenceTypeUnion ::= SequenceType ("|" SequenceType)*
+IfExpr ::= "if" "(" Expr ")" "then" ExprSingle "else" ExprSingle {pin=1}
+TryCatchExpr ::= TryClause CatchClause+ {pin=1}
+TryClause ::= "try"  EnclosedTryTargetExpression {pin=1}
+private EnclosedTryTargetExpression   ::=   EnclosedExpression
+CatchClause ::= "catch" (CatchErrorList | MarklogicCatchErrorList) CatchClauseExpression {pin=1}
+CatchClauseExpression ::= EnclosedExpression
+CatchErrorList ::= NameTest ("|" NameTest)*
+MarklogicCatchErrorList ::= "(" "$" VarName ")"
+OrExpr ::= AndExpr OrMultipliedExpr*
+private OrMultipliedExpr ::= OrOperator AndExpr {pin=1}
+OrOperator ::= "or"
+AndExpr ::= ComparisonExpr AndMultipliedExpr*
+private AndMultipliedExpr ::= AndOperator ComparisonExpr {pin=1}
+AndOperator ::= "and"
+ComparisonExpr ::= StringConcatExpr ComparisonOptionalExpr ?
+private ComparisonOptionalExpr ::= Comparison StringConcatExpr {pin=1}
+private Comparison ::= ValueComp | GeneralComp | NodeComp
+StringConcatExpr ::= RangeExpr StringConcatMultipliedExpr*
+private StringConcatMultipliedExpr ::= ConcatOperator RangeExpr {pin=1}
+ConcatOperator ::= "||"
+RangeExpr ::= AdditiveExpr RangeOptionalExpr?
+private RangeOptionalExpr ::= ToOperator AdditiveExpr {pin=1}
+ToOperator ::= "to"
+AdditiveExpr ::= MultiplicativeExpr AdditiveOptionalExpr*
+private AdditiveOptionalExpr ::= AdditiveOperator MultiplicativeExpr {pin=1}
+AdditiveOperator ::= "+" | "-"
+MultiplicativeExpr ::= UnionExpr MultiplicativeOptionalExpr*
+private MultiplicativeOptionalExpr ::= MultiplicativeOperator UnionExpr {pin=1}
+MultiplicativeOperator ::= "*" | "div" | "idiv" | "mod"
+UnionExpr ::= IntersectExceptExpr UnionOptionalExpr*
+private UnionOptionalExpr ::= UnionOperator IntersectExceptExpr {pin=1}
+UnionOperator ::= "union" | "|"
+IntersectExceptExpr ::= InstanceofExpr IntersectExceptOptionalExpr*
+private IntersectExceptOptionalExpr ::= IntersectExceptOperator InstanceofExpr {pin=1}
+IntersectExceptOperator ::= "intersect" | "except"
+InstanceofExpr ::= TreatExpr InstanceOfOptionalExpr?
+private InstanceOfOptionalExpr ::= InstanceOfOperator SequenceType {pin=1}
+InstanceOfOperator ::= "instance" "of"
+TreatExpr ::= CastableExpr TreatOptionalExpr?
+private TreatOptionalExpr ::= TreatOperator SequenceType {pin=1}
+TreatOperator ::= "treat" "as"
+CastableExpr ::= CastExpr CastableOptionalExpr?
+private CastableOptionalExpr ::= CastableOperator SingleType {pin=1}
+CastableOperator ::= "castable" "as"
+CastExpr ::= ArrowExpr CastOptionalExpr?
+private CastOptionalExpr ::= CastOperator SingleType {pin=1}
+CastOperator ::= "cast" "as"
+ArrowExpr   ::=   UnaryExpr ArrowOptionalExpr*
+private ArrowOptionalExpr ::= "=>" ArrowFunctionReference {pin=1}
+ArrowFunctionReference ::= ArrowFunctionSpecifier ArgumentList {methods=[getArity getReference getFunctionName]}
+UnaryExpr ::= ("-" | "+")* ValueExpr
+ValueExpr ::= ValidateExpr | ExtensionExpr | SimpleMapExpr
+private GeneralComp ::= EqualityComp  | RelationalComp
+EqualityComp ::= "=" | "!="
+RelationalComp ::= "<" | "<=" | ">" | ">="
+ValueComp ::= "eq" | "ne" | "lt" | "le" | "gt" | "ge"
+NodeComp ::= "is" | "<<" | ">>"
+ValidateExpr ::= "validate" (ValidationMode | ("type" TypeName) | MarklogicValidation)? "{" Expr "}" {pin=1}
+MarklogicValidation ::= "as" TypeName
+private ValidationMode ::= "lax" | "strict"
+ExtensionExpr ::= Pragma+ "{" Expr? "}" {pin=1}
+Pragma ::= "(#" S? EQName (S PragmaContents)? "#)" /* ws: explicit */ {pin=1}
+PragmaContents ::= PragmaContentChar*
+SimpleMapExpr ::= PathExpr SimpleMapOptionalExpr*
+private SimpleMapOptionalExpr ::= SimpleMapOperator PathExpr {pin=1}
+SimpleMapOperator ::= "!"
+PathExpr ::= RootPathExpr | RootPathOrChildExpr | RelativePathExpr
+private RootPathExpr ::= "/" RelativePathExpr? /* xgc: leading-lone-slash */
+private RootPathOrChildExpr ::= "//" RelativePathExpr {pin=1}
+private RelativePathExpr ::= StepExpr RelativePathOptionalExpr*
+private RelativePathOptionalExpr ::= (RelativePathOperator) StepExpr {pin=1}
+RelativePathOperator ::= "/" | "//"
+StepExpr ::= PostfixExpr | AxisStep
+AxisStep ::= (ReverseStep | ForwardStep | MarklogicNamespaceAxis) PredicateList
+ForwardStep ::= FullForwardStep | AbbrevForwardStep
+private FullForwardStep ::= ForwardAxis NodeTest {pin=1}
+private ForwardAxis ::= ("child" "::")
+ | ("descendant" "::")
+ | ("attribute" "::")
+ | ("self" "::")
+ | ("descendant-or-self" "::")
+ | ("following-sibling" "::")
+ | ("following" "::")
+AbbrevForwardStep ::= "@"? NodeTest
+ReverseStep ::= FullReverseStep | AbbrevReverseStep
+private FullReverseStep ::= ReverseAxis NodeTest {pin=1}
+private ReverseAxis ::= ("parent" "::")
+ | ("ancestor" "::")
+ | ("preceding-sibling" "::")
+ | ("preceding" "::")
+ | ("ancestor-or-self" "::")
+AbbrevReverseStep ::= ".."
+MarklogicNamespaceAxis ::= "namespace" "::" NodeTest {pin=2}
+NodeTest ::= KindTest | NameTest
+NameTest ::= Wildcard | EQName
+Wildcard ::= (Prefix ":" "*")
+ | ("*" ":" NCName)
+ | "*"
+ | (BracedURILiteral "*") /* ws: explicit */
+PostfixExpr ::= PrimaryExpr (Predicate | ArgumentList | Lookup)*
+ArgumentList ::= "(" (Argument OptionalArgumentAfterComma*)? ")" {pin=1}
+private OptionalArgumentAfterComma ::= "," Argument {pin=1}
+PredicateList ::= Predicate*
+Predicate ::= "[" Expr "]"
+Lookup   ::=   "?" KeySpecifier {pin=2}
+KeySpecifier   ::=   NCName | IntegerLiteral | ParenthesizedExpr | "*"
+ArrowFunctionSpecifier   ::=   FunctionName | VarRef | ParenthesizedExpr
+PrimaryExpr ::= Literal
+ | VarRef
+ | ParenthesizedExpr
+ | ContextItemExpr
+ | FunctionCall
+ | OrderedExpr
+ | UnorderedExpr
+ | NodeConstructor
+ | FunctionItemExpr
+ | MapConstructor
+ | ArrayConstructor
+ | StringConstructor
+ | UnaryLookup
+Literal ::= NumericLiteral | StringLiteral
+NumericLiteral ::= IntegerLiteral | DecimalLiteral | DoubleLiteral
+VarRef ::= "$" VarName {pin=1 methods=[getReference]}
+ParenthesizedExpr ::= "(" Expr? ")" {pin=1}
+ContextItemExpr ::= "."
+OrderedExpr ::= "ordered" EnclosedExpression {pin=2}
+UnorderedExpr ::= "unordered" EnclosedExpression {pin=2}
+FunctionCall ::= FunctionName ArgumentList {methods=[getReference getArity]} /* xgc: reserved-function-names */
+ /* gn: parens */
+Argument ::=  ExprSingle | ArgumentPlaceholder
+ArgumentPlaceholder ::= "?"
+NodeConstructor ::= DirectConstructor
+ | ComputedConstructor
+DirectConstructor ::= DirElemConstructor
+ | DirCommentConstructor
+ | DirPIConstructor
+private DirElemConstructor ::= XmlEmptyTag | XmlFullTag /* ws: explicit */
+XmlEmptyTag ::= XmlStartTagStart XmlTagName MisplacedComment* DirAttributeList? MisplacedComment* XmlEmptyElementEnd
+XmlFullTag ::= XmlOpeningTagPart DirElemContent* XmlClosingTagPart {pin=1}
+private XmlOpeningTagPart ::= XmlStartTagStart XmlTagName MisplacedComment* DirAttributeList? MisplacedComment* XmlTagEnd {pin=1}
+private XmlClosingTagPart ::= XmlEndTagStart XmlTagName MisplacedComment* XmlTagEnd {pin=1}
+XmlTagName ::= XmlTagNamespace XmlColon XmlTagLocalName | XmlTagLocalName {methods=[getName setName getNameIdentifier getReference getTextOffset]}
+XmlTagNamespace ::= XmlTagNCName {methods=[getName setName getNameIdentifier getReference isEquivalentTo]}
+XmlTagLocalName ::= XmlTagNCName
+DirAttributeList ::= DirAttribute*
+DirAttribute ::= DirAttributeName AttrEqual DirAttributeValue /* ws: explicit */
+DirAttributeName ::= AttrNamespace AttrColon AttrLocalName | AttrLocalName
+AttrNamespace ::= AttrNCName  {methods=[getName setName getNameIdentifier getReference isEquivalentTo]}
+AttrLocalName ::= AttrNCName  {methods=[getName setName getNameIdentifier delete]}
+DirAttributeValue ::= (OpeningQuot (EscapeQuot | QuotAttrValueContent)* ClosingQuot)
+ | (OpeningApos (EscapeApos | AposAttrValueContent)* ClosingApos) /* ws: explicit */
+QuotAttrValueContent ::= QuotAttrContentChar
+ | CommonContent
+AposAttrValueContent ::= AposAttrContentChar
+ | CommonContent
+DirElemContent ::= DirectConstructor
+ | CDataSection
+ | CommonContent
+ | ElementContentChar
+CommonContent ::= PredefinedEntityRef | CharRef | "{{" | "}}" | EnclosedExpression
+DirCommentContents ::= DirCommentChar*
+DirCommentConstructor ::= "<!--" DirCommentContents "-->" /* ws: explicit */
+DirPIConstructor ::= "<?" PITarget (S DirPIContents)? "?>" /* ws: explicit */
+DirPIContents ::= DirPIContentChar* /* ws: explicit */
+CDataSection ::= "<![CDATA[" CDataSectionContents "]]>" /* ws: explicit */
+CDataSectionContents ::= CDataSectionContentChar* /* ws: explicit */
+ComputedConstructor ::= CompDocConstructor
+ | CompElemConstructor
+ | CompAttrConstructor
+ | CompNamespaceConstructor
+ | CompTextConstructor
+ | CompCommentConstructor
+ | CompPIConstructor
+ | MarklogicCompBinaryConstructor
+ | MarklogicCompObjectNodeConstructor
+ | MarklogicCompNumberNodeConstructor
+ | MarklogicCompBooleanNodeConstructor
+ | MarklogicCompNullNodeConstructor
+ | MarklogicCompArrayNodeConstructor
+CompDocConstructor ::= "document" EnclosedExpression
+CompElemConstructor ::= "element" (EQName | ("{" Expr "}")) EnclosedContentExpression
+EnclosedContentExpression ::= EnclosedExpression
+MarklogicCompBinaryConstructor ::= "binary" "{" Expr "}"
+MarklogicCompObjectNodeConstructor ::= "object-node" "{" ObjectPropertyList? "}"
+MarklogicCompNumberNodeConstructor ::= "number-node" "{" Expr "}"
+MarklogicCompBooleanNodeConstructor ::= "boolean-node" "{" Expr "}"
+MarklogicCompNullNodeConstructor ::= "null-node" "{" "}"
+MarklogicCompArrayNodeConstructor ::= "array-node" "{" Expr "}"
+ObjectPropertyList ::= ObjectProperty ("," ObjectProperty)* ","?
+ObjectProperty ::= ExprSingle ":" ExprSingle
+CompAttrConstructor ::= "attribute" (EQName | ("{" Expr "}")) EnclosedExpression
+CompNamespaceConstructor ::= "namespace" (Prefix | (EnclosedPrefixExpression)) EnclosedURIExpression
+EnclosedPrefixExpression ::= EnclosedExpression
+EnclosedURIExpression ::= EnclosedExpression
+CompTextConstructor ::= "text" EnclosedExpression {pin=2}
+CompCommentConstructor ::= "comment" EnclosedExpression
+CompPIConstructor ::= "processing-instruction" (NCName | ("{" Expr "}")) EnclosedExpression
+FunctionItemExpr ::= NamedFunctionRef | InlineFunctionExpr
+NamedFunctionRef ::= FunctionName "#" FunctionArity {methods=[getArity getReference]} /* xgc: reserved-function-names */
+FunctionArity ::= IntegerLiteral
+InlineFunctionExpr ::= Annotation* "function" ParamList ("as" SequenceType)? FunctionBody
+MapConstructor   ::=   "map" "{" (MapConstructorEntry ("," MapConstructorEntry)*)? SaxonMapEntriesSeparator? "}" {pin=2}
+MapConstructorEntry   ::=   MapKeyExpr (":"|SaxonMapEntrySeparator) MapValueExpr {pin=2}
+SaxonMapEntriesSeparator ::= ","
+SaxonMapEntrySeparator ::= ":="
+MapKeyExpr   ::=   ExprSingle
+MapValueExpr   ::=   ExprSingle
+ArrayConstructor   ::=   SquareArrayConstructor | CurlyArrayConstructor
+SquareArrayConstructor   ::=   "[" (ExprSingle ("," ExprSingle)*)? "]" {pin=1}
+CurlyArrayConstructor   ::=   "array" EnclosedExpression {pin=1}
+StringConstructor   ::=   "``[" StringConstructorContent "]``"  {pin=1}/* ws: explicit */
+StringConstructorContent   ::=   StringConstructorChars (StringConstructorInterpolation StringConstructorChars)*/* ws: explicit */
+StringConstructorChars   ::=   Char* /* ws: explicit */
+StringConstructorInterpolation   ::=   "`{" Expr? "}`" {pin=1}
+UnaryLookup   ::=   "?" KeySpecifier {pin=2}
+SingleType ::= SimpleTypeName "?"?
+TypeDeclaration ::= "as" SequenceType
+SequenceType ::= ("empty-sequence" "(" ")")
+ | (ItemType OccurrenceIndicator?)
+OccurrenceIndicator ::= "?" | "*" | "+" /* xgc: occurrence-indicators */
+ItemType ::= KindTest | GeneralItemType | FunctionTest | MapTest | ArrayTest | AtomicOrUnionType | ParenthesizedItemType
+GeneralItemType ::= "item" "(" ")" {pin=2}
+AtomicOrUnionType ::= EQName
+KindTest ::= DocumentTest
+ | ElementTest
+ | AttributeTest
+ | SchemaElementTest
+ | SchemaAttributeTest
+ | PITest
+ | CommentTest
+ | MarklogicTextTest
+ | TextTest
+ | NamespaceNodeTest
+ | MarklogicAnyKindTest
+ | AnyKindTest
+ | MarklogicBinaryTest
+ | MarklogicObjectNodeTest
+ | MarklogicNumberNodeTest
+ | MarklogicBooleanNodeTest
+ | MarklogicNullNodeTest
+ | MarklogicArrayNodeTest
+AnyKindTest ::= "node" "(" ")" {pin=2}
+DocumentTest ::= "document-node" "(" (ElementTest | SchemaElementTest)? ")" {pin=2}
+TextTest ::= "text" "(" ")" {pin=2}
+MarklogicBinaryTest ::= "binary" "(" ")" {pin=2}
+MarklogicObjectNodeTest ::= "object-node" "(" (StringLiteralOrWildcard)? ")" {pin=2}
+MarklogicNumberNodeTest ::= "number-node" "(" (StringLiteralOrWildcard)? ")" {pin=2}
+MarklogicBooleanNodeTest ::= "boolean-node" "(" (StringLiteralOrWildcard)? ")" {pin=2}
+MarklogicNullNodeTest ::= "null-node" "(" (StringLiteralOrWildcard)? ")" {pin=2}
+MarklogicArrayNodeTest ::= "array-node" "(" (StringLiteralOrWildcard)? ")" {pin=2}
+MarklogicTextTest ::= "text" "(" (StringLiteralOrWildcard) ")"
+MarklogicAnyKindTest ::= "node" "(" (StringLiteralOrWildcard) ")"
+CommentTest ::= "comment" "(" ")" {pin=2}
+NamespaceNodeTest ::= "namespace-node" "(" ")" {pin=2}
+PITest ::= "processing-instruction" "(" (NCName | StringLiteral)? ")" {pin=2}
+AttributeTest ::= "attribute" "(" (AttribNameOrWildcard ("," TypeName)?)? ")" {pin=2}
+AttribNameOrWildcard ::= AttributeName | "*"
+SchemaAttributeTest ::= "schema-attribute" "(" AttributeDeclaration ")" {pin=2}
+AttributeDeclaration ::= AttributeName
+ElementTest ::= "element" "(" (ElementNameOrWildcard ("," TypeName "?"?)?)? ")" {pin=2}
+ElementNameOrWildcard ::= ElementName | "*"
+StringLiteralOrWildcard ::= StringLiteral | "*"
+SchemaElementTest ::= "schema-element" "(" ElementDeclaration ")" {pin=2}
+ElementDeclaration ::= ElementName
+AttributeName ::= EQName
+ElementName ::= EQName
+SimpleTypeName ::= TypeName
+TypeName ::= EQName
+FunctionTest ::= Annotation* (AnyFunctionTest | TypedFunctionTest)
+AnyFunctionTest ::= "function" "(" "*" ")" {pin=3}
+TypedFunctionTest ::= "function" "(" (SequenceType ("," SequenceType)*)? ")" "as" SequenceType {pin=4}
+MapTest   ::=   AnyMapTest | TypedMapTest
+private AnyMapTest   ::=   "map" "(" "*" ")" {pin=3}
+private TypedMapTest   ::=   "map" "(" AtomicOrUnionType "," SequenceType ")" {pin=2}
+ArrayTest   ::=   AnyArrayTest | TypedArrayTest
+private AnyArrayTest   ::=   "array" "(" "*" ")" {pin=3}
+private TypedArrayTest   ::=   "array" "(" SequenceType ")" {pin=2}
+ParenthesizedItemType ::= "(" ItemType ")"
+URILiteral ::= StringLiteral
+private EQName ::= QName | URIQualifiedName
+QuotAttrContentChar ::= Char
+AposAttrContentChar ::= Char
+EscapeQuot ::= "\"\""
+EscapeApos ::= "''"
+private QName ::= PrefixedName
+ | UnprefixedName
+private PrefixedName ::= Prefix ':' LocalPart
+private UnprefixedName ::= LocalPart
+Prefix ::= NCName {methods=[getName setName getNameIdentifier getReference isEquivalentTo]}
+LocalPart ::= NCName
+VarName ::= Prefix ':' VarLocalName | VarLocalName | URIQualifiedName {pin(".*")=2 methods=[getName setName getNameIdentifier getTextOffset getUseScope getPresentation delete]}
+VarLocalName ::= NCName
+FunctionName ::= Prefix ':' FunctionLocalName | FunctionLocalName | URIQualifiedName {pin(".*")=2 methods=[getName setName getNameIdentifier getTextOffset getPresentation delete getPrefixText getLocalNameText isEquivalentTo]}
+FunctionLocalName ::= NCName
+
+RevalidationDecl ::= "declare" "revalidation" ("strict" | "lax" | "skip")
+InsertExprTargetChoice ::= (("as" ("first" | "last"))? "into")
+ | "after"
+ | "before"
+InsertExpr ::= "insert" ("node" | "nodes") SourceExpr InsertExprTargetChoice TargetExpr
+DeleteExpr ::= "delete" ("node" | "nodes") TargetExpr
+ReplaceExpr ::= "replace" ("value" "of")? "node" TargetExpr "with" ExprSingle
+RenameExpr ::= "rename" "node" TargetExpr "as" NewNameExpr
+SourceExpr ::= ExprSingle
+TargetExpr ::= ExprSingle
+NewNameExpr ::= ExprSingle
+TransformExpr ::= "copy" "$" VarName ":=" ExprSingle ("," "$" VarName ":=" ExprSingle)* "modify" ExprSingle "return" ExprSingle
+
+MisplacedComment ::= "(:" MisplacedCommentContent ":)"
+private MisplacedCommentContent ::= (ExprCommentContent|MisplacedComment)*
+StringLiteral ::= QuotStringLiteral | AposStringLiteral
+private QuotStringLiteral ::= OpeningQuot (PredefinedEntityRef | CharRef | EscapeQuot | StringChar)* ClosingQuot
+private AposStringLiteral ::= OpeningApos (PredefinedEntityRef | CharRef | EscapeApos | StringChar)* ClosingApos

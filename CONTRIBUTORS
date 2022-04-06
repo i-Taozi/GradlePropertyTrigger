@@ -1,0 +1,17 @@
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #47 - Structure view should display visibility modifier
+Slawomir Wachowski <slawwach@gmail.com> - Issue #51 - Highlighting unused imports
+Michal Jedynak <m.jedynak@gmail.com> - Issue #22 - Duplicate declarations code insight
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #72 - Structure view should be able to filter-out non-public functions and variables
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #50 - Folding of functions
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #23 - Imports and namespaces declarations folding
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #91 - XQuery context for live templates
+Dirk Kirsten <dk@basex.org> - Issue #91 - Live templates
+Mateusz Rudnicki <nicklamer@gmail.com> - Issue #93 - Enhance next/previous method navigation
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #21 - Unused variables highlighting
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #100 - Optimize imports in xquery files
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #104 - Inspection - check if module namespace prefix is same as module file name
+Arnost Valicek <arnost.valicek@gmail.com> - Issue #106 - Inspection - check if declared default function namespace is same as module namespace
+Bartosz Jamroz <bartosz.jamroz@ubs.com> - Issue #121 - Not compatible with the latest IntelliJ release, 14.1
+Chris Cieslinski <CieslinskiCE@ldschurch.org> - Issue #123 - Add support for MarkLogic JSON node constructors/tests
+Yury V. Zaytsev <yury@shurup.com> - Issue #191 - Upgrade to BaseX 8.4.3 and BaseX XQJ driver 1.6.0
+Ivan Lagunov <lagivan@gmail.com> - Issue #211 - Update plugin to support IntelliJ 17.1
