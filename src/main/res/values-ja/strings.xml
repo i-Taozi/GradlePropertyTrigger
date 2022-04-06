@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="default_text">デフォルトテキスト</string>
+    <string name="title_clone_repo">リポジトリをクローン</string>
+
+    <!-- action -->
+    <string name="action_search">検索</string>
+    <string name="action_clone">クローン</string>
+    <string name="action_import_repo">リポジトリをインポート</string>
+    <string name="action_git_profile">Git プロフィール</string>
+    <string name="action_settings">設定</string>
+    <string name="action_manage_private_key">プライベートキー</string>
+    <string name="action_feedback">フィードバック</string>
+    <string name="action_choose_language">言語の選択</string>
+    <string name="action_mode_diff">Diff</string>
+    <string name="action_edit">編集</string>
+    <string name="action_edit_in_other_app">その他のアプリケーションで編集</string>
+    <string name="action_reset">リセット</string>
+    <string name="action_toggle_drawer">Toggle Drawer</string>
+    <string name="action_copy_commit_str">コミットハッシュのコピー</string>
+    <string name="action_create_external_repo">外部リポジトリを作成</string>
+
+    <!-- label msg -->
+    <string name="label_ok">OK</string>
+    <string name="label_remote_url">リモートURL</string>
+    <string name="label_cancel">キャンセル</string>
+    <string name="label_clone">クローン</string>
+    <string name="label_delete">削除</string>
+    <string name="label_username">ユーザー名</string>
+    <string name="label_password">パスワード</string>
+    <string name="label_new_file_name">新しいファイル名</string>
+    <string name="label_rename">名前の変更</string>
+    <string name="label_send_feedback">フィードバックを送信</string>
+    <string name="label_import">インポート</string>
+    <string name="label_push">プッシュ</string>
+    <string name="label_push_all">全てプッシュ</string>
+    <string name="label_create">作成</string>
+    <string name="label_checkout">チェックアウト</string>
+    <string name="label_git_name">名前</string>
+    <string name="label_git_email">Eメール</string>
+    <string name="label_done">完了</string>
+    <string name="label_choose_app_to_open">開くアプリを選択</string>
+    <string name="label_choose_app_to_edit">編集するアプリを選択</string>
+
+    <!-- for title -->
+    <string name="title_activity_repo_detail">リポジトリ詳細アクティビティ</string>
+    <string name="title_activity_import_repository">リポジトリをインポート</string>
+    <string name="title_activity_view_file">ファイル: </string>
+    <string name="title_activity_commit_diff">Diff:   </string>
+    <string name="title_section1">セクション 1</string>
+    <string name="title_section2">セクション 2</string>
+    <string name="title_section3">セクション 3</string>
+    <string name="tab_files_label">ファイル</string>
+    <string name="tab_commits_label">コミット</string>
+    <string name="tab_status_label">ステータス</string>
+
+    <!-- Dialog Msg -->
+    <string name="dialog_choose_branch_title">ブランチを選択</string>
+    <string name="dialog_delete_repo_title">削除の確認</string>
+    <string name="dialog_delete_repo_msg">リポジトリを削除してもよろしいですか?</string>
+    <string name="dialog_rename_key_title">名前の変更</string>
+    <string name="dialog_choose_language_title">言語を選択</string>
+    <string name="dialog_comfirm_import_repo_title">リポジトリをインポート</string>
+    <string name="dialog_comfirm_import_repo_msg">このリポジトリをインポートしてもよろしいですか?</string>
+    <string name="dialog_merge_title">マージするブランチを選択</string>
+    <string name="dialog_merge_checkbox">マージした後、コミット</string>
+    <string name="dialog_file_delete">削除するファイル</string>
+    <string name="dialog_file_delete_msg">このファイル/ディレクトリを削除してもよろしいですか?</string>
+    <string name="dialog_reset_commit_title">変更をリセット</string>
+    <string name="dialog_reset_commit_msg">全ての変更を却下してもよろしいですか?</string>
+    <string name="dialog_create_dir_title">新規ディレクトリ</string>
+    <string name="dialog_create_dir_hint">ディレクトリ名</string>
+    <string name="dialog_create_file_title">新規ファイル</string>
+    <string name="dialog_create_file_hint">ファイル名</string>
+    <string name="dialog_comfirm_checkout_commit_title">チェックアウトの確認</string>
+    <string name="dialog_comfirm_checkout_commit_msg">チェックアウトするブランチ</string>
+    <string name="dialog_prompt_for_password_title">認証が必要です。</string>
+    <string name="dialog_prompt_for_password_title_auth_fail">認証エラー</string>
+    <string name="dialog_prompt_for_password_checkbox">ユーザー名とパスワードを保存する。</string>
+    <string name="dialog_title_you_want_to">You want to …</string>
+
+    <!-- Others -->
+    <string name="pull_msg_init">プルしています …</string>
+    <string name="progress_left_init">0%</string>
+    <string name="progress_right_init">0/0</string>
+    <string name="push_msg_init">プッシュしています …</string>
+    <string name="title_activity_private_key_manage">プライベートキーを管理</string>
+    <string name="hello_world">Hello, World!</string>
+    <string name="title_activity_explore_file">ファイルを探す</string>
+
+    <!-- toast msg -->
+    <string name="feedback_subject">フィードバック</string>
+    <string name="action_open_in_other_app">Open in other apps</string>
+    <string name="dialog_create_branch_hint">支店名</string>
+    <string name="dialog_create_branch_title">新しいブランチを作成します。</string>
+    <string name="success_remove_file">ファイルが削除されました</string>
+    <string name="error_rename_repo_fail">名前の変更リポジトリに失敗しました</string>
+    <string name="dialog_choose_option">オプションを選択します...</string>
+    <string name="dialog_clone_recursive">再帰的に複製します</string>
+    <string name="dialog_push_is_force_push">力のプッシュ？</string>
+    <string name="dialog_rename_repo_hint">リポジトリ名</string>
+    <string name="dialog_rename_repo_title">リポジトリの名前を変更します</string>
+    <string name="dialog_file_remove_cached">キャッシュされたファイルを削除します</string>
+    <string name="dialog_file_remove_cached_msg">あなたは、インデックスからこのファイルまたはディレクトリを削除してもよろしいですか？</string>
+    <string name="dialog_file_remove_force">強制ファイルの削除</string>
+    <string name="dialog_file_remove_force_msg">あなたはディレクトリとインデックス作業からこのファイルまたはディレクトリを削除してもよろしいですか？</string>
+    <string name="preference_donate">寄付</string>
+    <string name="action_copy_all">Copy whole file</string>
+    <string name="action_create_new_dir">Create new folder</string>
+    <string name="action_edit_save">Save</string>
+    <string name="action_generate_private_key">Generate Key</string>
+    <string name="action_mode_rename_branch">Rename branch</string>
+    <string name="action_mode_rename_key">Rename key</string>
+    <string name="action_mode_show_private_key">Show private key</string>
+    <string name="action_mode_show_public_key">Show public key</string>
+    <string name="action_save_diff">Save diff</string>
+    <string name="action_select_root_dir">Select as Root folder</string>
+    <string name="action_share_diff">Share diff</string>
+    <string name="alert_file_creation_failure">Couldn\'t create file</string>
+    <string name="alert_new_branchname_required">Branch name required</string>
+    <string name="alert_too_long_key_size">Keylength is too large</string>
+    <string name="alert_too_short_key_size">Keylength is too small (at least 1024 bits for RSA and DSA)</string>
+    <string name="cannot_delete_branch">cannot delete %s</string>
+    <string name="cannot_delete_current_branch">cannot delete currently checked out branch %s</string>
+    <string name="dialog_branch_delete">Delete Branch</string>
+    <string name="dialog_branch_delete_msg">Are you sure you want to delete this branch?</string>
+    <string name="dialog_commit_author_hint">Commit author (optional)</string>
+    <string name="dialog_fetch_all_button">Fetch All</string>
+    <string name="dialog_fetch_positive_button">Fetch</string>
+    <string name="dialog_fetch_title">Fetch</string>
+    <string name="dialog_key_delete">Delete Key</string>
+    <string name="dialog_key_delete_msg">Are you sure you want to delete this key?</string>
+    <string name="dialog_profile_preferences_title">Preferences</string>
+    <string name="dialog_pull_is_force_pull">Force pull and reset to pulled?</string>
+    <string name="dialog_pull_repo_title">Pull from …</string>
+    <string name="dialog_remove_remote_positive_label">Done</string>
+    <string name="dialog_remove_remote_title">Remove Remote</string>
+    <string name="dialog_rename_branch_title">名前の変更</string>
+    <string name="dialog_show_staged_diff">Staged diff</string>
+    <string name="dialog_show_unstaged_diff">Unstaged diff</string>
+    <string name="error_invalid_author"><![CDATA[Author is not of the form Name <Email>]]></string>
+    <string name="error_no_commit_msg">No commit message specified</string>
+    <string name="error_no_repository">No repository found</string>
+    <string name="error_pull_failed_not_on_branch">Pull failed: not on branch</string>
+    <string name="fetch_msg_init">Fetching …</string>
+    <string name="label_anonymous_checkout">Anonymous checkout</string>
+    <string name="label_dialog_generate_key">Generate key</string>
+    <string name="label_generate_key">Generate key</string>
+    <string name="label_git_email_per_repo">Committer email override</string>
+    <string name="label_git_name_per_repo">Committer email override</string>
+    <string name="label_key_size">Key length</string>
+    <string name="label_new_branch_name">New Branch</string>
+    <string name="label_save">Save</string>
+    <string name="pref_category_title_security">Security</string>
+    <string name="pref_category_title_git_profile">Git プロフィール</string>
+    <string name="pref_category_title_general">General</string>
+    <string name="pref_category_title_about">About</string>
+    <string name="preference_app_version">Version</string>
+    <string name="preference_donate_summary">Make a donation via Paypal to the author of SGit</string>
+    <string name="preference_git_user_email">User Email</string>
+    <string name="preference_git_user_name">User Name</string>
+    <string name="preference_manage_ssh_keys">SSH Keys</string>
+    <string name="preference_repo_location">Root storage location for repos</string>
+    <string name="preference_send_feedback">Feedback</string>
+    <string name="preference_send_feedback_summary">Submit feedback by creating a new issue on GitHub</string>
+    <string name="preference_use_theme">Select Colour Theme</string>
+    <string name="success_remote_removed">Remote removed</string>
+    <string name="preference_manage_ssh_keys_summary">Manage SSH Keys</string>
+    <string name="tab_file_label">File</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_config_repo">Repository config</string>
+    <string name="action_import_private_key">Import Key</string>
+    <string name="action_add_private_key">Add Private Key</string>
+
+</resources>
