@@ -5,4 +5,4 @@ before_script: [mysql -e "create database petstore_test;", mysql -e "create user
     identified by 'petstore'";, mysql -u root -e "grant all on petstore_test.* to
     'testbot'@'localhost'";]
 branches:
-  only: [testinfected/simple-petstore-5-origin]
+  only: [testinfected/simple-petstore-5-GRADLE_DAEMON]
