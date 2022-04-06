@@ -15,4 +15,4 @@ before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET 
   adb shell input keyevent 82 &]
 script: ./gradlew :ProviGenTests:connectedAndroidTest
 branches:
-  only: [TimotheeJeannin/ProviGen-43-origin]
+  only: [TimotheeJeannin/ProviGen-43-PARALLEL_BUILDS]
