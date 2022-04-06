@@ -24,4 +24,4 @@ after_success: [export BUILD_RESULT="success"]
 after_failure: [export BUILD_RESULT="ERROR"]
 after_script: [./external/report.sh]
 branches:
-  only: [indication/OpenRedmine-240-origin]
+  only: [indication/OpenRedmine-240-FILE_SYSTEM_WATCHING]
