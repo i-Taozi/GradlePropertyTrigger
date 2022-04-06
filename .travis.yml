@@ -9,4 +9,4 @@ sudo: false
 cache:
   directories: [$HOME/.gradle]
 branches:
-  only: [square/mortar-205-origin]
+  only: [square/mortar-205-GRADLE_DAEMON]
