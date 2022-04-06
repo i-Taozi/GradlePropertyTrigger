@@ -1,4 +1,4 @@
 language: java
 jdk: [oraclejdk8]
 branches:
-  only: [Netflix/Turbine-136-origin]
+  only: [Netflix/Turbine-136-GRADLE_DAEMON]
