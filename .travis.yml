@@ -1,0 +1,18 @@
+sudo: false
+language: android
+jdk: oraclejdk7
+env:
+  matrix: [ANDROID_TARGET=android-15, ANDROID_TARGET=android-16, ANDROID_TARGET=android-17,
+    ANDROID_TARGET=android-18, ANDROID_TARGET=android-19, ANDROID_TARGET=android-21]
+android:
+  components: [build-tools-19.1.0, android-15, android-16, android-17, android-18,
+    android-19, android-21, sys-img-armeabi-v7a-android-15, sys-img-armeabi-v7a-android-16,
+    sys-img-armeabi-v7a-android-17, sys-img-armeabi-v7a-android-18, sys-img-armeabi-v7a-android-19,
+    sys-img-armeabi-v7a-android-21, extra-android-support, extra-android-m2repository,
+    extra-google-m2repository]
+before_script: [echo no | android create avd --force -n test -t $ANDROID_TARGET --abi
+    armeabi-v7a, emulator -avd test -no-skin -no-audio -no-window &, android-wait-for-emulator,
+  adb shell input keyevent 82 &]
+script: ./gradlew :ProviGenTests:connectedAndroidTest
+branches:
+  only: [TimotheeJeannin/ProviGen-43-origin]
