@@ -6,4 +6,4 @@ before_install: [export TERM=dumb, 'sudo apt-get install -qq libstdc++6:i386 lib
     | bash /dev/stdin --install=$COMPONENTS', source ~/.android-sdk-installer/env]
 notifications: {email: false}
 branches:
-  only: [emilsjolander/sprinkles-96-origin]
+  only: [emilsjolander/sprinkles-96-GRADLE_DAEMON]
